@@ -1,0 +1,69 @@
+12101 "The protocol version specified is not valid: protocol <protocol version>" "The -protocol argument specified is not supported by the db agent." "" ""
+12102 "ERROR:  bad comparison.  Integer columns may only be compared against integer values when determining which records to dump. (12102)" "The column given is an integer column.  Integers column may not be dumped by comparing an integer value to any other value besides an integer." "" ""
+12103 "ERROR - use MM-DD-YYYY HH:MM:SS.SSS for datetime format (12103)" "" "" ""
+12104 "ERROR - Invalid time zone format.  Use MM-DD-YYYY HH:MM:SS.SSS+HH:MM for datetime-tz format (12104)" "" "" ""
+12105 "ERROR - Bad day value specified in the date field. (12105)" "The day value supplied in the date parameter is an incorrect value." "" ""
+12106 "ERROR - Bad month value specified in the date. (12106)" "The month given in the date format field is an incorrect value." "" ""
+12107 "ERROR - Incorrect year field specified in date (12107)" "The year specified in the date format field is an incorrect value." "" ""
+12108 "ERROR: Unable to retrieve cpu count from operating system." "" "" ""
+12109 "Unable to retrieve statistics for database <database name>. Error: <error message> (12109)" "" "" ""
+12110 "usrattn flag has been set (12110)" "This message is intended for Progress development only." "" ""
+12111 "You are not allowed to use the RETURN statement to return a COM-HANDLE that is a result of a COM-HANDLE expression. (12111)" "You should not use the RETURN statement to return something like chCtrlFrame:WebBrowser or excelApp:Sheets:Item(1).  In both examples, the expression is a property or method of a COM-HANDLE and the result of the expression is also a COM-HANDLE.  To return the result of such an expression, save it into a variable first.  For example:
+ch = chCtrlFrame:WebBrowser.
+RETURN ch. " "" ""
+12112 "Unable to delete old values for the index of a word-indexed field (index <index-name> of table <table-name>).  The index may be damaged. (12112)" "When trying to delete or update a word-indexed field, Progress tries to delete the old index values.  If it fails, you will see this error. This is possibly due to using the wrong word-break table.  For  example if the database is stored in UTF-8 and you are not using a UTF-8 word-break table, the index will get corrupted and Progress may not be able to find existing index values.  If that is the case see the Internationalization Guide for instructions on how to fix this." "P" ""
+12113 "The hostname specified with -H exceeds its maximum allowed length. (12113)" "The hostname specified with -H is too long.  Shorten the specified name and resubmit your request again." "" ""
+12114 "The service specified with -S exceeds its maximum allowed length. (12114)" "The service specified with -S is too long.  Shorten the specified name and resubmit your request again." "" ""
+12115 "WARNING: Program <Program>, Line <line-num> is an expression statement that evaluates to a constant. (12115)" "The statement was analyzed by the compiler as an expression statement, but the expression compiled to a constant, which will be a no-op at run-time. You might want to check to see if the previous statement in your program was prematurely terminated by a period or a colon by mistake." "c" ""
+12116 "Server starting in SSL mode (12116)" "The server has started in SSL mode" "" ""
+12117 "Unacceptable datatype for  argument (12117)" "Please check the documentation for information on acceptable datatypes for the named function" "" ""
+12118 "Unable to allocate memory for result from  function (12118)" "Please break up the data to be processed by this function." "" ""
+12119 "Error converting Base64 to RAW (12119)" "The argument to BASE64-DECODE does not contain a valid base64 string" "" ""
+12120 "Algorithm must be specifed via Security-Policy:Symmetric-encryption-algorithim or in  (12120)" "" "" ""
+12121 "Key must be specifed via Security-Policy:Symmetric-encryption-key or in  (12121)" "" "" ""
+12122 "Initialization Vector must be specifed via Security-Policy:Symmetric-encryption-IV or in   (12122)" "" "" ""
+12123 "Symmertric-Algorithm must be set before  function is used (12123)" "" "" ""
+12124 "Unable to determine key length in bytes,  function (12124)" "" "" ""
+12125 "The codepage ""<codepage>"" cannot be used for CLOB or LONGCHAR variables.  (12125)" "" "" ""
+12126 "Convert may not be run from the DLC path. (12126)" "The conv910 utility was run with the current working directory in $DLC or a subdirectory of it. The convert creates temporary files in the cwd but Progress does not allow this in the $DLC path. No database changes are made, so it remains a valid version 9 database." "m" ""
+12127 "Select one of the following:
+All       - Rebuild all the indexes (a/A)
+Some      - Rebuild only some of the indexes (s/S)
+By Area   - Rebuild all the indexes in an area (r/R) 
+By Schema - Rebuild all the indexes owned by a schema (c/C) " "" "" ""
+12128 "Enter the name of schema owner." "" "" ""
+12129 "Enter the name of table." "" "" ""
+12130 "
+Index name:  (Input * to build all indexes in the table)" "" "" ""
+12131 "Enter the area name:" "" "" ""
+12132 "All indexes in area: <area-name>. (12132)" "" "" ""
+12133 "All indexes in table <table-name>. (12133)" "" "" ""
+12134 "
+Area name: (12134)" "" "" ""
+12135 "
+Schema owner name: (12135)" "" "" ""
+12136 "By Table  - Rebuild all the indexes in the table (t/T)
+Quit      - Quit, do not rebuild (q/Q)
+
+Enter your selection: " "" "" ""
+12137 "Incorrect syntax for this command. (12137)" "Check user manual for correct usage of this command." "" ""
+12138 "Failure getting schema read lock. (12138)" "Before reading the database schema, sql must acquire a schema read lock which enables correct schema reading. SQL can fail to acquire this lock if some other database user is updating the schema. The other user might be adding a table, dropping a column, changing an index, or other schema modification actions. Note that multiple schema readers do not conflict with one another." "d" ""
+12139 "Failure getting schema write serial lock. (12139)" "Before adding to, updating, or deleting from, the database schema sql must acquire the schema write serial lock, which enables correct schema writing.  SQL can fail to acquire  this lock if some other database user is reading or updating the schema. SQL cannot acquire the write serial lock while any other user is reading the schema. In Open Edge 10.0, SQL cannot acquire the write serial lock while any other user is writing to the schema. " "d" ""
+12140 "Select one of the following:
+All       - Check all the indexes (a/A)
+Some      - Check only some of the indexes (s/S)
+By Area   - Check all the indexes in an area (r/R)
+By Schema - Check all the indexes owned by a schema (c/C)" "" "" ""
+12141 "By Table  - Check all the indexes in the table (t/T)
+Quit      - Quit, do not Check (q/Q)
+
+Enter your selection:" "" "" ""
+12142 "All indexes in schema: <schema-owner>." "" "" ""
+12143 "Unable to return a key >  bytes (12143)" "" "" ""
+12144 "Unable to load OpenSSL library (12144)" "" "" ""
+12145 "Unable to resolve OpenSSL entry point  (12145)" "" "" ""
+12146 "Unsupported cipher for  (12146)" "" "" ""
+12147 "Output buffer too small for  (12147)" "" "" ""
+12148 "Error calling  from  (12148)" "" "" ""
+12149 "Unsupported message digest algorithm for . (12149)" "The selected algorithm is not supported." "" ""
+12150 "Error generating random values (12150)" "" "" ""

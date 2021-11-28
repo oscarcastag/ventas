@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<!-- Transcoders -->
+<waspc-config xmlns:tcdr="urn:TranscoderRepository" xmlns:wasp="urn:WaspServer">
+
+    <!-- Module TranscoderRepository -->
+    <wasp:module wasp:class="WASP_TranscoderRepositoryImpl"/>
+
+    <tcdr:transcoder tcdr:class="WASP_XMLTranscoder" xmlns:pt="urn:XMLTranscoder"
+        pt:defaultDecoder="UTF-8" 
+        pt:defaultEncoder="UTF-8"
+        pt:writeUTF-8BOM="false" 
+        pt:writeUTF-8PI="false"
+        pt:writeUTF-16LEBOM="true"
+        pt:writeUTF-16LEPI="true"
+        pt:writeUTF-16BEBOM="true"
+        pt:writeUTF-16BEPI="true"
+    />
+    <tcdr:transcoder tcdr:class="WASP_PlainTextTranscoder" />
+    <tcdr:transcoder tcdr:class="WASP_UTF8Transcoder" pt:name="UTF-8" xmlns:pt="urn:UTF-8"/>
+    <tcdr:transcoder tcdr:class="WASP_UTF16Transcoder" pt:name="UTF-16LE" pt:littleEndian="1" xmlns:pt="urn:UTF-16"/>
+    <tcdr:transcoder tcdr:class="WASP_UTF16Transcoder" pt:name="UTF-16BE" pt:littleEndian="0" xmlns:pt="urn:UTF-16"/>
+
+</waspc-config>

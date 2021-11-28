@@ -1,0 +1,62 @@
+7201 "Parameter set error in position . (7201)" "syserr" "" ""
+7202 "Already connected. (7202)" "The _Connect() method of an ActiveX AppObject was called twice. " "" ""
+7203 "Could not connect to the AppServer: <message text>. (7203)" "" "" ""
+7204 "deleteReference: Reference count is already 0. (7204)" "syserr" "" ""
+7205 "Disconnect failure: <message text>. (7205)" "" "" ""
+7206 "Cannot run procedure <procedure name> while there are open output result set(s). (7206)" "All the data must be extracted from the output result sets, or the result sets must be closed before trying to execute another remote procedure." "" ""
+7207 "Cannot run procedure . Parameters mismatch static schema. (7207)" "syserr" "" ""
+7208 "Cannot run procedure <procedure name>. Not all input parameters are set. (7208)" "syserr" "" ""
+7209 "Broker System failure: <error message>. (7209)" "syserr" "" ""
+7210 "This request cannot be completed because the object is not connected to the AppServer. (7210)" "You cannot run methods on released or not connected AppObjects, sub AppObjects and ProcObjects. You must use the OC_Connect() method
+before using a newly created ActiveX AppObject. " "" ""
+7211 "ERROR condition: <error message> (7211)" "The result of an attempt to run a remote 4GL procedure was a 4GL ERROR condition. That could be the result of failing to run the procedure
+or an ERROR condition that was raised during the execution of the procedure. It could also be the result of a ""RETURN ERROR <message>""
+statement that the procedure performed. The second part of this message, or the logs on the server side might have more information about the problem. If the reason for the ERROR condition is a ""RETURN ERROR <message>"" statement then the message can be retrieved using the _getProcReturnString() (Java) or OC_GetProcReturnString (ActiveX)." "" ""
+7212 "Cannot delete a procedure while there are open output result set(s). (7212)" "All the data must be extracted from the output result sets, or the    result sets must be closed before trying to release ProcObjects.   " "" ""
+7213 "Output result set error. (7213)" "syserr " "" ""
+7214 "Local static schema is required for result set parameters. (7214)" "syserr " "" ""
+7215 "Error in static schema construction. (7215)" "syserr " "" ""
+7216 "Protocol version mismatch. Server: <protocol version>. Client: <protocol version>. (7216)" "The Java or ActiveX or 4GL client cannot connect to the AppServer
+since their communication Protocol versions mismatch. Consult documentation or call PROGRESS Software technical support. " "" ""
+7217 "Field <field name>"""" is an array. Index must be greater than 0. (7217)" "The access to output result set columns that represent a 4GL array field is 1 based (the first element of the array is 1). " "" ""
+7218 "Index for field <field name>"""" must be greater than 0. (7218)" "The access to output result set columns that represent a 4GL array   field is 1 based (the first element of the array is 1).  " "" ""
+7219 "Field <field name>"""" is a <array size> items array. index <index number> is illegal. (7219)" "The access to output result set columns that represent a 4GL array    field is 1 based (the first element of the array is 1). For example,
+the legal index numbers of an array of 3 elements are 1, 2 and 3).    " "" ""
+7220 "Field <field name>"""" is not an array. Index must be 1 or 0. (7220)" "We allow to access non array fields using array field methods 
+(i.e. methods that identify a column with a field indicator and an index indicator). In that case, the index must be 1 or 0." "" ""
+7221 "Static schema construction: Field """" is inserted twice. (7221)" "syserr " "" ""
+7222 "Field <field name>"""" not found. (7222)" "The message indicates that an attempt to access <field name> in an output result set failed because the underlying temp-table does not have a field of that name. " "" ""
+7223 "Must use an array index with field <field name>"""" since the table has array field(s). (7223)" "When an array field of an output result set is accessed by name,
+the index must be specified. " "" ""
+7224 "Tried to call a method in an invalid procedure. (7224)" "The error indicates that the client application tried to call a method in a ProcObject that was already released. " "" ""
+7225 "Was interrupted while waiting to execute a request.  (7225)" "If the _cancelAllRequests() method is called while there are execution threads which are waiting for their turn to execute then those threads throw an Open4GLException exception with this message.
+" "" ""
+7226 "Session is busy. Another request is executing or there is an open result set(s). (7226)" "There can be only one outstanding remote request at a time for each AppObject (connection). By default, a BusySessionException exception with this message is thrown (an error is returned in with ActiveX) if you try to execute a second request. Note that the request holds the connection until all the output result set data is retrieved or all the output result sets are closed. It is a good practice to close output result sets in error handling routines so that the application can move on, after an error, and execute other requests." "" ""
+7227 "System Error:  (7227)" "syserr " "" ""
+7228 "  There might be a mismatch between an input result set and the schema in the proxy. (7228)" "You get this message when you attempt to send an input result set    from a Java or an ActiveX client and an error was detected on          the client side, before the data was sent to the server. One           common problem is a mismatch of the result set signature (number of    columns and types) to the signature of the temp-table in the r-code    (as was recorded by ProxyGen). This message suggests that this might be the first thing you should to check.    " "" ""
+7229 "The maximum size of the input data is 32K. If you need more than that then please use input TEMP-TABLES.   (7229)" "The size of input TEMP-TABLES is limited only by the resources of 
+the system. Therefore, when the remote request is large, some of the input data should be sent via input TEMP-TABLES. " "" ""
+7230 " State:  (7230)" "syserr " "" ""
+7231 " Error Num:  (7231)" "syserr " "" ""
+7232 "Exception:  (7232)" "syserr " "" ""
+7233 ". Message:  (7233)" "syserr " "" ""
+7234 "Server stopped client input. (7234)" "The AppServer had an error while receiving a request from the client. For example, an input result set had columns with duplicate values and there is a unique index on that columns. As a result, the server asked the client to stop sending the input data. " "" ""
+7235 "SrcOutputStream: validate() - In invalid state. (7235)" "syserr " "" ""
+7236 "The server didn't send all the output data. (7236)" "The server will stop sending output data if it's interrupted in the middle. It can happen, for example, if the application calls _cancelALlRequests(). " "" ""
+7237 "SinkInputStream: validate() - In invalid state. (7237)" "syserr " "" ""
+7238 "A parameter data type in the the proxy mismatches the data type in the 4GL procedure. Please regenerate the proxy. (7238)" "This error message indicates that the signature of the 4GL procedure was modified since ProxyGen generated the proxy. The proxy must be regenerated. " "" ""
+7239 "UTF8 is not supported on this java platform. (7239)" "syserr " "" ""
+7240 "Cannot disconnect while executing a request. (7240)" "The _release() method of AppObjects, sub AppObjects and ProcObjects can be safely called only when there is no outstanding execution of a remote request. That is because the release of the last object 
+causes a disconnect attempt. " "" ""
+7241 "4GL STOP condition: <message text> (7241)" "The result of an attempt to run a remote 4GL procedure was a 4GL STOP condition. That could be the result of failing to run the procedure  or a STOP condition that was raised during the execution of the      procedure. The second part of this message, or the logs on the server side might have more information about the problem.  " "" ""
+7242 "4GL QUIT condition. Disconnecting from the server. (7242)" "The 4GL application, on the server side, called the QUIT statement. That forces the client to be disconnected. " "" ""
+7243 "The Server application has returned an error. (7243)" "The are two logs you should look at: The broker's log <name>.broker.log, and the server's log <name>.server.log (shared by all the servers). 4GL error information (i.e. errors that occur during the execution of remote 4GL procedures)  goes to the server's log. Information about other errors (such as connection errors or communication errors) might be found in one or both  these logs. Conditions that were raised explicitly by the 4GL code, using for example, the STOP statement or the RETURN ERROR statement are not logged.
+" "" ""
+7244 "Cannot create unique Id for Automation Object. (7244)" "In order for generated proxies to be exposed as ActiveX objects, they must be assigned a global unique Id.  The code that generates this Id has failed.  It is possible that ProGuid.exe was removed from your Progress bin directory or that you have an old version of the Java Virtual Machine installed. " "" ""
+7245 "Transport <transport_name> not supported. (7245)" "The network transport protocol specified for the PROGRESS DataServer connection through the PROGRESS Unified Broker is not supported. " "" ""
+7246 "Exception executing <program name>. (7246)" "ProxyGen cannot execute one of the programs needed to generate the proxies (such as jactiveX or the Java compiler).  This may mean that the required component is not properly installed on your machine." "" ""
+7247 "Error adding zip entry: <file name>. (7247)" "Proxygen is unable to add a .class file (whose name is specified) to the .zip file which should contain all of the proxy .class files. 
+" "" ""
+7248 "Bad URL format:  (7248)" "syserr" "" ""
+7249 "Invalid state for : Current state =  (7249)" "syserr" "" ""
+7250 " (7250)" "syserr" "" ""

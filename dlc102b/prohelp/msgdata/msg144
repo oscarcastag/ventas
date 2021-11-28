@@ -1,0 +1,63 @@
+7151 "rlTxeGrantS: Lock error: User  holds . (7151)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7152 "rlTxeGrantX: Lock error: User  holds . (7152)" "syserr" "" ""
+7153 "rllktxe: lock error: requested  holding . (7153)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7154 "rllktxe:Wakened but lock not granted. (7154)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7155 "SYSTEM ERROR: txeStop has invalid value . (7155)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7156 "Can't hold any latches while napping for group commit. (7156)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7157 "Database must have a TL area to enable 2pc. (7157)" "The database does not have a TL area, therefore 2 phase commit cannot be enabled." "D" ""
+7158 "tl block header smashed blknum  smashed code . (7158)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7159 "SYSTEM ERROR: Redo did not start with a checkpoint note. (7159)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7160 "SYSTEM ERROR: Check point notes out of sequence  . (7160)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7161 "Physical Redo Phase Completed at blk  off  upd . (7161)" "When starting up the database broker you may see this message.  This is an informational message stating that a sanity check has been performed on the Before Image file." "D" ""
+7162 "Begin Logical Undo Phase, <number> incomplete transactions are being backed out. (7162)" "This is an informational message identifying how may incomplete transactions were outstanding at the beginning of the Logical Undo phase of Crash Recovery." "D" ""
+7163 "Begin Physical Undo  transactions at block  offset  (7163)" "syserr" "D" ""
+7164 "SYSTEM ERROR: Block update counter is too low for undo. (7164)" "syserr" "D" ""
+7165 "Block DBKEY  block counter  note counter  (7165)" "syserr" "D" ""
+7166 "Crash recovery aborted - Database is damaged. (7166)" "syserr" "D" ""
+7167 "rlrdnxt: note prefix and suffix lengths don't match  . (7167)" "An internal error has occurred.  Please call PROGRESS Technical Support." "D" ""
+7168 "WARNING: rmFetch requests for table 0 will assume area 1. (7168)" "syserr" "D" ""
+7169 "Error creating mkschema process .\n (7169)" "syserr" "D" ""
+7170 "conversion:  permission denied to mkschema.\n (7170)" "syserr" "D" ""
+7171 "conversion:  mkschema was not found.\n (7171)" "syserr" "D" ""
+7172 "conversion:  not enough memory to run mkschema.\n (7172)" "syserr" "D" ""
+7173 "conversion:  failure unknown.\n (7173)" "syserr" "D" ""
+7174 "PLEASE IMMEDIATELY BACK UP YOUR NEWLY CONVERTED VERSION 9 DATABASE !!! (7174)" "" "D" ""
+7175 "Communication layer message: <message text>. (7175)" "" "" ""
+7176 "Input result set error: <error message> (7176)" "You get this message when you attempt to send an input result set
+from a Java or an ActiveX client and an error was detected on 
+the client side, before the data was sent to the server. One
+common problem is a mismatch of the result set signature (number of
+columns and types) to the signature of the temp-table in the r-code
+(as was recorded by ProxyGen). The second part of this message
+might include more details about the problem." "" ""
+7177 "Cannot convert <data type> to <data type>. (7177)" "This error message indicates that you tried to perform a non supported conversion of an output result set or ProDataObject column. For example, the underlying data type is an integer and you call, from a Java client, the getDate(position) method. In Java, you can use the
+getObject() method, if you don't know data type of the column.
+" "" ""
+7178 "Cannot perform next() on a closed result set. (7178)" "You cannot scroll and get data from a closed output result set. If
+you need to reuse the data, you should copy it into memory." "" ""
+7179 "Output result sets must be read in sequence.  You are trying to perform next() or close() on a result set while a previous output result set has not yet been read to completion or closed. (7179)" "" "" ""
+7180 "Cannot access a closed result set. (7180)" "You cannot scroll and get data from a closed output result set. If you need to reuse the data, you should copy it into memory.     
+    " "" ""
+7181 "Attempt to access data in incorrect order, or without calling next() (at column <column position>). (7181)" "In the initial state of an output result set the cursor is positioned before the first row. next() must be called to get data from the first row, and then another next() to get data from the second row etc. The columns, in each row, must be accessed in order - row number 1 and then row number 2 etc. Note that a columns cannot be a accessed twice and that the order must also be preserved when using column names instead of column positions. " "m" ""
+7182 "A not supported result set method. (7182)" "This standard result set method is not supported since it is not relevant in the context of AppServer Open Clients." "m" ""
+7183 "Invalid metadata column (at position <column position>). (7183)" "The message comes from ResultSetMetaData object or ProDataGraph exceptions. This error indicates that the column does not exist in that output result set or ProDataGraph.  For example, metaDataObject.getColumnName(-1) will generate this error. Another example, metaDataObject.getColumnType(2) with a result set or a temp-table in a ProDataGraph that has only one column. 
+" "" ""
+7184 "Invalid metadata field (at position <field position>). (7184)" "The message comes from  ResultSetMetaData or ProDataException object exceptions. This error indicates that the field does not exist in that output result set or ProDataGraph.  
+For example: metaDataObject.getFieldExtent(-1) will generate this error. Another example: metaDataObject.getFieldExtent(2) with a result set or a ProDataGraph's temp-table that comes from a temp-table with one field. " "" ""
+7185 "Invalid data type conversion in convertInputObject(). (7185)" "" "" ""
+7186 "Invalid input result set object: <class name>. (7186)" "This error message indicates that a column value in an input result set is of a class that we don't support. 
+" "" ""
+7187 "Illegal conversion of input column <data type> to <data type>.  Input result set mismatches the schema in the proxy. (7187)" "The data types of the column values in an input result set must match the underlying temp table. For example, if the 4GL data type is DATE, the data type of the input column must be java.sql.Date or java.util.GregorianCalendar." "" ""
+7188 "Not Implemented. (7188)" "" "" ""
+7189 "Stream protocol error tag = . (7189)" "syserr" "" ""
+7190 "Stream protocol - more than one schema table record. (7190)" "syserr" "" ""
+7191 "Server output reading problem: . (7191)" "syserr" "" ""
+7192 "Stream protocol - server error record is missing. (7192)" "syserr" "" ""
+7193 "Stream protocol - more than one server error record. (7193)" "syserr" "" ""
+7194 "ParameterSet error: Tried to get output before it is ready. (7194)" "syserr" "" ""
+7195 "ParameterSet error: Parameter  is not an output parameter. (7195)" "syserr" "" ""
+7196 "Stream protocol - procedure return value is missing. (7196)" "syserr" "" ""
+7197 "Stream protocol - output parameter value is missing. (7197)" "syserr" "" ""
+7198 """Stream protocol - parameter  read - should be . (7198)" "syserr" "" ""
+7199 "Stream protocol - too many output values. (7199)" "syserr" "" ""
+7200 "Only ParameterSet.OUTPUT, ParameterSet.INPUT and ParameterSet.INPUT_OUTPUT are allowed for setting a parameter. (7200)" "syserr" "" ""

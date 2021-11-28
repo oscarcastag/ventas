@@ -1,0 +1,49 @@
+# dumpdb
+#
+# sample script to dump a database
+#
+# Usage:	dumpdb
+#
+# WARNING: The program filedump.p which is created by mkdump is not quite
+# suitable for this script.  That program is designed to be called from
+# an interactive menu.  If you wish to run it directly from this script,
+# you should insert the line:
+#		output to /dev/tty.    (or some other file).
+# at the beginning of filedump.p and then compile it to create filedump.r
+#
+# This script invokes progress with the -b option to make the job run
+# non-interactively without a terminal, so that Ctrl-C will kill it instead
+# of restarting the -p filedump program.
+#
+# Define the main application directory, APPLDIR. If
+# APPLDIR has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/acme is used.
+APPLDIR=${APPLDIR-/usr/acme}
+
+# Define the location of the PROGRESS software. If DLC
+# has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/dlc is used.
+DLC=${DLC-/usr/dlc}; export DLC
+PROEXE=${PROEXE-$DLC/bin/_progres}; export PROEXE
+
+# Define the search path to be used to find procedures,
+# using the directory named with the APPLDIR variable.
+PROPATH=$APPLDIR; export PROPATH
+
+# Display the version message.
+cat $DLC/version
+
+# Assign a database name.  If the user supplied a database
+# name before starting this script, use that name.  If not
+# use acmedb as the default database name.
+DBNAME=${DBNAME-acmedb}
+
+# Start PROGRESS in batch mode, and run dump procedure. 
+if [ $# = 0 ]
+then
+    exec $PROEXE $DBNAME -1 -p filedump.p -b
+else
+    exec $PROEXE $DBNAME -1 -p filedump.p -b "$@"
+fi

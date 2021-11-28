@@ -1,0 +1,58 @@
+# /dlc/prolang/utf/utf8.pf
+# This is a typical .pf file for running a batch or GUI client with UTF-8:
+#
+# IMPORTANT NOTE:
+# This should not be used for a TTY client. If it is, it will 
+# give a warning message, and any modifications to data in such a
+# client could lead to data corruption.
+#
+#
+# Country: all
+# Language: all
+
+# -cpinternal (or -charset) - Specifies the code page for all internal
+#                             data processing.
+-cpinternal utf-8
+
+# -cpstream (or -stream) - Specifies the code page for all stream files.
+#                          Any Progress codepage can be used here
+-cpstream   utf-8
+
+# -cpcoll - Specifies the collation ("basic" is the only supported collation
+#           for utf-8 at this time)
+-cpcoll     basic
+
+# -cpcase - Specifies the case rules
+-cpcase     basic
+
+#-d dmy
+#-lng "<your language>"
+
+#You may put any global startup parameters you desire
+#in this file.  They will be used by ALL Progress modules
+#including the client, server, utilities, etc.
+#
+#The file dlc/prolang/locale.pf provides examples of
+#settings for the different options that vary internationally.
+#
+#The directories under dlc/prolang contain examples of
+#startup.pf settings appropriate to each region.
+#For example, the file dlc/prolang/ger/german.pf shows
+#settings that might be used in Germany.
+#The file dlc/prolang/ger/geraus.pf gives example settings
+#for German-speaking Austrians.
+#
+#Copy the file that seems appropriate for your region or language
+#over this startup.pf. Edit the file to meet your needs.
+#
+# e.g. UNIX:            cp /dlc/prolang/ger/geraus.pf /dlc/startup.pf
+# e.g. DOS, WINDOWS:  copy \dlc\prolang\ger\geraus.pf \dlc\startup.pf
+#
+# You may want to include these same settings in /dlc/ade.pf.
+#
+#If the directory for your region or language does not exist in
+#dlc/prolang, please check that you have ordered AND installed the
+#International component. The International component provides
+#these directories and files.
+#
+

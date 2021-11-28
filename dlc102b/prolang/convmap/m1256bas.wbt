@@ -1,0 +1,58 @@
+/*
+ *
+ * NAME: m1256bas.wbt
+ * Progress Word Break Source File for Windows Arabic -- Codepage 1256
+ *
+ */
+
+version = 9
+codepage = 1256
+wordrules-name = basic
+type = 3
+
+/* Special word break rules table */
+word_attr = 
+{
+     '.',	BEFORE_DIGIT,	/* part of a word only if followed by a digit */
+     ',',	BEFORE_DIGIT,
+     '-',	BEFORE_DIGIT,
+     ''',	IGNORE,		/* completely ignore it */
+     '$',	USE_IT,		/* always part of a word */
+     '%',	USE_IT,
+     '#',	USE_IT,
+     '@',	USE_IT,
+     '_',	USE_IT,
+
+/* international characters */
+
+     0x80,  USE_IT,     /* euro */
+     0x83,  USE_IT,     /* florin */
+     0x88,  USE_IT,     /* circumflex */
+     0x89,  USE_IT,     /* per mille */
+     0x9E,  IGNORE,     /* zero-width joiner */
+     0xA0,  USE_IT,     /* no-break space */
+     0xA2,  USE_IT,     /* cent */
+     0xA3,  USE_IT,     /* pound */
+     0xA4,  USE_IT,     /* currency */
+     0xA5,  USE_IT,     /* yen */
+     0xA8,  USE_IT,     /* diaresis */
+     0xAD,  IGNORE,     /* soft hyphen */
+     0xB2,  DIGIT,      /* super 2 */
+     0xB3,  DIGIT,      /* super 3 */
+     0xB4,  USE_IT,     /* acute accent */
+     0xB5,  USE_IT,     /* micro */
+     0xB8,  USE_IT,     /* cedilla */
+     0xB9,  DIGIT,      /* super 1 */
+     0xBC,  DIGIT,      /* 1/4 */
+     0xBD,  DIGIT,      /* 1/2 */
+     0xBE,  DIGIT,      /* 3/4 */
+     0xDD,  USE_IT,     /* Arabic tatweel */
+     0xF0,  USE_IT,     /* Arabic fathatan */
+     0xF1,  USE_IT,     /* Arabic dammatan */
+     0xF2,  USE_IT,     /* Arabic kasratan */
+     0xF3,  USE_IT,     /* Arabic fatha */
+     0xF5,  USE_IT,     /* Arabic damma */
+     0xF6,  USE_IT,     /* Arabic kasra */
+     0xF8,  USE_IT,     /* Arabic shadda */
+     0xFA,  USE_IT      /* Arabic sukun */
+};

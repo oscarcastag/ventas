@@ -1,0 +1,35 @@
+#!/bin/sh
+# Progress AppServer Internet Adapter conifg utility
+PROG=`basename $0`
+
+# Determine the correct directory where the Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "$DLC" "/dlc/dlc102b" 
+do
+    [ ! -f "${what_dlc}/java/progress.jar" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+ 
+# ubconfig is the actual utility script
+UBCONFIG=${UBCONFIG-$DLC/bin/ubconfig}
+
+if [ ! -f $UBCONFIG ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Progress Unified Broker Utility Script could not be found."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo "Script not found: $UBCONFIG"
+    echo
+    exit 1
+fi
+
+# invoke the Unified Broker Utility.
+exec $UBCONFIG -t AIA "$@"
+

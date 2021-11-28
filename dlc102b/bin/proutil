@@ -1,0 +1,11 @@
+#!/bin/sh
+DLC=${DLC-/dlc/dlc102b};export DLC
+PROSQL_ENABLE_UNSUPPORTED_FEATURES=Y;export PROSQL_ENABLE_UNSUPPORTED_FEATURES
+PROUTIL=${PROUTIL-$DLC/bin/_proutil}
+case "x$display_banner" in
+  x | xyes)
+    cat $DLC/version
+    echo
+  ;;
+esac
+exec $PROUTIL "$@"

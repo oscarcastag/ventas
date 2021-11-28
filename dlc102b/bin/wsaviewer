@@ -1,0 +1,38 @@
+#!/bin/sh
+# Progress WebServices wsaviewer Command Line Util
+PROG=`basename $0`
+
+# wsaviewer is a tool for tracking http trafic to and from a web server
+# usage: wsaviewer <listen_port> <web_server_host> <web_server_port>
+#
+# Environment variables that must be set in order
+# to run the wsaviewer script
+
+DLC=$DLC; export DLC
+
+# make sure the install directory is real.
+if [ "$DLC" = "" ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Install directory is invalid."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to a valid directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    exit 1
+fi
+
+
+_CP="$DLC/java/ext/soap.jar"
+
+echo "Starting the wsaviewer application."
+
+if [ $# -lt 3 ]
+then
+    echo 'usage: wsaviewer <listen_port> <web_server_host> <web_server_port>'
+else
+    java -classpath $_CP org.apache.soap.util.net.TcpTunnelGui $1 $2 $3
+fi

@@ -1,0 +1,63 @@
+9551 "Timeout value too low. Minimum timeout value: <minimum timeout value> (9551)" "The timeout value set for a network resource is lower than the required minimum timeout value." "" ""
+9552 "Unable to find or open an event object. Object:<name> error:<error code> (9552)" "The parent process object used co-ordinate the creation of the background process was not found.  The process was not be able to disconnect from the console and will terminate. " "" ""
+9553 "Unable to kill the parent process. Error:<error code> (9553)" "The parent process could not be notified to exit. The process was not able to disconnect from the console and will terminate. " "" ""
+9554 "A host must be specified. (9554)" "When configuring a network resource, or SNMP trap action, a host name or IP address must be provided in the Host field." "" ""
+9555 "The host name is too long. Maximum host length: <maximum length of host name> (9555)" "The host name specified in the Host field of a network resource contains more than the maximum number of allowed characters." "" ""
+9556 "Unable to set the signal handler for SIGTERM. Error:<error code> (9556)" "The signal handler needed to co-ordinate the creation of the background process could not be set. " "" ""
+9557 "Unable to resolve host. Host: <host name> (9557)" "The host name specified in the Host field of a network resource could not be resolved." "" ""
+9558 "Unable to remove the signal handler for SIGTERM. Error:<error code> (9558)" "The signal handler used to co-ordinate the creation of the background process could not be removed. " "" ""
+9559 "Unable to free the console. Error:<error code> (9559)" "The process could not free the console. The process was not be able to disconnect from the console and will terminate. " "" ""
+9560 "Unable to notify the parent process that the child is ready. Error:<error code> (9560)" "The parent process could not be notified to exit. The process was not able to disconnect from the console and will terminate. " "" ""
+9561 "Database open failed. Function:<name of failed function>  error:<error code> (9561)" "The attempt to open or connect to the database failed." "" ""
+9562 "This page uses frames, but your browser doesn't support them. (9562)" "The Fathom page this is being displayed uses frames functionality that the user's browser does not support.  Try using Internet Explorer or Netscape to view the page.
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+9563 "A Command cannot be followed by an argument on the command line. <linefeed> Command: <command>   Argument: <argument> " "Commands cannot be followed by arguments on the command line.  Re-enter the command without the following argument." "" ""
+9564 "Unable to open the log file: <error code> (9564)" "The attempt to open or create the log file failed." "" ""
+9565 "Retries out of range. Minimum: <minimum retries>, Maximum: <maximum retries> (9565)" "The value entered for the Retries field of an ICMP resource is out of range. Specify a value which is greater than or equal to the minimum and less than or equal to the maximum allowed value." "" ""
+9566 "Retries must be an integer. (9566)" "The retries value for an ICMP resource must be an integer. It may not contain letters or decimal numbers." "" ""
+9567 "Initialization of network subsystem failed. Error:<error code> (9567)" "An error occurred during the startup of the DB agent networking subsystem." "" ""
+9568 "Unable to close the log file: <error code> (9568)" "The call to close the log file failed." "" ""
+9569 "The shutdown of the network subsystem failed. Error:<error code> (9569)" "An error occurred during the shutdown of the DB agent networking subsystem." "" ""
+9570 "The database close failed. Function:<name of failed function>  error:<error code> (9570)" "The attempt to close or disconnect from the database failed." "" ""
+9571 "The database open failed in setString. Tag:<name of tag>  error:<error code> (9571)" "The database open failed due to an error during intitialization." "" ""
+9572 "Unable to monitor for database shutdown. Error:<error code> (9572)" "The DB agent encountered an error when checking the status of the database. The agent was not able to determine if a shutdown or disconnect is in progress.  The agent will disconnect from the DB and shutdown." "" ""
+9573 "The database status check failed in getLong. Tag:<name of tag>  error:<error code> (9573)" "The DB agent was unable to check the database status due to an error." "" ""
+9574 "An emergency database shutdown request was received from the Admin Server. (9574)" "A request to initiate an emergency (immediate) shutdown of the database has been received from the Admin Server." "" ""
+9575 "The -<hardcoded resource type> parameter requires a <hardcoded resource type> name or -all. (9575)" "The ""fathman -<command> -<resource type>"" option was issued without specifying a database or -all.   " "" ""
+9576 "No resources were found that matched the criteria. <LINEFEED>Criteria: <resource parameter> (9576)" "Make sure the resource name was spelled correctly or the correct Fathom httpport was specified.  " "" ""
+9577 " (9577)" " " "" ""
+9578 "Disabled" "A Fathom network monitor status. A status is assigned to a monitored network resource when it is tested. A network monitor can be assigned the status of disabled, untested, passed, tardy, timeout, failure, or unreachable.  " "" ""
+9579 "Untested" "A Fathom network monitor status. A status is assigned to a monitored network resource when it is tested. A network monitor can be assigned the status of disabled, untested, passed, tardy, timeout, failure, or unreachable.  " "" ""
+9580 "Passed" "A Fathom network monitor status. A status is assigned to a monitored network resource when it is tested. A network monitor can be assigned the status of disabled, untested, passed, tardy, timeout, failure, or unreachable.  " "" ""
+9581 "Tardy" "A Fathom network monitor status. A status is assigned to a monitored network resource when it is tested. A network monitor can be assigned the status of disabled, untested, passed, tardy, timeout, failure, or unreachable.  " "" ""
+9582 "Timeout" "A Fathom network monitor status. A status is assigned to a monitored network resource when it is tested. A network monitor can be assigned the status of disabled, untested, passed, tardy, timeout, failure, or unreachable.  " "" ""
+9583 "Failure" "A Fathom network monitor status. A status is assigned to a monitored network resource when it is tested. A network monitor can be assigned the status of disabled, untested, passed, tardy, timeout, failure, or unreachable.  " "" ""
+9584 "Unreachable" "A Fathom network monitor status. A status is assigned to a monitored network resource when it is tested. A network monitor can be assigned the status of disabled, untested, passed, tardy, timeout, failure, or unreachable.  " "" ""
+9585 "The parameter specified does not match the resource type. <newline> Parameter:  <specified parameter>  Resource type: <Fathom resource type> (9585)" "The name passed to the command was not of the type required by the command.  " "" ""
+9586 "Unable to process shutdown request. Error:<error code> (9586)" "An error occurred when the agent requested the DB to shutdown." "" ""
+9587 "Agent shutdown request received from the Admin Server. (9587)" "A request to for the agent to shutdown has been received from the Admin Server." "" ""
+9588 "Unable to create a communication message. Error:<error code> (9588)" "An error has occurred during the creation of a message to send to the Admin Server." "" ""
+9589 "Invalid VST query request. Query:<query code> (9589)" "An invalid VST query request was received and therefore could not be processed." "" ""
+9590 "Invalid VST table requested. table:<table code> (9590)" "An invalid VST table request was received." "" ""
+9591 "Invalid VST query request. Query:<query> (9591)" "An invalid VST query request was received." "" ""
+9592 "Invalid system table query request. Query:<query code> (9592)" "An invalid system table request was received." "" ""
+9593 "An invalid system table query request. query:<query> (9593)" "An invalid system table request was received." "" ""
+9594 "Invalid system table requested. Table:<table code> (9594)" "An invalid system table request was received." "" ""
+9595 "Unable to create cursor. Table:<table code> error:<error code> (9595)" "An error occured creating a cursor in the specified table." "" ""
+9596 "Unable to create low key. Table:<table code> error:<error code> (9596)" "An error occured creating the low key in the specified table." "" ""
+9597 "Unable to create high key. Table:<table code> error:<error code> (9597)" "An error occured creating the high key in the specified table." "" ""
+9598 "An invalid VST column was requested. Query:<query> (9598)" "An invalid VST colum was requested." "" ""
+9599 "An invalid VST data type was requested. Query:<query> (9599)" "An invalid VST data type was requested." "" ""
+9600 "The requested VST data was not found. Query:<query> table:<table code> column:<column number> (9600)" "The requested VST data could not be found." "" ""

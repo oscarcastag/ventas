@@ -1,0 +1,70 @@
+11351 "dbClobOverlayInd: charOff:, found entChar:. (11351)" "Clob update with overlay option found characters mismatch." "" ""
+11352 "The old 4GL Debugger is no longer available.  This session will use the new OpenEdge Debugger. (11352)" "" "" ""
+11353 "The total length of the fields in an index exceeds max key size. Index <index-name> of table <table-name> (129) (11353)" "A PROGRESS index consists of one or more fields.  For an individual record, the sum of the lengths of all fields in an index cannot be more than 1970. " "P" ""
+11354 "
+Schema Area must be area number 6
+ (11354)" "A structure file entry was found with an area name of ""Schema Area"" and an area number not equal to 6." "" ""
+11355 "Shutting down adminserver, unable to create lock file. (11355)" "An error has occurred during start up that has prevented the creation of the lock file that prevents multiple adminservers from using the same Fathom and/or SonicMQ configuration database.
+" "" ""
+11356 "Shutting down adminserver, lock file found. (11356)" "The lock file that prevents multiple adminservers from using the same Fathom and/or SonicMQ configuration database has been found.  To prevent errors when attempting to access the running configuration databases, the adminserver has shutdown.
+" "" ""
+11357 "Failed to load the management framework container. (11357)" "The SonicMQ container needed when remote monitoring is enabled, was not created. 
+" "" ""
+11358 "Unable to load the environ.dll library. (11358)" "The shared library needed to check the adminserver lock file failed to load. 
+" "" ""
+11359 "The <lock file name> exists and the PID can not be checked. (11359)" "The shared library needed to check the adminserver lock file failed to load.  This prevents testing if the the process id listed in the lock file is still running.  
+" "" ""
+11360 "Adminserver lock file detected: <lock file name> (11360)" "Diagnostic message that a previous instance of the adminserver may have abnormally terminated. Additional messages will be reported if the instance is still running.  
+" "" ""
+11361 "Unable to read the PID number from the adminserver lock file: <lock file name> (11361)" "An error occurred when attepting to read the process id number from the existing adminserver lock file.  
+" "" ""
+11362 "Adminserver is already running. (11362)" "An instance of the adminserver using the same Fathom and/or SonicMQ configuration database has been detected.
+" "" ""
+11363 "Adminserver lock file exists and process still running. Lock: <lock file name>  PID: <process id number> (11363)" "An instance of the adminserver using the same Fathom and/or SonicMQ configuration database has been detected.
+" "" ""
+11364 "Write protection error attempting file delete. (11364)" "" "" ""
+11365 "Error attempting file delete. (11365)" "" "" ""
+11366 "Exception attempting file delete: <exception message> (11366)" "" "" ""
+11367 "Unable to remove old lock file: <lock file name> (11367)" "The adminserver was unable to remove the old lock file from a previous adminserver instance that did not cleanly shutdown." "" ""
+11368 "SonicMQ lock file detected: <lock file name> (11368)" "Diagnostic message that a previous instance of the adminserver may have abnormally terminated and failed to properly close the SonicMQ databases used to support remote monitoring.  
+" "" ""
+11369 "Unable to remove old SonicMQ lock file: <lock file name> (11369)" "The adminserver was unable to remove the old SonicMQ lock file from a previous adminserver instance that did not cleanly shutdown." "" ""
+11370 "Fathom Management configuration lock files detected: <lock file name> (11370)" "Diagnostic message that a previous instance of the adminserver may have abnormally terminated and failed to properly close the Fathom Management configuration database.  
+" "" ""
+11371 "Unable to remove old Fathom Management configuration lock files: <lock file name> (11371)" "The adminserver was unable to remove the old Fathom Management configuration lock files from a previous adminserver instance that did not cleanly shutdown." "" ""
+11372 "Invalid PID number found in the adminserver lock file: <process id number> (11372)" "The process id number read from the adminserver lock file is not valid.  
+" "" ""
+11373 "PID number not found in the adminserver lock file. (11373)" "
+" "" ""
+11374 "Exception attempting to read file: <exception message> (11374)" "" "" ""
+11375 "Invalid process ID returned from the environ.dll library. (11375)" " " "" ""
+11376 "The required process information could not be retrieved. (11376)" "The environ.dll shared library used to report process data returned an error. 
+" "" ""
+11377 "The file already exists: <file name> (11377)" "The file to be created already exists. 
+" "" ""
+11378 "Unable to write PID number to lock file: <lock file name> (11378)" "The adminserver was unable to write the current PID into the new adminserver lock file." "" ""
+11379 "Write protection error attempting write to file. (11379)" "" "" ""
+11380 "Exception attempting write to file: <exception message> (11380)" "" "" ""
+11381 "Validation of write to lock file failed: <lock file name> (11381)" "The PID number written to the adminserver lock file did not match the one read back from the file." "" ""
+11382 "INPUT/OUTPUT operations are not allowed with RAW, ROWID, MEMPTR, BLOB, CLOB or LONGCHAR type variables. (11382)" "RAW and MEMPTR and BLOB type variables cannot be displayed or updated with a user-interface statement such as DISPLAY or UPDATE.  See the ""PROGRESS Language Reference"" for the PUT-BYTE and GET-BYTE functions/statements.
+
+LONGCHAR variables can be displayed or updated by specifying VIEW-AS EDITOR LARGE. CLOB variables can be copied to LONGCHAR variables for viewing or updating. " "" ""
+11383 "Validation failed. Wrote: <pid>  Read: <pid> (11383)" "The PID number written to the adminserver lock file did not match the one read back from the file." "" ""
+11384 "Deleted invalid adminserver lockfile: <lock file name> (11384)" "" "" ""
+11385 "Indeterminate extent dimension  is out of range 1 to . (11385)" "The indeterminate extent has been fixed to an array dimension outside the valid range of elements for an extent field. (The maximum is generally about 28000, but is about 3500 for LONGCHAR and MEMPTR arrays.) " "" ""
+11386 "Indeterminate extent has no subscript reference. (11386)" "4GL references seeking values from an indeterminate extent must target a specific subscript.  Modify your access to the indeterminate extent as a subscripted reference." "" ""
+11387 "Invalid runtime use of indeterminate extent.  It must be set to a fixed dimension. (11387)" "The value of an indeterminate extent cannot be extracted until it has  been set to a fixed dimension.  You must first fix the dimension of the extent before referencing the values of that dimension." "" ""
+11388 "Array subscript  is out of range.  The indeterminate extent is fixed to a dimension of . (11388)" "The value of an indeterminate extent cannot be extracted until it has  been set to a fixed dimension.  You must first fix the dimension of the extent before referencing the values of that dimension." "" ""
+11389 "Invalid assignment to an unfixed indeterminate extent (11389)" "The indeterminate extent being referenced has not been set to a fixed  dimension.  Only a fixed size array or another indeterminate array can be assigned to it.  You cannot assign a scalar value to an indeterminate array. If the source is defined to be a .NET array, but its value is Unknown, this is treated as a scalar object reference.  Thus you cannot assign this to an indeterminate array.
+" "" ""
+11390 "Cannot pass temp-table-handle or dataset-handle parameters as arrays. (11390)" "Use ordinary handles to the tables or datasets, if you do not need a remote call.  If  you do need a remote call, and are trying to pass an array of temp-tables, use a dataset with the tables as members." "" ""
+11391 "Third parameter must be a unit of measure (11391)" "Valid units of measure are: year, month, week, day, hour, minute, second, and millisecond.  Both singular and plural forms are acceptable." "" ""
+11392 "SAX-PARSE not allowed in an expression-make it a stand-alone statement (11392)" " " "" ""
+11393 "MEMPTR target of COPY-LOB must be initialized. (11393)" "" "" ""
+11394 "MEMPTR target of COPY-LOB is not big enough. (11394)" "" "" ""
+11395 "Large object assign or copy failed. (11395)" "Assignment or copy of a large object, such as a BLOB or CLOB, failed. " "" ""
+11396 "Only equality operator permitted for large object comparisons. (11396)" " " "" ""
+11397 "Cannot have both NUM-COPIES and LOB-DIR on OUTPUT TO statement (11397)" "" "" ""
+11398 "You may not define a DATASET inside an internal procedure (11398)" "Define the dataset in the main procedure and then use it in the internal procedure." "" ""
+11399 "You may not define a DATASET inside a function or method. (11399)" "Define the dataset in the main procedure and then refer to it in the internal procedure, function or method. " "" ""
+11400 "You may not define a DATASET inside a session trigger (11400)" "Define the dataset in the main procedure and then just refer to it in  the trigger." "" ""

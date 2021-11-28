@@ -1,0 +1,52 @@
+# reloaddb
+#
+# sample script to load a database
+#
+# Usage:	reloaddb
+#
+# The user should have run newdb <dbname>, to get a fresh "basic" database.
+# Then set DBNAME environment variable to the new database.
+#
+# WARNING: The program fileload.p which is created by mkdump is not quite
+# suitable for this script.  That program is designed to be called from
+# an interactive menu.  If you wish to run it directly from this script,
+# you should insert the line:
+#		output to /dev/tty.    (or some other file).
+# at the beginning of fileload.p and then compile it to create fileload.r
+#
+# This script invokes progress with the -b option to make the job run
+# non-interactively without a terminal, so that Ctrl-C will kill it instead
+# of restarting the -p fileload program.
+#
+# Define the main application directory, APPLDIR. If
+# APPLDIR has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/acme is used.
+APPLDIR=${APPLDIR-/usr/acme}
+
+# Define the location of the PROGRESS software. If DLC
+# has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/dlc is used.
+DLC=${DLC-/usr/dlc}; export DLC
+PROEXE=${PROEXE-$DLC/bin/_progres}; export PROEXE
+
+# Define the search path to be used to find procedures,
+# using the directory named with the APPLDIR variable.
+PROPATH=$APPLDIR; export PROPATH
+
+# Display the version message.
+cat $DLC/version
+
+# Assign a database name.  If the user supplied a database
+# name before starting this script, use that name.  If not
+# use acmedb as the default database name.
+DBNAME=${DBNAME-acmedb}
+
+# Start PROGRESS in batch mode, and run load procedure. 
+if [ $# = 0 ]
+then
+    exec $PROEXE $DBNAME -1 -p fileload.p -b
+else
+    exec $PROEXE $DBNAME -1 -p fileload.p -b "$@"
+fi

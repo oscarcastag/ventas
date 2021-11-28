@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!-- Header processing configuration -->
+<waspc-config xmlns:wasp="urn:WaspServer" xmlns:header="urn:HeaderProcessorRepository">
+
+    <!-- Module HeaderProcessorRepository -->
+    <wasp:module wasp:class="WASP_HeaderProcessorRepositoryImpl"/>
+
+    <!-- BEGIN: Progress -->
+    <!-- Header processor for instance IDs -->
+<!--    
+    <header:headerProcessor header:class="WASP_InstanceIDHeaderProcessor" header:name="InstanceIDHeaderProcessor"/>
+-->
+
+    <!-- Header processor for Progress clients -->
+    <header:headerProcessor header:class="PSCHeaderProcessor" header:name="PSCHeaderProcessor"/>
+    <!-- END: Progress -->
+
+</waspc-config>

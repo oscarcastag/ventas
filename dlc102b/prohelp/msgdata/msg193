@@ -1,0 +1,91 @@
+9601 "Error retreiving VST data. Query:<query> table:<table code> column:<column number> (9601)" "An error occured retrieving the requested VST data." "" ""
+9602 "A valid port number or a service name must be specified. (9602)" "A valid port number of service name must be specified. " "" ""
+9603 "Network socket error. Socket:<socket number> retCode:<return code> so_error:<socket error> error:<error code> (9603)" "An error has occurred on the network socket used to communicate with the Admin Server." "" ""
+9604 "A host name must be specified." "A valid host name must be specified." "" ""
+9605 "Unable to close socket. Socket:<socket number> retCode:<return code> error:<error code> (9605)" "An error occured while attempting to close the socket." "" ""
+9606 "Unable to create socket. Error:<error code> (9606)" "This error can occur when starting the DB Agent.  The agent was unable to create the socket it will use for communicating with the Admin Server.  The cause of the problem is indicated by the value of error.  The meaning of that value can be found in /usr/include/errno.h. " "O" ""
+9607 "Unrecoverable error in connection to Admin Server. (9607)" "An unrecoverable error has occured in the connection to the Admin Server." "" ""
+9608 "Unable to send RUNNING message to Admin Server. Error:<error code> (9608)" "An error occured while attempting to send a RUNNING message to the Admin Server." "" ""
+9609 "Unable to determine the maximum message size, Invalid pconnhdl. (9609)" "An error occurred when attempting to find the maximum message size allowed." "" ""
+9610 "The option specified is invalid.  Option: <command option>" "The option specified on the command line was not one of the valid options for fathman.   " "" ""
+9611 "Unable to allocate memory for a buffer. Size:<buffer size> function:<function name> (9611)" "An error occured while attempting to allocate memory for a buffer." "" ""
+9612 "E-Mail Action Failed! Action: <name of action>, Recipient: <recipient>, Host: <SMTP Host>, Port: <SMTP port number> (9612)" "Indicates that the execution of an e-mail action failed. Check the configuration of the action. Also ensure that the host and port specified in the Startup Options are correct." "" ""
+9613 "Can't set SMTP port, using internal default. Default port: <default SMTP port> (9613)" "An e-mail action could not use the port specified for SMTP port in the Startup Options. This is because the property has not been set. The action will use the application's internal default. If the mail server listens on a port other than the internal default, the e-mail action will fail. To correct this, choose Management > Startup Options > Configuring Fathom and set the SMTP port property." "" ""
+9614 "Invoking E-mail action test. Action: <name of the e-mail action>, From: <e-mail sender>, To: <e-mail recipient> (9614)" "Indicates that an e-mail action test was invoked." "" ""
+9615 "Invoking E-mail action. Action: <name of the e-mail action>, Resource: <name of resource that caused the alert which invoked this action>, From: <e-mail sender>, To: <e-mail recipient> (9615)" "Indicates that an e-mail action was invoked. The resource listed is the resource which caused the alert which invoked this e-mail action." "" ""
+9616 "FileSystemUsedThresholdExceeded: FileSystem Used Threshold Exceeded! Value: , Threshold  (9616)" "The configured threshold for the shown filesystem has been exceeded.
+" "" ""
+9617 "CpuBusyThresholdExceeded: CPU Busy Threshold Exceeded! Value: , Threshold  (9617)" "The configured threshold for the CPU shown has been exceeded.
+" "" ""
+9618 "DiskBusyThresholdExceeded: Disk Busy Threshold Exceeded! Value: , Threshold  (9618)" "The configured threshold for the Disk shown has been exceeded.
+" "" ""
+9619 "SystemMemoryUsedThresholdExceeded: System Memory Used Threshold Exceeded! Value: , Threshold  (9619)" "The configured threshold for the System Memory Used has been exceeded.
+" "" ""
+9620 "VirtualMemoryUsedThresholdExceeded: Virtual Memory Used Threshold Exceeded! Value: , Threshold  (9620)" "The configured threshold for the Virtual Memory Used has been exceeded.
+" "" ""
+9621 "The following resource has been enabled.  Resource: <ResourceName>" "Status message used by the CLI to notify the user a resource has been enabled." "" ""
+9622 "The resource was already enabled.  Resource: <ResourceName>" "Status message used by the CLI to notify the user a resource was already enabled and no change took place." "" ""
+9623 "The resource could not be enabled.  Resource: <ResourceName>" "Status message used by the CLI to notify the user a resource could not be enabled as requested." "" ""
+9624 "The following resource has been disabled.  Resource: <ResourceName>" "Status message used by the CLI to notify the user a resource has been disabled." "" ""
+9625 "The resource was already disabled.  Resource: <ResourceName>" "Status message used by the CLI to notify the user a resource was already disabled and no change took place." "" ""
+9626 "The resource could not be disabled.  Resource: <ResourceName>" "Status message used by the CLI to notify the user a resource could not be disabled as requested." "" ""
+9627 "Alert Cleared! Alert Name: <Alert name>, Resource Name: <Fathom resource name>, Comment: ""<Comment detailing why alert cleared>"" (9627)" "The indicate alert has been cleared. An alert can be cleared either by the user, when they determine the problem which triggered the alert has been resolved, or by Fathom if it detects that the problem no longer exists. " "" ""
+9628 "The job password cannot be blank. (9628)" "When defining a Fathom job, a user name and password can be
+specified.  The job will run under this user account.  If you specify a user name you also have to specify a password.
+ " "" ""
+9629 "The job user name field cannot be blank. (9629)" "When defining a Fathom job, a user name and password can be
+specified.  The job will run under this user account.  If you specify a user name you also have to specify a password.
+ " "" ""
+9630 "The job start date is invalid. (9630)" "When creating a job a start date can be defined.  The date specified has to be valid for the specified year.
+
+ " "" ""
+9631 "The value specified for working directory field is not a directory.  (9631)" "You can define a working directory when defining a job.  This becomes the current working directory when the job executes. It must exist and be valid.
+
+ " "" ""
+9632 "The value specified for working directory does not exist.  (9632)" "You can define a working directory when defining a job.  This becomes the current working directory when the job executes. It must exist and be valid.
+
+ " "" ""
+9633 "The job input file name field is invalid.  (9633)" "You can set an input file when defining a job.  The contents of this file is piped to STDIN with the job executes.
+
+
+ " "" ""
+9634 "The job input file name does not exist. (9634)" "You can define an input file when defining a job.  The contents of this file is piped to STDIN with the job executes.  It must exist when the job is defined.
+
+
+ " "" ""
+9635 "The job (stdout) output file name field is invalid.  (9635)" "You can set an output file when defining a job.  This file is used to send the output of STDOUT.
+
+
+
+ " "" ""
+9636 "The job (stdout) output file name is not writable.  (9636)" "You can set an output file when defining a job.  This file is used to send the output of STDOUT. If the file exists it must be writable.
+
+
+
+ " "" ""
+9637 "The job (stderr) output file name is invalid.  (9637)" "You can set an output file when defining a job.  This file is used to send the output of STDERR.
+
+
+
+ " "" ""
+9638 "The job (stderr) output file name is not writable.  (9638)" "You can set an output file when defining a job.  This file is used to send the output of STDERR. If the file exists it must be writable.
+
+
+
+ " "" ""
+9639 "Unable to resolve the hostname specified for the remote location of the Fathom database.  Host: <hostname> (9639)" "The hostname specified on the Fathom configuration page for the Fathom database location could not be resolved.  Check the spelling and that the hostname can be resolved from the local machine." "" ""
+9640 "Problem with trend data, see admserv.log on trend machine: <host name> (9640)" "The data being sent could not be saved to the trend database.  The log file on the host specified should give some information as to why." "" ""
+9641 "Trending has been resumed on the specified location.  Location: <URL> (9641)" "Trending has been resumed after having been unavailable.  " "" ""
+9642 "The following values are valid :  <list of valid options> (9642)" "This message is used by the CLI to list valid values when an invalid value has been entered and the list of valid values are known. " "" ""
+9643 "Nothing was specified to be cleared, please check the command options. (9643)" "The CLI -clear command was issued with no valid options to identify which alerts should be cleared." "" ""
+9644 "No matches for the specified criteria could be found.  <criteria> (9644)" "The criteria specified did not match an existing alert/resource/ID.  " "" ""
+9645 "The option specified cannot be used alone. Option: <specified option> (9645)" "The specified option must take another option in order to be valid.  See the command option help. " "" ""
+9646 "The following options cannot be used together: <option1> <option2> (9646)" "The specified options cannot be issued together since they may conflict.  See the command option help. " "" ""
+9647 "The alert has been cleared. <alert criteria> (9647)" "The alert for criteria specified has been successfully cleared.  " "" ""
+9648 "The job command field cannot be blank. (9648)" "When defining a job, the command field must be completed. Enter the command that is to be issued when the job runs.
+
+ " "" ""
+9649 "The job command field cannot contain redirection characters. (9649)" "When defining a job, the command field cannot include input or output redirection characters. Enter only the command that is to be issued when the job runs. Use the input or output file fields to redirect the input or the output streams.
+
+ " "" ""
+9650 "Nothing was specified to be enabled or disabled, please check the command options. (9650)" "The CLI -enable/disable command was issued with no valid options to identify which resources should be enabled/disabled." "" ""

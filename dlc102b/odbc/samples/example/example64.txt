@@ -1,0 +1,67 @@
+     Progress DataDirect
+     Example Readme File
+
+Example is a simple application that uses ODBC and SQL.
+It can be useful for:
+
+* Executing any type of SQL statement
+* Testing database connections
+* Testing SQL statements
+* Verifying your database environment
+
+It can also be used to demonstrate ODBC function calls, including 
+the following:
+
+* SQLAllocConnect       * SQLError
+* SQLAllocEnv           * SQLExecDirect
+* SQLAllocStmt          * SQLFetch
+* SQLBindCol            * SQLFreeConnect
+* SQLColAttributes      * SQLFreeEnv
+* SQLConnect            * SQLFreeStmt
+* SQLDescribeCol        * SQLNumResultCols
+* SQLDisconnect
+
+To execute the application after setting up a data source, enter 
+example on the command line on UNIX, or run example.exe on Windows.  
+Follow the prompts to enter your data source name, user name, and 
+password. If successful, a SQL> prompt appears and you can type in SQL 
+statements such as Select * from <table_name>. If example is unable to 
+connect, the appropriate error message appears.
+
+Using a text editor, you can view the provided source code, example.c, 
+to see specifically commented code.  You can customize example.c and 
+build your own application.
+
+Windows
+-------
+The example application can be built from the following files, located 
+in the \SAMPLES\EXAMPLES directory of the DataDirect Connect Series for 
+ODBC installation directory:
+
+EXAMPLE.C         Example source
+EXAMPLE.EXE       Example application
+EXAMPLE.H         Example header
+EXAMPLE.SLN       Example solution file
+EXAMPLE.VCPROJ    Example project file
+EXAMPLE.MAK       Example make file (instead of .SLN and .VCPROJ files 
+                  on Itanium 64 only)
+
+
+UNIX
+----
+Instructions for building example are contained inside the file 
+example.mak, which can be read with a text editor. The application can 
+be built from the following files, located in the /samples/example 
+directory of the DataDirect Connect Series for ODBC installation 
+directory:
+
+example           Example application
+example.c         Example source
+example.h         Example header
+example.mak       Example make file
+
+
+~~~~~~~~~~~~~
+End of Readme
+0810
+

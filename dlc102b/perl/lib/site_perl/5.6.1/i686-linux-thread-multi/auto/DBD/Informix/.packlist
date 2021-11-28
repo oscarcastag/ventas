@@ -1,0 +1,14 @@
+Bundle::DBD::Informix.3
+Configuration.pm
+DBD::DBD::Informix::Summary.3
+DBD::DBD::Informix::TechSupport.3
+DBD::DBD::Informix::TestHarness.3
+DBD::Informix.3
+Informix.bs
+Informix.pm
+Informix.so
+InformixTechSupport
+InformixTechSupport.1
+Summary.pm
+TechSupport.pm
+TestHarness.pm

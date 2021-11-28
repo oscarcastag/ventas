@@ -1,0 +1,35 @@
+#!/bin/sh
+# Progress WebSpeed Broker Manager
+PROG=`basename $0`
+
+# Determine the correct directory where the Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "$DLC" "/dlc/dlc102b"
+do
+    [ ! -f "${what_dlc}/java/progress.jar" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+ 
+# ubutil is the actual utility script
+UBSCRIPT=${UBSCRIPT-$DLC/bin/ubutil}
+
+if [ ! -f $UBSCRIPT ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Progress Unified Broker Utility Script could not be found."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo "Script not found: $UBSCRIPT"
+    echo
+    exit 1
+fi
+
+# invoke the Unified Broker Utility.
+exec $UBSCRIPT -t WS "$@"
+

@@ -1,0 +1,9 @@
+#!/bin/sh
+# dbrstrct
+# script to restrict query/update access to database files.
+# Usage dbrstrct <dbname>
+DLC=${DLC-/dlc/dlc102b};export DLC
+DLCTK=${DLCTK-$DLC/toolkit};export DLCTK
+PROEXE=${PROEXE-$DLC/bin/_progres};export PROEXE
+
+exec $DLC/bin/pro -p $DLCTK/restrict.p "$@"

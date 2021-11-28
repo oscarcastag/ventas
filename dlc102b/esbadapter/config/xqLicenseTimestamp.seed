@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Domain xmlns="http://www.sonicsw.com/mf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sonicsw.com/mf http://ntsonicmqweb/B2B/schema/MFConfigurationElements.xsd" name="[[ds-domain]]">
+	<Directory name="/">
+		<Directory name="/licenses">
+			<Directory name="/licenses/sonicxq">
+				<Directory name="/licenses/sonicxq/[[license-version]]">
+					<ConfigElement>
+						<ElementID version="1" releaseVersion="1.0" name="/licenses/sonicxq/[[license-version]]/timestamp" creationTimestamp="1001984257060" type="licenses"/>
+						<AttributeSet>
+							<Attribute name="timestamp" type="long" value="[[license-timestamp]]"/>
+						</AttributeSet>
+					</ConfigElement>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Directory>
+</Domain>

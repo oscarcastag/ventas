@@ -1,0 +1,67 @@
+9701 "Not equal to" " " "" ""
+9702 "FileSizeExceeded: The file size exceeded the specified size. Actual Size (bytes): <actual file size>, Specified Size (bytes): <specified file size> (9702)" "This message indicates that a file size monitor configured to fail when the file size was exceeded has failed because the actual file size is greater than the configured limit. " "" ""
+9703 "FileSizeLow: The file size is less than the specified size. Actual Size (bytes): <actual file size>, Specified Size (bytes): <specified file size> (9703)" "This message indicates that a file size resource configured to fail when the file size is smaller than the specified size has failed because the actual file size is less than the configured limit. " "" ""
+9704 "FileSizeEqual: The file size is equal to the specified size. Actual Size (bytes): <actual file size>, Specified Size (bytes): <specified file size> (9704)" "This message indicates that a file size resource configured to fail when the file size is equal to the specified size has failed because the actual file size is equal to the configured limit. " "" ""
+9705 "FileSizeNotEqual: The file size does not equal the specified size. Actual Size (bytes): <actual file size>, Specified Size (bytes): <specified file size> (9705)" "This message indicates that a file size resource configured to fail when the file size does not equal the specified size has failed because the actual file size is not equal to the configured size. " "" ""
+9706 "FileSizePassed: The file size is within the specified limits. Actual Size (bytes): <actual file size>, Specified Size (bytes): <specified file size> (9706)" "This message indicates that the file size specified for a file size resource is within acceptable limits. " "" ""
+9707 "FileDoesNotExist: The file does not exist. (9707)" "This alert indicates that the file specified for a file size resource can not be found. " "" ""
+9708 "FileIsDirectory: The file specified is a directory. (9708)" "This message indicates that the file specified for a file resource is a directory. Because a directory always reports zero as its size, the file resource treats its status as passed, regardless of the type of comparison that was specified. " "" ""
+9709 "Starting discovery. Start address: <discovery starting address>, End address: <discovery end address> (9709)" "This message indicates that a network discovery was initiated. " "" ""
+9710 "Nothing found." "Text displayed to the user when a network discovery does not find any network resources." "" ""
+9711 "Add" "Text displayed as part of table heading for results of a network discovery operation." "" ""
+9712 "Network Resource" "Text displayed as part of table heading for results of a network discovery operation." "" ""
+9713 "Select All" "Text displayed as label for button on discovery results table." "" ""
+9714 "Add Checked" "Text displayed as label for button on discovery results table." "" ""
+9715 "Network discovery is already running. (9715)" "The user attempted to initiate a network discovery while a previous network discovery request was still being processed." "" ""
+9716 "No network resources were added. (9716)" "This message indicates that the user attempted to add network resources, but there were none available to add." "" ""
+9717 "Successfully added network resources. Resource count: <number of resources added>. (9717)" "The number of network resources indicated by the resource count were successfully added." "" ""
+9718 "An error occurred while adding network resources. (9718)" "A request to add network resources could not be fulfilled." "" ""
+9719 "Poll interval must be a positive integer. (9719)" "Decimal values and non-numeric values are invalid when specifying poll interval. Zero and negative values are also disallowed.
+
+
+" "" ""
+9720 "Tardy interval must be an integer. (9720)" "Decimal values and non-numeric values are invalid when specifying tardy interval." "" ""
+9721 "Timeout interval must be an integer. (9721)" "Decimal values and non-numeric values are invalid when specifying timeout interval." "" ""
+9722 "Error committing changes. (9722)" "Fathom encountered an error while attempting to commit changes to settings in the Resource Defaults page." "" ""
+9723 "Internal error setting property value. Property: <property name>, Value: <property value> (9723)" "Fathom encountered an internal error while attempting to commit changes to settings in the Resource Defaults page." "" ""
+9724 "Days: <days>, Hours: <hours>, Mins: <minutes>, Secs:<seconds>" "Format string used to display system up time " "" ""
+9725 "The Password and Confirm Password fields must be identical. (9725)" "The value for the password must be identical to the value for the confirm password.  " "m" ""
+9726 "Please enter a different password.  The new password must be different from the previous one. (9726)" "When the user first starts up Fathom, the password for the default user must be changed to a different value. " "m" ""
+9727 "Please enter a password with a length between 4 and 16 characters inclusive. (9727)" "A password must fit these credentials.  " "m" ""
+9728 "The report begin date is invalid. (9728)" "When creating a report a report period begin date can be defined.  The date specified has to be valid for the specified year. The begin date must precede the end date.
+
+ " "" ""
+9729 "The report end date is invalid. (9729)" "When creating a report a report period end date can be defined.  The date specified has to be valid for the specified year. The begin date must precede the end date.
+
+ " "" ""
+9730 "The report begin and end date combination is invalid. (9730)" "When creating a report a report period defined by the begin and  end dates can be specified.  The dates specified have to be valid for the specified year. The begin date must precede the end date.
+
+ " "" ""
+9731 "Mark Seen" "Button label for mark an alert as ""seen"". A ""seen"" alert is one which the user has explictly mrked indicating they have seen the alert. " "" ""
+9732 "Mark Unseen" "Button label for mark an alert as ""unseen"". A ""seen"" alert is one which the user has explictly mrked indicating they have seen the alert. " "" ""
+9733 "Fathom initialization failed. (9733)" "An attempt was made to initialize (through Probe.init()) the Fathom product and the attempt failed. " "" ""
+9734 "Initializing the OSMetrics library. (9734)" "The OSMetrics library has begun initialization and it's query for system resources such as CPU, DISKS, FILESYSTEMS and MEMORY." "" ""
+9735 "The OSMetrics library failed to initialize for container. Container name:  <Name of container> (9735)" "The OSMetrics library was unable to initialize itself on the specified container. This could be caused by a permission problem or a system dependency which has not been met." "" ""
+9736 "Please enter a valid threshold value in the range 0-100  (9736)" "A threshold value must be specified that lies between 0% and 100% including both values. You can specify a decimal number such as 7.5.
+" "" ""
+9737 "Alert list truncated" "The Fathom UI sets a maximum limit on the number of alerts which can be displayed. This is to prevent pages being generated which may be overly large and difficult for browsers to display. This message indicates that the limit has been reached and the alert list truncated. There may be additional open alerts which are not displayed. " "" ""
+9738 "DB_ResourceAdded: Database Resource, <resource name>, added. (9738)" "Alert generated when a managed database object is created. " "" ""
+9739 "DB_ResourceEnabled: Database Resource, <resource name>, enabled. (9739)" "Alert generated when a database resource is enabled. " "" ""
+9740 "DB_ResourceDisabled: Database Resource, <resource name>, disabled. (9740)" "Alert generated when a database resource is disabled. " "" ""
+9741 "DB_AgentDown:  Database Agent, <agent name>, is shutting down. (9741)" "Alert generated when a database agent is shutdown." "" ""
+9742 "DB_AgentCrash:  Database Agent, <agent name>, crashed! (9742)" "Alert generated when a database agent crashes." "" ""
+9743 "DB_AgentIdle:  Database Agent, <agent name>, is not running. (9743)" "Alert generated when a database agent is not running but the database resource is enabled." "" ""
+9744 "DB_DatabaseDown:  Database Broker, <database name>, is shutting down. (9744)" "Alert generated when a database broker is shutdown." "" ""
+9745 "DB_DatabaseCrash:  Database Broker, <database name>, crashed! (9745)" "Alert generated when a database broker crashes." "" ""
+9746 "The Value specified for report period must be between 1 and 99  (9746)" "The field specifies how many periods will be used in the report. It must be a numeric value between 1 and 99.
+
+ " "" ""
+9747 "The Value specified for the previous period amount field must be a valid number.  (9747)" "The field specifies how many units are to be used to establish the report period. It  will be used in conjunction with its associated field that specifies hours, days, weeks or months. The value must be between 1 and an upper limit. The upper limits are 24 hours, 31 days, 52 weeks and 12 months.
+
+
+ " "" ""
+9748 "Maximum number of transactions exceeded. (9748)" "The maximum number of transactions for this limited use database
+has been exceeded.  If you wish to continue to modify this
+database, please obtain the full version of the product." "" ""
+9749 "A Search Criteria with this name already exists. Please specify a unique name for the Search Criteria. (9749)" "Each Log File Monitor within Fathom can have any number of Search Criteria associated with it.  Each one must have a unique name.  Different Log File Monitors may repeat Search Criteria names, but each Search Criteria name inside a given Log File Monitor must be unique. When creating a new Search Criteria, or editing the name property of a Search Criteria, you must specify a name that is not in use by any other Search Criteria within that particular Log File Monitor." "" ""
+9750 "One time" "A choice on the repeat interval pull down menu. The repeat interval pull down menu is on the Job and Report schedule pages. The repeat interval specifies the repetition rate of the scheduled task. " "" ""

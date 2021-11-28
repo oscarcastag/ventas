@@ -1,0 +1,126 @@
+#!/bin/sh
+# Tailor - script to tailor an application.  This script prompts the user
+#          for which items are to be tailored.  It will tailor:
+#               $DLC     - the directory where PROGRESS is installed
+# make sure current working dir is in the path
+PATH=:$PATH;export PATH
+
+# If executing the temp copy, them remove it right away
+if test $0 = /tmp/Ta$$
+then 
+   rm /tmp/Ta$$
+fi
+
+# Step 1, Find where PROGRESS is currently, it should be in $DLC
+#         but it may have been moved
+if test $0 != /tmp/Ta$$
+then
+    DLC=${DLC-/dlc/dlc102b};export DLC
+    ans=firsttry
+    while test "$ans" != y -a "$ans" != yes
+    do
+        if test ! -f $DLC/version -o "$ans" != firsttry
+        then
+            echo
+            echo Please type the name of the directory where the PROGRESS
+            echo currently is, then press RETURN
+            read DLC
+        fi
+
+        if test -f "$DLC/version"
+        then
+            echo
+            echo $DLC contains:
+            echo
+            cat $DLC/version
+            echo
+            echo Is that the correct directory? If yes, type y and RETURN.
+            echo Otherwise, just press RETURN
+            read ans
+        else
+            echo
+            echo $DLC does not contain an PROGRESS
+        fi
+    done
+fi
+
+# Step 2, This script may be modified by itself, so first, make a copy
+#         and execute it instead
+if test $0 != /tmp/Ta$$
+then
+    if cp $DLC/tailor /tmp/Ta$$
+    then exec /tmp/Ta$$
+    else echo Unable to copy $DLC/tailor
+         exit 1
+    fi
+fi
+
+# Step 3, change into the current PROGRESS directory and check if
+# the user is currently root and tailorlist exists
+cd $DLC
+if test ! -f maint/tailorlist
+then echo
+     echo The file $DLC/maint/tailorlist does not exist,
+     echo you cannot use tailor
+     exit 1
+fi
+if $DLC/maint/_isroot
+then :
+else echo
+     echo You should be super-user before using tailor
+     exit 1
+fi
+
+# Step 6, offer to tailor DLC
+echo
+echo Do you want to change DLC -- the directory where PROGRESS is?
+echo If yes, type y and RETURN, otherwise just press RETURN
+read ans
+if test "$ans" = y -o "$ans" = yes
+then
+    ans=
+    while test "$ans" = ""
+    do
+        echo Please type the new value for DLC followed by RETURN
+        read ans
+    done
+    set $ans # this strips off the first token in case the user typed 2
+    ans=$1
+    echo Changing DLC to $ans
+    ./maint/_tlr DLC $ans - <maint/tailorlist
+    DLC=$ans # used below when rebuilding the protermcap file
+fi
+
+# Step 8, offer to move scripts to /usr/bin
+if test -f maint/movelist
+then
+    echo
+    echo Do you want to copy the scripts to /usr/bin?
+    echo If yes, type y and RETURN, otherwise just press RETURN
+    read ans
+    if test "$ans" = y -o "$ans" = yes
+    then
+         for i in `cat maint/movelist`
+         do
+            echo Copying $i to /usr/bin.
+            cp $i /usr/bin
+         done
+    fi
+fi
+
+# Step 9, offer to remove scripts from /usr/bin
+if test -f maint/movelist
+then
+    echo
+    echo Do you want to delete scripts from /usr/bin?
+    echo If yes, type y and RETURN, otherwise just press RETURN
+    read ans
+    if test "$ans" = y -o "$ans" = yes
+    then
+         for i in `cat maint/movelist`
+         do
+            echo Deleting /usr/bin/$i.
+            rm /usr/bin/$i
+         done
+    fi
+fi

@@ -1,0 +1,31 @@
+#!/bin/sh
+# findsource
+# script to search directories recursively and create a progress
+# program which will compile all progress programs found in the search
+#
+# If you want the resulting program to compile with ATTR-SPACE, then
+# put attr-space in this script just before the word save below.
+#
+if test .$1 = . 
+then
+   echo  'usage from unix:      findsource <names>'
+   echo  'usage from progress:  unix findsource <names>'
+   exit
+fi
+
+if test -f /bin/sed
+then
+    for i
+    do
+       find $i   -name \*.p \
+            -print |
+       sed -e "s/^/compile /" -e "s/$/ {1} save./"
+    done >compilelist
+else
+    for i
+    do
+       find $i  -name \*.p \
+            -exec echo compile {} {1} save. \; >>compilelist
+    done >compilelist
+fi
+echo 'Compilelist created ( compilelist )'

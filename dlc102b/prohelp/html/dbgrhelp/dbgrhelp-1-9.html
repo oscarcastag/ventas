@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+    <meta name="TEMPLATEBASE" content="Progress Debugger JavaHelp 10.1A">
+    <meta name="LASTUPDATED" content="11/16/09 00:07:44">
+    <link rel="StyleSheet" href="document.css" type="text/css" media="screen">
+    <title>Debugger files</title>
+  </head>
+
+  <body link="#3366CC" vlink="#9999CC" text="#000000" alink="#0000CC" bgcolor="#FFFFFF">
+
+    <hr align="left">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr> 
+        <td align="right" valign="top">
+<a href="dbgrhelp-1-8.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><img src="images/nextx.gif" border="0" alt="Next">
+        </td>
+      </tr>
+    </table>
+
+
+    <blockquote>
+<h3 >
+Debugger files
+<a name="wp446955"> </a></h3>
+<p >
+During a debugging session, the Debugger references procedure source files and debug listing files derived from procedure files.
+<a name="wp459081"> </a></p>
+<p >
+The following sections describe these files, how the Debugger uses them, and how you can interact with them:
+<a name="wp459082"> </a></p>
+<ul> <li   );><a href="dbgrhelp-1-9.html#wp459095">Debug listing files</a><a name="wp459086"> </a>
+ <li   );><a href="dbgrhelp-1-9.html#wp506707">Locating debug listing files in attachable mode</a><a name="wp506768"> </a>
+ <li   );><a href="dbgrhelp-1-9.html#wp459133">Procedure files and listing generation</a><a name="wp459090"> </a>
+</ul><h4 >
+Debug listing files 
+<a name="wp459095"> </a></h4>
+<p >
+A debug listing file contains a line-numbered listing of a procedure with all preprocessor directives expanded and all include files inserted. The Debugger displays this listing in the source code pane to indicate breakpoints and the next line to execute in the current procedure. 
+<a name="wp459096"> </a></p>
+<p >
+You can generate a debug listing in one of two ways:
+<a name="wp459098"> </a></p>
+<ul> <li   );><b>Automatic listing generation</b> - Running a procedure during a debugging session<a name="wp459099"> </a>
+ <li   );><b>Manual listing generation</b> - Compiling a procedure explicitly using either the ABL <code>COMPILE</code> statement or the Application Compiler from the ADE Desktop<a name="wp459100"> </a>
+</ul><h5 >
+Automatic listing generation
+<a name="wp459101"> </a></h5>
+<p >
+Automatic listing generation is appropriate for most debugging situations where you are working with new source procedures you have not yet compiled. Automatic generation creates temporary listing files that OpenEdge removes when you end your session and exit to the operating system. These temporary listing files have alphanumeric names based on the following naming convention (without an extension):
+<a name="wp459102"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>&quot;dbg_&quot; + <i><code>procedure-filename</code></i> + &quot;_&quot; + <i><code>8-character unique-id</code></i><a name="wp459108"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp459109"> </a></p>
+<p >
+OpenEdge stores temporary debug listing files in either your current working directory or the temporary directory specified by the Temporary Directory (<code>-T</code>) startup parameter. For more information on how and when OpenEdge automatically generates debug listings, see the <a href="dbgrhelp-1-9.html#wp459133">&quot;Procedure files and listing generation&quot; section</a>. For more information on the Temporary Directory startup parameter, see the reference entry in <i>OpenEdge Deployment: Startup Command and Parameter Reference</i>.
+<a name="wp459113"> </a></p>
+<p >
+Note:	 There might be occasions when a session terminates leaving temporary debug listing files in your directory. This can occur during a system crash or during any other abnormal termination of your application. You can safely delete these temporary debug listings from your directory since the Debugger creates them automatically.
+<a name="wp459120"> </a></p>
+<h5 >
+Manual listing generation
+<a name="wp459124"> </a></h5>
+<p >
+Manual listing generation can save significant time in a debugging session, especially when debugging very large procedures. To generate a debug listing file manually, use the <code>DEBUG-LIST</code> option with the <code>COMPILE</code> statement to compile your procedure. For more information on the <code>COMPILE</code> statement and the <code>DEBUG-LIST</code> option, see <i>OpenEdge Development: ABL Reference</i>. For information on the Application Compiler, see <i>OpenEdge Development: Basic Development Tools</i>.
+<a name="wp459125"> </a></p>
+<h4 >
+Locating debug listing files in attachable mode
+<a name="wp506707"> </a></h4>
+<p >
+In attachable mode, the Debugger locates listing files based on the directories set in the <b>Attachable tab</b> in the <b>Preferences</b> dialog box. The Debugger's working directory is the default listing directory. When the Debugger and AVM instance are on separate machines, the debug listing directories must be accessible to the Debugger machine via a mapped drive (Windows) or a mounted file system (UNIX). If the Debugger cannot find the listings files for any reason, it opens the <b>Preferences</b> dialog box to the <b>Attachable</b> tab so that you can provide a path. For information on this tab, see the <a href="dbgrhelp-1-8.html#wp496577">&quot;Attachable tab&quot; section</a>.
+<a name="wp514658"> </a></p>
+<p >
+For more information on generating listing files, see the <a href="dbgrhelp-1-9.html#wp459095">&quot;Debug listing files&quot; section</a>.
+<a name="wp514662"> </a></p>
+<h4 >
+Procedure files and listing generation 
+<a name="wp459133"> </a></h4>
+<p >
+You can debug procedure files in both source (<code>.p</code>, <code>.w</code>) and r-code (<code>.r</code>) form. OpenEdge makes every attempt to provide the debug listing for the procedure you are debugging. If necessary, OpenEdge generates the debug listing automatically (&quot;on the fly&quot;). Any automatic listing generation creates a temporary file that is deleted at the end of your session. For more information on temporary debug listings, see the <a href="dbgrhelp-1-9.html#wp459095">&quot;Debug listing files&quot; section</a>.
+<a name="wp459137"> </a></p>
+<p >
+The method OpenEdge uses to provide a debug listing depends on the form of the procedure OpenEdge has available to execute: r-code or source code.
+<a name="wp459147"> </a></p>
+<h5 >
+Debug listing generation from r-code 
+<a name="wp459159"> </a></h5>
+<p >
+When your application runs an r-code file, OpenEdge attempts to provide the debug listing for it by searching the <code>PROPATH</code> for the associated source file (<code>.p</code>, <code>.w</code>). The r-code contains references to all associated source, include, and debug listing files, as well as its cyclic redundancy check (CRC) value. 
+<a name="wp461192"> </a></p>
+<p >
+If OpenEdge finds the source file associated with an r-code file, it compares the CRC value of the source file with the corresponding CRC value stored in the r-code. If the CRC values do not match, OpenEdge displays a warning message and continues using the file with a bad CRC value.
+<a name="wp536073"> </a></p>
+<p >
+You can step through r-code for which the source code is unavailable; however, the Debugger cannot display the source code in the source code pane. In this case, the Debugger displays the procedure name and line number in the status bar. 
+<a name="wp459171"> </a></p>
+<h5 >
+Debug listing generation from source code 
+<a name="wp459174"> </a></h5>
+<p >
+If all you have is the source code for a procedure, OpenEdge automatically generates the debug listing during compilation and saves it as a temporary file. OpenEdge generates temporary debug listings from source both when you execute a procedure for a debugging session and when you just display the procedure in the source code pane.
+<a name="wp459178"> </a></p>
+<h5 >
+Hidden procedure files 
+<a name="wp459184"> </a></h5>
+<p >
+The Debugger ignores hidden procedures. A hidden procedure is a procedure whose filename begins with an underscore (_). Although you can execute a hidden procedure, it is hidden from the Debugger in the following ways:
+<a name="wp459185"> </a></p>
+<ul> <li   );>A hidden procedure never enters the Debugger context and does not honor any breakpoints that you set in it.<a name="wp459186"> </a>
+ <li   );>The Debugger never displays the debug listing for a hidden procedure.<a name="wp459187"> </a>
+</ul><p >
+The OpenEdge ADE tools that invoke the Debugger use hidden procedures to keep the tools themselves invisible to the Debugger. You can use the same technique when writing your own development tools that invoke the Debugger.
+<a name="wp520524"> </a></p>
+    </blockquote>
+    <p></p>
+    <hr>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">
+<a href="dbgrhelp-1-8.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><img src="images/nextx.gif" border="0" alt="Next">
+        </td>
+        <td align="right">
+         OpenEdge Release 10.2B<br>
+         Copyright &#169; 2009 Progress Software Corporation<br>
+         </td>
+      </tr>
+    </table>
+  </body>
+</html>

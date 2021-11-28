@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# procomp
+#
+DLC=${DLC-/dlc/dlc102b};export DLC
+DLCTK=${DLCTK-$DLC/toolkit};export DLCTK
+PROEXE=${PROEXE-$DLC/bin/_progres};export PROEXE
+$DLC/bin/pro "$@"

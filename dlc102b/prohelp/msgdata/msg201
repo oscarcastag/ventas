@@ -1,0 +1,74 @@
+10001 "Charscan found invalid <codepage> data in <table>.<field><extent>, recid <recid>. (10001)" "" "" ""
+10002 "The ending IP address is invalid. The ending IP address must be greater than or equal to the starting IP address. Invalid Address:<the invalid IP address> (10002)" "This message is displayed if, while entering an IP range for network discovery, the user entered an ending address which was less than the starting address." "" ""
+10003 "The IP range is invalid. Each of the first two fields of the starting and ending addresses must be identical. (10003)" "This message is displayed by Fathom's Discover Network Resources page if the user entered an IP range which is too large. For instance a range of 172.18.103.25 to 172.18.104.28 is acceptable, but a range of 172.18.103.25 to 174.18.103.25 is not. " "" ""
+10004 "Database reconnected" "A label for sending the status string to the trend database." "" ""
+10005 "Inactive" "A label used in the user interface that indicates the associated item is not usable. An example of its use is on a Job schedule to indicate that the schedule 
+is disabled." "" ""
+10006 "Not checked" "A label used in the user interface that indicates the associated item is not usable. An example of its use is on a Job schedule to indicate that the schedule 
+is disabled." "" ""
+10007 "Path" "A label used in Fathom used to store the location type. An example of its use is on a database, its location is a path (where the database file is located)." "" ""
+10008 "Auto tuning spin lock is turned on. (10008)" "This is an enterprice liscence customer and does not specify startup paramter -spin. So we use default auto spin." "D" ""
+10009 "Usage: dbconfig [options] 
+ 
+Where options are: 
+[-f or -propertyfile] <the 'less than' character>filename> File to validate. 
+                                 Default file is: <default filename>. 
+-help                            Print this message. " "dbconfig help text.  This is the text that will display when dbconfig -help is requested.  Whitespace is important, do not translate dbconfig, -f, -propertyfile or -help. " "" ""
+10010 "Validates the database properties file structure." "dbconfig description text.  This is a portion of the text that will display when dbconfig -help is requested.   " "" ""
+10011 "The following arguments are invalid: 
+ <invalid options>" "Used when invalid arguments are specified for dbconfig.   " "" ""
+10012 "Open Alerts: <Count of open alerts>  Unseen Alerts: <Count of unseen alerts>" "Format string for alert counts in Fathom UI. " "" ""
+10013 "The shared memory segment is locked in memory. (10013)" "By default, Progress allows shared memory to be swapped. If the -pinshm startup parameter is used, then shared memory will be locked   so it may not be swapped." "D" ""
+10014 "The shared memory segment is not locked in memory.  (10014)" "By default, Progress allows shared memory to be swapped. If the -pinshm startup parameter is used, then shared memory will be locked so it may not be swapped. " "D" ""
+10015 "No enough memory to lock shared memory segment in memory. (10015)" "system error when calling shmctl in shmCreateSegment (shmcr.c). 
+The return error could be one of the following: 
+1.EPERM. The calling process do not have the privilege or is not root. 2.ENOMEM. No enough memory to hold the segment that is to be locked.
+Once it happens we avoid locking the segment in memory. " "O" ""
+10016 "Unable to load jutil dynamic library, error <errno> (10016)" "The jutil dynamic library was not found in the WebSpeed install path " "" ""
+10017 "This version of PROGRESS does not support online AI-OFF. (10017)" "You may not use online AI-OFF in this version of PROGRESS.  You are   running a version of PROGRESS that does not support online AI-OFF. " "" ""
+10018 "Turning off after-image online failed because the broker was dead. (10018)" "The rfutil aimage aioff utility cannot contact the database broker probably because the database is in the process of shutting down abnormally. " "" ""
+10019 "After-image was switched off online. (10019)" "This message appears in the database log (.lg) file to confirm that  the AIMAGE AIOFF utility was run successfully.     " "" ""
+10020 "Maximum SQL Clients Per Server (-SQLMa): <num>. (10020)" "This is an informational message written to the database log file when a database broker is started.  This is the current maximum number of remote users per SQL server.  The default is the maximum number of users (-n) divided by the maximum number of servers (-Mn).  This is important information to have available when speaking to PROGRESS Technical Support concerning database topics. " "D" ""
+10021 "Minimum SQL Clients Per Server (-SQLMi): <num>. (10021)" "This is an informational message written to the database log file when the datbase broker is started. This is the number of remote users on a SQL server before the broker spawns another SQL server.  The multi-user default is 1.  This is important information to have available when speaking to PROGRESS Technical Support concerning database topics. " "D" ""
+10022 "Can't turn off AI online because two phase commit is on. (10022)" "Two phase commit may require after-image on, so can not turn off after-image. " "" ""
+10023 "Cannot turn off after-imaging online because the OpenEdge Replication Server is running. (10023)" "OpenEdge Replication requires after-imaging, so AI cannot be disabled online while OE Replication Server is running." "" ""
+10024 "Can not turn off after-image online because AI was not enabled. (10024)" "Can not turn off after-image online because AI was not enabled." "" ""
+10025 "Turn off after-image online failed. (10025)" "Some error happened when trying to turn off after-image online." "" ""
+10026 "SQL Server Stack Size (-SQLStack): <num>. (10026)" "Size of the SQL Server stack [unit = 1kb]" "D" ""
+10027 "SQL Server Statement Cache Size (-SQLStmtCache): <num>. (10027)" "Size of the SQL Server Statement Cache [unit = num statements]" "D" ""
+10028 "SQL Server Max Open Cursors (-SQLCursors): <num>. (10028)" "" "D" ""
+10029 "Size [1K byte units] of SQL Server temp table buffer (-SQLTempStoreBuff): <num>. (10029)" "There is 1 SQL temp table buffer for each connection to the database.
+The buffer holds temp table data pages in memory. The buffer is shared as needed across the sql statements in a transaction. By default, its size is 1000 1K byte units, for 10**6 bytes. As the buffer is made larger, more temp table data can remain in memory, rather than going to disk. A buffer which is too large can diminish the memory available to other server uses, or cause higher paging rates.
+" "D" ""
+10030 "Size [1K byte units] of SQL Server temp table disk storage (-SQLTempStoreDisk): <num>. (10030)" "There is 1 SQL temp table backing store (temp file) for each connection to the database. The backing store holds temp table data pages. There is 1 on-disk backing store page for every data page. The backing store is shared as needed across the sql statements in a transaction. By default, its size is 500000 1K byte units, for 500*10**6 bytes. This size controls the maximum total amount of data which can be sorted by a single statement.
+ Default (500 Meg): TPE_MM_SWAPSIZE=500000
+" "D" ""
+10031 "Size [1K byte units] of SQL Server temp table data page (-SQLTempStorePageSize): <num>.      (10031)" "A temp table data page contains an integral number of data rows. Temp table data rows cannot span pages. All temp tables have the same page size. By default, page size is 7 1K byte units, or 7K bytes. The page size controls how big one row of data (being sorted, for example) can be. A larger page size supports sorting data with larger rows. A larger page size can also cause wasted space." "D" ""
+10032 " <num-records> records dumped. (10032)" " " "d" ""
+10033 "Unable to find fieldname  <field-name> in table  <table-name> (10033)" "A specific field name (column name) must be used in the comparison for specified binary dump.  " "d" ""
+10034 "Only the EQ (equal) operator is valid for Boolean datatype comparison. (10034)" "syserr " "d" ""
+10035 "Using index  <index-num> which is  <index-name> for the dump of table  <tableName>. (10035)" "
+ " "d" ""
+10036 "Index or field name must be fully qualified as Table.index or Table.field. (10036)" " " "d" ""
+10037 "Failed to find index  <index-name> in table  <table-name>. (10037)" "" "d" ""
+10038 "Unable to communicate with AIA. The Proxy Server failed to authenticate the user to realm . (10038)" "The connection to the AIA required using a Proxy Server that required user authentication.  The Proxy Server was unable to authenticate the supplied user account and password.  This may be due to invalid or missing user account name and password.
+
+
+
+
+ " "" ""
+10039 "Invalid transaction log version number found in tl file .  (10039)" "The database manager, while opening the database, has found an invalid version number in the block header of the tl file. This may be because it is an old tl file version.
+ " "M" ""
+10040 "This is a version <version-number> tl file. (10040)" "Progress version 9.1D cannot read tl files with version number other than 0." "M" ""
+10041 "Invalid WHERE clause in FIND method for buffer <buffer-name> (10041)" "You used a buffer-handle object to do a FIND-FIRST/LAST or FIND-UNIQUE.  The arguments passed including a WHERE clause caused an error." "" ""
+10042 "ADD-NEW-FIELD name <name> is too long. (10042)" "ADD-NEW-FIELD takes as a parameter the name of the field being added.  You cannot add fields of more than 128 characters." "" ""
+10043 "Operator  not supported. (10043)" " " "d" ""
+10044 "All parameters must be specified with SET-PARAMETER before using INVOKE for <call-name>. (10044)" "When you use call-handle:INVOKE, you must previously run call-handle:SET-PARAMETER for each parameter up to call-handle:NUM-PARAMETERs.  Use call-handle:IS-PARAMETER-SET(i) to determine which parameter is missing." "" ""
+10045 "Please use MM-DD-YYYY for date format. (10045)" " " "d" ""
+10046 "Cannot DELETE a CALL object while INVOKE is running <call-name>. (10046)" "When you use call-handle:INVOKE, you must previously run call-handle:SET-PARAMETER for each parameter up to call-handle:NUM-PARAMETERs.  Use call-handle:IS-PARAMETER-SET(i) to determine which parameter is missing." "" ""
+10047 "Cannot alter a CALL object while INVOKE is running <call-name>. (10047)" "When you use call-handle:INVOKE, you have to wait until the invoke completes before altering the call-handle (i.e. you cannot nest uses of a call-handle)." "" ""
+10048 "Insufficient -s for return value from INVOKE of <call-name>. (10048)" "The INVOKE method of a call object may have a return code if the call-type is FUNCTION-CALL-TYPE or GET-ATTR-CALL-TYPE.  If the return value is too big to fit on the -s memory, you will get this error." "" ""
+10049 "Column type, , not supported for the specified binary dump. (10049)" "" "d" ""
+10050 "INVOKE method must occur as a stand-alone statement: hCall:INVOKE.  It cannot occur inside an expression or on either side of an equal sign. (10050)" "The call object INVOKE method is executed like the RUN statement is executed.  For this reason, call-object:INVOKE cannot be embedded in an expression, but must be a stand-alone entity:
+  hCall:INVOKE.
+If you want the return value from an invoke, you can use the hCall:RETURN-VALUE attribute." "" ""

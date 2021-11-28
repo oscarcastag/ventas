@@ -1,0 +1,88 @@
+9051 "Illegal datatype given in ADD-NEW-FIELD <datatype>. (9051)" "Make sure your datatype argument is not UNKNOWN and evaluates to a string representing a valid Progress datatype: logical, character, integer, decimal, date, handle etc." "" ""
+9052 "Illegal format given in ADD-NEW-FIELD <format>. (9052)" "Make sure the format you gave was a legal Progress format such as ""x(20)"" or ""999"" etc.  If you do not know the format to use, just supply a ? and Progress will give you the default for the datatype of the field being added." "" ""
+9053 "Field-name in ADD-LIKE-FIELD must have a table qualifier. (9053)" "You must supply a table qualified for the LIKE-FIELD, such as customer.cust-num.  If you do not have a qualifier to use, you may supply the argument as a BUFFER-FIELD object handle instead." "" ""
+9054 "Could not find table <table-name> during ADD-LIKE-FIELD.  Table names must not be abbreviated. (9054)" "You supplied a string expression evaluating to a table name, but that table could not be found in the databases you have connected.  The name must not be abbreviated.  Try using the BUFFER object form of this parameter instead of a string." "" ""
+9055 "Could not find source field <source-name> during ADD-LIKE-FIELD. (9055)" "Field names should not be abbreviated.  You supplied a field name which could not be found.  Try using the BUFFER-FIELD object to identify the source field instead of its name." "" ""
+9056 "ADD-LIKE-FIELD requires valid BUFFER-FIELD object. (9056)" "Make sure the argument you passed was not UNKNOWN, or was not a HANDLE for some other type of object." "" ""
+9057 "TEMP-TABLE method could not find LIKE table name <table-name>. (9057)" "You supplied a string evaluating to the name of a table which could not be found among the databases connected.  Try using a buffer object for the table instead of its name." "" ""
+9058 "TEMP-TABLE method could not find LIKE table from BUFFER handle. (9058)" "Make sure the handle you passed was not UNKNOWN, and was a HANDLE to a BUFFER object (not a TEMP-TABLE object, for example)." "" ""
+9059 "ADD-LIKE-INDEX could not find index <index-name> in table <table-name>. (9059)" "You gave the name of an index which could not be found in the source table in ADD-LIKE-INDEX." "" ""
+9060 "Unable to create index for TEMP-TABLE in ADD-LIKE-INDEX. (9060)" "There was some inconsistency in your index definition that prevented it from being created for your TEMP-TABLE." "" ""
+9061 "Could not find index <index-name> during ADD-INDEX-FIELD. (9061)" "You supplied an index to which to add an INDEX-FIELD. This index could not be found in the TEMP-TABLE being defined." "" ""
+9062 "Third argument to ADD-INDEX-FIELD must be DESC or ASC, in quotes. (9062)" "If you give a 3rd argument to ADD-INDEX-FIELD, it must be the string DESC or the string ASC, and it defaults to ASC." "" ""
+9063 "Attempt to add duplicate or inappropriate word index field <field-name> to index <index-name>. (9063)" "You are adding a new index field to an index, and the field already exists in the index, or is inappropriate in some other way." "" ""
+9064 "From within a transaction, UNDO cannot be set on a TEMP-TABLE that has been already prepared with TEMP-TABLE-PREPARE. (9064)" "You can set UNDO true or false before running the TEMP-TABLE-PREPARE method, when the TEMP-TABLE is still in the unprepared state.  You can also set it later if there is no transaction running.  If the table has a BEFORE-TABLE, then the BEFORE-TABLE undo status will match the normal table." "" ""
+9065 "Cannot set PRIMARY on a TEMP-TABLE that has been prepared with TEMP-TABLE-PREPARE. (9065)" "You can set the PRIMARY index name before the TEMP-TABLE is prepared with TEMP-TABLE-PREPARED.  " "" ""
+9066 "PRIMARY index cannot be word index. (9066)" "The PRIMARY index must be some non-word-index index.  If you do not supply any index, a default index will be created.  If you do supply indices, a primary will be chosen from them." "" ""
+9067 "BUFFER handle used where TEMP-TABLE handle parameter needed. (9067)" "A TEMP-TABLE object has two handles: the meta-data handle or TEMP-TABLE handle, and the data handle, BUFFER handle.  These are easy to confuse.  The TEMP-TABLE handle comes from
+   CREATE TEMP-TABLE tth.        or    tth = TEMP-TABLE name:HANDLE.
+.......
+   The BUFFER handle comes from:
+   tth = tth:DEFAULT-BUFFER-HANDLE" "" ""
+9068 "TEMP-TABLE handle parameter requires valid and prepared handle. (9068)" "Make sure your TEMP-TABLE handle is not UNKNOWN, and that TEMP-TABLE-PREPARE has been run on it." "" ""
+9069 "Unable to get TEMP-TABLE handle for parameter. (9069)" "Make sure your TEMP-TABLE handle is not UNKNOWN, and that TEMP-TABLE-PREPARE has been run on it." "" ""
+9070 "Description for TEMP-TABLE <table-name> is too large for use in parameter. (9070)" "The maximum number of fields in a temp-table being used as a parameter is about 500, depending on how much data is involved in each string (lengh of name, initial value etc)." "" ""
+9071 "Unpacking remote TABLE-HANDLE parameter: error in descriptor version. (9071)" "When unpacking the TEMP-TABLE parameter description from a remote procedure, there was an error in the version of the description between the client and the server." "" ""
+9072 "Invalid or inappropriate publisher handle value given to PUBLISH statement.  (9072)" "A PUBLISH statement failed because the expression describing <publisher-handle> yielded an invalid handle (the procedure may have been deleted or it may have gone out of scope), a handle to an object which is not a valid publisher type, or a handle that is a proxy handle for a remote procedure.  Use the VALID-HANDLE() function to check that the expression you are using for <publisher-handle> evaluates to a valid handle. " "" ""
+9073 "Code page  for memory-mapped r-code does not match -cpinternal . (9073)" "The code page of an r-code file that is part of memory-mapped procedure library does not match -cpinternal and is not the undefined code page. Since memory-mapped r-code is read-only, Progress cannot perform a code page conversion when loading the .r file's text segments.
+" "" ""
+9074 "Invalid operator ''<operator> for COMPARE function. (9074)" "You specified an invalid operator for the COMPARE function.  Valid operators include <, <=, =, >, >=, <>, LT, LE, EQ, GT, GE and NE." "" ""
+9075 "Invalid strength ''<strength> for COMPARE/COLLATE function. (9075)" "You specified an invalid strength for the COMPARE or COLLATE function.  Valid strengths include ""RAW"", ""CASE-SENSITIVE"", and ""CASE-INSENSITIVE""." "" ""
+9076 "The COLLATE function is only allowed on a BY phrase. (9076)" "The COLLATE function is only allowed as part of the BY phrase in a FOR, OPEN QUERY or PRESELECT statement." "" ""
+9077 "BI File Threshold size (-bithold): <num> MB. (9077)" "This is an informational message displayed to the database log file
+(.lg) when a database session begins.  It is reporting the size of the threshold for growth in size of the Before Image file (.bi).                                                      " "D" ""
+9078 "BI File Threshold size of  <num> MB has been reached. (9078)" "The Before Image file threshold size has been reached.  If the -bithold option has been used without the -bistall, an emergency shutdown will ocurr. If -bistall has been used, forward processing has been paused." "D" ""
+9079 "Missing argument for -makeshared parameter. (9079)" "You are using the prolib -makeshared parameter.  You must specify the name of the memory-mapped procedure library you want prolib to generate." "" ""
+9080 "Only unsubscripted INPUT HANDLE program variables allowed in TABLE-HANDLE FOR phrase. (9080)" "This variable will be used during parameter passing, at which time there is no support for database table fields or subscripts.  Also, the FOR keyword is reserved for INPUT type parameters and may not be used for OUTPUT ones. " "" ""
+9081 "Unable to get arguments for X-NODEREF or X-DOCUMENT type object method <method>. (9081)" "You were using an X-NODEREF or X-DOCUMENT object method and passed it an argument that was UNKNOWN or inappropriate in some other way. " "" ""
+9082 "X-NODEREF or X-DOCUMENT <method-name> got an error: <xml-exception>. (9082)" "You were using an X-NODEREF or X-DOCUMENT object method and 
+encountered an error during the XML parsing or creation, below the 4GL layer." "" ""
+9083 "A NEW GLOBAL SHARED UNDO variable may not be defined in a TRANSACTION AUTOMATIC procedure; try NO-UNDO instead. (9083)" "GLOBAL SHARED UNDO variable definitions get backed out when a rollback occurs, so any internal procedures referring to those NEW GLOBAL SHARED variables would be unable to run once a rollback has been executed.  To reduce this likelihood, we try to prevent any new global shared definitions from occurring inside a transaction." "" ""
+9084 "Attempt to reference an UNDO GLOBAL variable after a transaction backout has removed its definition. (9084)" "A persistent procedure that defines NEW GLOBAL UNDO variables inside a transaction, and that has subroutines that could refer to these variables after a transaction backout, will cause this error.  Make the variables NO-UNDO, or move them to a procedure that runs BEFORE the transaction begins." "" ""
+9085 "CLEAR method may not be called on a static temp-table object, nor on a dynamic one with records; use buffer:EMPTY-TEMP-TABLE. (9085)" "At static temp-table definition may not be CLEARed.  A dynamic temp-table definition may be CLEARed, but only if all records in the table are deleted first, or if there are no records in the table so far. " "" ""
+9086 "A name of a procedure must be supplied. (9086)" "A null procedure name or a zero length procedure name is illegal. " "" ""
+9087 "This procedure or function cannot be supported by Open Client.  It either has an unsupported parameter or return type or the prototype is too large. (9087)" "Some data types may not be supported as a parameter type and/or a function return value for open clients.  For example, BUFFER is not supported by open clients.  To avoid this error, either modify the procedure or User Defined Function, or make it PRIVATE, or remove it from the proxy via ProxyGen.  
+Also, if the prototype (including any temp-table definition) is too large, Open Client cannot support it.  In that case some parameters should be removed or temp-table definitions made smaller.
+" "" ""
+9088 "The proxml.dll or libproxml.so was missing or incomplete or XML could not be initialized. (9088)" "You were using an X-NODEREF or X-DOCUMENT object but there was an error in finding the proxml.dll (or libproxml.so or .sl), or in extracting its entry points, or in initializing it." "" ""
+9089 "DELETE-NODE not allowed on X-DOCUMENT object: use DELETE OBJECT x-doc-handle instead. (9089)" "DELETE-NODE is used with X-NODEREF objects where there is no close coupling between the PROGRESS nodereference and the XML node. But X-DOCUMENT objects do have a close coupling and DELETE OBJECT xDoc-handle will delete both the object and the XML entity." "" ""
+9090 "CLONE-NODE not allowed with X-DOCUMENT object; try IMPORT-NODE. (9090)" "CLONE-NODE is meant for X-NODEREF objects where we are indicating a simple node in a tree, not an entire X-DOCUMENT object. To copy an X-DOCUMENT object, create a new X-DOCUMENT object and use IMPORT-NODE on the new X-DOCUMENT to IMPORT to it the old X-DOCUMENT's DOCUMENT-ELEMENT. " "" ""
+9091 "Invalid COLLATE strength: <Collation strength> (9091)" "The listed value is not a valid strength for the COLLATE function. " "" ""
+9092 "Invalid COMPARE operator: <COMPARE operator> (9092)" "The listed value is not a valid operator for the COMPARE function. " "" ""
+9093 "Invalid COMPARE strength: <Compare strength> (9093)" "The listed value is not a valid strength for the COMPARE function. " "" ""
+9094 "COLLATE function only allowed on BY phrase. (9094)" "The COLLATE function is only allowed as part of the BY option of a FOR or OPEN QUERY statement, or a PRESELECT phrase. " "" ""
+9095 "X-NODEREF or X-DOCUMENT error occurred <xml-error> <xml-exception>. (9095)" "You were using an X-NODEREF or X-DOCUMENT object method and 
+encountered an error during the XML parsing or creation, below the 4GL layer." "" ""
+9096 "Connecting user """" to Admin Server on host """" at port """". (9096)" "
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+9097 "Connection attempt was interrupted: . (9097)" "
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+9098 "An error occurred while attempting to close file """"<filename>. (9098)" " " "" ""
+9099 "The maximum Area Size has been reached for Area:  
+Please refer to the Progress Database Limit chapter
+in the Database Administration Guide and Reference. (9099)" "The maximum area size has been reached for a specific area.  Please review your structure file and look at the area specified in the message.  The db admin guide & ref will help you determine what the max area size for that particular data storage area is,  depending on the blocksize of your database and the records per block." "D" ""
+9100 "There are no more result groups. (9100)" "" "" ""

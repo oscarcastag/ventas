@@ -1,0 +1,27 @@
+#!/bin/sh
+DLC=${DLC-/usr/rdl6/dlc};export DLC
+PROPATH=":.:$DLC/ora:$PROPATH"; export PROPATH;
+if [ "x$1" != "x" ]; then
+	VORA="-VO $1"; export VORA
+fi
+
+echo "";
+echo "Loading demo database into ORACLE, ORACLE_SID=$ORACLE_SID"
+echo "PROEXE=$PROEXE PROCFG=$PROCFG VORA=$VORA"
+echo "Log file is ldemo.log"
+(
+rm -f demo.* odemo.*
+prodb demo demo
+sqlplus system/manager <<End
+GRANT DBA TO odemo IDENTIFIED BY odemo;
+End
+ORAUSERNAME=odemo;  export ORAUSERNAME
+ORAPASSWORD=odemo;  export ORAPASSWORD
+MOVEDATA=yes;       export MOVEDATA
+PRODBNAME=demo;     export PRODBNAME 
+SHDBNAME=odemo;     export SHDBNAME
+ORADBNAME=oraodemo; export ORADBNAME
+pro $VORA -b -p prodict/ora/protoora.p
+) > ldemo.log 2>&1
+echo "Run pro -p coraodemo.p to connect to ORACLE demo database. "
+# rm -f *.e *.d demo.* *.sql *.tmp

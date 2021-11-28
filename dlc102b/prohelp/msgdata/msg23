@@ -1,0 +1,188 @@
+1101 "SYSTEM ERROR: <function-name>: invalid parameter, size=<value>. (1101)" "syserr " "" ""
+1102 "Already logged into the Embedded SQL Interface. Attempt ignored. (1102)" "An application may only log into the Progress Embedded SQL interface, via sqllogin() once. All subsequent attempts produce an error. " "" ""
+1103 "Next block in sequence should be <block-num> but got <rec-num> instead. (1103)" "" "" ""
+1104 "Unable to recover previous block in error (1104)" "The recovery block needed to recover a corrupted backup block is itself corrupted.  The backup block in error cannot, therefore, be recovered. " "" ""
+1105 "** EXPORT cannot be used with output to the screen. (1105)" "When using the EXPORT statement to dump data from your database, you must first use OUTPUT TO or OUTPUT THROUGH to direct the output to a file, pipe, etc.  The EXPORT statement cannot write its output to the screen. " "" ""
+1106 "SYSTEM ERROR: rmmak failed, retcode=<value> (1106)" "syserr " "" ""
+1107 "Conversion cancelled. You have a version 8 <version> database. (1107)" "The database cannot be converted with conv67. " "m" ""
+1108 "The value given with -Mr must be between <val> and <val>. (1108)" "The -Mr parameter is used to specify the standard size of an individual record buffer.  The permissible range of values is as shown in the error message. " "" ""
+1109 "The value given with -Mm must be between <value> and <value>. (1109)" "The -Mm parameter is used to specify the standard interprocess message packet size.  The value given must be within the range specified in the error message. " "" ""
+1110 "sqlfetch() handles only FETCH cursor requests. (1110)" "An SQL request other than FETCH was passed to sqlfetch(). " "" ""
+1111 "SYSTEM ERROR: bkfilc during resyncing (1111)" "syserr " "" ""
+1112 "Conversion completed, database is now in version 7 format. (1112)" "The database has been successfully converted to Version 7 format. " "m" ""
+1113 "Unable to determine file system block size for <file-name>. (1113)" "The stat() call failed.  This usually happens because it is looking for a file that doesn't exist. " "" ""
+1114 "setrmode: Couldn't open <file-name> for synchronous I/O. (1114)" "PROGRESS couldn't open a file for synchronous I/O.  This could be the result of having the disk on an Network File System (NFS) drive. PROGRESS will continue to work but data integrity will be turned off. This is similiar to running with the -i startup parameter. " "" ""
+1115 "Open failed.  Database unusable due to partial conversion. (1115)" "The database was damaged during a previous conversion attempt that failed and cannot be recovered. Use a copy or backup of the original database from before the conversion was attempted to continue. " "m" ""
+1116 "SYSTEM ERROR: bksetsf: Can't open <file-name> for synchronous i/o (1116)" "syserr " "" ""
+1117 "SYSTEM ERROR: bksavfd: More than 30 file descriptors needed for DB. (1117)" "There is a limit of 30 file descriptors per database. Each extent of the .db file, .bi file and .ai file may require up to 3 file descriptors.  Fewer will be required if the database is a single volume database. " "" ""
+1118 "SYSTEM ERROR: bksetmv: Can't open <file-name> for synchronous i/o  (1118)" "syserr " "" ""
+1119 "SYSTEM ERROR: wrong BI blk, read <dbkey> from <dbkey> in area <num> (1119)" "syserr " "" ""
+1120 "SYSTEM ERROR: wrong BI blk, write <dbkey> into <dbkey> in area <num> (1120)" "syserr " "" ""
+1121 "bktrunc: Could not open <file-name> for synchronous I/O. Error <err>. (1121)" "PROGRESS couldn't open a file for synchronous I/O.  This could be the result of having the disk on an Network File System (NFS) drive. PROGRESS will continue to work but data integrity will be turned off. This is similiar to running with the -i startup parameter. " "" ""
+1122 "RMS bit string occupies more than 5 bytes. (1122)" "An RMS field of type bits may not be larger than 5 bytes. The bit string itself cannot be longer than 32 bits and may begin anywhere in the first byte (as indicated by the bit offset). This message appears if the combination of bit string length and offset causes the field to occupy more than 5 bytes. Double-check the schema information for this field. " "d" ""
+1123 "Cannot bind new columns after executing sqlnxtrow(). (1123)" "NO LONGER USED. sqlnxtrow() and sqlbind() provide an application with an alternate method for retrieving rows of data from a cursor whereby you may control more closely and dynamically the retrieval of columns. A variable must be bound to each column of the request using sqlbind() before sqlnxtrow() may be called. Once sqlnxtrow() has been called, no new columns may be introduced for this request. " "" ""
+1124 "SYSTEM ERROR: Wrong dbkey in block. Found <dbkey>, should be <dbkey2> in area <num>. (1124)" "INTRODUCTION:
+=============
+This error is commonly associated with hardware or operating system problems.
+
+POSSIBLE CAUSE OF ERROR:
+========================
+When PROGRESS is going to write a block to the database, it reads the dbkey from the block header and using this number calculates the offset within the database where the blocks should be written. The block's dbkey determines its position within the database at the time of writing it. This is a simple calculation.
+
+   (dbkey / (2^recbits) * blocksize) - blocksize
+
+Where recbits = 5 for blocksizes less than 8k, and 6 for 8k blocksize.
+
+When PROGRESS reads a block, It uses recid information in the index or can read a specific recid and calculates the dbkey of the block based on the recid.  It checks that the dbkey that was read (not necessarily ""found in the index"") is the same as the actual dbkey that appears inside the block that was just read. When this is not the case, PROGRESS generates the 1124 error.
+
+In effect, PROGRESS does a read-after-write check, and error 1124
+indicates that what PROGRESS wrote is not what PROGRESS has read back.
+
+Note:  1124 probably means that data has been lost, possibly from more than one table. Since corruption can occur in memory as opposed to physical corruption (the filesystem cache has the wrong filesystem block in it), a system reboot may resolve the issue.
+
+PROGRESS uses the same validation and calculation code in all
+processes that read or write to the database, e.g.,  self-service
+clients, APWs, probackup and prorest. If you do not use Progress backup and restore facilities, this validation is not done.
+
+Many things happen between PROGRESS issuing the write request and the subsequent read request. Along this route, there are many points of potential failure. A simplified sequence of events is as follows:
+
+* PROGRESS issues a buffered write request and places the block in the operating system's (OS) Buffer Pool or Progress issues an unbuffered I/O request.
+
+  Faulty RAM, or an OS bug can cause corruption here.
+  Replace any newly installed RAM, and check with your OS supplier
+  for latest OS patch information.
+
+* The OS then passes the block to a device driver.
+
+  A device driver bug can cause corruption here.
+  Check OS supplier for latest patch information.
+
+* The device driver then passes the block to the disk controller.
+
+  Faulty disk controller or firmware bug can cause corruption here.
+
+* The disk controller then passes the block to the disk, possibly    via an external cable.
+
+  Faulty disk or cable can cause corruption here.
+
+* The disk device writes the block to media, possibly via an   internal cache
+
+  Faulty disk or disk firmware can cause corruption here (and has).
+
+Over the years, we have seen failures directly attributed to each of the above failures.
+
+In reading the block, the reverse happens.  A similar sequence of
+events occurs when backing up and restoring. Using non-PROGRESS backup utilities (particularly if they are not the standard ones provided with the Operating System) introduces another potential point of failure.
+
+For SCO UNIX systems, if using PC hardware, the BIOS sector
+translation for DOS drives greater than 1 GB _MUST_ be disabled.  If you are running a UNIX system with that translation turned on, it translates sectors so that DOS understands it, but not UNIX.  Turning BIOS sector translation off may greatly reduce if not eliminate the 1124 errors and may greatly increase performance, too.
+
+CORRECTIVE MEASURES:
+====================
+***** Backup the database before doing anything else. *****
+
+All of the above potential points of failure have occurred in the past By far, the most frequent cause is a faulty disk and/or controller. Having checked for faulty cables, swapping out these two components is always the first step in resolving this issue.
+
+Note: It is our experience that in most cases hardware diagnostics will _not_ detect a problem.
+
+Having replaced the disk and controller, it is necessary to attempt
+to clean the restored database.  The tools to use are either the
+'dbrpr' utility option of proutil, or 4GL code. Note that we cannot guarantee the integrity of the data once it has become corrupted by hardware or OS failure.
+
+1. DBRPR - Contact Progress Support for assistance
+
+Get into dbrpr's scan option. Delete the bad block by choosing the
+appropriate menu selections:  proutil <db> -C dbrpr > file.out
+
+After all bad blocks have been zeroed out, then do a full index
+rebuild.
+
+2. THROUGH 4GL
+
+First use a FOR EACH (which processes them sequentially by primary
+index) and EXPORT the records to a .d file. As in:
+
+OUTPUT TO <filename>A.d.
+FOR EACH <filename>:
+  EXPORT <filename>.
+END.
+OUTPUT CLOSE.
+
+If the file being processed has corruption, this will cause a System Error 1124.   Then process the same file 
+with:
+
+OUTPUT TO <filenam>D.d.
+FOR EACH <filename> DESCENDING:
+  EXPORT <filename>.
+END.
+OUTPUT CLOSE.
+
+This processes the table in reverse order, exporting to another .d
+file for the same table.  You will hit a System Error 1124 again.
+(hopefully on the same block). If you hit the 1124 on a different
+block, you can start over at the next block after the 1124 trying
+to export - binary dump can be used, but there is no way to get ""past"" an 1124 since it doesn't start with any specific block.
+
+This process must be done to all tables. There may be more than one
+table that contains corrupt data. The tables containing corruption will have two .d files to load (one for the front portion up to the bad block, and another for the end portion backwards to a bad block). The Data Dictionary may be used to re-load data.
+
+There are pros and cons of each of the above approaches. Using dbrpr is faster, and you insure that you are only deleting bad blocks. However, you don't have any idea which files were actually corrupted. If you do both (clean up bad block) then dump you can determine the missing records using index fix (V8 and up).
+
+The 4GL method allows you to find each file that was damaged.  However this method may result in the deletion of good blocks, simply because they were stuck between two bad blocks.  Also, this method is slower than using dbrpr, but you don't have to rebuild any indices, because they are redone by the dump/load.
+
+Miscellaneous User Experience (From the Progress E-Mail Group)
+==============================================================
+The following is a compilation of responses from users who have had
+Progress error (1124) on machines even though a scan of the database files comes up clean.  These 'case studies' are provided merely as suggestions on where to focus your research efforts when trying to troubleshoot the cause of the 1124 error.
+
+Note: the receipt of the (1124) error along with errors from a scan DO INDICATE some data corruption and appropriate action should be taken. The circumstances listed below refer to when the scan comes clean, but the error persists.
+
+1) During an idxbuild on a system with a flaky scsi cable, it happened at random points in the job, different every time. If the problem seems to come and go, then check such things as terminators or not having enough cable between connector termination power, and 
+anything else related.
+
+1a) Another customer, on AIX system, found that with all the disks
+connected via SCSI controllers, when they added all their cable length together, had exceeded the specified length for SCSI. They split off the disks and the 1124 errors went away.
+
+2) The 1124 error occurred on a database that had been cpio'd from another machine. The customers were able to run the process on the original machine, then damage may have been caused when the cpio copy was performed. Check the size of the database against the ulimit size on the machine that you copied the database to. Cpio will truncate the database at the ulimit size without giving you an error message. If the database is larger than the ulimit size then you should increase ulimit.
+NOTE: The PROGRESS backup utility, probkup, will bypass the ulimit size but cpio will not.
+
+3) It's possible that the machine has memory problems and/or if you are using a disk cache, the dbkey is getting corrupted by the caching process.
+
+4) Verify that the motherboard's speed is correctly set to match the CPU's speed.
+
+5) Examine other simultaneous processes accessing the drives. One customer had a benchmark process that was able to cause the error. What they also found is running multiple index rebuilds on multiple databases at the same time also caused the error. It seemed any process that caused high activity on the drive was all took to 
+cause the error. Now the one difference is a dbrpr would back with a report of some bad blocks.
+They were able to narrow down, that this problem was only happening on one particular model of hard drive they were using. It didn't matter if the hard drive was the master, or slave drive, it still caused the problem, if it contained the database. Where this all ended was when all parties (customer,PROGRESS and drive vendor) acknowledged that there was a problem with some models of hard drive and PROGRESS working together.
+
+Additional information regarding Database Backup and Recovery is
+available in PROGRESS Education Services courses on System
+Administration. Specialized assistance may also be available
+from Consulting. Contact your local PROGRESS Sales Office for
+more information, or call 1-617-275-4500 in Bedford, MA.
+        " "" ""
+1125 "Overflow: characteristic of length <n> too large for COBOL <m>. (1125)" "You tried to update a COBOL host language variable with a decimal value whose characteristic <n> is greater than that declared in the COBOL application <m>. Increase the size of the variable declared. " "" ""
+1126 "Update of long-raw (field # ) is not supported. (1126)" "Update of long-raw fields is not supported. " "S" ""
+1127 "Fix RECID <recid>, <file-name> already exists with <field value>. (1127)" "The file and field indicated have a unique index.  Since this index has been de-activated, duplicate values have been added to the field.  Find this record and modify the field value to be unique.  Try: FIND <file-name> WHERE RECID(<file-name>) = <recid>. UPDATE <file-name>. " "" ""
+1128 "Indicator variables must be either decimal or integer. (1128)" "Indicator variables must be integer or decimal. You tried to update a host language variable that served as an indicator variable but was not declared as decimal or integer in the COBOL application. " "" ""
+1129 "** stget: out of storage; the current -hs value is <blocks>. Try a larger number (1129)" "Your request has used too much memory.  Try breaking it down into smaller pieces (subroutine requests). On DOS, this may be caused by memory resident utility programs (for example, SIDEKICK).  Rerun the procedure without these programs. " "M" ""
+1130 "Less than minimum number of semaphores available (1130)" "Increase the SEMMSL limit of the kernel " "" ""
+1131 "Semaphore limit exceeded (1131)" "The maximum number of semaphores, systemwide (SEMMNS) has been exceeded.  Reduce the number of active databases, or reduce the number of users (-n) on some of the database.  You can also regenerate the kernel with an increased SEMMNS value (See the Operating System Documentation). " "" ""
+1132 "Invalid semaphore id (1132)" "syserr " "" ""
+1133 "Semaphore operation permission denied. (1133)" "syserr " "" ""
+1134 "SYSTEM ERROR: Shared memory segment key  does not exist (1134)" "syserr " "" ""
+1135 "Invalid size of shared memory segment (1135)" "When running shared-memory multi-user PROGRESS, the database server (proserve) was unable to get a shared-memory segment of 8K bytes or larger. You might have a UNIX kernel with a shared memory max size (SHMMAX) that is too small. If so, regenerate the kernel with a larger value. " "" ""
+1136 "SYSTEM ERROR: Shared memory access permission denied (1136)" "When running shared-memory multi-user PROGRESS, one of the processes was denied access to the shared memory. Make sure the PROGRESS modules were properly installed.  _proserve, _progres, etc. must be owned by ""root"" and have permission bits ""rwsrwxr-x"". " "" ""
+1137 "Maximum number of shared-memory identifiers exceeded. (1137)" "The system-imposed limit on the maximum number of shared memory segment identifiers was exceeded. You can: shut down one or more active databases, decrease -B and/or -c and/or -L in some of the active databases, or regenerate your kernel with increased SHMMNI " "" ""
+1138 "No more available shared-memory. (1138)" "When starting a PROGRESS database server (proserve), you have exceeded the available amount of shared memory.  You can:   1. Reduce this server's need by reducing the value of the      -B (database buffers) or -n (max users) startup parameters.   2. Shut down another PROGRESS database server.   3. Regenerate a new UNIX kernel with a larger shared      memory limit (SHMPOOL, SHMSEG, SHMMNI). " "" ""
+1139 "** Compile and run time user IDs do not match. (1139)" "SQL Data Definition Language statements must be compiled and executed under the same user ID. This is because assignment of an owner to a new table or verification of ownership of a table being modified or DROPped would otherwise not be possible. " "" ""
+1140 "** Duplicate table name. (1140)" "There is already a table or view with this name. " "" ""
+1141 "The maximum number of index cursors allowed is <max#>. (1141)" "The maximum number of index cursors supported is hardware dependent.  This message will most likely appear when the server is invoked and too many index cursors have been requested through the -c startup option.  The number of cursors allocated is reduced to the maximum indicated in the message. " "" ""
+1142 "** COUNT-OF requires a preselect sort.  Try COUNT instead. (1142)" "COUNT-OF gives the total population of a preselection.  You cannot use it unless it there is either an implicit or explicit preselection. The aggregate function COUNT is like TOTAL -- it gives the COUNT of a break or sort group -- and may be more appropriate.  It does not require a preselection. " "" ""
+1143 "** The NULL option can only be used in the PUT CONTROL statement. (1143)" "You can use    PUT [STREAM name] CONTROL ... NULL (number) .... To write a number of NULL characters to an output file.  Since the NULL character is not allowed in a PROGRESS character string, you must this statement to write NULL characters to an output file. " "" ""
+1144 "** Batch-mode PROGRESS requires a startup procedure. (1144)" "You do not have a chance to use the Procedure Editor to get started in batch mode, so you must supply a startup procedure using the PROGRESS -p parameter. " "" ""
+1145 "Cannot execute INPUT/OUTPUT THROUGH on BTOS. (1145)" "You are using the BTOS or CTOS operating system.  This operating system does not support the INPUT THROUGH or OUTPUT THROUGH statements.  Modify your application so it does not need to use those statements. " "" ""
+1146 "You must supply the -S startup parameter to run PROGRESS multi-user. (1146)" "In some versions of PROGRESS, the interprocess communication between server and clients is sockets.  For sockets to become connected, a service defined in the /etc/services file must be supplied with the -S parameter.  The /etc/services entry looks like:               <servicename>  <portnum>/tcp for example:              demosv          2052/tcp                proserve -S demosv " "" ""
+1147 "CRC check error reading backup block <block-num> (1147)" "The restore utility detected a corrupted backup block.  That is the CRC computed after the block was read does not match the CRC stored in the block when it was written by the backup utility. " "" ""
+1148 "SYSTEM ERROR: ncadb.c: recresp: insufficient storage for msg buffer (1148)" "syserr " "" ""
+1149 "SYSTEM ERROR: ncsbuf/nssbuf rmallocdll out of memory for message buffers (1149)" "syserr " "" ""
+1150 "Server has -Mm parm <size> and client has <size>. They must match. (1150)" "If you want to change the default message size between the server and clients using the PROGRESS parameter -Mm, you must give the same value to all client and server processes.  If you are running incompatible versions of clients and servers, the defaults could be different and you could get this message as well. Check the -Mm parameters to PROGRESS, and check the PROGRESS versions you are running to make sure they all match. " "" ""

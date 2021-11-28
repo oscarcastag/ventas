@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<waspcServer xmlns:wasp="urn:WaspServer" xmlns:redir="urn:RedirectModule">
+
+    <!-- Module RedirectModule -->
+    <wasp:module wasp:class="WASP_RedirectModule"/>
+
+    <!-- Saved schema files -->
+    <!-- location is relative to the configuration file -->
+
+    <redir:path redir:uri="http://www.w3.org/XML/1998/namespace" redir:location="schemas/1998-namespace.xsd"/>
+
+    <redir:path redir:uri="http://www.w3.org/1999/XMLSchema" redir:location="schemas/1999.xsd"/>
+    <redir:path redir:uri="http://www.w3.org/1999/part2.xsd" redir:location="schemas/1999-part2.xsd"/>
+    <redir:path redir:uri="http://www.w3.org/1999/1999-spec.xsd" redir:location="schemas/1999-spec.xsd"/>
+    
+    <redir:path redir:uri="http://www.w3.org/2000/04/xml.xsd" redir:location="schemas/200004-xml.xsd"/>
+    <redir:path redir:uri="http://www.w3.org/2000/10/xml.xsd" redir:location="schemas/200010-xml.xsd"/>
+    <redir:path redir:uri="http://www.w3.org/2000/10/XMLSchema" redir:location="schemas/200010.xsd"/>
+
+    <redir:path redir:uri="http://www.w3.org/2001/xml.xsd" redir:location="schemas/1998-namespace.xsd"/>
+    <redir:path redir:uri="http://www.w3.org/2001/XMLSchema" redir:location="schemas/2001.xsd"/>
+
+	<redir:path redir:uri="http://www.w3.org/TR/xmldsig-core/xmldsig-core-schema.xsd" redir:location="schemas/xmldsig-core-schema.xsd"/>
+    <redir:path redir:uri="http://schemas.xmlsoap.org/wsdl/" redir:location="schemas/wsdlSchema.xsd"/>
+    <redir:path redir:uri="http://schemas.xmlsoap.org/wsdl/http/" redir:location="schemas/httpBindingSchema.xsd"/>
+    <redir:path redir:uri="http://schemas.xmlsoap.org/wsdl/mime/" redir:location="schemas/mimeBindingSchema.xsd"/>
+    <redir:path redir:uri="http://schemas.xmlsoap.org/wsdl/soap/" redir:location="schemas/soapBindingSchema.xsd"/>
+    <redir:path redir:uri="http://schemas.xmlsoap.org/soap/encoding/" redir:location="schemas/soapEncoding.xsd"/>
+    <redir:path redir:uri="http://schemas.xmlsoap.org/ws/2002/04/content-type/" redir:location="schemas/dimeContentType.xsd"/>
+    <redir:path redir:uri="http://schemas.xmlsoap.org/ws/2002/04/reference/" redir:location="schemas/dimeReference.xsd"/>
+    <redir:path redir:uri="http://systinet.com/schemas/waspc/exception" redir:location="schemas/exception.xsd"/>
+    
+    <redir:path redir:uri="http://ws-i.org/profiles/basic/1.1/xsd" redir:location="schemas/swaRef.xsd"/>
+    <!-- xmlmime has several namespace uri's -->
+    <redir:path redir:uri="http://www.w3.org/2004/11/xmlmime" redir:location="schemas/xmlmime112004.xsd"/>
+    <redir:path redir:uri="http://www.w3.org/2004/06/xmlmime" redir:location="schemas/xmlmime062004.xsd"/>
+    <redir:path redir:uri="http://www.w3.org/2005/05/xmlmime" redir:location="schemas/xmlmime052005.xsd"/>
+    
+</waspcServer>

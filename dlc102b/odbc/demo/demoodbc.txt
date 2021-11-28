@@ -1,0 +1,65 @@
+     DataDirect Technologies
+     demoodbc Readme File
+     May 2004
+
+Demoodbc is a simple demonstration application that uses ODBC.
+It connects to the database of your choice using data sources
+from your odbc.ini file, retrieves a table named EMP, and
+displays the data from it. We provide SQL scripts to populate
+the EMP table.  If you do not populate the EMP table before 
+testing the connection, you will receive a message saying that
+the specified object name (EMP) is invalid because it does not
+exist in the database.  You should view this message as a
+successful connection to the database.
+
+You can also use demoodbc to persist the data from the EMP 
+table to an XML data file. It names this XML data file EMP.xml 
+and places it in the current directory.  Use the optional switch
+-xml to persist the data.
+
+NOTE: You cannot persist data to an XML data file using 
+the dBASE, SQL Server Wire Protocol, or Text drivers.
+
+Usage: 
+demoodbc [-uid <username>] [-pwd <password>] [-xml] <datasource>
+
+NOTE: If <datasource> contains spaces, you must enclose the value with
+double quotes ("), for example, "Oracle WP".
+
+Using a text editor, you can view the provided source code, demoodbc.c, 
+to see specifically commented code.  You can customize demoodbc.c and 
+build your own application by running the script Makefile.
+
+
+The following files are provided:
+
+demoodbc              Standard demo executable
+demoodbc.c            Source file to the standard demo program 
+driver_connect        Demo executable that uses Motif SQLDriverConnect
+driver_connect.cc     Source file to Motif demo program
+EMP.DBF               Sample dBASE file
+EMP.DBT
+empdb2.sql            File of SQL statements to use with DB2 to
+                      populate the EMP table used by the demo
+                      programs
+empinformix.sql       File of SQL statements to use with Informix
+                      to populate the EMP table used by the demo
+                      programs
+emporacle.sql         File of SQL statements to use with Oracle
+                      to populate the EMP table used by the demo
+                      programs
+empsqlsrv.sql         File of SQL statements to use with SQL Server
+                      to populate the EMP table used by the demo
+                      programs
+empsybase.sql         File of SQL statements to use with Sybase
+                      to populate the EMP table used by the demo
+                      programs
+emptext.txt           Sample text table
+Makefile              Make script for building the demo programs
+QEDBF.INI             Schema information for the sample dBASE file
+QETXT.INI             Schema information for the sample text file
+
+
+~~~~~~~~~~~~~
+End of Readme 
+     

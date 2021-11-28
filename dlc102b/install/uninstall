@@ -1,0 +1,350 @@
+#!/bin/sh 
+
+# uninstall - OpenEdge Uninstall script
+#             Captures output in $HOME/OE<version>uninst.log
+
+#*************************************************************#
+#* Copyright (c) 1984-2008 by Progress Software Corporation  *#
+#*                                                           *#
+#* All rights reserved.  No part of this program or document *#
+#* may be  reproduced in  any form  or by  any means without *#
+#* permission in writing from Progress Software Corporation. *#
+#*************************************************************#
+
+#-------------------------------------------------------------------#
+#  INITIALIZE VARIABLES / VERIFY ID & INSTALL DIRECTORY / SET TRAP  #
+#-------------------------------------------------------------------#
+
+PROG=`basename $0`
+NULL=/dev/null
+
+if id | grep -v uid=0 > $NULL ; then
+	cat <<-EOFCAT
+
+		$PROG: Error: You must be logged in as "root" to uninstall OpenEdge.
+		Exiting...
+
+	EOFCAT
+	exit 1
+fi
+
+# Get current installDir (DLC) - uninstall lives in <installdir>/install
+installDir=`(cd \`dirname $0\`/..;pwd)`
+oemInstallDir=`awk -F= '/oemtargetDir/ {print $2}' $installDir/installd.ini`
+
+# Make sure installDir is actual OpenEdge install
+if [ ! -f $installDir/progress.cfg ] ; then
+	cat <<-EOFCAT
+
+		$PROG: Error: No OpenEdge installation found in "$installDir".
+		Exiting...
+
+	EOFCAT
+	exit 1
+fi
+
+VERS=`awk '{for(i=1;i<=NF;i++)if($i~/^[1-9][0-9]*\.[0-9][A-z]/){print $i;break}}' $installDir/version`
+
+
+# Set logfile name - make sure user can write to it
+LOG=$HOME/OE${VERS}uninst.log
+touch $LOG 2> $NULL
+if [ $? -ne 0 ] ; then
+	LOG=/tmp/OE${VERS}uninst.log
+fi
+
+OE="OpenEdge $VERS"
+hasErrors=false
+hasWarnings=false
+
+export PROG NULL installDir oemInstallDir VERS LOG OE hasWarnings
+
+
+#------------------------#
+#  FUNCTION DEFINITIONS  #
+#------------------------#
+
+#-------------------------------------------------------------------
+# Logging functions: LOG_TTY   STDOUT & STDERR to screen and logfile
+#                    LOG_ONLY  STDOUT & STDERR to logfile only
+#                    START_LOG Adds header to logfile - takes timestamp param
+#                    END_LOG   Adds footer to logfile -   "       "       "
+#                    MV_LOG    Renames/increments existing log file
+
+# Define Field Descriptor 3 as STDOUT - for LOG functions
+exec 3>&1
+
+# This needs work to properly capture return code from command
+# it always returns from tee command
+LOG_TTY () {
+	"$@" 2>&1 | tee -a $LOG >&3 >&2 ;
+	return $? ;
+}
+
+LOG_ONLY () {
+	"$@" >> $LOG ;
+	return $? ;
+}
+
+START_LOG () {
+	cat <<-EOFCAT > $LOG
+		+++ START $OE Uninstaller $installDir/$PROG
+		+++ [`date`]
+
+	EOFCAT
+	return 0 ;
+}
+
+END_LOG () {
+	cat <<-EOFCAT >> $LOG
+
+		+++ [`date`]
+		+++ END $OE Uninstaller $installDir/$PROG
+	EOFCAT
+	return 0 ;
+}
+
+MV_LOG () {
+	if [ -s $LOG ] ; then
+		N=1
+		while [ -f $LOG$N ] ; do
+			# Increment N
+			N=`expr $N + 1`
+		done
+		mv $LOG $LOG$N
+	fi
+	return 0 ;
+}
+
+#-------------------------------------------------------------------
+# ECHO_BL function: echo strings with blank line(s)
+#                   Parameters: BEFORE, AFTER, or BOTH
+
+ECHO_BL () {
+	where=$1
+	shift
+	case $where in
+		BEFORE)	echo ; echo "$@"        ;;
+		AFTER )	       echo "$@" ; echo ;;
+		BOTH  )	echo ; echo "$@" ; echo ;;
+	esac
+	return 0 ;
+}	
+
+#-------------------------------------------------------------------
+# ECHO_NOCR function: echo strings without newline
+
+if type printf > $NULL 2>&1 ; then
+	ECHO_NOCR () {
+		printf "$@" ;
+	}
+elif echo "\c" | fgrep c > $NULL 2>&1 ; then
+	ECHO_NOCR () {
+		echo -n "$@" ;
+	}
+else
+	ECHO_NOCR () {
+		echo "$@\c" ;
+	}
+fi
+
+#-------------------------------------------------------------------
+# WELCOME function: Echo welcome message - exit if No to proceed
+
+WELCOME () {
+	ret=0
+	LOG_TTY cat <<-EOFCAT
+
+		 WELCOME TO THE OPENEDGE UNINSTALL UTILITY
+
+		 Copyright (c) 1984-2009 Progress Software Corp.
+		 All Rights Reserved.
+
+		 This utility will uninstall OpenEdge $VERS from the
+		 "$installDir" directory.
+
+		 Please shut down all of your OpenEdge and Sonic
+		 processes before proceeding with this uninstall.
+
+		 Do you want to proceed with the uninstall?
+
+	EOFCAT
+	LOG_TTY ECHO_NOCR " Enter Y[es] or N[o] (CR=Yes): "
+	read resp
+	LOG_ONLY echo $resp
+	LOG_TTY	echo
+	case $resp in
+		[Nn]*)
+			LOG_TTY ECHO_BL AFTER "Exiting..."
+			ret=1
+			;;
+	esac
+	return $ret ;
+}
+
+#-------------------------------------------------------------------
+# DO_OTHER_FILES function: Returns true (0) if directory argument
+
+DO_OTHER_FILES () {
+	# Clean up /etc files: 1. Remove current installDir entry
+	#                      2. Remove any non-OE-install entries
+	noMsgYet=true
+	ProDbgCK=false
+	for file in /etc/progress /etc/ProDbgCK ; do
+		if [ -f $file ] ; then
+			if $noMsgYet ; then
+				noMsgYet=false
+			fi
+			if [ $file = /etc/ProDbgCK ] ; then
+				ProDbgCK=true
+				chmod +w $file
+			fi
+			LOG_TTY ECHO_BL BEFORE ">> Removing $installDir line from $file..."
+			while read line ; do
+				if $ProDbgCK ; then
+					dir=`echo $line | sed "s/\.state=.*$//"`
+				else
+					dir=$line
+				fi
+				if [ $dir != $installDir -a -f $dir/progress.cfg ] ; then
+					echo $dir
+				fi
+			done < $file > $file.tmp
+			# Remove temp file & original?
+			if [ `cat $file.tmp | wc -l` -eq 0 ] ; then
+				LOG_TTY echo ">> Deleting empty $file..."
+				rm -f $file $file.tmp
+			else
+				mv $file.tmp $file
+				if $ProDbgCK ; then chmod 444 $file ; fi
+			fi
+		fi
+	done
+	return 0 ;
+}
+
+#-------------------------------------------------------------------
+# IS_SYS_DIR function: Returns true (0) if directory argument
+#                        is a typical system directory name
+#                      Returns false (1) otherwise
+
+IS_SYS_DIR () {
+	dir=$1
+	if [ $dir = . ] ; then dir=`pwd` ; fi
+	case `basename $dir` in
+		/ | *bin | dev | etc | home | lib | opt | tools | usr | var )
+			true  ;;
+		* ) false ;;
+	esac
+	return $? ;
+}
+
+#-------------------------------------------------------------------
+# REMOVE_INSTALLDIR function: Removes installDir ONLY after verifying that
+#                             installDir: 1) IS an OpenEdge directory and
+#                                         2) IS NOT a "system" directory
+REMOVE_INSTALLDIR () {
+	ret=0
+	# Don't remove DLC if in a system dir or a non-OpenEdge dir
+	if IS_SYS_DIR $installDir || [ ! -f $installDir/progress.cfg ] ; then
+		LOG_TTY cat <<-EOFCAT
+			***Warning: $OE directory $installDir NOT removed.
+			***         Possible system directory or non-OpenEdge directory.
+			***         You must manually remove it.
+		EOFCAT
+		hasWarnings=true
+		ret=2
+	else
+		LOG_TTY ECHO_BL BOTH "> Removing $OE directory $installDir..."
+		rm -rf $installDir
+	fi
+	return $ret ;
+}
+
+#-------------------------------------------------------------------
+# REMOVE_OEMINSTALLDIR function: Removes oemInstallDir ONLY after verifying that
+#                             oemInstallDir: 1) IS an OpenEdge directory and
+#                                         2) IS NOT a "system" directory
+REMOVE_OEMINSTALLDIR () {
+	ret=0
+	# Don't remove OEM if in a system dir or a non-OpenEdge dir
+	if IS_SYS_DIR $oemInstallDir || [ ! -f $oemInstallDir/jars/fathom.jar ] ; then
+		LOG_TTY cat <<-EOFCAT
+			***Warning: $OE directory $oemInstallDir NOT removed.
+			***         Possible system directory or non-OpenEdge directory.
+			***         You must manually remove it.
+		EOFCAT
+		hasWarnings=true
+		ret=2
+	else
+		LOG_TTY ECHO_BL BOTH "> Removing $OE directory $oemInstallDir..."
+		rm -rf $oemInstallDir
+	fi
+	return $ret ;
+}
+
+#-------------------------------------------------------------------
+# Set trap to capture ^C, kill's...
+
+trap '
+	LOG_TTY ECHO_BL BEFORE "***WARNING! Program interrupt detected!"
+	ECHO_BL BOTH "Exiting..."
+	exit 99
+' 1 2 3 4 5 6 7 8 9 10 12 13 14 15
+
+
+#-------------------#
+#  BEGIN UNINSTALL  #
+#-------------------#
+
+exitCode=0
+
+cd $HOME	# Start out in home dir
+
+MV_LOG
+
+ECHO_BL BOTH Writing to log file: $LOG...
+
+START_LOG
+
+WELCOME
+exitCode=$?
+if [ $exitCode -ne 0 ] ; then
+	END_LOG
+	exit $exitCode
+fi
+
+LOG_TTY echo "> Uninstalling $OE in $installDir..."
+
+cd $HOME	# Make sure back in home dir
+
+DO_OTHER_FILES
+
+REMOVE_INSTALLDIR
+
+LOG_TTY ECHO_BL AFTER "> Done uninstalling $OE in $installDir..."
+
+LOG_TTY echo "> Uninstalling $OE in $oemInstallDir..."
+
+REMOVE_OEMINSTALLDIR
+
+LOG_TTY ECHO_BL AFTER "> Done uninstalling $OE in $oemInstallDir..."
+
+END_LOG
+
+if $hasErrors || $hasWarnings ; then
+	if $hasErrors ; then
+		exitCode=1
+		EorW=Errors
+	else
+		exitCode=2
+		EorW=Warnings
+	fi
+	ECHO_BL BOTH "\
+$PROG: Note! $EorW were generated during the $OE uninstall.
+$PROG: For more information check the \"$LOG\" file."
+else
+	ECHO_BL BOTH Created log file: $LOG.
+fi
+
+exit $exitCode

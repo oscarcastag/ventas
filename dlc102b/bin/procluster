@@ -1,0 +1,207 @@
+#!/bin/sh
+
+#SYNTAX
+
+USAGE()
+{
+        echo "Usage: procluster <Database name> <Command> [-pf params_file] [AI] [BI] [APW=n][WDOG]"
+}
+
+
+# This function Parses the AI/BI/APW/WDOG Parts If present and
+# then creates the file PSC_CLUSTER_REG_ADDON.TMP
+# with this information in appropriate syntax for "pscluster"
+
+ADDONS()
+{
+# if file exists delete it and create a blank new file 
+
+if [ ! ${PSC_CLUSTER_PATH}x = x ]
+then 
+        if [ -f $OUTFILE ]; then
+                rm -f $OUTFILE
+        fi
+        touch "$OUTFILE"
+
+        REGISTER=false
+
+        while [ "$#" -ne 0 ]
+        do
+                Variable=""
+                if [ "`echo $1|egrep =`" != "" ]; then
+                        Variable=`echo $1|sed 's@=.*@@'`
+                        Value=`echo $1|sed 's@.*=@@'`
+                fi
+
+                case $1 in
+                        APW*)   if [ "${Variable}" != "" ]; then
+                                        eval $Variable="$Value"
+                                else
+                                        shift
+                                        APW=$1
+                                fi
+                                shift
+
+                        ;;
+                        BI*)     if [ "${Variable}" != "" ]; then
+                                        eval $Variable="$Value"
+                                else
+                                        #shift
+                                        #BI=$1
+                                        BI="true"
+                                fi
+                                shift
+
+                        ;;
+                        AI*)     if [ "${Variable}" != "" ]; then
+                                        eval $Variable="$Value"
+                                else
+                                        #shift
+                                        #AI=$1
+                                        AI="true"
+                                fi
+                                shift
+
+                        ;;
+                        WDOG*) if [ "${Variable}" != "" ]; then
+                                        eval $Variable="$Value"
+                                else
+                                        #shift
+                                        #WDOG=$1
+                                        WDOG="true"
+                                fi
+                                shift
+                        ;;
+                	*)
+                                USAGE
+                                exit
+                        ;;
+                esac
+        done
+
+        if [ "$AI" = true ]
+        then
+                echo ResourceType=Application >> $OUTFILE
+                echo ResourceName="$DB_pscluster"_AIW >> $OUTFILE
+                echo StartCommand=$DLC/bin/proaiw $DB_dbutil >> $OUTFILE
+                echo ResourceDependency=$DB_pscluster >> $OUTFILE
+                echo ApplicationExePath=$DLC >> $OUTFILE
+                echo ApplicationMsgPath=$DLC/promsgs >> $OUTFILE 
+                echo ApplicationLicPath=$DLC/progress.cfg >> $OUTFILE
+		echo Environmentstring=DLC=$DLC >> $OUTFILE
+		echo Environmentstring=PROMSGS=$DLC/promsgs >> $OUTFILE
+		echo Environmentstring=PROCFG=$DLC/progress.cfg >> $OUTFILE
+		REGISTER=true
+        fi
+
+        if [ ! -z "$APW" ]
+        then
+                i=1
+                if [ -z "$APW" ]
+                then
+                        USAGE
+                        exit
+                fi
+                while [ "$i" -le "$APW" ]
+                do
+                        echo ResourceType=Application >> $OUTFILE
+                        echo ResourceName="$DB_pscluster"_APW"$i" >> $OUTFILE
+                        echo StartCommand=$DLC/bin/proapw $DB_dbutil >> $OUTFILE
+                        echo ResourceDependency=$DB_pscluster >> $OUTFILE
+                        echo ApplicationExePath=$DLC >> $OUTFILE
+                        echo ApplicationMsgPath=$DLC/promsgs >> $OUTFILE 
+                        echo ApplicationLicPath=$DLC/progress.cfg >> $OUTFILE
+			echo Environmentstring=DLC=$DLC >> $OUTFILE
+			echo Environmentstring=PROMSGS=$DLC/promsgs >> $OUTFILE
+			echo Environmentstring=PROCFG=$DLC/progress.cfg >> $OUTFILE
+                        i=`expr $i + 1`
+                done
+		    REGISTER=true
+        fi
+
+        if [ "$BI" = true ]
+        then
+                echo ResourceType=Application >> $OUTFILE
+                echo ResourceName="$DB_pscluster"_BIW >> $OUTFILE
+                echo StartCommand=$DLC/bin/probiw $DB_dbutil >> $OUTFILE
+                echo ResourceDependency=$DB_pscluster >> $OUTFILE
+		echo ApplicationExePath=$DLC >> $OUTFILE
+		echo ApplicationMsgPath=$DLC/promsgs >> $OUTFILE 
+		echo ApplicationLicPath=$DLC/progress.cfg >> $OUTFILE
+		echo Environmentstring=DLC=$DLC >> $OUTFILE
+		echo Environmentstring=PROMSGS=$DLC/promsgs >> $OUTFILE
+		echo Environmentstring=PROCFG=$DLC/progress.cfg >> $OUTFILE
+		REGISTER=true
+        fi
+
+        if [ "$WDOG" = true ]
+        then
+                echo ResourceType=Application >> $OUTFILE
+                echo ResourceName="$DB_pscluster"_WDOG >> $OUTFILE
+                echo StartCommand=$DLC/bin/prowdog $DB_dbutil >> $OUTFILE
+                echo ResourceDependency=$DB_pscluster >> $OUTFILE
+		echo ApplicationExePath=$DLC >> $OUTFILE
+		echo ApplicationMsgPath=$DLC/promsgs >> $OUTFILE 
+		echo ApplicationLicPath=$DLC/progress.cfg >> $OUTFILE
+		echo Environmentstring=DLC=$DLC >> $OUTFILE
+		echo Environmentstring=PROMSGS=$DLC/promsgs >> $OUTFILE
+		echo Environmentstring=PROCFG=$DLC/progress.cfg >> $OUTFILE
+		REGISTER=true
+        fi
+
+        if [ "$REGISTER" = true ] 
+        then
+		   pscluster register $OUTFILE
+        fi
+fi
+}
+
+if [ "$1" = "" -o "$2" = "" ]; then
+        USAGE
+        exit
+fi
+
+DLC=${DLC-/dlc/dlc102b};export DLC
+
+ProgName=$0 
+DatabaseName=$1
+Command=$2
+Switch=
+Pf=
+OUTFILE=$PSC_CLUSTER_PATH/scripts/PSC_CLUSTER_REG_ADDON.TMP
+
+DB_dbutil=`echo $DatabaseName | sed -e 's/\.db$//'`
+
+DB_pscluster=`echo $DB_dbutil | sed -e 's/$/\.db/'`
+
+if [ -n "$3" ]; then
+        if [ "$3" != "-pf" ]; then
+                shift
+                shift
+        elif [ -z "$4" ] 
+                then
+                        USAGE
+                        exit
+                else
+                        Switch=$3
+                        Pf=$4
+                        shift
+                        shift
+                        shift
+                        shift
+        fi
+else
+        shift
+        shift
+fi
+
+if [ "$Command" = enable ]; then
+        $DLC/bin/_dbutil prostrct cluster $DB_dbutil $Command $Switch $Pf
+        ADDONS $@
+
+elif [ "$Command" = disable ];then                
+        $DLC/bin/_dbutil prostrct cluster $DB_dbutil $Command
+else
+        $PSC_CLUSTER_PATH/bin/pscluster $Command $DB_pscluster
+fi
+

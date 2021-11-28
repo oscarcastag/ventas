@@ -1,0 +1,169 @@
+#!/bin/sh
+# Progress Unified Broker Command Line Config utility for 
+# WebSpeed, AppServer, NameServer, Oracle/ODBC Dataservers.
+PROG=`basename $0`
+
+# Determine the correct directory where the Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "$DLC" "/dlc/dlc102b"
+do
+    [ ! -f "${what_dlc}/java/progress.jar" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+
+# Set the user working directory - this is a tailored value
+for what_wrkdir in "$WRKDIR" "/dlc/wrk102b" "."
+do
+    [ ! -d "${what_wrkdir}" ] && continue
+    WRKDIR=$what_wrkdir
+    export WRKDIR
+    break
+done
+
+
+
+# Set PROMSGS (if not set) add another others here
+PROMSGS=${PROMSGS-$DLC/promsgs};                     export PROMSGS
+
+
+# Set variable for UBCfgClient and the Java Starter
+UBCONFIGCLASS=${UBCONFIGCLASS-UBCfgClient}
+UBCONFIGPKG=${UBCONFIGPKG-com.progress.ubroker.tools}
+
+UBCONFIG=${UBCONFIG-$DLC/java/com/progress/ubroker/tools/${UBCONFIGCLASS}.class}
+JVMSTRT=${JVMSTRT-$DLC/bin/jvmStart}
+TOOLSPROP=${TOOLSPROP-$DLC/properties/JavaTools.properties}
+TOOLSGRP=${TOOLSGRP-CONFIGCLI}
+
+# In case TERM and PROPATH are not set to something, avoid a warning message.
+TERM=ansi; export TERM
+PROPATH=$PROPATH:.; export PROPATH
+cat $DLC/version
+
+# Set any environment variables below required to start the AdminClient
+
+# set the java environment
+if [ ! -f $DLC/bin/java_env ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "java_env could not be found."
+    echo
+    echo "JAVA environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the JAVA environment 
+. $DLC/bin/java_env
+
+if [ ! -f $JREHOME/bin/$JVMEXE ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Java Virtual Machine could not be found."
+    echo
+    echo "JREHOME environment variable may not be set correctly."
+    echo "Set JREHOME variable to a valid directory."
+    echo
+    echo "JREHOME setting: $JREHOME"
+    echo
+    exit 1
+fi
+
+# set the Progress shared lib  environment
+if [ ! -f $DLC/bin/slib_env ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "slib_env could not be found."
+    echo
+    echo "Progress shared library environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the Progress Shared lib environment 
+. $DLC/bin/slib_env
+
+
+# To override any of the settings in this script, create a file proset.env in
+# the application default directory and set any environment variables in that
+# file in the same way it would be done for any Bourne shell script i.e.
+#   # proset.env - application environment changes
+#   # Adjust the PROPATH to also include the web/examples directory.
+#   PROPATH=$PROPATH:$DLC/src/web/examples
+#   export PROPATH
+# The file must be named "proset.env" and it must be in the current working
+# directory to be loaded by this and other scripts.  
+if [ -f proset.env ]
+then
+    echo "Loading settings from proset.env"
+    . ./proset.env
+fi
+
+
+
+# make sure the working directory is real.
+if [ ! -d $WRKDIR ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Working directory is invalid."
+    echo
+    echo "Progress WRKDIR environment variable may not be set correctly."
+    echo "Set WRKDIR variable to a valid directory."
+    echo
+    echo "Progress WRKDIR setting: $WRKDIR"
+    echo
+    exit 1
+fi
+
+
+if [ ! -f $JVMSTRT ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Progress Java Server starter could not be found."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo "Executable not found: $JVMSTRT"
+    echo
+    exit 1
+fi
+
+if [ ! -f $TOOLSPROP ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Progress tools property file could not be found."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo "Executable not found: $TOOLSPROP"
+    echo
+    exit 1
+fi
+
+
+# at this point ALL required environment variable should be set
+# invoke the Unified Broker Utility.
+exec $JVMSTRT -o stderr  -m silent -a $TOOLSPROP::$TOOLSGRP $JVM -DInstall.Dir=$DLC -DWork.Dir=$WRKDIR  ${UBCONFIGPKG}.${UBCONFIGCLASS} "$@"
+

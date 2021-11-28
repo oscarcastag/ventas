@@ -1,0 +1,269 @@
+
+%% Backup AdminServer Properties File: Feb 27, 2015
+%% Feb 27, 2015 7:13:17 PM
+
+#
+# Plugin definitions
+#
+# The following are the valid properties for a Plugin group:
+#
+#  pluginpolicy - the policy to use when loading this plugin.
+#  pluginargs - the arguments for the plugin as a comma-separated list
+#  pluginarchive - the archive containing the plugin.  Used by the plugin.
+#  classname - the class to be loaded as the plugin.
+#  uniquetype - indicates the unique personality of this plugin.
+#  depenancy - a comma-separated list of other plugins that must be started
+#              before this plugin is started.
+#  license - a comma-separated list of license values for this plugin.
+#
+[Plugin]
+    pluginarchive=progress.jar
+    pluginpolicy=PluginPolicy.Progress
+    pluginargs=
+
+#
+# AIA plugin - AppServer Internet Adapter (AIA) support
+#
+[Plugin.AIA]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    uniquetype=AIA
+    license=1245185,1310721
+    classname=com.progress.ubroker.tools.aia.AiaGuiPlugin
+    pluginargs=AppServer Internet Adapter
+
+#
+# Unified Broker Plugin - AppServer support
+#
+[Plugin.AppServer]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    uniquetype=AS
+    license=25165824
+    classname=com.progress.ubroker.tools.UBGuiPlugin
+    pluginargs=AppServer
+
+#
+# Database Plugin
+#
+[Plugin.Database]
+    dependency=Plugin.System,Plugin.DatabaseAgent,Plugin.Replication
+    pluginpolicy=PluginPolicy.Progress.Database
+    license=9437184,13631489,24838144
+    classname=com.progress.juniper.admin.JAPlugIn
+    pluginargs=properties/conmgr.properties
+
+# Fathom Database Agent
+#
+[Plugin.DatabaseAgent]
+    dependency=Plugin.System
+    pluginpolicy=PluginPolicy.Progress.Database
+    uniquetype=databaseagent
+    license=9437184,13631489,24838144
+    classname=com.progress.agent.database.AgentPlugIn
+    pluginargs=properties/agent.properties
+
+#
+# Fathom Plugin
+#
+[Plugin.Fathom]
+    dependancy=Plugin.Database,Plugin.System
+    pluginpolicy=PluginPolicy.Fathom
+    uniquetype=fathom
+    classname=com.progress.isq.ipqos.plugin.FathomPlugIn
+
+#
+# Unified Broker plugin - MSS DataServer support
+#
+[Plugin.MSSDataServer]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    uniquetype=MS
+    license=17563649
+    classname=com.progress.ubroker.tools.UBGuiPlugin
+    pluginargs=MSS DataServer
+
+#
+# Remote Management Plugin
+#
+[Plugin.Management]
+    classname=com.progress.mf.runtime.ManagementPlugin
+    pluginargs=properties/management.properties
+
+#
+# NameServer plugin
+#
+[Plugin.NameServer]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    uniquetype=NS
+    license=4718592
+    classname=com.progress.ubroker.tools.NSGuiPlugin
+    pluginargs=NameServer
+
+#
+# Unified Broker Plugin - ODBC DataServer support
+#
+[Plugin.ODBCDataServer]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    uniquetype=OD
+    license=10747904
+    classname=com.progress.ubroker.tools.UBGuiPlugin
+    pluginargs=ODBC DataServer
+
+#
+# Unified Broker Plugin - Oracle DataServer support
+#
+[Plugin.OracleDataServer]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    uniquetype=OR
+    license=17432576
+    classname=com.progress.ubroker.tools.UBGuiPlugin
+    pluginargs=Oracle DataServer
+
+#
+# WebSpeed/OpenAppServer/NameServer Command Line Tool Support
+#
+[Plugin.RemoteCommander]
+    dependency=Plugin.System
+    license=4325376,4718592,10747904,17432576,25165824,4980736,17563649
+    classname=com.progress.ubroker.tools.UBCommandPlugin
+    pluginargs=-l,2
+
+#
+# Script Managed Database Plugin
+#
+[Plugin.SMDatabase]
+    dependency=Plugin.DatabaseAgent
+    pluginpolicy=PluginPolicy.Progress.Database
+    uniquetype=smdatabase
+    license=9437184,13631489,24838144
+    classname=com.progress.agent.smdatabase.SMPlugIn
+    pluginargs=properties/smdatabase.properties
+
+#
+# 4GL Sonic Adapter plugin - SonicMQ adapter support
+#
+[Plugin.SonicMQAdapter]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    pluginpolicy=PluginPolicy.Progress.SonicMQ
+    uniquetype=AD
+    license=1048577
+    classname=com.progress.ubroker.tools.adapter.AdapterGuiPlugin
+    pluginargs=SonicMQ Adapter
+
+#
+# Operating System Plugin
+#
+[Plugin.System]
+    dependency=Plugin.Management
+    classname=com.progress.system.SystemPlugIn
+
+#
+# Unified Broker Property Manager Plugin
+#
+[Plugin.UBPropMgr]
+    dependency=Plugin.System
+    license=4325376,4718592,10747904,17432576,25165824,4980736,1245185,1310721,1048577,17563649
+    classname=com.progress.ubroker.tools.PropMgrPlugin
+
+#
+# Web Services Adapter Plugin
+#
+[Plugin.WSA]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    pluginpolicy=PluginPolicy.WSA
+    uniquetype=WSA
+    license=16318464
+    classname=com.progress.ubroker.tools.wsa.WsaGuiPlugin
+    pluginargs=Web Services Adapter
+
+#
+# WebSpeed Messenger PlugIn
+#
+[Plugin.WSMessenger]
+    dependency=Plugin.System,Plugin.WebSpeed
+    license=4980736
+    classname=com.progress.ubroker.tools.MSGuiPlugin
+    pluginargs=Messengers
+
+#
+# Unified Broker Plugin - WebSpeed support
+#
+[Plugin.WebSpeed]
+    dependency=Plugin.System,Plugin.UBPropMgr
+    uniquetype=WS
+    license=4325376
+    classname=com.progress.ubroker.tools.UBGuiPlugin
+    pluginargs=WebSpeed
+
+#
+# Policy definitions
+#
+# The following are the valid properties for a PluginPolicy group:
+#
+#  Properties used by the AdminServer:
+#
+#    classloader - the classloader to be used when loading the plugin.
+#                  Only java.net.URLClassLoader is currently supported.
+#    classpath - the classpath used when loading the plugin.
+#
+#  Properties used by the plugin when creating a new process:
+#
+#    pluginclasspath - the classpath to be specified for the new JVM
+#    jvmargs - the switches to be specified to the new JVM
+#    policyfile - the value to be specified for the java.security.policy
+#                 system property for the new JVM
+#    umask - the umask value for the created process.  UNIX only.
+#    authpolicy - placeholder, currently not implemented
+#    loginconfig - placeholder, currently not implemented
+#
+[PluginPolicy]
+    pluginclasspath=
+    classpath=
+    policyfile=/dlc/dlc102b/java/java.policy
+    loginconfig=
+    classloader=java.net.URLClassLoader
+    jvmargs=
+    authpolicy=
+    umask=
+
+#
+# install=plugin,update,AdminServerPlugins.properties
+# uninstall=plugin,delete,AdminServerPlugins.properties
+#
+#
+# Fathom Policy (i.e. Classloader)
+#
+[PluginPolicy.Fathom]
+    pluginclasspath=!{value-of:classpath}
+    classpath=/dlc/dlc102b/java/progress.jar,/dlc/eomgmt102b/jars/fmpatch.jar,/dlc/eomgmt102b/jars/fathom.jar,/dlc/dlc102b/java/ext/fmext.jar,/dlc/eomgmt102b/jars/javax.servlet.jar,/dlc/eomgmt102b/jars/org.apache.jasper.jar
+
+#
+# Policy for core Progress
+#
+[PluginPolicy.Progress]
+    pluginclasspath=!{value-of:classpath}
+    classpath=/dlc/dlc102b/jre/i18n.jar,/usr/java/jre1.5.0_22/lib/tools.jar,/dlc/dlc102b/java/progress.jar,/dlc/dlc102b/java/ext/mgmt_client.jar
+
+[PluginPolicy.Progress.AdminServer]
+    pluginclasspath=!{value-of:classpath}
+    classpath=/dlc/dlc102b/java/ext/jmxri.jar,/dlc/dlc102b/java/ext/mgmt_agent.jar,/dlc/dlc102b/java/ext/mgmt_client.jar,/dlc/dlc102b/java/ext/mgmt_config.jar,/dlc/dlc102b/java/ext/sonic_Client.jar,/dlc/dlc102b/java/progress.jar,/dlc/dlc102b/java/osmetrics.jar,/dlc/dlc102b/java/jdbc.jar,/dlc/dlc102b/java/base.jar,/dlc/dlc102b/java/openedge.jar,/dlc/dlc102b/java/util.jar,/dlc/dlc102b/java/ext/soap.jar,/dlc/dlc102b/java/prorepl.jar,/dlc/dlc102b/java/ext/wsdl4j.jar
+    jvmargs=-Xmx256m -Djava.awt.headless=true -Xbootclasspath/a:/dlc/eomgmt102b/jars/pja.jar
+
+#
+# Policy for all databases
+#
+[PluginPolicy.Progress.Database]
+    pluginclasspath=/dlc/dlc102b/java/progress.jar,/dlc/dlc102b/java/prosp.jar,/dlc/dlc102b/java/prorepl.jar
+
+#
+# Policy for the 4GL SonicMQ Adapter
+#
+[PluginPolicy.Progress.SonicMQ]
+    pluginclasspath=/dlc/dlc102b/sonic/MQ7.5/lib/sonic_Client.jar,/dlc/dlc102b/sonic/MQ7.5/lib/mgmt_client.jar,/dlc/dlc102b/java/ext/actional-sdk.jar,/dlc/dlc102b/java/progress.jar
+    classpath=/dlc/dlc102b/sonic/MQ7.5/lib/sonic_Client.jar,/dlc/dlc102b/java/ext/actional-sdk.jar,/dlc/dlc102b/java/progress.jar
+
+#
+# Policy for the WebServices Adapter
+#
+[PluginPolicy.WSA]
+    pluginclasspath=!{value-of:classpath}
+    classpath=/dlc/dlc102b/java/progress.jar,/dlc/dlc102b/java/ext/wsdl4j.jar,/dlc/dlc102b/java/ext/activation.jar,/dlc/dlc102b/java/ext/mail.jar,/dlc/dlc102b/java/ext/xercesImpl.jar,/dlc/dlc102b/java/ext/xmlParserAPIs.jar,/dlc/dlc102b/java/ext/soap.jar
+    policyfile=/dlc/dlc102b/config/wstk.policy

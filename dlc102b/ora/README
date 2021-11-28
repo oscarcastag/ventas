@@ -1,0 +1,12 @@
+	Creating ORACLE demo database
+	-----------------------------
+Make sure the PROEXE contains an executable with ORACLE gateway and
+PROCFG contains a configuration file with an ORACLE permission.
+
+1) Create a new empty ORACLE database (sqldba utility).
+2) Run $DLC/ora/ldemo.
+
+ldemo creates a PROGRESS schema holder and load data into the ORACLE db.
+Use pro -p $DLC/ora/codemo.p to connect to the demo database.
+
+

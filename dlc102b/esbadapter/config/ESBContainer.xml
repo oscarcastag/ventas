@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XQ_CONTAINER xmlns="http://www.sonicsw.com/sonicxq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sonicsw.com/sonicxq xqContainer.xsd" useIntraContainerMessaging="true" name="[[container-name]]"
+
+CLASSPATH="sonicfs:///System/OpenEdge/[[oe-version]]/esbadapter/lib/esbadptr.jar;sonicfs:///System/OpenEdge/[[oe-version]]/esbadapter/lib/servlet.jar;sonicfs:///System/OpenEdge/[[oe-version]]/esbadapter/lib/soap.jar;sonicfs:///System/OpenEdge/[[oe-version]]/esbadapter/lib/regexp.jar;sonicfs:///System/OpenEdge/[[oe-version]]/esbadapter/lib/activation.jar;sonicfs:///System/OpenEdge/[[oe-version]]/esbadapter/lib/mail.jar">
+
+</XQ_CONTAINER>

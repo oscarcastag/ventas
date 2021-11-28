@@ -1,0 +1,88 @@
+2451 "The server program abended on the AS/400. (2451)" "The server program on the AS/400 ended abnormally. See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2452 "Could not establish initial conversation correctly. (2452)" "An unexpected error occurred during the initial read that establishes the PROGRESS client/server conversation. The initial message was corrupted. " "M" ""
+2453 "The -H parameter for AS/400 SNA should be [LU=.../PLU=.../MODE=...]. (2453)" "The format of the -H parameter you used for the SNA connection was incorrect. Correct the syntax of the parameter and try again. See the PROGRESS/400 Server Guide for more information on this parameter. " "" ""
+2454 "The -H parameter LU, PLU, and MODE values cannot exceed eight characters. (2454)" "The names used for the LU, PLU, and MODE must be eight characters or less. " "M" ""
+2455 "Unspecified get_send_state error  . (2455)" "An attempt to put the client session in send state failed for the SNA conversation. Unexpected error received on SNA request to send. See the primary and secondary return codes from this PROGRESS message to diagnose the error condition. Error descriptions and recommendations are explained in the APPC Programming Reference manual. See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled." "M" ""
+2456 "Failure to get send state, got state . (2456)" "The client request for a send state in a SNA client/server session failed. The actual SNA state of client after send state request is represented by the encoded value in the original message. See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2457 "TP_start primary , secondary . (2457)" "APPC responded with a primary and secondary return code that describe the failure status of a TP_start verb execution. Use the hexidecimal values of these return codes from the first level of this PROGRESS message to find an explanation of the cause and a recommended response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2458 "Unspecified PARAMETER_CHECK . (2458)" "The client issued an ALLOCATE verb that specified a parameter with an invalid value. The secondary return code returned in the first level of this PROGRESS message indicates the parameter that is in error. Use the hexidecimal value of this secondary return code to find an explanation of the error and a recommended response. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2459 "Unprocessed ALLOCATE error : primary  secondary . (2459)" "APPC responded with a primary and secondary return code that describe the failure status of an ALLOCATE verb execution. Use the hexidecimal values of these return codes from the first level of this PROGRESS message to find an explanation of the cause and a recommeded response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2460 "Unspecified initial send error primary  secondary . (2460)" "APPC responded with a primary and secondary return code that describe the failure status of a SEND verb execution for the initial PROGRESS connection transaction. Use the hexidecimal values of these return codes from the first level text of this PROGRESS message to find an explanation of the cause and a recommended response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2461 "Unspecified allocation error . (2461)" "APPC responded with a primary and secondary return code that describe the failure status of a RECEIVE_AND_WAIT verb execution for the initial PROGRESS conversation message. The primary code indicates that the AS/400 responded with an unspecified allocation error. Use the hexidecimal value of the secondary return code from the first level text of this PROGRESS message to find an explanation of the cause and a recommended response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual." "M" ""
+2462 "Unspecified initial receive error primary  secondary . (2462)" "APPC responded with a primary and secondary return code that describe the failure status of a RECEIVE_AND_WAIT verb execution for the initial PROGRESS message. Use the hexidecimal values of these return codes from the first level text of this PROGRESS message to find an explanation of the cause and a recommended response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2463 "Unspecified send error primary  secondary . (2463)" "A primary and secondary return code were returned indicating the failure status of the SEND_DATA verb execution. Use the hexidecimal values of these return codes from the first level text of this PROGRESS message to find an explanation of the cause and a recommended response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2464 "Unspecified prepare to receive error primary  secondary . (2464)" "A primary and secondary return code were returned indicating the failure status of the PREPARE_TO_RECEIVE verb execution. Use the hexidecimal values of these return codes from the first level text of this PROGRESS message to find an explanation of the cause and a recommended response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2465 "Unspecified receive error primary  secondary . (2465)" "A primary and secondary return code were returned indicating the failure status of the RECEIVE_AND_WAIT verb execution. Use the hexidecimal values of these return codes from the first level text of this PROGRESS message to find and explanation of the cause and a recommended response to the error condition. Error descriptions and response information are explained in the APPC Programming Reference manual. " "M" ""
+2466 "Failed to connect to AS/400 database <physical-name> as <logical-name>. (2466)" "Unknown connection failure to the named physical database using the named logical database name. See the AS/400 Server job log for more information.  If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2467 "Failed to connect to AS/400 database . (2467)" "Unknown connection failure to the specified physical database name. See the AS/400 Server job log for more information. If your client connection does not have the joblog option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2468 "Unable to open the database file. (2468)" "If trying to connect to an AS400 database you receive errors like:
+
+Unable to open the database file. (2468)
+PRO9023 There is a client/server file mismatch for <file>.
+PRO9024 There is a server schema/object mismatch for <file>.
+
+It means that the schema holder doesn't match the server schema, or
+the server schema doesn't match the object files on the AS/400.
+
+If this is caused because you have modified the physical files using
+AS/400 tools like DDS or IDDU, you need to run CHGPRODCT and create a
+new schema holder (see KB 16671 for details).
+
+This KBase applies when this error is caused because you have moved
+your library from one machine to another and you are using Progress
+version 8.1A or greater in the client. If you are using a previous
+version of Progress in the client you will have to apply also the
+approach described in KB 16671.
+
+Progress version 8.1A provides a new parameter to use the CRC instead
+of the timestamp for logical files. The CRC is an integer that has
+been built by mathematically combining the logical file name, record
+format ID, and each key's name, type, size, and position. Previous
+versions of Progress used the time of file modification to know if 
+the  file has been changed. This time changes when you restore your 
+library from a tape, because the logical file is rebuilt.
+
+The parameter is -Dsrv LFLVLCHK=CRC. Used when connecting the AS/400
+database from the client, it will inform the DataServer to use the CRC rather than the timestamp.
+
+Starting with 8.0C the CRC is calculated everytime a file definition
+is processed, even when the new parameter -Dsrv LFLVLCHK=CRC is not
+specified and timestamp is used.
+
+So, if you move a library from one machine to another, the library
+contains a server schema created with DataServer version 8.0C or
+greater, and when trying to connect the client you receive error 2468, it is enough to specify -Dsrv LFLVLCHK=CRC in the AS/400 
+connection parameters.
+" "" ""
+2469 "Index  ( ,  ): activated" "" "" ""
+2470 "SYSTEM ERROR: as4dblck: AS/400 error . (2470)" "syserr " "M" ""
+2471 "<record> already exists with this unique index value. (2471)" "The database record you tried to create or update contains a unique index value that matches an existing record. " "" ""
+2472 "Create of  record failed due to code <num>. (2472)" "You tried to create or insert a new record in the named database file and failed with the indicated error. See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2473 "Duplicate unique key. (2473)" "The database record you tried to update contains a unique index value that matches an existing record. " "M" ""
+2474 "as4rmrep: AS/400 error . (2474)" "You tried to update a database record and failed with the named error. syserr " "M" ""
+2475 "No active procedure for specified proc-handle. (2475)" "" "" ""
+2476 "SYSTEM ERROR: as4reffld has an index too large for the extent. (2476)" "syserr " "M" ""
+2477 "Overflow occurred. The character field was truncated. (2477)" "The character field is too large to fit into the AS/400 database field, so PROGRESS truncated the field. Check the FORMAT statement defined for the field to make sure it's compatible with the field's declaration. " "M" ""
+2478 "Overflow occurred. The field's value is lost. (2478)" "The integer field as is too large to fit into the AS/400 datebase field. Limit the value to within the range of values that are compatible with the AS/400 field definition.  Check the FORMAT statement defined for the field to make sure it's compatible with the field's declaration. " "M" ""
+2479 "Some decimal positions were truncated. (2479)" "The decimal field is too large to fit into the AS/400 datebase field. Limit the value to within the range of values that are compatible with the AS/400 field definition. Check the FORMAT statement defined for the field to make sure it's compatible with the field'd definition. " "M" ""
+2480 "acfm:  skipping possible fatal request for AS/400 type <field-type>. (2480)" "PROGRESS couldn't convert field data to a valid AS/400 data type. The AS/400 field type is unknown. Make sure the AS/400 field, as defined in the Data Dictionary, is a valid AS/400 field datatype. " "M" ""
+2481 "PROGRESS doesn't support converting PROGRESS type <field-type> to AS/400 type <field-type2>. (2481)" "PROGRESS couldn't convert the field data to a valid AS/400 data type. The AS/400 field type is unknown. Make sure the AS/400 field, as defined in the Data Dictionary, is a valid AS/400 field datatype. " "M" ""
+2482 "SYSTEM ERROR: as4fldtype error, dscidx . (2482)" "syserr " "M" ""
+2483 "Invalid reference field. (2483)" "PROGRESS no longer supports AS/400 reference fields. " "M" ""
+2484 "Database name is longer than eight characters. (2484)" "The maximum length of a database name on the AS/400 is 8 characters. " "D" ""
+2485 "Index  ( ,  ): de-activated" "" "d" ""
+2486 "[Warning] database in use - reported statistics are approximations. (2486)" "" "" ""
+2487 "SYSTEM ERROR: asnrecv got out of sequence message (2487)" "syserr " "M" ""
+2488 "You can't use AS/400 communications for the   database. (2488)" "The named database is not an AS/400 database. See your PROGRESS documentation for the named database type to determine the correct connection parameters. " "M" ""
+2489 "Unable to initialize the session. (2489)" "See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2490 "Unable to allocate the session. (2490)" "See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2491 "Error during initial send to AS/400. (2491)" "See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "" ""
+2492 "Error during initial receive from AS/400. (2492)" "See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2493 "Wrong count returned from AS/400's initial conversation. (2493)" "See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2494 "Wrong data received from AS/400's initial conversation. (2494)" "See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2495 "Unable to connect to the server. (2495)" "Verify communications between client and server machines. If the communication is working, see the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2496 "Unable to read from the server.  Codes = , . (2496)" "The PROGRESS client cannot read data from the server. See the AS/400 Server job log for more information. If your client connection does not have the job log option enabled, see the PROGRESS/400 Server Guide for information on how to start the server with job logging enabled. " "M" ""
+2497 "Client and server are at AS/400 revision level <revision>.<level>. (2497)" "This is an informational message indicating that the client and server are at the same major and minor revision levels. This message requires no corrective action. " "M" ""
+2498 "Client and server are at AS/400 major revision level <major-revision>. (2498)" "The client and server have the same major revision code but differ in the minor revision code.  Processing will continue.  This is an informational message only. " "M" ""
+2499 "Client is at minor level <client-minor-level>; server is at minor level <server-minor-level>. (2499)" "The client and server have different minor levels.  Processing will continue.  This is an informational message only. " "M" ""
+2500 "WARNING: The server and client are at different AS/400 major levels. (2500)" "The client and server have different major levels. This might cause abnormal behavior with no further warning. It is possible, but unadvisable, to continue processing after receiving this error. Consult your system administrator to correct this error. " "M" ""

@@ -1,0 +1,96 @@
+11751 "Invalid blank SOAP End Point (11751)" "The CONNECT statement option -Binding was specified but did not contain a -Soapendpoint option.  Add the correct -Soapendpoint option and value to the CONNECT statement.
+" "" ""
+11752 "Insufficent parameters (11752)" "An internal error has occured.  Report this condition to Progress support.
+" "" ""
+11753 "Failure creating WebServicePortType (11753)" "A memory error has occured when creating internal storage for a WebServicePortType.
+" "" ""
+11754 "Failure in initializing Port Type  (11754)" "An error occured when initializing the Port Type specified in the RUN statement.   The name of the Port Type and the details of the error are appended.
+" "" ""
+11755 "Invalid WSDL PortType name  (11755)" "The PortType name specified in the RUN statement could not be found in the Web Service WSDL document, or it was found but it does not correspond to the port specified (possibly implicitly) when the server handle's CONNECT() method ran.  Verify that the WSDL document still contains the PortType.
+ " "" ""
+11756 "Cannot use a PortType without a SOAP end-point URL (11756)" "An attempt was made to use a PortType object without a SOAP EndPoint being specified.  Verify that a valid SOAP EndPoint is specified.
+" "" ""
+11757 "Error obtaining PortType information for  (11757)" "An error occured while accessing the specified PortType information from the WSDL document.  The detailed reason for the failure is appended.  Correct the problem and retry the operation.
+" "" ""
+11758 "Missing required target URI and SOAP end point parameters (11758)" "An attempt was made to use a Web Service PortType without the Web Service target URI and a SOAP EndPoint.  Supply the required URI and EndPoint information and retry the operation.
+" "" ""
+11759 "SOAP Transport creation error:  (11759)" "An error occured when attempting to create a SOAP message transport.  The specific reason for the failure is appended to the message." "" ""
+11760 "Cannot create a SOAP Call without WSDL PortType definition (11760)" "Information from a WSDL PortType definition must be available to create a SOAP call.  Supply the required PortType information and retry the operation.
+" "" ""
+11761 "Memory error creating new SOAP Call. (11761)" "Could not allocate memory to create a new SOAP call.  Reduce memory useage.
+" "" ""
+11762 "Failure initializing SOAP Call:  (11762)" "An error was detected while initializing a SOAP call.  The details of the error are attached.  " "" ""
+11763 "Error creating SOAP Call parameters:  (11763)" "An error occured while initializing the SOAP calls input/output parameters.  The error detail is appended.
+" "" ""
+11764 "SOAP Fault returned when sending SOAP Request (11764)" "The SOAP response contained a SOAP Fault.  Obtain the information contained in the SOAP fault fields and detail to obtain the server supplied error information.  Use that information to correct the problem." "" ""
+11765 "SOAP Header callback procedure run-time error  (11765)" "An internal error ocurred while handling a SOAP Header.
+" "" ""
+11766 "SOAP Header callback procedure error  (11766)" "The 4GL SOAP Header callback procedure returned and error condition.
+The details of the error condition are appended." "" ""
+11767 "Error sending Web Service Request:  (11767)" "An error was detected while attempting to send a SOAP request to the Web Service server.  The error details are appended.
+" "" ""
+11768 "SOAPCall not initialized (11768)" "An internal error was detected trying to send a SOAP request without proper initialization.
+" "" ""
+11769 "No SOAP request in progress (11769)" "An internal asynchronous operation was attepted without a SOAP request in progress.
+" "" ""
+11770 "The SOAP request was cancelled (11770)" "An internal error ocurred while attempting to cancel an already canceled asynchronous SOAP request.
+" "" ""
+11771 "The SOAP response was discarded (11771)" "An internal error ocurred attempted to receive a SOAP response after the SOAP request was terminated.
+" "" ""
+11772 "Invalid SOAP Response version  (11772)" "An invalid SOAP version message was received from the Web Service server.  The invalid version number is specified in the error.
+" "" ""
+11773 "Error receiving Web Service Response:  (11773)" "An error ocurred in the process of receiving a SOAP response message.  The error details are appended.
+" "" ""
+11774 "Invalid SOAP call state  (11774)" "The internal SOAP message processor was found to be in an invalid state while processing a SOAP request.
+
+" "" ""
+11775 "Cannot find a SOAP Operation named  (11775)" "A SOAP call operation was executed that was not found in the WSDL document.  Manually verify the named operation name with the WSDL contents.
+" "" ""
+11776 "No SOAP operations located in the WSDL document (11776)" "Could not find any SOAP operations in the WSDL document for the PortType.  Verify the PortType name with the operations listed in the WSDL document.
+" "" ""
+11777 "Error creating SOAP Call object from WSDL information:  (11777)" "An error ocurred while constructing the SOAP request call from information contained in the WSDL document.  The details of what WSDL information was found at fault is appended to the error.
+" "" ""
+11778 "Insufficient parameters (11778)" "An internal error detected while trying to execute an operation without sufficient parameter information.
+" "" ""
+11779 "Invalid PortType name  (11779)" "The specified PortType name was unable to be located in the WSDL document.
+" "" ""
+11780 "Cannot create a PortType without a SOAP end-point URL (11780)" "An internal error was detected while trying to create a Web Service PortType without a SOAP EndPoint defined.
+" "" ""
+11781 "Malformed XML fragment:  (11781)" "The serialzied XML provided as a SOAP request parameter did not contain valid XML systax.  The description of the syntax error is appended to the error." "" ""
+11782 "Serialized XML's root node does not match the SOAP parameter name  (11782)" "Serialized XML parameters must have a root XML node whose name matches the SOAP parameter name.  Verify the root nodes name with that of the SOAP parameter in the WSDL document.
+" "" ""
+11783 "Serialized XML contained unrecognizable XML content (11783)" "The serialized XML parameter value contained an unknown XML systax element.  Exact details are unavailable.
+" "" ""
+11784 "Serialized XML contained an unequal number of start and end element tokens (11784)" "The serialized XML parameter value contained an unbalanced number of start and end nodes.  Correct the XML value.
+" "" ""
+11785 "Error converting 4GL value:  (11785)" "An error ocurred while converting a 4GL parameter value into an XML schema type value.  The details of the conversion error are appended.
+" "" ""
+11786 "Unable to convert 4GL data type  (11786)" "An error ocurred converting a 4GL parameter value to its XML schema representation.  The 4GL data type and the XML schema types it was being converted to are listed.
+" "" ""
+11787 "Unmapped XML data type  (11787)" "An attempt was made to convert a 4GL parameter into an unknown XML schema type.
+
+" "" ""
+11788 "Invalid 4GL  (11788)" "An invalid 4GL parameter value was supplied for the specified XML schema type.
+" "" ""
+11789 "4GL  (11789)" "The specified 4GL types value was too large or too small for the specified XML schema type.  
+" "" ""
+11790 "The 4GL value may not be UNKNOWN (11790)" "The SOAP parameter will not accept an UNKNOWN 4GL parameter value." "" ""
+11791 "Unsupported 4GL data type  (11791)" "The specified 4GL data type is not supported as a XML Schema type.
+" "" ""
+11792 "Unsupported data type:  (11792)" "The specified internal SOAP processor data type is not supported.
+" "" ""
+11793 "Unable to convert XML data type  (11793)" "The specified XML schema data type could not be converted into the specified 4GL data type.
+" "" ""
+11794 "Wrong SOAP processor data type  (11794)" "An internal error in the SOAP processors data type handline.
+" "" ""
+11795 "Cannot instantiate a DII value of type  (11795)" "An internal error was detected trying to create a SOAP Processor data type.
+" "" ""
+11796 "Error getting SOAP Call array extent:  (11796)" "Error in determining the extent of a SOAP response array value. The details of the error are appended.
+" "" ""
+11797 "Error creating SOAP Call parameter:  (11797)" "An error ocurred while generating a SOAP request parameter.  The details of the error are appended.
+" "" ""
+11798 "Wrong parameter type:  (11798)" "An internal error occured while trying to set an array element into a single value SOAP parameter or a single value into an array SOAP parameter." "" ""
+11799 "Error creating SOAP Call array parameter:  (11799)" "An internal error ocurred in the SOAP processor while trying to create a SOAP array parameter.  The details of the specific error condition is supplied.
+" "" ""
+11800 "Parameter array index too large (11800)" "The 4GL parameter element index was larger than the SOAP parameter array extent.  
+" "" ""

@@ -1,0 +1,229 @@
+8351 "RUN SUPER statement and internal procedure '<procedure>' contain a different number of parameters. (8351)" "You specified a different number of parameters in the RUN SUPER statement than are defined in the internal procedure which contains it.  The parameters in the RUN SUPER statement must appear in the same order that they were defined in the internal procedure and must be of the same type (INPUT, etc.). " "" ""
+8352 "Mode mismatch for parameter <number> of the RUN SUPER statement in procedure '<procedure>'. (8352)" "You specified a type for parameter <number> in the RUN SUPER statement that is different from parameter <number> defined in the internal procedure.  The parameters in the RUN SUPER statement must appear in the same order that they were defined in the internal procedure and must be of the same type (INPUT, etc.). " "" ""
+8353 "WARNING: RunTimeProperties.traceOn() level  was called. That can degrade performance. (8353)" "RunTimeProperties.traceOn() should be used only for trouble shooting.
+For best performance, it should be switched off in a production system. " "" ""
+8354 "
+Areaname must be less than 33 characters: 
+ (8354)" "The areaname must be less than 33 characters.  Modify your structure file so the name is a maximum of 32 characters." "d" ""
+8355 "Size key:
+ B = bytes
+ K = kilobytes
+ M = megabytes
+ G = gigabytes
+ T = terabytes
+" "Explains what the characters mean that follow the numbers in the Size
+column on a table analysis report." "d" ""
+8356 "
+Maximum extent size is 2GB. (8356)" "The extent size is 2GB.  Adjust your structure file accordingly." "d" ""
+8357 "Invalid handle.  Either not initialized or inappropriate type. (8357)" "An invalid handle has been encountered.  This typically occurs when querying or setting a widget or object attribute.  The handle is either not initialized or points to a deleted widget or object or is the handle of an object of the wrong type. " "" ""
+8358 "Application Server connected with connection id: <connectionid>. (8358)" "
+Informational message that the connection of an application server has happened.
+ " "" ""
+8359 "Application Server disconnected with connection id: <connectionid>. (8359)" "
+Informational message that the disconnection of an application server has happened.
+ " "" ""
+8360 "Application Server disconnected. (8360)" "Informational message for the log file to tell us that the server has disconnected from a request.
+ " "" ""
+8361 "Blocksize: " "The blocksize of the database" "d" ""
+8362 "Phase1, processing block number <block> of <total-blocks> in area <area-number>. (8362)" "This message is part of the user interface of the index build and check utilities.  It indicates which database block by area is currently being processed.
+
+
+
+
+
+
+ " "" ""
+8363 "Phase 2, processing block number <block> of <total-blocks> in area <area-number>. (8363)" "This message is part of the user interface of the index build and check utilities.  It indicates which database block by area is currently being processed.
+
+
+
+
+
+
+ " "" ""
+8364 "Distributed 4GL debugging is not supported in Stateless mode, only remote 4GL debugging. (8364)" "System error message to deter improper debugger operation.
+ " "" ""
+8365 "Phase 1, processing block number <block> in area <area>. (8365)" "This message is part of the user interface of the index build and check utilities. It indicates which database block is currently being processed, and in what area. " "" ""
+8366 "Phase 1, blktype  blkptr         dbkey   blk#    area  (8366)" "This is a debugging message. It is disabled in the production version. " "" ""
+8367 "Phase 1, processing block number <block> of <total-blocks> in area <area>. (8367)" "This message is part of the user interface of the index build and check utilities. It indicates which database block is currently being processed and in what area. " "" ""
+8368 "Phase 2, processing block number <block> out of <total-blocks> in area <area>. (8368)" "This message is part of the user interface of the index build utility. " "" ""
+8369 "Phase 2, blktype  blkptr         dbkey   blk#   area  (8369)" "This is a debugging message. It is disabled in the production version. " "" ""
+8370 "Invalid format specified in BROWSE-COLUMN-FORMATS attribute for dynamic browser (8370)" "" "" ""
+8371 "The maximum size of the input data is 32K. If you need more than that then please use input TEMP-TABLES.  (8371)" "The size of input TEMP-TABLES is limited only by the resources of the
+system. Therefore, when the remote request is large, some of the input data should be sent via input TEMP-TABLES." "" ""
+8372 "Failed to create all the extents in the structure file.
+ Run prostrct list to determine which extents were not created. (8372)" "Run PROSTRCT LIST and review the output of this with the .st file.  This should help you determine what extents were not created." "d" ""
+8373 "The maximum size of input or output data is 32K. If you need more than that then please use input or output TEMP-TABLES. (8373)" "The size of  TEMP-TABLES is limited only by the resources of the system. Therefore, TEMP-TABLES should be used if large amount of input or output data is sent or received from the AppServer. " "" ""
+8374 "
+Create database failed.  Check your structure file. (8374)" "The creation of the database failed.  Check your structure file and check the size of the extents, permission of the directories where you want to create extents." "d" ""
+8375 "Selected index <index> does not match selected table <name>. (8375)" "This is an informational message states which index failed for the selected table dump.  You can specify an index by using the -index paramater.  If the -index parameter is not passed in then the primary index is used to dump the data. " "D" ""
+8376 "The value specified in the Compiler field is invalid. Only Javasoft's javac or MicroSoft's jvc compilers are supported. (8376)" "ProxyGen supports Javasoft's javac compiler or Microsoft's jvc compiler only for use in generating proxies for an Open Java Client. Please specify a correct compiler. The value may be fully qualified or may simply be the name of the compiler if its path is on the system path." "" ""
+8377 "-help or -h                            Display command line help. (8377)" "
+
+
+
+
+
+
+
+ " "" ""
+8378 "Command Tool Usage for  (8378)" "
+
+
+
+
+
+
+
+ " "" ""
+8379 "-name or -i (Name)  (Required)         Name of  (8379)" "
+
+
+
+
+
+
+
+ " "" ""
+8380 "-start or -x                           Start named  (8380)" "
+
+
+
+
+
+
+
+ " "" ""
+8381 "-user or -u (UserName)                 User name (8381)" "
+
+
+
+
+
+
+
+ " "" ""
+8382 "-host or -r                            Host name where AdminServer is running (8382)" "
+
+
+
+
+
+
+
+ " "" ""
+8383 "-port                                  Port number of running AdminsServer (8383)" "
+
+
+
+
+
+
+
+ " "" ""
+8384 "-query or -q                           Query named  (8384)" "
+
+
+
+
+
+
+
+ " "" ""
+8385 "-trimservers or -trim (NumToTrim)      Trim  back by (NumToTrim) (8385)" "
+
+
+
+
+
+
+
+ " "" ""
+8386 "-addservers or -s (NumToStart)         Add (NumToStart) additional  (8386)" "
+
+
+
+
+
+
+
+ " "" ""
+8387 "-kill or -k                            Emergency shutdown of  (8387)" "
+
+
+
+
+
+
+
+ " "" ""
+8388 "-stop or -e                            Shutdown specified . (8388)" "
+
+
+
+
+
+
+
+ " "" ""
+8389 "Config Tool Usage for  (8389)" "
+
+
+
+
+
+
+
+ " "" ""
+8390 "no options                             List all defined  (8390)" "
+
+
+
+
+
+
+
+ " "" ""
+8391 "-f or -propfile (propFilePath)         Full properties file path (optional) (8391)" "
+
+
+
+
+
+
+
+ " "" ""
+8392 "-validate or -v                        Validate (8392)" "
+
+
+
+
+
+
+
+ " "" ""
+8393 "-m or messenger                        View options for all messengers. (8393)" "
+
+
+
+
+
+
+
+ " "" ""
+8394 "-m or messenger -name (messengerName)  View options for all messengers 
+ where (messengerName)=CGIIP, WSISA, or WSNSA (8394)" "This message appears when user needs help with the config tool command line. This line explains the messenger name option.
+
+
+
+
+
+
+
+ " "" ""
+8395 "The specified file filter is invalid. Only r-code files can be used with ProxyGen. (8395)" "ProxyGen requires the compiled version of procedures in order to generate proxies. The extension of r-code files is restricted to .r. The filter is available to restrict the root portion of the filename but the extension must always be specified as .r. The default value for the filter is *.r." "" ""
+8396 "-- TRACE: PERSISTENT Procedure END . (8396)" "See message 5500." "" ""
+8397 "-- TRACE: Non-PERSISTENT Procedure END . (8397)" "See message 5501." "" ""
+8398 " -- TRACE: Internal Procedure END . (8398)" "See message 5502." "" ""
+8399 "-- TRACE: User Defined Function END . (8399)" "See message 5697." "" ""
+8400 "-- TRACE: Set open 4GL server state to . (8400)" "An informational message for technical support usage." "" ""

@@ -1,0 +1,2 @@
+CC=${CC-cc}
+$CC -c -O -I. $CFLAGS $*

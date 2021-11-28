@@ -1,0 +1,137 @@
+1 "SYSTEM ERROR: bfblst -- Too many block levels. (1)" "The -nb parameter is followed by a number that specifies the maximum number of nested blocks in your program. The default value for -nb is 100.  If you need more levels of nested blocks than 100, increase the value or try simplifying your program structure. " "P" ""
+2 "SYSTEM ERROR: bfblnd -- no ar active. (2)" "syserr " "" ""
+3 "SYSTEM ERROR: bfrej -- no task. (3)" "syserr " "" ""
+4 "** Error : Unable to allocate more memory for records or variables. (4)" "You have run out of system memory used for holding records, workfiles, and variables currently in use. Decrease your usage of these objects or increase the allowable process limit size. The amount of space available for holding these objects is limited only by the amount of virtual system memory available for your process. It is no longer affected by the -l startup parameter as it was in earlier versions of PROGRESS. " "P" ""
+5 "bfxpnd -- Unable to allocate more memory for records or variables. (5)" "You have run out of system memory used for holding records, workfiles, and variables currently in use. Decrease your usage of these objects, or increase the allowable process limit size. The amount of space available for holding these objects is limited only by the amount of virtual system memory available for your process. It is no longer affected by the -l startup parameter as it was in earlier versions of PROGRESS. " "P" ""
+6 "
+  or enter ! if you do not want to check any more indexes. (6)" "This message is part of the user interface of the Index Check utility. " "" ""
+7 "SYSTEM ERROR: Illegal choice found in semantic stage. (7)" "syserr " "C" ""
+8 "SYSTEM ERROR: Database extent limit <number> has been exceeded. (8)" "The progress database manager cannot open all the files for your database.  This indicates that you have more than the maximum allowed number of extents in your database.  The maximum allowed is specified in the message. To fix: created a new void database with a smaller number of extents. " "D" ""
+9 "SYSTEM ERROR: bfcrtmp -- unable to create template. (9)" "An unexpected system error occurred while defining a new file using the PROGRESS DICTIONARY. syserr " "D" ""
+10 "SYSTEM ERROR: bfdel: rmdel failed. (10)" "A unexpected system error occurred while executing a DELETE statement. syserr " "D" ""
+11 "** Constant FIND requires a primary index with at least one index-field (11)" "In a statement of the kind:    FIND table constant.  The table given must have a primary index with at least one key component.  The last key component of that index will be matched with the constant. " "S" ""
+12 "SYSTEM ERROR: bfundo -- found rec. (12)" "syserr " "" ""
+13 "SYSTEM ERROR: fmget: bad record or unknown value. (13)" "One of the schema records in your database (a record in the _File file, _Field file, etc.) might be corrupted.  If the problem reoccurs, it may be necessary to dump and reload your database using the PROGRESS Data Dictionary.   This should only be done by an experienced application developer with access to application source code. " "D" ""
+14 "SYSTEM ERROR: bfundo -- DELKEY. (14)" "syserr " "" ""
+15 "SYSTEM ERROR: bfundo -- code. (15)" "syserr " "" ""
+16 "SYSTEM ERROR: bffld: nxtfld: scan past last field. (16)" "An internal data error occurred while PROGRESS attempted to retrieve a field from either a record or workfile. This may be indicative of further database damage due to hardware failure.  Should this error reoccur:   1. Try to delete the offending record, then add it again.   2. Increase the -s (Stack) parameter.   3. Dump/delete/load the file from the PROGRESS Data Dictionary. " "D" ""
+17 "SYSTEM ERROR: bfundo: rmrep failed. (17)" "An unexpected system error occurred while executing an UNDO, or during end-key or error processing.  PROGRESS was attempting to UNDO changes made to a data record and was unable to write the original record back to the database. syserr " "" ""
+18 "SYSTEM ERROR: Invalid recid in index <index-num> on file <file-name>. Entry ignored. (18)" "A system error resulted in an index entry that refers to a non-existent record. To correct this error try one of the following: Run an idex rebuild in the damaged index. Delete and redefine the index. Dump and Reload the database. The first two options should be done only by an experienced application developer with access to application source code. " "I" ""
+19 "SYSTEM ERROR: bfundo: rmdel failed. (19)" "syserr " "" ""
+20 "Unable to bind TLI address to stream. (20)" "The PROGRESS server cannot use the address given it (constructed from the -H -S PROGRESS parameters).  Errors may be found in /usr/include/sys/tiuser.h.  Common t_errno values are:      1  -- incorrect address format      3  -- insufficient permission      10,11 -- not enough buffer space, or too much data " "" ""
+21 "SYSTEM ERROR: fmput: bad record or unknown value. (21)" "syserr " "" ""
+22 "** Character number <character> of format <format string> is invalid. (22)" "A format specified for a field or variable is invalid. The error message indicates the character in error. For example, the statement   DEFINE VARIABLE X AS DECIMAL FORMAT ""-$zz9.99"" will result in the error:   ** Character number 2 of format -$zz9.99 is invalid. A format of $-zz9.99 was probably intended. " "S" ""
+23 "SYSTEM ERROR: bfdiscon: rmrep failed. (23)" "An unexpected system error occurred while attempting to write an updated data record to the database. syserr " "" ""
+24 "Messages from <promsgs-filename> may not be displayed properly. (24)" "This is just a warning message, execution will continue normally. This message appears when opening the PROMSGS file if the codepage name in the PROMSGS file is not compatible with the -charset codepage name.  You should make sure you are using the correct PROMSGS file, and are using the correct -convmap parameter.  The -convmap parameter specifies the name of a file which contains the codepage conversions PROGRESS will use. " "" ""
+25 "Removed recid  <number>. (25)" "The Database Repair Utility was used to remove a record fragment. This deletes the record from the database. A full index rebuild should be performed on the database before it is restarted. " "m" ""
+26 "** Array subscript <value> is out of range. (26)" "You specified an element in an array that is less than or equal to 0 or greater than the array's extent. " "S" ""
+27 "      Block access statistics:" "Block access statistics. " "" ""
+28 "Accessed blocks:" "Block access statistics, to be logged at exit time (-y) " "" ""
+29 "Reformatted dbkey  <number> (29)" "The Database Repair Utiltiy was used to reformat a block into a free block. All information contained in the block was destroyed. A full index rebuild should now be run before attempting to use this database. " "m" ""
+30 "Disk reads:" "Block access statistics to be logged at exit time (-y) " "" ""
+31 "Loaded block dbkey  <number> from an ascii dump file (31)" "The Database Repair Utility was used to load a block from an ascii dump file produced by an earlier Database Repair operation. The previous contents of the block are completly overwritten by the information from the dump file. A full index rebuild should be performed before restarting the database. " "m" ""
+32 "<name> <counter> (32)" "This message is used to print session statistics. " "" ""
+33 "** The FORCE option was given, database recovery will be skipped. (33)" "You entered PROGRESS with the FORCE option.  The db crash recovery was skipped, so your database may contain permanent damage.  Dump your database, then reload it into a fresh, empty database.  The opton under UNIX, DOS and BTOS is -F.  The option under VMS is /ACCESS={FORCED}. " "P" ""
+34 "" "This message was intentionally left blank. " "R" ""
+35 "SYSTEM ERROR: Unrecognized ix undo code <code>. (35)" "An unexpected system error has occurred during database crash recovery while performing an UNDO statement, or during other error recovery. Your before-image .bi file might have been corrupted. syserr " "R" ""
+36 "** Database recovery complete. Rerun all active transactions. (36)" "The last task you executed prior to the system failure might or might not have been entered into the database.  Check that it was, and redo it if necessary. " "" ""
+37 "** Your database was damaged. Dump its data and reload it. (37)" "If any unrecoverable error damages your database, this message will be printed every time you use the damaged database.  You should use the dictionary dump facility to dump your data definitions and data file contents. Then, use PRODB to get a fresh empty database. Finally, use the dictionary reload facility to reload your data definitions and data file contents. " "" ""
+38 "Disk writes:" "Block access statistics to be logged at exit time (-y) " "" ""
+39 "Block type:   Master  Index   Record  Free   Idx-tbl" "Block access statistics " "" ""
+40 "SYSTEM ERROR: Attempt to define too many indexes. (40)" "This error may be coming from the temp-table database, as opposed to a true database.   If open procedures containing temp-tables are not deleted, or if dynamic temp-tables are not being deleted, this error will eventually occur as the number of tables with their indexes build up in the temp-table database.  
+On systems with a 512 byte blocksize, the maximum number of indexes in  a database is 1024.   On systems with a 1024 byte blocksize the maximum number of indexes  in  a database is 2048. " "" ""
+41 "" "Block access statistics. This is used to display tabulated numbers, since \t is not recognized by %s. " "" ""
+42 "bfx: Field too large for a data item. Try to increase -s. (42)" "This may be the result of an internal system error, but it is more commonly caused by attempting to use character variables with extremely long values. Use shorter values with your character values.  You may also be able to solve the problem by using a larger value for the -s (stack) startup parameter. " "P" ""
+43 "** Cannot find or open file <file-name>, errno = <number>. (43)" "The named file does not exist, or you do not have the required permissions for it. Errno is an operating system error number that indicates the specific cause.  Typical Unix or Dos error numbers are 2 (The file does not exist) and 13 (You do not have permission to open the file). For BTOS/CTOS errors, see to the ""Status Codes"" manual. " "P" ""
+44 "** Database has the wrong version number. (db: <value>, pro: <value>). (44)" "Your database requires a different version of PROGRESS. You might be using the wrong version of PROGRESS, or you might have to dump and reload your database to make it compatible with the new version of PROGRESS. " "P" ""
+45 "SYSTEM ERROR: fmtoday: system date conversion error. (45)" "syserr: An unexpected internal system error occurred while calculating the date for today. " "" ""
+46 "** Use INTEGER or INT64 function to compare integer index-field and decimal (46)" "Example:  WHERE INTKEY1 >= 3.5    etc...         (wrong) This can be fixed two ways:           WHERE INTKEY1 >= INTEGER(3.5)  etc...  (correct) or           WHERE DECIMAL(INTKEY1) >= 3.5  etc...  (correct) (Note that the later alternative will cause the expression to be used for selection rather than as a range limit, and the index cannot be used efficiently.)" "S" ""
+47 "SYSTEM ERROR: Illegal instruction. (47)" "PROGRESS intercepted a SIGILL signal. This is most likely the result of a damaged load module or a system error. " "" ""
+48 "SYSTEM ERROR: Bus error. (48)" "PROGRESS intercepted a SIGBUS signal. This might be the result of a stack overflow on certain machines. Other possibilities include a damaged load module or system error. Please contact your dealer or Progress Software Corporation. " "P" ""
+49 "SYSTEM ERROR: Memory violation. (49)" "This Technical Support Knowledgebase entry describes what PROGRESS error 49 (Memory Violation) means and possible ways to correct it.
+
+POSSIBLE CAUSE OF ERROR:
+========================
+This fatal error has a number of possible causes. Most commonly it appears in these instances:
+
+1) Not enough memory or corrupted memory on the machine
+2) Not enough configured swap space on the machine
+3) Hardware failure
+4) Corrupt compiled code (.r file)
+5) Corrupt PROGRESS executable (i.e. _progres)
+6) A PROGRESS executable compiled under an incompatible operating     system or operating system level
+7) Corrupt data
+8) Possible .bi file corruption
+9) PROGRESS Bug
+
+DOES ERROR INDICATE CORRUPTION:
+===============================
+Possibly                        
+
+IF SO, WHAT TYPE:
+=================
+1. Data corruption, most notably a bad record.
+2. Executable code corrupted in memory
+
+CORRECTIVE MEASURES:
+====================
+To begin with, you need to determine when the error occurs and if it occurs consistently. Perhaps you've been running fine and now suddenly you start receiving the error. If so, think about what has changed since the error started occurring.
+
+In general you can try:
+
+Clearing memory on your machine by rebooting the system and see if the error 49 reappears.
+
+Reducing the memory consuming startup parameters to save memory. To see what these parameters are set to, use the PROGRESS monitor (promon) or check the script (.bat on DOS,.com on VMS) or PROGRESS 
+parameter file that you use to start the PROGRESS session.
+
+Specific to the causes listed above you can try:
+
+CAUSE#:
+1 - Checking the amount of memory installed and the number of users on the system. A good rule of thumb for this relationship is 1MB for system and 1st user, then each additional MB will serve 2-3 users. An error 49 may also indicate that the stack has been corrupted because it is too small and is being overwritten.
+Increasing -s may eliminate the error 49 in this case.
+
+2 - Increasing swap space. This should be configured for an amount twice the installed RAM. You can run the system utility that shows swapping/paging information to see  what is happening (e.g.  S.A.R on UNIX or VMS monitor).
+
+3 - Checking your hardware log to see if there are any other errors.
+
+4 - Recompiling the compiled (.r) code that you are running. If this seems to cure the problem for a while, only to have it reappear, check the speed of the CPU versus the speed of the system
+memory. It has been observed, on SCO OpenServer 5, with a dual CPU
+running at 150MHz and 12nsec external cache RAM, the CPU is faster
+than memory can handle.  Customer turned off external cache and error (49)s stopped.  Instructions with AMI motherboard state that if the CPU is moved from 66MHz to 100MHz, then change cache RAM from 15nsec to 12nsec.  Nothing about what to do for 150MHz CPU.
+
+5 - Reinstalling PROGRESS.
+
+6 - Verifying in the Technical Bulletin that you have at least
+the first known operating system level that supports the PROGRESS
+version you are running.
+
+7 - Locating the bad record, deleting and recreating it. Or,
+Dumping & Reloading that file. If you are not able to work with the
+entire file at once, you may have to dump around the bad record(s) and load the data back in pieces.
+
+8 - If you receive the system error (49) while in single user
+mode, this could indicate .bi file corruption.  This could be caused by a hardware error.  Please check your system log files and run diagnostics if necessary.  To correct this problem, either go to backup or, if you have no backup available to you, you can force
+access with the -F option and then dump/load to regain database
+integrity.  Please note this latter option could result in the loss
+of any data that was written to the .bi file but not yet written to
+the .db file.
+
+9 - If the error 49 is reproducible and none of the above measures fix it, it may be a Progress bug.  Narrow it down to code that is reproducible against the Progress demo or sports database and submit it to Progress Software Technical Support.
+
+If you're on a UNIX machine, you may also be asked by a Progress
+Technical Support Representative to dump the core file to an ASCII
+file, using the system debugger and submit it to them for analysis.
+
+ONLINE PROCEDURES OR UTILITIES:
+===============================
+Online Progress Knowledgebase (How to use sdb,adb or dbx to obtain
+stack trace for Progress Support) at http://www.progress.com
+S.A.R. utility documentation (UNIX)
+VMS monitor documentation (VMS)
+PROGRESS promon utility (shared resources - to look at parameters)
+
+REFERENCES TO WRITTEN DOCUMENTATION:
+====================================
+System Administration Guide - Database Monitor
+        " "P" ""
+50 "SYSTEM ERROR: Floating point exception. (50)" "PROGRESS intercepted a SIGFPE signal.  Save the file named ""core"" in your working directory, and make a note of what you were processing when the error occurred.  Then contact your dealer or Progress Software Corporation. PROGRESS intercepted a SIGFPE signal. " "M" ""

@@ -1,0 +1,81 @@
+8401 "-- TRACE: Open4GLWriteLast . (8401)" "An informational message for technical support usage." "" ""
+8402 "-- TRACE: Open4GLWrite . (8402)" "An informational message for technical support usage." "" ""
+8403 "-- TRACE: open4GLRead . (8403)" "An informational message for technical support usage." "" ""
+8404 "WARNING: updates to this database are not recommended. (8404)" "It has been detected that there is a minor version mismatch.  Progress therefore does not recommend performing updates to this database since certain features may not exist. " "" ""
+8405 "Client/database minor version mismatch.  Expected <version>. Found <version>. (8405)" "It has been detected that there is an inconsistancy in the client minor version number between what is specified in the client executable and the value stored in the database.  You are probably using an executable which does not support all the features of this database. " "" ""
+8406 "Database minor version mismatch.  Expected <version>. Found <version>. (8406)" "It has been detected that there is an inconsistancy in the database minor version number between what is specified in the executable and the value stored in the database.  You are probably using an executable which does not support all the features of this database. " "" ""
+8407 "Connect Failure: NameServer Port <port> is Invalid. (8407)" "The client could not connect to the requested Application Service because the NameServer port specified in the connection URL as indicated by <port> was not a valid UDP port number." "" ""
+8408 "Error marshalling or Unmarshalling AppServer message. (8408)" "syserr " "" ""
+8409 "Client Communications Failure - <Java Exception> (8409)" "" "" ""
+8410 "AppServer returned AbnormalEOF. (8410)" "" "" ""
+8411 "Delete Tree node failure :  () (8411)" "Attempt to remover a tree node from the tree view panel of Progress Explorer has failed.   " "" ""
+8412 "Add Tree node failure :  () (8412)" "Attempt to add a tree node to the tree view panel of Progress Explorer has failed.   " "" ""
+8413 "Refresh tool panel failure :  () (8413)" "Attempt to refresh tree view panel of Progress Explorer has failed." "" ""
+8414 "The value specified in the Compiler field is invalid. Only Microsoft's jvc compiler is supported. (8414)" "ProxyGen supports Microsoft's jvc compiler for use in generating proxies for an Active-X Client. Please specify the path or a pathname relative value to the supported compiler. The value may be fully qualified or may simply be the name of the compiler if its path is on the system path." "" ""
+8415 "-trimagents or -trim (NumToTrim)       Trim agents back by (NumToTrim)   (8415)" "
+
+
+   " "" ""
+8416 "-addagents or -s (NumToStart)          Add (NumToStart) additional agents   (8416)" "
+
+
+   " "" ""
+8417 "Unable to get localhost name : <IOException_string> : <IOExceptionMsg_string> (8417)" "The broker encountered an error while trying to retrieve the name of the host on which it is running.  This may indicate an installation or configuration error. " "" ""
+8418 "No servers available ... waiting for one ... (8418)" "" "" ""
+8419 "Unhandled exception caught in <threadName>. (8419)" "An unexpected FATAL error was detected by the broker.  This may be the result of a temporary resource shortage.  Verify that the limits for number of open files, and number of threads per process have been set appropriately and that the broker has been started with appropriate JVM resources.  If the problem persists, please contact Progress Technical Support. " "" ""
+8420 "<errorMsg> (8420)" "" "" ""
+8421 "Invalid or missing -t parameter. (8421)" "The -t parameter indicating the personality of this request has not been supplied by the calling script or batch file, or is invalid.     " "" ""
+8422 "Emergency Shutdown requested. (8422)" "Emergency shutdown of the broker has been requested.  The broker will terminate without regard to the start of requests currently being processed." "" ""
+8423 "Unknown host : <hostName>. (8423)" "" "" ""
+8424 "Error connecting to host <hostName> : <IOException_string> : <IOExceptionMsg_string>. (8424)" "The specified error was encountered while attempting to connect to the host specified." "" ""
+8425 "Error closing serverIPC socket : <IOException_string> : <IOExceptionMsg_string>. (8425)" "The broker encountered the specified error while attempting to close the connection with a server." "" ""
+8426 "FSM Error : Invalid State = <state> <descState>. (8426)" "An internal broker error was encountered.  Please contact Progress Technical Support." "" ""
+8427 "Property file  does not exist   (8427)" "The specified property file could not be found.  Check the name specified and run the command again.
+
+
+   " "" ""
+8428 "Cannot load properties file .   (8428)" "The specified properties file could not be loaded.  Check that the file has not been corrupted and is a valid Progress properties file.
+
+
+   " "" ""
+8429 "Unexpected error loading properties file: .   (8429)" "An unexpected error has occured during loading of the specified properties file.  Check that the file is a valid Propgress properties file.
+
+
+   " "" ""
+8430 "Messenger  not found.   (8430)" "The specified messenger can not be found in the properties file.  Verify the messenger name, and run the command again.
+
+
+   " "" ""
+8431 "Cannot find  for type .   (8431)" "Cannot find the specified name in the properties file.  Check that the name is valid and run the tool again.
+
+
+   " "" ""
+8432 "Error retrieving property collection .   (8432)" "
+
+
+   " "" ""
+8433 "Unexpected error validating property collections:    (8433)" "An unexpected error has occured while validating the specified property definition.  Check the error information included to determine cause. 
+
+
+   " "" ""
+8434 "ProxyGen internal preferences error.  Unable to register any preferences.  (8434)" "ProxyGen was unable to internally register the preferences from thespecified preferences file.
+" "" ""
+8435 "Invalid option  for personality    (8435)" "This option is not allowed for the specified command.
+
+
+   " "" ""
+8436 "Unable to kill  (8436)" "An error has occured while trying to unconditionally shut down specified process.  Make sure that the name, host and port number are correct and execute the command again.   " "" ""
+8437 "Invalid value  for number of servers/agents. (8437)" "The value entered is out of the valid range for specifying a number of servers/agents to add/trim.   " "" ""
+8438 "Error trimming servers/agents for . (8438)" "An error has occured while trying to trim the servers/agents.  Check the name, host and port numbers and the number to trim and execute the command again.   " "" ""
+8439 "Invalid command. (8439)" "The command entered is invalid.  Run the command with the -help option to get a list of valid commands.   " "" ""
+8440 "Unconditionally shut down . (8440)" "   " "" ""
+8441 "Specified port number is not numeric : <NumberFormatExceptionMsg_string>. (8441)" "An error was detected in the broker's port number startup argument (-p).  This indicates a configuration error.  Please verify the broker's configuration.  If the problem persists, contact Progress Technical Support." "" ""
+8442 "Command line plugin not supported on . (8442)" "The command line plugin is not supported on your current operating system.  Check the documentation for supported systems.   " "" ""
+8443 "Error processing command : <command>. (8443)" "The broker detected an unknown startup argument.  This indicates a possible configuration error.  Verify the broker's configuration.  If the problem persists, contact Progress Technical Support." "" ""
+8444 "Required -i <brokerName> argument not specified. (8444)" "The mandatory -i startup parameter was not specified when the broker was started.  This indicates a possible configuration error.  Verify the configuration of the broker.  If the problem persists, contact Progress Technical Support." "" ""
+8445 "Required -t <serverType> argument not specified. (8445)" "The mandatory -t broker startup argument was not specified.  This may indicate a configuration error.  Verify the broker's configuration.  If the problem persists, contact Progress Technical Support." "" ""
+8446 "Unknown serverType (<serverType>) specified. (8446)" "The -t serverType startup argument specified was not recognized by the broker.  This may indicate a possible configuration problem.  Verify the broker's configuration.  If the problem persists, contact Progress Technical Support." "" ""
+8447 "Error loading properties file (<propertiesFileName>) : <ProException_string> : <ProExceptionMsg_string>. (8447)" "The specified error occurred while trying to load the specified broker properties file.  Correct the error, and restart the broker." "" ""
+8448 "Could not open log file (<propertiesFileName>) : <IOException_string> : <IOExceptionMsg_string>. (8448)" "The broker was unable to open the specified log file for the reason given.  This may indicate a configuration problem or a possible system resource shortage.  Verify the broker's configuration, and restart the broker." "" ""
+8449 "Unknown <propname> (<value>) specified. (8449)" "The broker detected that the value indicated by <value> is an invalid value for the property <propname>serverMode startup argument is invalid.  Verify the broker's configuration and restart the broker." "" ""
+8450 "Section (<sectionName>) not found in properties file (<propertiesFileName>). (8450)" "The broker was unable to find the specified section in the specified properties file.  This generally indicates that the broker name startup argument is invalid, or that a configuration error has occurred.  Verify the broker's configuration and restart the broker." "" ""

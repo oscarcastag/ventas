@@ -1,0 +1,79 @@
+12951 "Method '' in interface definition '' returns '', but the method implementation returns ''. (12951)" "When a class implements a method defined in an interface, the method implementation must match the method signature specified in the interface definition. The return type and the number, data types, and modes of the parameters must be the same." "" ""
+12952 "Parameter count mismatch for . Overridden method has , not . (12952)" "When a class overrides a method defined in a super class, the override method must have the same signature as the method defined in the super class. The return type, number of parameters, and data types and modes of the parameters must all be the same." "" ""
+12953 "Method '' has  <num of parameters> parameters in interface definition '', but the method implementation has <number of parameters>. (12953)" "When a class implements a method defined in an interface, the method implementation must match the method signature specified in the interface definition. The return type and the number, data types, and modes of the parameters must be the same." "" ""
+12954 "Parameter <parameter number> mode mismatch for overriding method . INPUT, OUTPUT, INPUT-OUTPUT, or BUFFER must match. (12954)" "When a class overrides a method defined in a super class, the override method must have the same signature as the method defined in the super class. The return type, number of parameters, and data types and modes of the parameters must all be the same." "" ""
+12955 "Parameter <parameter number> mode does not match interface definition '' for method ''. INPUT, OUTPUT, INPUT-OUTPUT, or BUFFER must match the parameter mode. (12955)" "When a class implements a method defined in an interface, the method implementation must match the method signature specified in the interface definition. The return type and the number, data types, and modes of the parameters must be the same." "" ""
+12956 "Parameter <parameter number> type mismatch for overriding method <name>. (12956)" "When a class overrides a method defined in a super class, the override method must have the same signature as the method defined in the super class. The return type, number of parameters, and data types and modes of the parameters must all be the same." "" ""
+12957 "Parameter  type does not match interface definition '' for method ''. (12957)" "When a class implements a method defined in an interface, the method implementation must match the method signature specified in the interface definition. The return type and the number, data types, and modes of the parameters must be the same." "" ""
+12958 "Cannot use NEW statement with class '' because it has a private constructor. (12958)" "The indicated class has a PRIVATE constructor. This means that the constructor is accessible only from the class itself, so a NEW statement outside of the class cannot invoke it. Change the access modifier on the indicated class' constructor to PUBLIC. (If you will be instantiating the class from a derived class, you could also make the constructor PROTECTED.)" "" ""
+12959 "Cannot use NEW statement with  class '' using a protected constructor. (12959)" "The indicated class has a PROTECTED constructor. This means that the constructor is accessible only from the class itself or from a class derived from it, so a NEW statement from an unrelated class or a procedure cannot invoke the constructor. You will need to change the access modifier on the indicated class' constructor to PUBLIC or use a different constructor." "" ""
+12960 "SYSTEM ERROR: Unable to register class '' with the type manager. (12960)" "This is an internal compiler error. Contact Tech Support." "" ""
+12961 "Missing END CLASS statement for ''. (12961)" "The class file needs an ""END."" or ""END CLASS."" statement at the end." "" ""
+12962 "Missing END INTERFACE statement for ''. (12962)" "The interface file needs an ""END."" or ""END INTERFACE."" statement at the end." "" ""
+12963 "Inappropriate use of field in a DEFINE PROTECTED/PUBLIC statement. (12963)" "A PUBLIC or PROTECTED variable or temp-table field may not have expressions in its definition, for example FONT i.  Instead you must use constants for FONT, FGC etc." "" ""
+12964 "Non-constant integer attribute is not allowed for PUBLIC or PROTECTED data member of a class. (12964)" "A PUBLIC or PROTECTED variable or temp-table field may not have expressions in its definition, for example FONT i.  Instead you must use constants for FONT, FGC etc." "" ""
+12965 "Non constant character attribute not allowed for PUBLIC or PROTECTED data member of a class. (12965)" "A PUBLIC or PROTECTED variable or temp-table field may not have expressions in its definition, for example FONT i.  Instead you must use constants for FONT, FGC etc." "" ""
+12966 "Spurious END INTERFACE statement. Interface not being defined. (12966)" "The compiler found an ""END INTERFACE"" statement in a file that was not defining an interface." "" ""
+12967 "Spurious END CLASS statement. Class not being defined. (12967)" "The compiler found an ""END CLASS"" statement in a file that was not defining an interface." "" ""
+12968 "Missing END METHOD statement. (12968)" "The compiler found a method being defined but failed to find an ""END METHOD"" or ""END"" statement for it. Check to make sure that the method has an END statement before any statements that start a new method, define a data member, etc." "" ""
+12969 "END  statement is not allowed in an interface file. (12969)" "The method, constructor, and destructor statements in an interface file are just prototypes that define signatures. They do not need and cannot have END statements or implementations." "" ""
+12970 "Warning: END PROCEDURE statement used to END a method. (12970)" "You terminated the definition of  a method with an END PROCEDURE statement. This is a compiler warning." "" ""
+12971 "Warning: END FUNCTION statement used to END a method. (12971)" "You terminated the definition of  a method with an END FUNCTION statement. This is a compiler warning." "" ""
+12972 "Warning: END METHOD statement used to END a user defined function. (12972)" "You terminated the definition of  a user defined function with an END METHOD statement. This is a compiler warning." "" ""
+12973 "Warning: END METHOD statement used to END a procedure. (12973)" "You terminated the definition of  an internal procedure with an END METHOD statement. This is a compiler warning." "" ""
+12974 "Warning: END CONSTRUCTOR statement used to END a procedure. (12974)" "You terminated the definition of  an internal procedure with an END CONSTRUCTOR statement. This is a compiler warning." "" ""
+12975 "Warning: END CONSTRUCTOR statement was used to END a user-defined function. (12975)" "You terminated the definition of  a user-defined function with an END CONSTRUCTOR statement. This is a compiler warning." "" ""
+12976 "Warning: END CONSTRUCTOR statement was used to END a method. (12976)" "You terminated the definition of  a method with an END CONSTRUCTOR statement. This is a compiler warning." "" ""
+12977 "Warning: END DESTRUCTOR statement used to END a procedure. (12977)" "You terminated the definition of  an internal procedure with an END DESTRUCTOR statement. This is a compiler warning." "" ""
+12978 "Warning: END DESTRUCTOR statement used to END an user defined function. (12978)" "You terminated the definition of  a user defined function with an END DESTRUCTOR statement. This is a compiler warning." "" ""
+12979 "Warning: END DESTRUCTOR statement used to END a constructor method. (12979)" "You terminated the definition of  a constructor with an END DESTRUCTOR statement. This is a compiler warning." "" ""
+12980 "Warning: END DESTRUCTOR statement used to END a method. (12980)" "You terminated the definition of  a method with an END DESTRUCTOR statement. This is a compiler warning." "" ""
+12981 "END CLASS statement was already encountered. Cannot compile more statements. (12981)" """END CLASS"" must be the last compilable statement in a class definition file. (Comments and other statements not analyzed by the compiler may follow ""END CLASS"".)" "" ""
+12982 "END INTERFACE statement was already encountered. Cannot compile more statements. (12982)" """END INTERFACE"" must be the last compilable statement in an interface definition file. (Comments and other statements not analyzed by the compiler may follow ""END INTERFACE"".)" "" ""
+12983 "In a CLASS, all executable statements must be in methods. (12983)" "The compiler found an executable statement (for example, setting a variable or calling a procedure, function, or method) in a class file outside of a method." "" ""
+12984 "Interface files may not have executable statements. (12984)" "An interface specifies only the prototypes of any methods that it includes. The executable code must go into the classes that implement the interface." "" ""
+12985 "Constructor name '' must match final component of class name ''. (12985)" "A constructor for a class must have the same name as the last part of the name in the CLASS statement. For example,
+CLASS animal.mammal.horse:
+   CONSTRUCTOR PUBLIC horse():
+       ?
+   END CONSTRUCTOR.
+" "" ""
+12986 "Destructor name '' must match final component of class name ''. (12986)" "A destructor for a class must have the same name as the last part of the name in the CLASS statement. For example,
+CLASS animal.mammal.horse:
+   DESTRUCTOR PUBLIC horse():
+       ?
+   END DESTRUCTOR.
+" "" ""
+12987 "Method name '' may not be the same as the final component of the class name, ''. (12987)" "This version of the compiler does not support defining a method whose name is the same as the name of the class in which it is defined. (The constructor and destructor, of course, MUST use the class name.)" "" ""
+12988 "Multiple constructors not supported. (12988)" "This version of the compiler allows only one constructor per class." "" ""
+12989 "Multiple destructors not supported. (12989)" "A class may have only one destructor. The compiler detected more than one DESTRUCTOR statement in the class definition." "" ""
+12990 "Duplicate method name '' not allowed. (12990)" "There are at least two methods with the same name in the class definition. This version of the compiler does not allow method overloading. (It's also possible that even with overloading, the duplication would be prohibited because the parameters match exactly or the return type is the same.)" "" ""
+12991 "Destructors may not have parameters. (12991)" "If your application needs to use parameters in conjunction with destroying an object, try putting the parameters into a ""helper"" method. The application can then call the helper first before deleting the object, or possibly the helper method can call 
+  DELETE OBJECT THIS-OBJECT.
+" "" ""
+12992 "Constructor must specify PUBLIC or PROTECTED access mode. (12992)" "Add an access modifier to the constructor definition. It must be either PUBLIC or PROTECTED. For example:
+
+CONSTRUCTOR PUBLIC Customer( INPUT myName AS CHAR,
+                                                               INPUT company AS CHAR ):
+" "" ""
+12993 "Destructor must specify PUBLIC access mode. (12993)" "A destructor cannot be PUBLIC. Either the destructor in the class definition uses the PRIVATE or PROTECTED keywords or has no specified access mode, which means that the compiler assumes the default of PRIVATE." "" ""
+12994 "Method definition must specify PUBLIC, PROTECTED, or PRIVATE access mode. (12994)" "There is no default access modifier for methods. A method definition must explicitly include PUBLIC, PROTECTED, or PRIVATE." "" ""
+12995 "Constructors must be either PUBLIC or PROTECTED. (12995)" "A constructor cannot be PRIVATE. Change the access modifier in the constructor definition from PRIVATE to either PUBLIC or PROTECTED." "" ""
+12996 "Destructors must be public. (12996)" "The class' destructor has PROTECTED or PRIVATE as the access modifier. Change the modifier to PUBLIC." "" ""
+12997 "Class '' may not have a method '' because it inherits from a class '' whose final component is ''. (12997)" "There is a method in the class whose name is the same as a super class of the class. For example, this would be wrong:
+
+CLASS horse INHERITS animal.mammal:
+   METHOD PUBLIC void mammal():  /* wrong ? uses super class name */
+   END METHOD.
+" "" ""
+12998 " already defined in inherited class as . Cannot declare it . (12998)" "The class has a method with the same name as a method in a super class. A method that overrides a method in a super class must have an access modifier that is the same as or LESS restrictive than the method being overridden. For example, if a class has this method:
+   METHOD PROTECTED DECIMAL GetBalance():
+
+and a derived class overrides GetBalance, the override must be either PROTECTED or PUBLIC.
+" "" ""
+12999 "Method '' in class hierarchy is FINAL. Cannot be overridden. (12999)" "The purpose of the FINAL modifier on a method is to prevent derived classes from overriding the method. You must remove FINAL from the super class' method (if you do this, make sure you understand why it was there) or you cannot override the method." "" ""
+13000 "Attempt to override method '' in class '', but OVERRIDE was not specified. (13000)" "If you want to override the indicated method, include the OVERRIDE modifier. For example:
+METHOD PROTECTED OVERRIDE DECIMAL GetBalance():
+   
+(If you see this error message and you are not deliberately trying to override a method, it probably means that there is a method in the indicated super class that has the same name as a method in the class being compiled.)
+" "" ""

@@ -1,0 +1,62 @@
+#!/bin/sh  
+PROG=`basename $0`
+
+
+#############################################################
+# mkhashfile
+#
+# This script takes a <name>.pem file
+# and converts it over to a <hashNumber>.0 file.
+#
+# This is to keep in line with industry standards
+# when dealing with chains of Certificate Authoritys (CAs)
+#
+#############################################################
+
+
+SCRIPTNAME=mkhashfile
+hashfile=""
+
+# Progress home directory
+DLC=${DLC-/dlc/dlc102b};export DLC 
+
+# Certificate Directory
+CERTS=${CERTS-$DLC/certs};export CERTS
+
+# Progress bin directory
+BIN=${BIN-$DLC/bin};export BIN
+
+if  [ $#  != 1 ] 
+then
+    echo ""
+    echo 'usage:   '$SCRIPTNAME' <name>.pem'
+    echo ""
+    echo 'This script takes for input a <name>.pem file'
+    echo 'and outputs a <hashvalue>.0 file.'
+    echo ""
+    exit 0
+fi
+
+echo "Running SSLC command ..."
+hashfile=`$BIN/sslc x509 -in $1 -hash -noout`
+
+
+if [ "x"$hashfile = "x" ]
+then
+   echo ""
+   echo '************************************'
+   echo 'Error generating hash file name.'
+   echo '************************************'
+   echo ""
+   exit 0. 
+fi
+
+# Copy the .pem file to the hashfile.
+
+
+CERTSFILE=`basename $1`
+echo "Copying $CERTSFILE and $hashfile.0 to $CERTS"
+cp $1 $CERTS/$hashfile.0
+cp $1 $CERTS/$CERTSFILE
+# echo 'Command was successful'
+

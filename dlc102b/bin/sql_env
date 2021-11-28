@@ -1,0 +1,295 @@
+#!/bin/sh
+
+# Setup the environment for Progress SQL92 on the following
+# items on Unix platforms:
+#	- Java stored procedure
+#	- Java row trigger
+#	- Jdbc driver
+#       - Odbc driver
+#
+# Instructions:
+# 
+# What are required before running:
+#  - $DLC/bin/proenv must be run at first
+#  - JDKHOME must be set and point to the installed JDK1.3x location for
+#    all platforms except Solaris
+#
+# When should sql_env be needed:(under proenv> environment)
+#  - sql_env is required on Linuxx86 for any sql-92 application
+#  - sql_env is required on all platforms for any sql-92 jdbc or odbc application
+#  - sql_env is required on all Unix platforms for sql-92 Java stored procedure or 
+#    trigger if the database is NOT started with the PROSERVE script.
+#  - sql_env is required on Windows platform for sql-92 Java stored procedure or 
+#    trigger under the "proenv>"  environment.
+
+
+# this script expects the DLC environment variable to be set
+: ${DLC?"DLC variable must be set"}
+
+# If internal build environment - Java is already setup just exit
+if [ -n "$RDLLSC" ]
+then
+  :
+else
+
+# Check the LANG POSIX environment variable for driver
+# messages. Set it to default if not set
+if [ "x$LANG" = "x" ]
+then
+    LANG=C; export LANG
+fi
+
+# set defaults for JDK, JRE home, bin, lib directories 
+# platform specific overrides are below
+JDKHOME=${JDKHOME-$DLC/jdk};export JDKHOME
+JREHOME=${JREHOME-$DLC/jre};export JREHOME
+
+# Check the JDKHOME and JREHOME for both CREATING and
+# EXECUTING Java stored procedure or trigger
+
+# JDKHOME
+if [ ! -d $JDKHOME ]
+then
+    echo "JDKHOME is invalid, and must be set correctly"
+    exit
+fi
+# JREHOME
+if [ ! -d $JREHOME -a ! -d $JDKHOME/jre ]
+then
+    echo "JREHOME is invalid, and must be set correctly"
+    exit
+fi
+# Use JDKHOME/jre by default for JREHOME
+if [ ! -d $JREHOME ]
+then
+    JREHOME=$JDKHOME/jre;export JREHOME
+fi
+echo "JDKHOME=$JDKHOME"
+echo "JREHOME=$JREHOME"
+
+# set the CLASSPATH
+PROSPCP=${PROSPJAR_PATH-$DLC/java/prosp.jar}
+JDBCSP=$DLC/java/openedge.jar
+CLASSPATH=$PROSPCP:$JDBCSP:$CLASSPATH; export CLASSPATH
+echo "CLASSPATH=$CLASSPATH"
+ 
+# Set the runtime environment for Java stored procedure,trigger
+# JDBC and ODBC driver
+JDBCLIB=$DLC/lib # lib path for JDBC and ODBC driver library
+ODBCLIB=$DLC/odbc/lib # lib path for ODBC driver
+OSNAME=`uname`
+
+case "$OSNAME" in
+    "SunOS")    # Sun Solaris v2.5.1/v2.6 we ship jdk,jre
+      # check the java jvm library path which is needed for java sp/trigger
+     RET=`file $DLC/bin/_mprosrv | grep "ELF 64-bit"`
+     if [ $? -eq 0 ] 
+     then 
+         BITS=64
+     else
+         BITS=32
+     fi       
+     case "$BITS" in
+      32) 
+      if [ ! -d $JREHOME/lib/sparc -o ! -d $JREHOME/lib/sparc/client ]
+      then
+        echo "ERROR: The java jvm library path does not exist !"
+        echo "Check your JREHOME for the existence of lib/sparc"
+        echo "or lib/sparc/client, then rerun the script"
+        exit
+      fi
+      JVMLIB=$JREHOME/lib/sparc:$JREHOME/lib/sparc/client
+      ;;
+      64)
+      if [ ! -d $JREHOME/lib/sparcv9 -o ! -d $JREHOME/lib/sparcv9/server ]
+      then
+        echo "ERROR: The java jvm library path does not exist !"
+        echo "Check your JREHOME for the existence of lib/sparcv9"
+        echo "or lib/sparcv9/server, then rerun the script"
+        exit
+      fi
+      JVMLIB=$JREHOME/lib/sparcv9:$JREHOME/lib/sparcv9/server
+      PATH=$JREHOME/bin/sparcv9:$PATH; export PATH
+      ;;
+      esac 
+      # set the shared library search path - snippet from the java script
+      LD_LIBRARY_PATH=$JVMLIB:$JDBCLIB:$ODBCLIB:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH 
+      echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+    ;;
+
+    "HP-UX")   #  HP UNIX 11.00 we ship jre only
+      # check the java jvm library path which is needed for java sp/trigger
+      # Note: For hpux1132 and hpux1164 the java jvm library path has 
+      # been changed to:
+      #            $JREHOME/lib/PA_RISC/server in JDK1.4
+      #            $JREHOME/lib/RISC2.0/server in JDK1.5
+      # For hpuxia64 it is $JREHOME/lib/IA64N/server in JDK1.4 and JDK1.5
+      RET=`file $DLC/bin/_mprosrv | grep "ELF-64 executable"`
+      if [ $? -eq 0 ] 
+      then 
+	   BITS=64
+      else
+	   BITS=32
+      fi 
+      case "$BITS" in
+      32) 
+      ARCH=PA_RISC2.0
+      ;;
+      64) 
+      if [ `uname -m` = "ia64" ]
+      then
+         ARCH=IA64W
+      else
+         ARCH=PA_RISC2.0W
+      fi
+      PATH=$JREHOME/bin/$ARCH:$PATH; export PATH
+      ;;
+      esac     
+      if [ ! -d $JREHOME/lib/$ARCH -0 ! -d $JREHOME/lib/$ARCH/native_threads ]
+      then
+        echo "ERROR:The java jvm library path does not exist !"
+        echo "Check your JREHOME for the existence of lib/$ARCH,"
+        echo "lib/$ARCH/server, and lib/$ARCH/native_threads,"
+        echo "then rerun the script!"
+        exit
+      fi
+      JVMLIB=$JREHOME/lib/$ARCH:$JREHOME/lib/$ARCH/server:$JREHOME/lib/$ARCH/native_threads
+      # set the shared library search path - snippet from the java script
+      SHLIB_PATH=$JVMLIB:$JDBCLIB:$ODBCLIB:$SHLIB_PATH
+      export SHLIB_PATH
+      echo "SHLIB_PATH=$SHLIB_PATH"
+
+    ;;
+
+    "AIX")     #  IBM UNIX we ship No jdk, jre
+      # check the java jvm library path which is needed for java sp/trigger
+      if [ ! -d $JREHOME/bin -o ! -d $JREHOME/bin/classic ]
+      then
+        echo "ERROR:The java jvm library path does not exist !"
+        echo "Check your JREHOME for the existence of bin"
+        echo "or bin/classic, then rerun the script"
+        exit
+      fi
+      JVMLIB=$JREHOME/bin:$JREHOME/bin/classic
+      LIBPATH=$JVMLIB:$JDBCLIB:$ODBCLIB:${LIBPATH}
+      export LIBPATH
+      echo "LIBPATH=$LIBPATH"
+      # PROLIBPATH is required on AIX
+      PROLIBPATH=$LIBPATH
+      export PROLIBPATH
+      echo "PROLIBPATH=$PROLIBPATH"
+
+    ;;
+
+    "OSF1")    #  Alphaosf - Digital UNIX we ship No jdk, jre
+      # check the java jvm library path which is needed for java sp/trigger
+      if [ ! -d $JREHOME/lib/alpha/classic ]
+      then
+        echo "ERROR:The java jvm library path does not exist !"
+        echo "Check your JREHOME for the existence of lib/alpha/classic"
+        echo ", then rerun the script"
+        exit
+      fi
+      JVMLIB=$JREHOME/lib/alpha/classic
+      LD_LIBRARY_PATH=$JVMLIB:$JDBCLIB:$ODBCLIB:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+      echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+    ;;
+
+    "UnixWare")  # Unix486v4- Unixware we ship No jdk, jre
+      # check the java jvm library path which is needed for java sp/trigger
+      if [ ! -d $JREHOME/lib/x86at -o ! -d $JREHOME/lib/x86at/client -o ! -d $JREHOME/lib/x86at/native_threads ]
+      then
+        echo "ERROR:The java jvm library path does not exist !"
+        echo "Check your JREHOME for the existence of lib/x86at,"
+        echo "lib/x86at/client or lib/x86at/native_threads"
+        echo ", then rerun the script"
+        exit
+      fi
+      JVMLIB=$JREHOME/lib/x86at:$JREHOME/lib/x86at/client:$JREHOME/lib/x86at/native_threads
+      LD_LIBRARY_PATH=$JVMLIB:$JDBCLIB:$ODBCLIB:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+      echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+    ;;
+
+    "Linux") # linuxx86 - LINUX we ship No jdk, jre
+      # check the java jvm library path which is needed for java sp/trigger
+      # Note: java jvm library path has been changed to $JREHOME/lib/i386/client since JDK1.4
+      JVMPATH=
+      RET=`file $DLC/bin/_mprosrv | grep "ELF 64-bit"`
+      if [ $? -eq 0 ] 
+       then 
+           BITS=64
+       else
+           BITS=32
+      fi 
+      case "$BITS" in
+      32) 
+      if [ -d $JREHOME/lib/i386/native_threads ]
+      then
+        if [ -d $JREHOME/lib/i386/classic ] ## JDK1.3
+        then
+          JVMPATH=$JREHOME/lib/i386/classic
+        elif [ -d $JREHOME/lib/i386/client ] ## JDK1.4 and JDK1.5
+        then
+          JVMPATH=$JREHOME/lib/i386/client
+        fi
+        JVMLIB=$JVMPATH:$JREHOME/lib/i386/native_threads
+      fi
+      if [ "x$JVMPATH" = "x" ]
+      then
+        echo "ERROR:The java jvm library path does not exist !"
+        echo "Check your JREHOME for the existence of lib/i386/classic"
+        echo "or lib/i386/client, and lib/i386/native_threads,"
+        echo "then rerun the script"
+        exit
+      fi
+      ;; 
+      64)
+      if [ `uname -p` = "ppc64" ] ## JDK1.4 and JDK1.5
+      then
+          JVMPATH=$JREHOME/bin/classic
+          JVMLIB=$JVMPATH
+      elif [ `uname -p` = "x86_64" ]
+      then
+         if [ -d $JREHOME/lib/amd64/native_threads ]
+         then 
+             if [ -d $JREHOME/lib/amd64/server ]
+             then 
+              JVMPATH=$JREHOME/lib/amd64/server
+             fi
+         fi 
+         JVMLIB=$JVMPATH:$JREHOME/lib/amd64/native_threads
+         if [ "x$JVMPATH" = "x" ]
+         then
+              echo "ERROR:The java jvm library path does not exist !"
+              echo "Check your JREHOME for the existence of lib/amd64/server"
+              echo "and lib/amd64/native_threads,"
+              echo "then rerun the script"
+              exit
+         fi
+      fi
+      ;;
+      esac 
+
+      LD_LIBRARY_PATH=$JVMLIB:$JDBCLIB:$ODBCLIB:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+      echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
+      # PROLIBPATH is needed on Linux
+      PROLIBPATH=$LD_LIBRARY_PATH; export PROLIBPATH
+      echo "PROLIBPATH=$PROLIBPATH"
+      
+    ;;
+
+    *)         # Unrecognized uname, no support yet
+      echo "WARNING: not setting shared library include path"
+    ;;
+esac
+
+echo "DONE of setup sql environment"
+
+PS1=$PS1"sql_env>";export PS1
+# Start a new shell. Won't work for certain platforms without it
+exec /bin/sh
+fi

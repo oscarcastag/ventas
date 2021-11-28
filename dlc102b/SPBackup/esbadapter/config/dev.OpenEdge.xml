@@ -1,0 +1,12 @@
+<service name="dev.OpenEdge"
+	type_ref="OpenEdgeSrvType2"
+	xmlns="http://www.sonicsw.com/sonicxq"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.sonicsw.com/sonicxq file:///[[sonic-esb]]/schema/service.xsd">
+	<entry_ref>dev.OpenEdge.Entry</entry_ref>
+	<exitEndpoint_list>
+		<exitEndpoint endpoint_ref="dev.Exit" type="ENDPOINT"/>
+	</exitEndpoint_list>
+	<faultEndpoint endpoint_ref="dev.Fault" type="ENDPOINT"/>
+	<rejectEndpoint endpoint_ref="dev.RME" type="ENDPOINT"/>
+</service>

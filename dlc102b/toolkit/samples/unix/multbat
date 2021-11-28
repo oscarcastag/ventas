@@ -1,0 +1,36 @@
+# multbat
+#
+# sample script to run a multi-user batch job
+#
+# Usage:	multbat
+#
+# You must start the server with "strtsrvr" before running this script
+#
+# Define the main application directory, APPLDIR. If
+# APPLDIR has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/acme is used.
+APPLDIR=${APPLDIR-/usr/acme}
+
+# Define the location of the PROGRESS software. If DLC
+# has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/dlc is used.
+DLC=${DLC-/usr/dlc}; export DLC
+PROEXE=${PROEXE-$DLC/bin/_progres}; export PROEXE
+
+# Define the search path to be used to find procedures,
+# using the directory named with the APPLDIR variable.
+PROPATH=$APPLDIR; export PROPATH
+
+# Display the version message.
+cat $DLC/version
+
+# Assign a database name.  If the user supplied a database
+# name before starting this script, use that name.  If not
+# use acmedb as the default database name.
+DBNAME=${DBNAME-acmedb}
+
+# Start PROGRESS in batch mode, and run default batchpgm procedure. 
+trap "" 1
+exec $PROEXE $DBNAME -b -p batchpgm 2>&1 &

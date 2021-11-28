@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceType xmlns="http://www.sonicsw.com/sonicxq" name="OpenEdgeSrvType" factoryClass="com.progress.esb.adapter.EsbAdapter" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sonicsw.com/sonicxq file:///[[sonic-esb]]/schema/serviceType.xsd">
+	<validParams>
+		<init>
+			<stringParam name="WSM" required="true"/>
+			<stringParam name="webServiceNamespace" required="false"/>
+			<stringParam name="faultProcessing" required="false">
+				<default>0</default>
+			</stringParam>
+			<stringParam name="appServiceProtocol" required="false"/>
+			<stringParam name="appServiceHost" required="false"/>
+			<stringParam name="appServicePort" required="false"/>
+			<stringParam name="appServiceName" required="false"/>
+			<stringParam name="noHostVerify" required="false"/>
+			<stringParam name="noSessionReuse" required="false"/>
+		</init>
+		<runtime>
+			<stringParam name="InputMessagePart"/>
+			<stringParam name="OutputMessagePart"/>
+		</runtime>
+	</validParams>
+</serviceType>

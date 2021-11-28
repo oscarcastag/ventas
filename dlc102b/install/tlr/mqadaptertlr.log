@@ -1,0 +1,67 @@
+===============================================================================
+Tailoring OpenEdge SonicMQ Adapter files [Mon Sep 29 23:56:17 CEST 2014]...
+SonicMQ Tailoring
+Copy SonicMQ files
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/startcontainer.sh
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/setenv
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/setenv
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/setenv_ext.sh
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/setenv_ext.sh
+
+SonicMQ Tailoring complete
+
+Updating file permisions...
+Creating script file /dlc/dlc102b/install/tlr/setperm.sh
+Setting execute permision on /dlc/dlc102b/install/tlr/setperm.sh
+Running command: /dlc/dlc102b/install/tlr/setperm.sh
+command returned 0
+===============================================================================
+Tailoring OpenEdge SonicMQ Adapter files [Tue Sep 30 00:08:59 CEST 2014]...
+SonicMQ Tailoring
+Service Pack installation
+Checking for a newer version of SonicMQ
+Current version: 7.5.20-176
+New version: 7.5.20-176
+No SonicMQ update is needed
+
+SonicMQ Tailoring complete
+
+Updating file permisions...
+Creating script file /dlc/dlc102b/install/tlr/setperm.sh
+Setting execute permision on /dlc/dlc102b/install/tlr/setperm.sh
+Running command: /dlc/dlc102b/install/tlr/setperm.sh
+command returned 0
+===============================================================================
+Tailoring OpenEdge SonicMQ Adapter files [Fri Feb 27 19:13:18 CET 2015]...
+SonicMQ Tailoring
+Copy SonicMQ files
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/startcontainer.sh
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/setenv
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/setenv
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/setenv_ext.sh
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/setenv_ext.sh
+
+SonicMQ Tailoring complete
+
+Updating file permisions...
+Creating script file /dlc/dlc102b/install/tlr/setperm.sh
+Setting execute permision on /dlc/dlc102b/install/tlr/setperm.sh
+Running command: /dlc/dlc102b/install/tlr/setperm.sh
+command returned 0
+===============================================================================
+Tailoring OpenEdge SonicMQ Adapter files [Thu Jul 23 19:56:01 CEST 2015]...
+SonicMQ Tailoring
+Copy SonicMQ files
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/startcontainer.sh
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/setenv
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/setenv
+Tailoring /dlc/OE102b_linux64/3party/sonicmq/bin/setenv_ext.sh
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/setenv_ext.sh
+
+SonicMQ Tailoring complete
+
+Updating file permisions...
+Creating script file /dlc/dlc102b/install/tlr/setperm.sh
+Setting execute permision on /dlc/dlc102b/install/tlr/setperm.sh
+Running command: /dlc/dlc102b/install/tlr/setperm.sh
+command returned 0

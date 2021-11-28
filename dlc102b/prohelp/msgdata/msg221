@@ -1,0 +1,120 @@
+11001 "DLC environment variable exceeds it's maximum length of  bytes. (11001)" "The DLC environment variable exceeds it's maximum length.  Please shorten the value of DLC so that is is less than the maximum length specified. " "" ""
+11002 "The DLC environment variable must contain a valid directory/path. (11002)" "The DLC environment variable must contain a valid directory/path.  Either the directory/path specified does not exist or it does not refer to a directory or path." "" ""
+11003 "Invalid record found in the buffer. (11003)" "CRC check failed " "" ""
+11004 "Unable to write Blob to file because the disk is full. (11004)" "Your program attempted to write data from a BLOB to a file system file, but the disk it was writing to is full. You need to free up space on that disk or write to a different disk." "" ""
+11005 "Cannot rename table/column with check constraint (11005)" "The table/column you are attempting to rename has a check constraint associated with it, you must drop the check constraint before proceeding. The check constraint can be added once the rename is complete. " "" ""
+11006 "NS_Startup: The NameServer has been started. NameServer: <name>, Port: <port>. (11006)" "The NameServer has been started.
+  " "" ""
+11007 "NS_NormalShutdown: The NameServer shutdown normally. NameServer: <name>, Port: <port>. (11007)" "Normal NameServer shutdown has begun.
+
+  " "" ""
+11008 "NS_AbnormalShutdown: The NameServer has shutdown abnormally. NameServer: <name>, Port: <port>. (11008)" "The NameServer shutdown abnormally. 
+Examine the NameServer, Broker and AdminServer log files for any additional in information to assist in determining why the NameServer shutdown.
+
+
+  " "" ""
+11009 "NS_ApplicationServiceNotFound: Application Service requested by client not found. Application Service: <name>. Client host: <host>, Port: <port>. (11009)" "There are no AppServers registered at the NameServer for the named Application Service requested by a client.
+If the Application Service being requested is valid, examine the NameServer and Broker log files to assist in determining why a broker is not registered for the requested AppService. 
+
+
+  " "" ""
+11010 "NS_BrokerTimeout: The registered Broker is not responding. The Broker will not be registered. Broker: <name>. (11010)" "A registered Broker is not responding.
+Examine the Broker's log file for any additional information to assist in determining why the Broker is not responding.
+ 
+
+
+  " "" ""
+11011 "NS_DuplicateBrokerUUID: Erroneous UUID received from a second Broker. The UUID is already registered. Registered Broker: <name>, Host: <host>, Port: <port>. Secondary Broker: <name>, Host: <host>, Port: <port>. UUID: <UUID>. (11011)" "A Broker is attempting to register with the NameServer using a UUID which has already been registered by another Broker.
+Examine the ubroker.properties file for duplicated UUID specifications.
+
+ 
+
+
+  " "" ""
+11012 "NS_NameServerResponseTime: The NameServer is not responding in a timely manner. NameServer: <name>. (11012)" "The NameServer response time exceeded the threshold. Fathom made a client request of the NameServer and did not get a response within the specified time.
+Determine if the NameServer is running and whether the network is performing normally. Examine the NameServer and AdminServer log files to assist in determining why the NameServer is not responding as expected.
+
+
+ 
+
+
+  " "" ""
+11013 "Invalid use of an indefinite array.  Cannot be used in frame construction. (11013)" "    " "" ""
+11014 "roll forward open <name> error: <number>. (11014)" "roll forward utility finds an error in opening an ai file.  " "" ""
+11015 "NS_ClientRequestRejected: The client request was rejected due to an incorrect message header, or wrong version information in the client message. Client host: <host>, port: <port>. (11015)" "The NameServer received a request with bad header information. The header information was incorrect or the protocol version field within the header contained an unsupported version identifier. Determine if the request came from a legitimate NameServer client. If it is a Progress based client, check that the NameServer version is recent enough to support the version of the client.
+
+
+
+ 
+
+
+  " "" ""
+11016 "NS_BrokerRegistrationFailure: The Broker registration failed. The namedApplication Service already has a Broker, and Load Balancing is not installed. Application Service: <appservice>. Broker: <name>, Host: <host>, Port: <port>, UUID: <UUID>. (11016)" "The identified Broker was not registered for the requested Application Service. The Application Service already has a Broker registered for it, and the Load Balancing option is not installed.
+See if the Broker's list of supported Application Services conflict with that of other Brokers. Consider installing the load balancing option. 
+
+
+
+
+ 
+
+
+  " "" ""
+11017 "NS_NameServerReregisteredBroker: The Broker has been reregistered by the NameServer for consistency. Broker: <name>, Host: <host>, Port: <port>, UUID: <UUID>. (11017)" "The NameServer detected that the Broker has been restarted without the NameServer receiving an unregister request or having timed out the Broker. To ensure that the values associated with the Broker are the latest values, the NameServer has unregistered and reregistered the Broker.
+Determine how the Broker is being shutdown and why it is not sending a unregister message to the NameServer.  Consider if the timeout the NameServer is using for the Brokers is too long and preventing the NameServer from detecting that a Broker is no longer responding. 
+
+
+
+
+ 
+
+
+  " "" ""
+11018 "An error occurred while attempting to send the event notification: <event>. (11018)" "The error occurred when the NameServer was sending an event  notification to Fathom. The notification is directed through the Admin Server that is local to the NameServer.
+Determine if the NameServer and the Admin Server are still able to communicate. Examine the Admin Server log file for any additional information about the state of communication between the NameServer and the Admin Server.
+
+ " "" ""
+11019 "An error occurred while attempting to obtain NameServer status. (11019)" "The NameServer was gathering status and statistic information for Fathom when an error occurred. 
+Examine the NameServer log file for any additional information.Determine if the detailed NameServer status can be obtained and if the brokers can still communicate with the NameServer.
+
+ " "" ""
+11020 "<time> Flushing Buffer Pool:  buffers remaining. (11020)" "syserr " "" ""
+11021 "Loading catalog file from: <file location> (11021)" "Log file message indicating the catalog is being loaded." "" ""
+11022 "Error loading catalog file: <error message> (11022)" "Log file message indicating a problem loading the catalog." "" ""
+11023 "Catalog file loaded. (11023)" "Log file message indicating the catalog was successfully loaded." "" ""
+11024 "The procopy utility cannot copy the source database onto itself. (11024)" "This message is generated when a PROCOPY command has identified source and target databases that are the same. The copy operation is cancelled since it would result in loss of data. " "" ""
+11025 "An error occurred while attempting an RMI lookup of the AdminServer: <event>. (11025)" "The error occurred during initialization when the NameServer was doing an RMI lookup of the AdminServer. The lookup is done in order to send event notifications through the AdminServer to Fathom.
+Determine if the NameServer and the Admin Server are still able to communicate. Examine the Admin Server log file for any additional information about the state of communication between the NameServer and the Admin Server.
+
+ " "" ""
+11026 "The OSMetrics library loaded:  (11026)" "The osmetrics.dll library was loaded from the named location." "" ""
+11027 "Opening Fathom configuration database:  <database name> (11027)" "Beginning process of opening Fathom configuration database." "" ""
+11028 "Fathom configuration database opened. (11028)" "The Fathom configuration database was successfully opened." "" ""
+11029 "Fathom configuration database not found:  <database name> (11029)" "The Fathom configuration database was not found. A new database will be created." "" ""
+11030 "Error opening Fathom configuration database:  <database name> (11030)" "The Fathom configuration database exists but could not be opened. The most common causes are that the database is already opened by another instance of Fathom or that Fathom was previously shutdown abnormally and left the lock file ""fathom.odx"" behind. The lock file must be manually deleted for Fathom to be restarted." "" ""
+11031 "Fathom configuration database is already locked. Verify that Fathom is not already running. If it is not running and the Fathom configuration database lock file exists delete the lock file and restart Fathom. Lock file:  <filename> (11031)" "The Fathom configuration database could not be opened because there is a lock outstanding. The most common causes are that the database is already opened by another instance of Fathom or that Fathom was previously shutdown abnormally and left the lock file ""fathom.odx"" behind. The lock file must be manually deleted for Fathom to be restarted." "" ""
+11032 "Closing Fathom configuration database:  <database name> (11032)" "Begining process of closing Fathom configuration database." "" ""
+11033 "Fathom configuration database closed. (11033)" "Fathom configuration database has been closed." "" ""
+11034 "Loading project from Fathom configuration database. (11034)" "Beginning the process of loading resource definitions from the Fathom configuration database." "" ""
+11035 "Fathom project loaded. (11035)" "Loading of project from Fathom configuration database completed successfully." "" ""
+11036 "Creating Fathom configuration database:  <database name> (11036)" "Creating a new Fathom configuration database." "" ""
+11037 "Fathom configuration database created. (11037)" "Fathom configuration database successfully created." "" ""
+11038 "upload: can not allocate buffer for LOBs, bufsize=. (11038)" "proutil bulkload tries to allocate buffer for a LOB field, but failed." "" ""
+11039 "loadLobField: lob file  doesn't exist or can't access it, ret=. (11039)" "proutil bulkload failed in finding a LOB file." "" ""
+11040 "loadLobField: utflen '' error . (11040)" "proutil bulkload failed to get file length for a LOB file." "" ""
+11041 "File size  is greater than max lob field size  for file ''. (11041)" "proutil bulkload failed because it found the LOB file's size exceeds the maximum defined by that field." "" ""
+11042 "loadLobField failed in dsmBlobStart, dsmRet = d. (11042)" "proutil bulkload failed in loading a LOB field." "" ""
+11043 "loadLobField: dsmBlobPut NOT Successful, dsmRet=d. (11043)" "proutil bulkload failed because it could not put a LOB field." "" ""
+11044 "loadLobField: dsmBlobEnd NOT Successful, dsmRet=. (11044)" "proutil bulkload failed because it could not end a LOB operation." "" ""
+11045 "loadLobField: LOB sizes don't match, expected , loaded d. (11045)" "proutil bulkload failed in loading a LOB field, the file size doesn't match the LOB size that has been loaded into the database." "" ""
+11046 "loadLobField: can not put LobLocator, dsmRet=d. (11046)" "proutil bulkload failed in loading a LOB locator into the database for a LOB field." "" ""
+11047 "loadLobField: can not close file , ret=. (11047)" "proutil bulkload failed in closing a LOB file." "" ""
+11048 "loadLobField: pathname length  exceeds maximum. (11048)" "proutil bulkload found the path name was too long for a LOB file." "" ""
+11049 "SQL engine Statement Manager removed a prepared, never executed statement from statement cache.   <number> statements are currently in use ( <type of cache> cache). (11049)" "The SQL-92 Statement Mgr's statement cache reached capacity. To add a new statement, a prepared, but never executed statement, was removed. If the removed statement is ever executed, it will incur a performance delay while the statement is re-prepared for execution.  The number shown is the current maximum capacity." "d" ""
+11050 "AS_RejectedRequestPercentHigh: The percentage of rejected requests has exceeded the threshold. Current Value: <value> Threshold: <threshold>" "The percentage of client requests rejected during the polling interval exceeded the threshold. This could indicate bottlenecks or tuning problems preventing client requests from being serviced.
+
+
+
+ 
+
+
+  " "" ""

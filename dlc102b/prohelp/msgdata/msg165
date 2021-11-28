@@ -1,0 +1,84 @@
+8201 "Request received from <Host> <Port> for <Application Service>. (8201)" "This is an informational message indicating that a request for an broker that supports the Application Service indicated by <Application Service> was received from a Client at the host and port indicated by <Host> and <Port>.
+ " "" ""
+8202 "Response sent to <Host> <Port>. (8202)" "This is an informational message indicating that a response messge was sent to the process at the host and port indicated by <Host> and <Port>.  This message will be printed out in response to a request from a Client to get an broker for a specified Application Service, and it will be periodically printed out when a response is returned to a Broker after receiving a keep-alive message. " "" ""
+8203 "Request forwarded to NameServer neighbor <Host> <Port>. (8203)" "This is an informational message. It is printed out by a NameServer when a request is received by a NameServer for an Application Service that can not be found, and the NameServer has neighbors as defined by the neighborNameServers property.  The message is indicating that the request is being forwarded to the Nameserver at the host and port indicated by <Host> and <Port>.
+ " "" ""
+8204 "Status Request received from <Host> <Port>. (8204)" "This is an informational message indicating that a request for the status of the NameServer was received from the Client at the host and port indicated by <Host> and <Port>.
+ " "" ""
+8205 "Registering Broker <UUID> <Name> <Host> <Port>. (8205)" "This is an informational message indicating that a registration request was received from a broker with a name of <Name> at host <host>.  The broker has a UUID value of <UUID> and is listening or port <Port>.
+ " "" ""
+8206 "AppService = <Application Service> Found = <boolean> Number Of Brokers = <Count>. (8206)" "This is an informational that is printed out in response to a request from a Client for a broker that supports the Application Service indicated by <Application Service>.  The message indicates if the Application Service was found and how many broker entries are being returned.
+ " "" ""
+8207 "Broker <UUID> Registered For Application Service <Application Service>. (8207)" "This is an informational message indicating that the Broker with a UUID value of <UUID> was successfully registered with the Application Service indicated by <Application Service>.
+ " "" ""
+8208 "Registration Failure: Load Balancing Not Available.  Broker <UUID> Not Registered.  Application Service <Application Service> already being used. (8208)" "This is an informational message that the Broker with a UUID value of <UUID> was not registered because it indicated to register to the Application Service <Application Service>, the Application Service already has a Broker registered with it, and the Load Balancing option is not installed.  Not that if a Broker fails to register for any Application Service that it requests, then it will automatically be unregistered from all Application Services that are part of the registration request.  A Brokmer is never registered for just a subset of the Application Services contained in a registration request. " "" ""
+8209 "Known Broker <Broker Name>. (8209)" "This is an informational message indicating tha the Broker indicated by <Broker Name> is already known to the this NameServer.  The NameServer will update the internal timers associated with this Broker to indicate that it just received a keep-alive message from this Broker.
+ " "" ""
+8210 "Unregistering Broker <Broker Name>. (8210)" "This is an informational message indicating that the Broker indicated by <Broker Name> is being unregistered.  A Broker may be unregistered because it sent an unregister message to the NameServer as a side-affect of being shutdown, or it may be unregistered because the NameServer has not received a keep-alive message from the Broker within at least the amount of time indicated by the Broker's registrationRetry property.
+ " "" ""
+8211 "Reregistering Broker <Broker Name>. (8211)" "This is an informational message indicating that the Broker specified by Broker Name is a known broker, but the NameServer is reregistering it because the NameServer has reason to believe that the broker has been shutdown and then restarted.  To ensure that the values associated with this Broker are the latest values, the NameServer unregisters and registers this Broker using the values contained in the registration message. 
+ " "" ""
+8212 "NameServer Port <NameServer> Invalid or In Use. (8212)" "An attempt was made to startup up the NameServer by the port specified by the portNumber was an invalid UDP port number, or was being used by some other process.
+ " "" ""
+8213 "Loading NameServer <NameServer> from properties file <filename>. (8213)" "This is an informational message indicating that the NameServer indicated by <NameServer> was being loaded from the properties file indicated by <filename>.
+ " "" ""
+8214 "Unable to load NameServer properties file. (8214)" "This is an informational message indicating that the NameServer was unable to load the properties file.  See previous error messages for more detailed information.
+ " "" ""
+8215 "NameServer <NameServer> in properties file <filename> is not a local NameServer. (8215)" "This is an error message which indicates that the NameServer indicated by <NameServer> in the properties file indicated by <filename> could not be started because it is not a local NameServer as indicated by its location property.
+ " "" ""
+8216 "You are not licensed to run the Progress NameServer. (8216)" "This is an error message indicating that the NameServer could not be started because this site is not licensed to use the NameServer.
+ " "" ""
+8217 "An unhandled exception was received. Please report this to technical support. Exception: <Exception Text> (8217)" "This is an error message indicating that an unexpected error occurred and this error should be reported to Technical Support.
+ " "" ""
+8218 "Request received from <Host> <Port> contains invalid message code <code>. (8218)" "This is an informational message indicating that a message received by the NameServer was an invalid message.  Mostly likely a non-Progress based application erroneously sent a message to this NameServer.  The NameServer simply ignores the invalid message. 
+ " "" ""
+8219 "Failure to initialize log file <log filename>. (8219)" "This is an error message indicating that the NameServer could not open its log file.
+ " "" ""
+8220 "Cannot return message to Client application at host <Host>. (8220)" "This is an informational message indicating that the NameServer could not return a response to the Client application residing at the host indicated by <Host> because the NameServer was unable to find the host. 
+ " "" ""
+8221 "Erroneous UUID <UUID> received from Broker <Name> <Host> <Port>. UUID already registered by Broker <Name> <Host> <Port>. (8221)" "When the NameServer receives a registration request from a Broker using the UUID it determines if this is a Broker it already knows about.  It determines if this is a broker it already knows about by looking up the Broker in its list of known brokers using the UUID. If it finds a matching UUID as a validity check it compares the name, host, and port of the brokers.  If these values match, it assumes that the brokers that this is a keep-alive message from a known broker.  If the values do not match, then the NameServer assumes that they are different brokers and the registration request is ignored.
+This message is typically seen when a text editor is used to add a broker to the ubroker.properties file and the genUUID tools was not properly used to update the UUID property for the new broker.  
+ " "" ""
+8222 "Unregister ignored. Broker <Broker Name> ID  <Instance ID> does not match the ID received <Instance ID>. (8222)" "This is an informational message indicating that the unregister request for the Broker indicated by <Broker Name> could not be unregistered.  This situation may occur in extremely rare cases where a Broker is repeatedly started up and terminated without properly shutting it down.
+ " "" ""
+8223 "Cannot unregister broker with UUID <UUID> because UUID unknown. (8223)" "This is an informational message that indicates that the Broker with a UUID value of <UUID> could not be unregistered because the UUID is not one that the NameServer knows about.   This messge can normally be ignored.  It is possible that it my occur under abnormal situations where the NameServer and the Broker are repeatedly started up and shutdown in random order.
+ " "" ""
+8224 "Unable to extract # of extents from _Area record (8224)" "syserr" "D" ""
+8225 "
+You must remove the variable length BI extent before adding 
+ additional BI extent(s). (8225)" "Remove the variable lenght BI extent (prostrct remove) before adding additional BI exents." "D" ""
+8226 "UBTPluginPane.connectToMyPlugin() failure: Cannot create RMI glue to the remote object.  (8226)" "   " "" ""
+8227 "UBTPluginPane.connectToMyPlugin() failure: remote object is null.  (8227)" "   " "" ""
+8228 "Skipping unregistered property  (8228)" " " "" ""
+8229 "Connect Failure: Error marshalling or unmarshalling NameServer message. (8229)" "The client could not connect to the Application Service indicated by the connection URL because there was an error writing the message to the NameServer or reading the response.  " "" ""
+8230 "Connect Failure: NameServer Communications Failure - <Java Exception> (8230)" "An unexpected communciations error occurred while communicating with the NameServer. <Java Exception> indicates the specific error that occurred." "" ""
+8231 "Connect Failure: Timeout or Interrupt occurred while attempting to communicate with NameServer. (8231)" "The client could not connect to the Application Service indicated in the connect URL because it did not receive a response before the request timedout.  Either (1) the specified NameServer is not running, or (2) networking resources are so limited that the request timed out, or (3) the thread where the request was running was interrupted. " "" ""
+8232 "Connect Failure: NameServer Host <Host> is not known. (8232)" "The client code not connect to the requested Application Service because the host specified in the connection URL as indicated by <Host> was not a valid host name. " "" ""
+8233 "Connect Failure: Default Application Service Unknown. (8233)" "Not used. " "" ""
+8234 "Connect Failure: Application Service <Application Service> Unknown at NameServer at Host <Host> Port <Port>.   (8234)" "The client could not connect to the Application Service indicated by <Application Service> because the Application Service is not known by the NameServer at the indicated host and port.  The corresponding Broker either has not been started or it is unable to communicate with the NameServer. " "" ""
+8235 "Unable to connect to NameServer at Host <Host> Port <Port>. (8235)" "The NameServer is unavailable on the specified host and port.  Verify that the NameServer is indeed running on that host and port, then attempt to restart the application server.
+ " "" ""
+8236 "Unable to connect to NameServer at Host <Host> Service <Service>. (8236)" "A connection to the NameServer could not be made using this host and service name.  Verify that the host name is correct and that the service name is correct.
+
+ " "" ""
+8237 "Not connected to NameServer. (8237)" "If the server tries to communicate with the name server and there is no connection to the NameServer, this message is issued.  Verify that the NameServer is available.
+ " "" ""
+8238 "Name Server at Host <Host> Service <service> is not responsive. (8238)" "The Name Server that was to be contacted did not respond to the request.
+ " "" ""
+8239 "Name Server at Host <Host> Port <Port> is not responsive. (8239)" "Attempt to connect to the specified name server failed.
+ " "" ""
+8240 "NameServer Host <Host> Is Not Known. (8240)" "The host of the NameServer indicated by the controllingNameServer property has a hostName property value which specifies a host which is not valid, or cannot be reached." "" ""
+8241 "Internal Consistency Check: Broker not registered with NameServer. (8241)" "An error occurred initializing this Broker with the NameServer.  Please report this error to Progress." "" ""
+8242 "Default Application Service not found at NameServer at Host <Host> Service <Service>. (8242)" "The default application service as specified in the properties file was not found at the NameServer.
+" "" ""
+8243 "Default Application Service not found at NameServer at Host <Host> Port <Port>. (8243)" "See message CSMSG118.
+" "" ""
+8244 "Application Service <Application Service> not found at NameServer at Host <Host> Service <Service>. (8244)" "The application service was not found at the specified NameServer.
+" "" ""
+8245 "Application Service <Application Service> not found at NameServer at Host <Host> Port <Port>. (8245)" "The requested application service was not found to be valid with the current name server.
+" "" ""
+8246 "The specified preferences file <filename> could not be loaded. (8246)" "The specified preferences file was not found in the specified location resulting in an IO error when ProxyGen attempted to load the preferences file contents. " "" ""
+8247 "Truncating area <areaNumber>. (8247)" "The high water mark of the specified area is being reset due to the -areaTruncate command of proutil. " "" ""
+8248 "An error occurred during area truncation. rtc . (8248)" "An internal error occurred during the area truncation command of proutil" "" ""
+8249 "Using default properties file . (8249)" " " "" ""
+8250 "Using user provided properties file . (8250)" " " "" ""

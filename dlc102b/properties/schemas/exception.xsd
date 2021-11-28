@@ -1,0 +1,45 @@
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://systinet.com/schemas/waspc/exception"
+    xmlns:exc="http://systinet.com/schemas/waspc/exception"
+    elementFormDefault="qualified">
+
+    <xsd:element name="exception" type="exc:ExceptionType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                Element carrying WASP-C++ exception in SOAP fault detail.
+            </xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+
+    <xsd:complexType name="ExceptionType">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+                Type carrying properties of WASP-C++ exception.
+            </xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="typeName" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        C++ type name of thrown exception.
+                    </xsd:documentation>
+                 </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="message" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        String message contained in thrown exception instance.
+                    </xsd:documentation>
+                 </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="stackTrace" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                        Stack trace of thrown exception.
+                    </xsd:documentation>
+                 </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

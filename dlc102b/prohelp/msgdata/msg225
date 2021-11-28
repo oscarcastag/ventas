@@ -1,0 +1,79 @@
+11201 "Status:     (11201)" "This is the status remote monitoring, either enabled or disabled.
+" "" ""
+11202 "Container:  (11202)" "This is the name of the remote monitoring container the adminserver is configured to use.
+" "" ""
+11203 "Host:       (11203)" "This is the name of the remote monitoring host the adminserver is configured to use.
+" "" ""
+11204 "Port:       (11204)" "This is the remote monitoring port number the adminserver is configured to use.
+" "" ""
+11205 "User:       (11205)" "This is the remote monitoring user name the adminserver is configured to use.
+" "" ""
+11206 "SYSTEM ERROR: bfdiscon: rmrep failed. Dbkey <record-number> for <table>, error <error-number> (23) (11206)" "An unexpected system error occurred while attempting to write an updated data record <record-number> for table <table> to the database.  " "" ""
+11207 "Domain:     (11207)" "This is the name of the remote monitoring domain the adminserver is configured to use.
+" "" ""
+11208 "<function-name>: The feature <feature name> cannot be disabled because it is required for normal database operations. (11208)" "The named feature cannot be disabled because it is required by the RDBMS for normal database operations." "" ""
+11209 "Long data exceeds column width. (11209)" "syserr
+
+
+
+
+
+
+
+
+ " "" ""
+11210 "Long data exceeds maximum size of data that can be selected. (11210)" "syserr
+
+
+
+
+
+
+
+
+ " "" ""
+11211 "Open in ProxyGen" "shell integration context menu option for .xpxg files. " "" ""
+11212 "LONGCHAR variables can only be viewed by the LARGE EDITOR. (11212)" " " "" ""
+11213 "Invalid project file <name> passed to PXG Conversion. Please specify a project file (.pxg) to convert and optionally a valid output project file (.xpxg). (11213)" "PXG Conversion requires a valid project file to be specified with the -pxgfile argument. Optionally an output location and filename can be specified with the -xpxgfile argument.
+" "" ""
+11214 "Project file conversion failed for <name>. (11214)" "PXG Conversion could not convert the project file specified with the -pxgfile argument." "" ""
+11215 "BrokerCollectStatisticsDisabled: Broker started without collecting statistics data. (11215)" "Fathom internal alert that indicates that an ubroker has been started with collectStats property turned off. " "" ""
+11216 "AS_ServerUnavailable: Server has been unavailable for more than the specified number of polls.   Threshold: <threshold>  Number of polls: <number of polls>  PID: <process ID> (11216)" "Check Admin Server log for further information about Server Unavailable Timeout." "" ""
+11217 "WS_AgentUnavailable: Agent has been unavailable for more than the specified number of polls.   Threshold: <threshold>  Number of polls: <number of polls>  PID: <process ID> (11217)" "Check Admin Server log for further information about Agent Unavailable Timeout." "" ""
+11218 "Waiting for active work threads to complete. (11218)" "When performing a shutdown, Fathom attempts to wait for all work in progress to complete before allowing the AdminServer to complete shutdown. This message indicates that Fathom is waiting for work in progress to complete. Fathom will wait up to 2 minutes for work in progress to complete before timing out and allowing the AdminServer shutdown to complete.  " "" ""
+11219 "Timeout waiting for active work threads to complete. (11219)" "When performing a shutdown, Fathom attempts to wait for all work in progress to complete before allowing the AdminServer to complete shutdown. Fathom will wait up to 2 minutes for work in progress to complete before timing out and allowing the AdminServer shutdown to complete. This message indicates that one or more active threads did not complete in 2 minutes and that Fathom will no longer wait for them to complete. The AdminServer will be allowed to shutdown. " "" ""
+11220 "ERROR: The codepage  in the dump file for clob field 
+ does not match the codepage  in the target. (11220)" "Binary load expects the code page of a CLOB field from the dump file be the same with the code page of the CLOB field of the target table." "" ""
+11221 "ERROR: Failed to insert LOB type , segnum , ret . (11221)" "Binary load failed to insert a LOB field into the target table." "" ""
+11222 "ERROR: Written LOB  bytes, expected  bytes, lobtype . (11222)" "Binary load utility failed during inserting a LOB field, it has written more than expected total length." "" ""
+11223 "ERROR: Could not get LOB locator for lobtype , ret . (11223)" "Binary Load utility failed to get LOB locator when loading a LOB field." "" ""
+11224 "ContainerOffline: Container has shut down. (11224)" "Fathom internal alert reporting the container has shut down and can no longer be monitored. " "" ""
+11225 "ERROR: The collation  in the dump file for clob field 
+does not match the collation  in the target. (11225)" "Binary Load utility expects the collation of a CLOB field read from the dump file match the collation of that field in the target table." "" ""
+11226 "ERROR: LOB segnum  inconsistent with previous segment. (11226)" "Binary Load utility expects the attributes of a CLOB filed be consistent among all of its segments in the dump file." "" ""
+11227 "ERROR: Unexpected LOB type . (11227)" "Binary Dump utility found unexpected LOB type." "" ""
+11228 "ERROR: Clob data endianess do not match, expecting <endian>, received <endian>. (11228)" "Binary Dump utility expects the endianess saved in parent record LOB locator should match what's in the schema." "" ""
+11229 "ERROR: The endian  in the dump file for clob field 
+ does not match the endian  in the target. (11229)" "" "" ""
+11230 "ERROR: The storage codepage of the CLOB field in the binary dump file () 
+ does not match the target database (). (11230)" "" "" ""
+11231 "Logical Undo Phase begin at Block <blknum> Offset <offset>. (11231)" "This is an informational message identifying the BI block and offset that the Logical Undo Phase of Crash recovery begin at." "d" ""
+11232 "A specified option or command is missing a required value. Option or command:  <selected option> (11232)" "An option specified on the fathom command required a value and none was given. The command failed.  " "" ""
+11233 "A specified option or command does not accept a value. Option or command:  <selected option> (11233)" "A value was specified on an option to the fathom command. The option does not accept a value. The command failed.  " "" ""
+11234 "WarmStartBegan: AdminServer started partial warm start. (11234)" "Fathom internal alert reporting the AdminServer has started the partial warm start activity. " "" ""
+11235 "WarmStartFinished: AdminServer finished partial warm start. (11235)" "Fathom internal alert reporting the AdminServer has finished the partial warm start activity. " "" ""
+11236 "-zMmc must be between 8 (8 Kilobyte) and 32 (32 Kilobytes) (11236)" "-zMmc specifies a value in kilobytes identifing the size of the buffer used to compress messages to and from the server. " "" ""
+11237 "-zLmc must be between 1 and 9 (11237)" "-zLmc specifies a value that identifies the compresion level used to compress messages to and from the server.  1 gives the best speed, 9 gives the best compression." "" ""
+11238 "-zMminmc must be between 0 and 32,000 and must be less than the value set for -zMmc.   (11238)" "-zMinmc specifies a value that identifies the minimum size for an uncompresed message before it is considered for compression." "" ""
+11239 "Pending transaction aborted during shutdown. (11239)" "During the shutdown of Fathom a transaction to the Fathom config database was found to still be active. Under normal circumstances this should not occur. To allow shutdown to complete Fathom aborted the transaction. " "" ""
+11240 "The Replication Server will continue Agent connection attempts for an additional <duration>.  (11240)" "The Replication Server will continue to attempt Agent connections until the duration (in the format xx hrs xx mins xx secs) expires." "" ""
+11241 "The Replication Server will continue to attempt Agent connections until <date/time>.  (11241)" "The Replication Server will continue to attempt Agent connections until the date and time shown." "" ""
+11242 "TrapNotSent: Unable to fire trap because the SNMP agent is not running. Action Name:  <Name of action>  (11242)" "An SNMP trap action was triggered by Fathom in response to an alert. The action was not able to run because the SNMP agent was not running/ " "" ""
+11243 "FileStaleAlert: The file is older than the age specified. File:  <Name of file>  (11243)" " " "" ""
+11244 "FileProtectionError: No rights to access file. (11244)" " " "" ""
+11245 "BadURL: The URL for the HTTP resource is malformed. Resource: <resource name>   (11245)" " " "" ""
+11246 "ResourceNameNonASCII : Resource name contains non-ASCII characters. This is not supported by Fathom. No Fathom monitor was created for this resource. Resource name:  <Name of resource> (11246)" "Database and OpenEdge resources defined with the AdminServer may contain non-ASCII characters in their name. Fathom currently does not  support monitoring of such resources. Change the name of the resource in order to allow Fathom to monitor it." "" ""
+11247 "The Replication Server could not connect to any configured Agents.    (11247)" "The Replication Server could not successfully connect to any if its configured Agents.  As a result, the Replication Server will end, but Source database activity will continue." "" ""
+11248 "The Replication Server could not connect to the CRITICAL Agent.    (11248)" "The Replication Server could not successfully connect to the CRITICAL Agent.  As a result, the Replication Server will end, but Source database activity will continue." "" ""
+11249 "The Replication Server will continue operation with one active Agent.  (11249)" "The Replication Server could connect to one of it's configured Agents, but not both of them.  As a result, the Replication Server will continue operations with one connected Agent." "" ""
+11250 "After Imaging is no longer active for this Source Database.  The Replication Server cannot continue and Replication is being disabled for this database.   (11250)" "After Imaging was ended for the Source Database, but the Replication was never disabled.  The Replication Server cannot continue.  Replication is being disabled for this database." "" ""

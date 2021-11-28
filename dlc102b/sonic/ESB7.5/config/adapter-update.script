@@ -1,0 +1,9 @@
+connect Domain1 tcp://localhost:2506 Administrator Administrator
+add file /System/OpenEdge/10.2B08/esbadapter/lib/activation.jar "/dlc/dlc102b/esbadapter/lib/activation.jar" override
+add file /System/OpenEdge/10.2B08/esbadapter/lib/esbadptr.jar "/dlc/dlc102b/esbadapter/lib/esbadptr.jar" override
+add file /System/OpenEdge/10.2B08/esbadapter/lib/mail.jar "/dlc/dlc102b/esbadapter/lib/mail.jar" override
+add file /System/OpenEdge/10.2B08/esbadapter/lib/regexp.jar "/dlc/dlc102b/esbadapter/lib/regexp.jar" override
+add file /System/OpenEdge/10.2B08/esbadapter/lib/servlet.jar "/dlc/dlc102b/esbadapter/lib/servlet.jar" override
+add file /System/OpenEdge/10.2B08/esbadapter/lib/soap.jar "/dlc/dlc102b/esbadapter/lib/soap.jar" override
+disconnect
+exit

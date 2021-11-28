@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<endpoint xmlns="http://www.sonicsw.com/sonicxq" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sonicsw.com/sonicxq file:///[[sonic-esb]]/schema/endpoint.xsd" type_ref="JMSType" connection_ref="jms_defaultConnection" name="dev.OpenEdge.Entry">
+	<params>
+		<stringParam name="type">TOPIC</stringParam>
+		<stringParam name="destination">dev.OpenEdge.Entry</stringParam>
+		<stringParam name="jmsPriority">4</stringParam>
+		<stringParam name="durableSubscriber">false</stringParam>
+	</params>
+</endpoint>

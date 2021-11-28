@@ -1,0 +1,63 @@
+8851 "Unable to allocate memory for registration message (8851)" "" "" ""
+8852 "Shutdown request received from Admin Server. (8852)" "" "" ""
+8853 "Invalid request message received from Admin Server. (8853)" "" "" ""
+8854 "Error creating Admin Server status message. (8854)" "" "" ""
+8855 "Admin Server not active on <host> port <port>. (8855)" "" "" ""
+8856 "Could not connect to Admin Server on port <port>, errno <errno>. (8856)" "" "" ""
+8857 "Socket error between Admin Server and PROGRESS broker: socket=  retc= so_error= (8857)" "" "" ""
+8858 "select() error in comsocket between Admin Server and PROGRESS broker: s= retc= errno=. (8858)" "" "" ""
+8859 "read() error in comsocket between Admin Server and PROGRESS broker: s= retc= errno=. (8859)" "" "" ""
+8860 "Unable to allocate memory for status message (8860)" "" "" ""
+8861 "Error writing status message to Admin Server, socket= errno=. (8861)" "An unexpected error occurred while the broker was attempting to write  a status message to the Admin Server.  If errno is 32, it usually means that the Admin Server process died abruptly.  If the errno is 54, it means that the network reset itself and the communication link was lost.  If the errno is 60, it means that there was a timeout.  Look in /usr/include/sys/errno.h or its equivalent on your system for other errno values.                 " "" ""
+8862 "Partial write of status msg to Admin Server, socket= msglen= ret=. (8862)" "An unexpected interrupt occurred while the broker was writing a status message to the Admin Server.  The most likely reason for this is that the Admin Server process died abruptly during the write, or a network breakdown occurred during the write. " "" ""
+8863 "This broker supports 4GL server groups only. (8863)" "" "" ""
+8864 "This broker supports SQL server groups only. (8864)" "" "" ""
+8865 "This broker supports both 4GL and SQL server groups. (8865)" "" "" ""
+8866 "Warning: Index ., could not be activated (). (8866)" "Index owner.table.index could not be activated." "" ""
+8867 "Warning: Index ., could not be deactivated (). (8867)" "Index owner.table.index could not be deactivated." "" ""
+8868 "ERROR: Binary file upload is not supported. (8868)" "WebSpeed currently only supports the uploading of text files from web browsers. " "" ""
+8869 "ERROR: Unable to open file <filename>. File upload failed. (8869)" "The WebSpeed agent was unable to open the file specified. Check to make sure your fileUploadDirectory property is pointing to a valid directory, and that your WebSpeed agent has permissions to create files there. " "" ""
+8870 "Index <index name> (<owner name>.<table name>, <index name>):  Added key <index value> recid <record identifier>. (8870)" "syserr" "d" ""
+8871 "Unable to create new or open existing semaphore, error = <number>  (8871)" "" "D" ""
+8872 "Shared memory in use by a process other than PROGRESS. (8872)" "PROGRESS could not access shared memory because a process other than PROGRESS has attached itself. This can happen if a server is running and another foreign process attaches to this servers memory. Following a shutdown this foreign process remains attached. On an attempt to start the server we will recognize that the memory is ours and make an attempt to validate it, when the validation fails we attempt to remove it, if the remove fails this message is displayed." "D" ""
+8873 "Login usernum <num>, remote SQL client. (8873)" "This message is put into the <dbname>.lg file by the SQL server whenever a remote SQL user logs in. " "" ""
+8874 "Started for <service-name> using <network-type>, pid <pid>.  (8874)" "A broker for protocol <network-type> has started under the name <service-name>.  The process id number for this broker is <pid>. " "" ""
+8875 "WARNING - <Table/Index>, <table/index Name> []<table/index Num> can not be moved to area,
+ [] because it is not a valid data storage area.  (8875)" "User Interface message for tablemove/indexmove.
+Your attempting to move a table/index to an invalid (non-data) area." "d" ""
+8876 "Got dbPluginInstance after  retries(@). (8876)" "Command plugin located database plugin instance handle.  This is done prior to auto-starting all broker and name server instances.  The purpose of fetching the database plugin handle is to query the plugin for the completion of the databases that are auto-started.  The database auto-start process must be completed first before starting broker instances to avoid race condition. " "" ""
+8877 "Cannot get dbPluginInstance after  retries(@). (8877)" "Command plugin failed to locate the database plugin instance handle. This means that command-line plugin will proceed with the process of auto-starting all broker and name server, without waiting for the database startup to complete." "" ""
+8878 "Request for AppService <Application Service> from Client <Host> <Port> not forwarded to Neighbors. Max hops of <Hops> reached. (8878)" "The requested Application Service was not found at the NameServer.  The NameServer has neighbors, but the request is not being forwarded to the neighbors because a single request will be forwarded to no more than the number of neighbors indicated by the ""Hops"" value.  Typically, if this message is received it means that the Neighbor list for one or more NameServer is configured incorrectly such that a given NameServer is indirectly a neighbor of itself.  In this case, the request will be continuously cycled back and forth among a set of neighbors until the max hops value is reached.  " "" ""
+8879 "Waiting for database startup to complete... (8879)" "This message is displayed shortly after command-line plugin fetched the database plugin handle and before making the inquiry to the db plugin for the status of all databases that are starting up. " "" ""
+8880 "Request from Client <Host> <Port> for AppService <Application Service> forwarded to NameServer Neighbor <Host> <Port>. (8880)" "This is an informational message. It is printed out by a NameServer when a request is received by a NameServer for an Application Service that can not be found, and the NameServer has neighbors as defined by the neighborNameServers property.  The message is indicating that the request is being forwarded to the Nameserver at the host and port indicated by <Host> and <Port>.
+ " "" ""
+8881 "Database startup has completed, after polling for  times(@ ).
+ Continue to auto-start services... (8881)" "This message is displayed after the command-line plugin received completion status from the database plugin on database initialization and startup. " "" ""
+8882 "Database startup did not complete, after polling for  times(@ ).\n Continue to auto-start services... (8882)" "This message is displayed after the command-line plugin received a failure status from the database plugin on database initialization and startup, after a number of retries. " "" ""
+8883 "Unrecoverable error in file conversion, conversion exited before completion. <exception> (8883)" "The indicated message occured while trying to process the properties file conversion.  Conversion did not take place." "" ""
+8884 "Error in conversion utility.  Properties could not be saved in the properties file. <error message> (8884)" "An error occured while trying to save properties to the newly converted properties file.  Properties file may not contain all necessary data to proceed." "" ""
+8885 "Unexpected error in properties file conversion utility. <error message>  (8885)" "The indicated error has occured while processing the properties file conversion utility.  The properties file may not contain all needed data.               " "" ""
+8886 "An error occured in conversion utility module <modulename>.  <error message> (8886)" "    " "" ""
+8887 "An error occured in module <modulename> of the conversion utility.  Error changing property value. <error message> (8887)" "The indicated error occured in the conversion utility when trying to add or change a property value.    " "" ""
+8888 "<modulename> Error saving the new property group. <exception> (8888)" "The indicated error occured in the conversion utility when trying to add or change a new property group.    " "" ""
+8889 "<modulname> Error retrieving properties for  <errormessage>. (8889)" "An error has occured in the properties file conversion utility.  The properties could not be found or retrieved." "" ""
+8890 "Unsupported Version 9 Schema Holder <_db-type> detected:  Conversion aborting, and database restore required to recover target V8 database. (8890)" "While converting the _db table, an unsupported schema holder db type was identified.  Not all version 8 schema holder types are supported within version 9. " "" ""
+8891 "<modulename> Error creating conversion object. <additional error info>                     (8891)" "There was an internal problem converting the properties file.  The file may not contain all needed information, or may not have been converted to the latest Progress version.    " "" ""
+8892 "Data Service <Data Service> not found at NameServer at Host <Host> Port <Port>. (8892)" "The requested data service was not found to be valid with the current name server.
+" "" ""
+8893 "Default Data Service not found at NameServer at Host <Host> Service <Service>. (8893)" "The default data service as specified in the properties file was not found at the NameServer.
+" "" ""
+8894 "Default Data Service not found at NameServer at Host <Host> Port <Port>. (8894)" "See message CSMSG138.
+" "" ""
+8895 "Data Service <Data Service> not found at NameServer at Host <Host> Service <Service>. (8895)" "The data service was not found at the specified NameServer.
+
+" "" ""
+8896 "Cluster aging has detected that the clock has gone backwards by  seconds. (8896)" "The aging of bi clusters records session time rather than actual time.  During the recording of session time, a check is performed to adjust the recorded time during time transitions.  For example, this can happen when time adjustments occur for daylight savings.  This message can occur when the setting of the system clock was inaccurate.
+
+
+
+" "d" ""
+8897 "SYSTEM ERROR: Unable to extend database within area <pareaName>. (8897)" "Either the database area is composed entirely of fixed-length extents that have become filled up, or the file system that contains the database is out of space. In either case the PROGRESS run is aborted and recovery must be run. If the database is fixed length, use the prostrct utility to add additional space.  Otherwise, delete files from the file system to make more space available.   " "D" ""
+8898 "SYSTEM ERROR: Attempted to exceed 2GB limit with file <pname>. (8898)" "An attempt was made to extend the file <pname> beyond the 2GB limit. " "" ""
+8899 "Database Block Size: <num>. (8899)" "This is an informational message written to the database log file when a database server is started.  This reports the size of the database blocks in each buffer configured by the PROUTIL utility for the data file(s).  This is important information to have available when speaking to PROGRESS Technical Support concerning database topics. " "D" ""
+8900 "Two-phase is enabled. (8900)" "Two-phase can be modified. " "" ""

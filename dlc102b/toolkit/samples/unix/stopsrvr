@@ -1,0 +1,25 @@
+# stopsrvr
+#
+# sample script to stop a PROGRESS server
+#
+# Usage:	stopsrvr
+#
+# Define the location of the PROGRESS software. If DLC
+# has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/dlc is used.
+DLC=${DLC-/usr/dlc}; export DLC
+
+# Assign a database name.  If the user supplied a database
+# name before starting this script, use that name.  If not
+# use acmedb as the default database name.
+DBNAME=${DBNAME-acmedb}
+
+# Stop PROGRESS server.
+trap "" 1
+if [ $# = 0 ]
+then
+    exec $DLC/bin/_mprshut $DBNAME
+else
+    exec $DLC/bin/_mprshut $DBNAME "$@"
+fi

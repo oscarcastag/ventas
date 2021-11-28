@@ -1,0 +1,90 @@
+#!/bin/sh
+# Wrapper script for SonicMQ installer
+PROG=`basename $0`
+
+# Source the fathom_env script.  This will set a group of
+# environment variables the define the Fathom install and
+# the Progress install that Fathom is glued to.
+ROOTDIR=`dirname $0`
+. ${ROOTDIR}/fathom_env
+
+# Change umask so files are created with group/other write access.
+# This permits the adminserver to be started by non-root accounts.
+umask 000
+
+LOGS="-1 ${fathomInstallDir}/smqinstall.log::1 -2 ${fathomInstallDir}/smqinstall.err::1"
+
+# This "if" test conditionally sets DLC to the value
+# defined in fathom.init.params (set via fathom_env)
+# NOTE: The shorthand version of this test and set
+# operation would cause the install program to 
+# inadvertently (and undesirably) tailoring this value.
+if [ -n "$DLC" ]
+then
+ : 
+else
+DLC=${progressInstallDir}; export DLC
+fi
+
+
+# this script needs to know the value of DLC (i.e. progress installation)
+: ${DLC?"DLC variable must be set"}
+
+JVMSTRT=${JVMSTRT-$DLC/bin/jvmStart}
+
+# In case TERM is not set to something, avoid a warning message.
+TERM=ansi; export TERM
+
+# set the java environment
+if [ ! -f $DLC/bin/java_env ]
+then
+    echo "Fathom $PROG Messages:"
+    echo
+    echo "java_env could not be found."
+    echo "For correct operation of Fathom is must be setup to point"
+    echo "to the Progress installation directory."
+    echo
+    echo "JAVA environment not set correctly."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the JAVA environment
+. $DLC/bin/java_env
+
+if [ ! -f $JREHOME/bin/$JVMEXE ]
+then
+    echo "Fathom $PROG Messages:"
+    echo
+    echo "Java Virtual Machine could not be found."
+    echo
+    echo "JREHOME environment variable may not be set correctly."
+    echo "Set JREHOME variable to a valid directory."
+    echo
+    echo "JREHOME setting: $JREHOME"
+    echo
+    exit 1
+fi
+
+if [ ! -f $JVMSTRT ]
+then
+    echo "Fathom $PROG Messages:"
+    echo
+    echo "Process starter could not be found."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo "Executable not found: $JVMSTRT"
+    echo
+    exit 1
+fi
+
+# at this point ALL required environment variable should be set
+# invoke the SonicMQ installer
+exec $JVMSTRT -o stderr -m silent $LOGS "$@"
+

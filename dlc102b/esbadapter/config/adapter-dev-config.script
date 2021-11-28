@@ -1,0 +1,6 @@
+connect [[ds-domain]] [[ds-url]] [[ds-user]] [[ds-password]]
+Import xq_container "[[sonic-esb]]/config/dev.OpenEdgeTestCntr.xml" [[ds-override]] 
+import service "[[sonic-esb]]/config/dev.OpenEdge.xml" [[ds-override]]
+import endpoint "[[sonic-esb]]/config/dev.OpenEdgeEntry.xml" [[ds-override]]
+disconnect
+exit

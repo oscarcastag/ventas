@@ -1,0 +1,156 @@
+#!/bin/sh
+# OpenEdge Explorer/Management Command Line Script
+PROG=`basename $0`
+
+#
+# This script needs to be run from a 'proenv' window
+#
+for what_dlc in "$DLC" "/dlc/dlc102b" 
+do
+    [ ! -f "${what_dlc}" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+
+if [ ! -f ${DLC}/version ]
+then
+    echo "OpenEdge $PROG Messages:"
+    echo
+    echo "OpenEdge $DLC/version could not be found, DLC=$DLC"
+    echo
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to OpenEdge installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo
+    exit 1
+fi
+
+for what_oem in "/dlc/oemgmt102b" "$DLC/OEMgmt"
+do
+    [ ! -d "${what_oem}" ] && continue
+    OEM=$what_oem
+    export OEM
+    break
+done
+
+if [ ! -d ${OEM}/config ]
+then
+    echo "OpenEdge $PROG Messages:"
+    echo
+    echo "OpenEdge OEM environment variable not set correctly."
+    echo "Set OEM variable to OpenEdge Explorer/Management installation directory."
+    echo
+    echo "OpenEdge OEM setting: $OEM"
+    echo
+    exit 1
+fi
+
+# Set variable for the Java Starter
+FATHOMCLICLASS=${FATHOMCLICLASS-com.progress.isq.ipqos.admin.cli.FathomMan}
+
+JVMSTRT=${JVMSTRT-$DLC/bin/jvmStart}
+
+# In case TERM is not set to something, avoid a warning message.
+TERM=ansi; export TERM
+
+# set the java environment
+if [ ! -f $DLC/bin/java_env ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "$DLC/bin/java_env could not be found."
+    echo
+    echo "JAVA environment not set correctly."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the JAVA environment
+. $DLC/bin/java_env
+
+if [ ! -f $JREHOME/bin/$JVMEXE ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "Java Virtual Machine could not be found."
+    echo
+    echo "JREHOME environment variable may not be set correctly."
+    echo "Set JREHOME variable to a valid directory."
+    echo
+    echo "JREHOME setting: $JREHOME"
+    echo
+    exit 1
+fi
+
+# set the OpenEdge shared lib  environment
+if [ ! -f $DLC/bin/slib_env ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "slib_env could not be found."
+    echo
+    echo "OpenEdge shared library environment not set correctly."
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to OpenEdge installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the OpenEdge Shared lib environment
+. $DLC/bin/slib_env
+
+for what_oemwrk in "/dlc/oemgmt102b" "."
+do
+    [ ! -d "${what_oemwrk}" ] && continue
+    OEMWRKDIR=$what_oemwrk
+    export OEMWRKDIR
+    break
+done
+
+if [ ! -f $JVMSTRT ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "OpenEdge Java starter could not be found."
+    echo
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to OpenEdge installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo "Executable not found: $JVMSTRT"
+    echo
+    exit 1
+fi
+
+# If OpenEdge based, use JavaTools.properties
+TOOLSPROP=${TOOLSPROP-$DLC/properties/JavaTools.properties}
+TOOLSGRP=${TOOLSGRP-FATHOMCLI}
+
+if [ ! -f $TOOLSPROP ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "OpenEdge tools property file could not be found."
+    echo
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to OpenEdge installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo "File not found: $TOOLSPROP"
+    echo
+    exit 1
+fi
+
+cat $DLC/version
+
+# Reference the JavaTools.properties and invoke the Fathom CLI
+exec $JVMSTRT -w $OEMWRKDIR -o stderr -m silent -a $TOOLSPROP::$TOOLSGRP $JVM -DInstall.Dir=${DLC} ${FATHOMCLICLASS} "$@"
+

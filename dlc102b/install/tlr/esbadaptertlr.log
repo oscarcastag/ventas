@@ -1,0 +1,339 @@
+===============================================================================
+Tailoring OpenEdge 10.2B SonicESB Adapter files [Mon Sep 29 23:56:17 CEST 2014]...
+Preforming a DEPLOYMENT installation.
+SonicESB Tailoring
+Copy SonicESB schema files.
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/serviceType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBImpactLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/wsdlType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/rule.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/rejectedMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/common.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorMap.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBRevDependencyLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/migration.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/process.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/endpointType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/WSInvkException.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xcbr.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/InvocationType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connectionType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBDependencyLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBDiffLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/params.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/MFConfigurationElements.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/wsdlPortType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/InvocationAction.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xcbrMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorRules.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xqContainer.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/accessor.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/endpoint.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connection.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/trackingMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connector_1_5_interim.dtd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/service.xsd
+---------------------------------------
+Copy SonicESB jar files.
+Copy SonicESB runtime files.
+Create directories.
+Connecting to Sonic Domain Manager
+Cannot connect to Sonic Domain Domain1 using tcp://localhost:2506
+javax.management.JMRuntimeException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:292)
+	at DomainManager.getDSVersion(DomainManager.java:88)
+	at DomainManager.getDSVersion(DomainManager.java:69)
+	at esbadaptertlr1.TailoringSetup(esbadaptertlr1.java:471)
+	at mqadaptertlr.main(mqadaptertlr.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.run(ExecuteJava.java:208)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.execute(ExecuteJava.java:150)
+	at org.apache.tools.ant.taskdefs.Java.run(Java.java:443)
+	at org.apache.tools.ant.taskdefs.Java.executeJava(Java.java:163)
+	at org.apache.tools.ant.taskdefs.Java.execute(Java.java:108)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:397)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1255)
+	at org.apache.tools.ant.Main.runBuild(Main.java:609)
+	at org.apache.tools.ant.Main.start(Main.java:196)
+	at org.apache.tools.ant.Main.main(Main.java:235)
+Caused by: com.sonicsw.mf.comm.ConnectTimeoutException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.comm.jms.ConnectorClient.connect(ConnectorClient.java:468)
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:281)
+	... 26 more
+
+Tailoring /dlc/OE102b_linux64/3party/sonicesb/bin/esbadmin.sh
+Tailoring /dlc/OE102b_linux64/3party/sonicesb/bin/setenv.sh
+Setting execute permision on /dlc/dlc102b/sonic/ESB7.5/bin/setenv.sh
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType.properties
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType2.properties
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType.xml
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType2.xml
+Tailoring /dlc/dlc102b/esbadapter/config/ESBContainer.xml
+Tailoring /dlc/dlc102b/esbadapter/config/OESessionManaged.esbpTemplate
+Tailoring /dlc/dlc102b/esbadapter/config/adapter-config.script
+Tailoring /dlc/dlc102b/esbadapter/config/confcontainers.sh
+Tailoring /dlc/dlc102b/sonic/MQ7.5/bin/startcontainer.sh
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/lu2app87Container.sh
+Tailoring /dlc/dlc102b/esbadapter/config/offline.sh
+Setting execute permision on /dlc/dlc102b/sonic/ESB7.5/config/offline.sh
+Creating offline.txt
+When the Sonic Domain is available, rerun the ESB Adapter tailoring by running /dlc/dlc102b/sonic/ESB7.5/config/offline.sh
+Failed to finish tailoring of the OpenEdge SonicESB Adapter
+
+SonicESB Tailoring complete
+
+===============================================================================
+Tailoring OpenEdge 10.2B08 SonicESB Adapter files [Tue Sep 30 00:08:59 CEST 2014]...
+Preforming a DEPLOYMENT installation.
+SonicESB Tailoring
+Service Pack installation
+Checking for a newer version of SonicESB
+Current version: 7.5.02-131
+New version: 7.5.02-131
+No SonicESB update is needed
+Checking for a newer version of the ESB Adapter
+Updating ESB Adapter files for version 10.2B08
+Connecting to the Domain Manager
+Fetching Domain version
+Tailoring /dlc/dlc102b/esbadapter/config/adapter-update.script
+Cannot connect to Sonic Domain Domain1 using tcp://localhost:2506
+javax.management.JMRuntimeException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:292)
+	at DomainManager.getDSVersion(DomainManager.java:88)
+	at DomainManager.getDSVersion(DomainManager.java:69)
+	at esbadaptertlr1.TailoringSetup(esbadaptertlr1.java:390)
+	at mqadaptertlr.main(mqadaptertlr.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.run(ExecuteJava.java:208)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.execute(ExecuteJava.java:150)
+	at org.apache.tools.ant.taskdefs.Java.run(Java.java:443)
+	at org.apache.tools.ant.taskdefs.Java.executeJava(Java.java:163)
+	at org.apache.tools.ant.taskdefs.Java.execute(Java.java:108)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:397)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1255)
+	at org.apache.tools.ant.Main.runBuild(Main.java:609)
+	at org.apache.tools.ant.Main.start(Main.java:196)
+	at org.apache.tools.ant.Main.main(Main.java:235)
+Caused by: com.sonicsw.mf.comm.ConnectTimeoutException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.comm.jms.ConnectorClient.connect(ConnectorClient.java:468)
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:281)
+	... 26 more
+
+
+SonicESB Tailoring complete
+
+===============================================================================
+Tailoring OpenEdge 10.2B SonicESB Adapter files [Fri Feb 27 19:13:19 CET 2015]...
+Preforming a DEPLOYMENT installation.
+SonicESB Tailoring
+Copy SonicESB schema files.
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/serviceType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBImpactLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/wsdlType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/rule.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/rejectedMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/common.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorMap.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBRevDependencyLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/migration.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/process.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/endpointType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/WSInvkException.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xcbr.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/InvocationType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connectionType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBDependencyLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBDiffLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/params.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/MFConfigurationElements.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/wsdlPortType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/InvocationAction.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xcbrMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorRules.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xqContainer.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/accessor.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/endpoint.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connection.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/trackingMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connector_1_5_interim.dtd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/service.xsd
+---------------------------------------
+Copy SonicESB jar files.
+Copy SonicESB runtime files.
+Create directories.
+Connecting to Sonic Domain Manager
+Cannot connect to Sonic Domain Domain1 using tcp://localhost:2506
+javax.management.JMRuntimeException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:292)
+	at DomainManager.getDSVersion(DomainManager.java:88)
+	at DomainManager.getDSVersion(DomainManager.java:69)
+	at esbadaptertlr1.TailoringSetup(esbadaptertlr1.java:471)
+	at mqadaptertlr.main(mqadaptertlr.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.run(ExecuteJava.java:208)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.execute(ExecuteJava.java:150)
+	at org.apache.tools.ant.taskdefs.Java.run(Java.java:443)
+	at org.apache.tools.ant.taskdefs.Java.executeJava(Java.java:163)
+	at org.apache.tools.ant.taskdefs.Java.execute(Java.java:108)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:397)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1255)
+	at org.apache.tools.ant.Main.runBuild(Main.java:609)
+	at org.apache.tools.ant.Main.start(Main.java:196)
+	at org.apache.tools.ant.Main.main(Main.java:235)
+Caused by: com.sonicsw.mf.comm.ConnectTimeoutException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.comm.jms.ConnectorClient.connect(ConnectorClient.java:468)
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:281)
+	... 26 more
+
+Tailoring /dlc/OE102b_linux64/3party/sonicesb/bin/esbadmin.sh
+Tailoring /dlc/OE102b_linux64/3party/sonicesb/bin/setenv.sh
+Setting execute permision on /dlc/dlc102b/sonic/ESB7.5/bin/setenv.sh
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType.properties
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType2.properties
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType.xml
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType2.xml
+Tailoring /dlc/dlc102b/esbadapter/config/ESBContainer.xml
+Tailoring /dlc/dlc102b/esbadapter/config/OESessionManaged.esbpTemplate
+Tailoring /dlc/dlc102b/esbadapter/config/adapter-config.script
+Tailoring /dlc/dlc102b/esbadapter/config/confcontainers.sh
+Tailoring /dlc/dlc102b/sonic/MQ7.5/bin/startcontainer.sh
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/lu2app87Container.sh
+Tailoring /dlc/dlc102b/esbadapter/config/offline.sh
+Setting execute permision on /dlc/dlc102b/sonic/ESB7.5/config/offline.sh
+Creating offline.txt
+When the Sonic Domain is available, rerun the ESB Adapter tailoring by running /dlc/dlc102b/sonic/ESB7.5/config/offline.sh
+Failed to finish tailoring of the OpenEdge SonicESB Adapter
+
+SonicESB Tailoring complete
+
+===============================================================================
+Tailoring OpenEdge 10.2B08 SonicESB Adapter files [Thu Jul 23 19:56:01 CEST 2015]...
+Preforming a DEPLOYMENT installation.
+SonicESB Tailoring
+Copy SonicESB schema files.
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/serviceType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBImpactLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/wsdlType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/rule.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/rejectedMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/common.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorMap.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBRevDependencyLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/migration.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/process.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/endpointType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/WSInvkException.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xcbr.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/InvocationType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connectionType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBDependencyLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBDiffLog.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/params.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/MFConfigurationElements.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/wsdlPortType.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/InvocationAction.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xcbrMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/ESBTailorRules.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/xqContainer.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/accessor.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/endpoint.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connection.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/trackingMessage.xsd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/connector_1_5_interim.dtd
+Tailoring /dlc/dlc102b/sonic/ESB7.5/schema/service.xsd
+---------------------------------------
+Copy SonicESB jar files.
+Copy SonicESB runtime files.
+Create directories.
+Connecting to Sonic Domain Manager
+Cannot connect to Sonic Domain Domain1 using tcp://localhost:2506
+javax.management.JMRuntimeException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:292)
+	at DomainManager.getDSVersion(DomainManager.java:88)
+	at DomainManager.getDSVersion(DomainManager.java:69)
+	at esbadaptertlr1.TailoringSetup(esbadaptertlr1.java:498)
+	at mqadaptertlr.main(mqadaptertlr.java:84)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.run(ExecuteJava.java:208)
+	at org.apache.tools.ant.taskdefs.ExecuteJava.execute(ExecuteJava.java:150)
+	at org.apache.tools.ant.taskdefs.Java.run(Java.java:443)
+	at org.apache.tools.ant.taskdefs.Java.executeJava(Java.java:163)
+	at org.apache.tools.ant.taskdefs.Java.execute(Java.java:108)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.taskdefs.Ant.execute(Ant.java:397)
+	at org.apache.tools.ant.Task.perform(Task.java:341)
+	at org.apache.tools.ant.Target.execute(Target.java:309)
+	at org.apache.tools.ant.Target.performTasks(Target.java:336)
+	at org.apache.tools.ant.Project.executeTarget(Project.java:1339)
+	at org.apache.tools.ant.Project.executeTargets(Project.java:1255)
+	at org.apache.tools.ant.Main.runBuild(Main.java:609)
+	at org.apache.tools.ant.Main.start(Main.java:196)
+	at org.apache.tools.ant.Main.main(Main.java:235)
+Caused by: com.sonicsw.mf.comm.ConnectTimeoutException: Timeout occured while attempting to connect
+	at com.sonicsw.mf.comm.jms.ConnectorClient.connect(ConnectorClient.java:468)
+	at com.sonicsw.mf.jmx.client.JMSConnectorClient.connect(JMSConnectorClient.java:281)
+	... 26 more
+
+Tailoring /dlc/OE102b_linux64/3party/sonicesb/bin/esbadmin.sh
+Tailoring /dlc/OE102b_linux64/3party/sonicesb/bin/setenv.sh
+Setting execute permision on /dlc/dlc102b/sonic/ESB7.5/bin/setenv.sh
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType.properties
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType2.properties
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType.xml
+Tailoring /dlc/dlc102b/esbadapter/config/OpenEdgeSrvType2.xml
+Tailoring /dlc/dlc102b/esbadapter/config/ESBContainer.xml
+Tailoring /dlc/dlc102b/esbadapter/config/OESessionManaged.esbpTemplate
+Tailoring /dlc/dlc102b/esbadapter/config/adapter-config.script
+Tailoring /dlc/dlc102b/esbadapter/config/confcontainers.sh
+Tailoring /dlc/dlc102b/sonic/MQ7.5/bin/startcontainer.sh
+Setting execute permision on /dlc/dlc102b/sonic/MQ7.5/bin/lu2app87Container.sh
+Tailoring /dlc/dlc102b/esbadapter/config/offline.sh
+Setting execute permision on /dlc/dlc102b/sonic/ESB7.5/config/offline.sh
+Creating offline.txt
+When the Sonic Domain is available, rerun the ESB Adapter tailoring by running /dlc/dlc102b/sonic/ESB7.5/config/offline.sh
+Failed to finish tailoring of the OpenEdge SonicESB Adapter
+
+SonicESB Tailoring complete
+

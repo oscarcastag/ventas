@@ -1,0 +1,26 @@
+#!/bin/sh
+DLC=${DLC-/dlc/dlc102b};export DLC
+
+# set the Progress shared lib  environment
+if [ ! -f $DLC/bin/slib_env ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "slib_env could not be found."
+    echo
+    echo "Progress shared library environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+ 
+# Set the Progress Shared lib environment
+. $DLC/bin/slib_env
+
+cat $DLC/version
+echo
+exec $DLC/bin/_debugEnable "$@"

@@ -1,0 +1,90 @@
+12001 "SYSTEM ERROR: proixgen failed for word indexing of array, index  of table . (12001)" "syserr" "" ""
+12002 "SYSTEM ERROR: proixdel failed for word indexing of array, index  of table . (12002)" "syserr" "" ""
+12003 "'' is not an appropriate initializer for items of type  (12003)" "TODAY should only be used with DATE items and NOW should only be used with DATETIME and DATETIME-TZ." "" ""
+12004 "Online backup processing is incompatible with server setting of (-i). (12004)" "Online backup requires the database server to be running with full integrity.  The database must be shutdown and restarted without the -i parameter specified." "d" ""
+12005 "Quiet Point Request Cannot Extend AI file. (12005)" "The database quiet point cannot be set as requested because an AI extent cannot be extended." "d" ""
+12006 "Quiet Point Request Cannot Switch AI file. (12006)" "The database quiet point cannot be set because all AI extents are full." "d" ""
+12007 "Quiet Point Request Cannot process AI subsystem is OFF. (12007)" "The database quiet point cannot be set because the AI subsystem is OFF." "d" ""
+12008 "Invalid character code found in data for codepage  (12008)" "" "" ""
+12009 "Unconvertable character found in source data with codepage  to codepage  (12009)" "A binary value has been found in the source data for which there is no corresponding character code in the specified codepage.  The source data is therefore not valid with respect to the target codepage." "" ""
+12010 "Could not allocate memory for large object operation (12010)" "" "" ""
+12011 "Could not find record. Recid <recid>, error number <errno>, return <ret-code>. (12011)" "The record with given recid was not found." "" ""
+12012 "Invalid character data found in MEMPTR for codepage  (12012)" "" "" ""
+12013 "SQL engine Statement Manager removed the executed, blob using, least recently used statement from statement cache.   <number> statements are currently in use ( <type of cache> cache). (12013)" "The SQL-92 Statement Mgr's statement cache reached capacity. To add a new statement, the least recently used, already executed, blob using statement, was removed. If the removed statement is ever executed, it will incur a performance delay while the statement is re-prepared for execution.  The number shown is the current maximum capacity.
+" "d" ""
+12014 "Selected parent not found." "User has tried to add a collection to a collection which has been deleted. This can only happen if one user is in the midst of creating a collection while another use deletes one. " "" ""
+12015 "Unable to start broker. Regenerate the kernel with increased SEMMSL or SEMMNS parameters or decrease -n. (12015)" "Your system does not have enough wait semaphores available to support the number of users as specified by the -n startup parameter. You must either regenerate the kernel with larger values for SEMMSL (maximum number of semaphores per id)  and/or SEMMNS (system wide maximum number of semaphores for all users), or decrease the -n value." "d" ""
+12016 "The ENABLE-EVENTS method is not supported in character mode. (12016)" "The ENABLE-EVENTS method does not work in Windows character mode.  COM events work via inter-process callbacks. The Windows OS only supports callbacks between processes in very limited circumstances.  These circumstances are not compatible with Progress's character mode implementation.  Therefore, this feature is not supported." "" ""
+12017 "Illegal data type <dt> specified for a DataTable column with the ProDataTable.setColumnProType() method.  (12017)" "This data type is not allowed as a field in a PROGRESS temp-table, so it cannot be specified as a column in an input DataTable or ResultSet." "" ""
+12018 "Failure removing the schedule <type> <name>.  (12018)" "Task Scheduler error occurred when attempting to remove an existing schedule for a Job or Report.
+
+Examine the log for additional messages. This error might indicate an inconsistency in the Task Scheduler's definition of the named Job or Report.
+" "" ""
+12019 "The task is running, unable to update the schedule <type> <name>.  (12019)" "Task Scheduler unable to modify a schedule for a Job or Report because the task is currently executing.
+
+Wait until the task is not running before changing its schedule. 
+" "" ""
+12020 "Task Scheduler failure updating the schedule <type> <name>.  (12020)" "Task Scheduler unable to modify a schedule for a Job or Report.
+
+Examine the log for additional messages describing the reason for the failure.
+ 
+" "" ""
+12021 "Task Scheduler failure renaming the schedule <type> <name>.  (12021)" "Task Scheduler unable to rename a schedule for a Job or Report.
+
+Examine the log for additional messages describing the reason for the failure. This error might indicate that the Task Scheduler is maintaining inconsistent state for the named task.
+
+ 
+" "" ""
+12022 "Task Scheduler unable to resolve the schedule name <type> <name>.  (12022)" "Task Scheduler unable to resolve the name of a Job or Report schedule.
+
+Examine the validity of the task name being used to create the scheduled Job or Report.
+
+ 
+" "" ""
+12023 "Task Scheduler duplicate scheduled task found when creating the schedule <type> <name>.  (12023)" "Task Scheduler unable to create a schedule for a Job or Report because a duplicate exists.
+
+Examine the log for additional messages describing the reason for the failure. This error might indicate that the Task Scheduler is maintaining inconsistent state for the named task.
+
+ 
+" "" ""
+12024 "Task Scheduler duplicate trigger found when creating the schedule <type> <name>.  (12024)" "Task Scheduler unable to create a schedule for a Job or Report because a duplicate trigger exists.
+
+Examine the log for additional messages describing the reason for the failure. This error might indicate that the Task Scheduler is maintaining inconsistent state for the named task.
+
+ 
+" "" ""
+12025 "Invalid repeat interval selection, the selection is not recognized <type> <name>.  (12025)" "Task Scheduler repeat interval selection is not valid.
+
+Modify the schedules repeat interval selection.
+ 
+" "" ""
+12026 "Invalid cron expression <type> <name> <cron>.  (12026)" "Task Scheduler cron expression is invalid.
+
+Modify the schedules cron expression to conform with valid syntax.
+ 
+" "" ""
+12027 "SYSTEM ERROR: lkUserLockListAdd called with purge lock. (12027)" "syserr" "D" ""
+12028 "SYSTEM ERROR: lkUserLockListAdd: unexpected hashGroup:  (12028)" "syserr" "" ""
+12029 "SYSTEM ERROR: lkUserLockListRemove: unexpected hashGroup:  (12029)" "syserr" "" ""
+12030 "Input blocking statements are invalid while executing callback <type>. (12030)" "There is an input blocking statement in the callback. Callbacks cannot contain input blocking statements. Input blocking statements include PROMPT-FOR, SET, UPDATE, WAIT-FOR, and READKEY." "" ""
+12031 "blobCopy: can not copy zero amount. (12031)" "Blob Copy API can not copy zero amount of data from source blob to target blob." "" ""
+12032 "blobCopy: source blob  offset  greater than total length . (12032)" "Blob Copy API found the offset in the souce blob is greater than its total length, and can not continue to copy the data." "" ""
+12033 "blobCopy: source blob not specified. (12033)" "Blob Copy API can not find the source blob ID specified and can not continue to copy the data." "" ""
+12034 "blobCopy: blob  self-copy not permitted. (12034)" "Blob Copy API can only copy blob from one blob to a different blob. " "" ""
+12035 "blobCopy: target blob size  overflow. (12035)" "Blob Copy API found the size of the target blob would overflow the maximum LOB size and could not contine to copy the data." "" ""
+12036 "The port <n> is already in use. (12036)" "The -S parameter you have to PROGRESS named a port in your /etc/services (or other services) file that is already in use by some other client and server on your network.  You may need to PROSHUT the existing server, or choose another service name for your -S. " "" ""
+12037 "Unable to bind socket to port <n> errno <n>. (12037)" "The PROGRESS server is unable to associate the port determined by its -S parameter with the socket it has opened.  Look for the value of errno in /usr/include/sys/errno.h or its equivalent on your system.  If the problem persists, check permissions on your _mprosrv executable, and perhaps try changing the port number in /etc/services. " "O" ""
+12038 "Cannot setup persistent trigger to run an internal procedure of a remote procedure. (12038)" "This error happens when you define a persistent trigger to run an internal procedure in an external procedure (RUN myproc ON myhdl) and the handle specified points to a remote procedure running on an AppServer, which is not supported for persistent triggers. " "" ""
+12039 "Clob context of source  and target  don't match, , , , . (12039)" "Clob Copy API found the context of source clob and target clob don't match with each other. Can not continue to copy the data." "" ""
+12040 " (12040)" "" "" ""
+12041 "Base64 convert options are no longer supported in the COPY-LOB statement (12041)" "See the BASE64-ENCODE and BASE64-DECODE functions." "" ""
+12042 "Codepage  cannot be used as the database codepage. (12042)" "" "" ""
+12043 "This utility cannot be used to convert from UTF-8.
+Use the Dictionary Dump/Load Utility instead. (12043)" "Using PROUTIL CONVCHAR to convert a database from UTF-8 to any other codepage causes the database to be unusable. Use the Dictionary Dump and Load Utilities with an empty database of the desired codepage instead. You should use PROUTIL <db> -C CONVCHAR ANALYZE <target-codepage> to ensure that no data will be lost." "" ""
+12044 "ReportRunFailed: Output directory not created: <output directory>. (12044)" "The report engine could not create the necessary directories to store the report output.  Check the file system for privledges." "" ""
+12045 "ReportRunFailed: 4GL execution error, exit code <return code>.  See log files. (12045)" "The report did not run to completion because of a 4GL issue.  See the report .out file and the admserv.log file." "" ""
+12046 "ReportRunFailed: Graphing request xml file does not exist. (12046)" "The report failed to complete because there was a problem creating a graph for the report.  The _graph.xml file is missing from the report output." "" ""
+12047 "ReportRunFailed: Report output xml file does not exist. (12047)" "The report failed to complete because the _data.xml file was not created." "" ""
+12048 "ReportRunFailed: Error writing output file for report.  See log files. (12048)" "There was an I/O error when generating the output file for the report." "" ""
+12049 "ReportRunFailed: Transformation error.  See log files. (12049)" "The report engine uses XSLT to create the various output formats from the _data.xml.  There was an error transforming the XML file to one of the desired output formats." "" ""
+12050 "ReportRunFailed: Transformation error for HTML output.  See log files. (12050)" "There was an error transforming the data XML file into HTML output using XSLT." "" ""

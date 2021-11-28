@@ -1,0 +1,12 @@
+# file: fathomcp_env
+# This file is sourced by the $DLC/bin/java_env file.
+# It sets the Fathom Classpath for use by the Admin Server.
+
+FATHOMCP=${FATHOMCP-/dlc/oemgmt102b/jars/fmpatch.jar:/dlc/oemgmt102b/jars/fathom.jar:/dlc/oemgmt102b/jars/javax.servlet.jar:/dlc/oemgmt102b/jars/org.apache.jasper.jar}; export FATHOMCP
+
+# setting a JVM memory heap ceiling (-mx)
+JVMARGS="-mx128m -Xbootclasspath/a:/dlc/oemgmt102b/jars/pja.jar ${JVMARGS}"
+
+# echo "FATHOMCP = $FATHOMCP"
+# echo "JVMARGS = $JVMARGS"
+

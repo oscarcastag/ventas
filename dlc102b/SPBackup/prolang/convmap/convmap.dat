@@ -1,0 +1,188 @@
+#NOTE- This file uses a feature new in Version 8.0B.
+# "CONVERT NOINVERSE" suppresses the warning about
+# the inverse conversion map not existing. If you want to use
+# this file with a version of _proutil prior to 8.0b delete
+# the word NOINVERSE or eliminate the tables that use it.
+#
+#NOTE- This file uses a feature new in Version 8.1A.
+# "CASE NON_ASCII" suppresses the warnings about the codepage not having
+# the default values for ASCII tables. This is used for EBCDIC and other
+# non-ascii codepages. If you want to use this file with a version of
+# proutil earlier than 8.1A delete the word NON-ASCII or eliminate the tables
+# that use it.
+#NOTE- This file uses a new feature in Version 8.3a.
+# "INCLUDE", "INCLUDE-FILE <filename>" which includes the contents of
+# the named file in the convmap.dat compile. Only one level of nesting
+# is supported.
+
+#---------------------------------------------------------------------------
+# To save memory, you can comment out the includes of tables that you never 
+# use from this file and recompile it using:
+#
+# proutil -C codepage-compiler convmap.dat convmap.cp
+#
+# You will then need to point to this new file by copying it to your
+# installation directory (for instance, /usr/dlc/ or c:\DLC) or by
+# using the -convmap startup parameter or by setting the PROCONV
+# environment variable.
+#---------------------------------------------------------------------------
+#
+#Include files -- Note that filenames are case sensitive on some systems:
+#---------------------------------------------------------------------------
+
+# Asian ebcdic codepages, used for AS400
+#INCLUDE
+#INCLUDE-FILE asianebc.dat
+
+# 7-bit codepages, used for 7-bit terminals
+INCLUDE
+INCLUDE-FILE 7-bit.dat
+
+# Arabic codepage data and conversions
+INCLUDE
+INCLUDE-FILE arabic.dat
+
+# Chinese codepage data and conversions
+INCLUDE
+INCLUDE-FILE chinese.dat
+
+# Eastern Europe codepages
+INCLUDE
+INCLUDE-FILE easteuro.dat
+
+# Greek codepage data and conversions
+INCLUDE
+INCLUDE-FILE greek.dat
+
+# Hebrew codepage data and conversions
+INCLUDE
+INCLUDE-FILE hebrew.dat
+
+# IBM 850 codepage data and conversions
+INCLUDE
+INCLUDE-FILE ibm850.dat
+
+# IBM 858 codepage data and conversions
+INCLUDE
+INCLUDE-FILE ibm858.dat
+
+# ISO 8859-1 codepage data
+INCLUDE
+INCLUDE-FILE 8859-1.dat
+
+# ISO 8859-15 (Latin 9) codepage data and conversions
+INCLUDE
+INCLUDE-FILE 8859-15.dat
+
+# Japanese codepage data and conversions
+INCLUDE
+INCLUDE-FILE japanese.dat
+
+# Korean codepage data and conversions
+INCLUDE
+INCLUDE-FILE korean.dat
+
+# MS 1252 codepage data and conversions
+INCLUDE
+INCLUDE-FILE ms1252.dat
+
+# MS 1257 codepage data and conversions (Baltic rim)
+INCLUDE
+INCLUDE-FILE ms1257.dat
+
+# Old V6 and V72 codepage data and conversions
+#INCLUDE
+#INCLUDE-FILE oldv6v72.dat
+
+# Polish codepage data and conversions
+INCLUDE
+INCLUDE-FILE polish.dat
+
+# HP Roman-8 codepage data and conversions
+INCLUDE
+INCLUDE-FILE roman8.dat
+
+# Russian codepage data and conversions
+INCLUDE
+INCLUDE-FILE russian.dat
+
+# Spanish collation
+INCLUDE
+INCLUDE-FILE spanish.dat
+
+# Thai codepage data and conversions
+INCLUDE
+INCLUDE-FILE thai.dat
+
+# Turkish codepage data and conversions
+INCLUDE
+INCLUDE-FILE turkish.dat
+
+# The UNDEFINED codepage DO NOT REMOVE
+INCLUDE
+INCLUDE-FILE undefine.dat
+
+# Western Europe codepages
+INCLUDE
+INCLUDE-FILE westeuro.dat
+
+# Western Europe codepage conversions
+INCLUDE
+INCLUDE-FILE weurocnv.dat
+
+# Western Europe EBCDIC codepages
+#INCLUDE
+#INCLUDE-FILE weuroebc.dat
+
+#########################################################
+# Includes for UTF-8 Conversions
+
+# Basic UTF-8 data and UTF-8/single-byte conversions
+INCLUDE
+INCLUDE-FILE utf-8.dat
+
+# UTF-8 (UCS2) to BIG-5 conversion (traditional Chinese)
+INCLUDE
+INCLUDE-FILE big-5.dat
+
+# UTF-8 (UCS2) to CP950 conversion (traditional Chinese)
+INCLUDE
+INCLUDE-FILE cp950.dat
+
+# UTF-8 (UCS2) to CP949 conversion (Korean)
+INCLUDE
+INCLUDE-FILE cp949.dat
+
+# UTF-8 (UCS2) to EUCJIS conversion (Japanese)
+INCLUDE
+INCLUDE-FILE eucjis.dat
+
+# UTF-8 (UCS2) to GB2312 conversion (simplified Chinese)
+INCLUDE
+INCLUDE-FILE gb2312.dat
+
+# UTF-8 (UCS2) to CP936 conversion (simplified Chinese)
+INCLUDE
+INCLUDE-FILE cp936.dat
+
+# UTF-8 (UCS2) to KSC5601 (old) conversion (Korean)
+INCLUDE
+INCLUDE-FILE ksc5601.dat
+
+# UTF-8 (UCS2) to SHIFT-JIS conversion (Japanese)
+INCLUDE
+INCLUDE-FILE shiftjis.dat
+
+# UTF-8 (UCS2) to ISO6937 conversion (Videotext Latin)
+INCLUDE
+INCLUDE-FILE iso6937.dat
+
+# CP950-HKSCS (CP950 with Hong Kong Supplement) attributes and conversion to UTF-8 
+INCLUDE
+INCLUDE-FILE cp950-hk.dat
+
+# Tables for codepage GB18030 (Chinese Government codepage)
+INCLUDE
+INCLUDE-FILE gb18030.dat
+
+

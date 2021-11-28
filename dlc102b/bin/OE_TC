@@ -1,0 +1,734 @@
+#!/bin/sh
+#
+# Determine the correct directory where the Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "$DLC" "/dlc/dlc102b"
+do
+    [ ! -d "${what_dlc}/java" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+# Set the user working directory - this is a tailored value
+for what_wrkdir in "$WRKDIR" "/dlc/wrk102b" "."
+do
+    [ ! -d "${what_wrkdir}" ] && continue
+    WRKDIR=$what_wrkdir
+    export WRKDIR
+    break
+done
+#
+# Setup the Perl environment
+#
+if [ $HOME ]
+then
+    _HOME=$HOME
+fi
+if [ $PERLLIB ]
+then
+    _PERLLIB=$PERLLIB
+fi
+if [ $PERL5LIB ]
+then
+    _PERL5LIB=$PERL5LIB
+fi
+#
+HOME=$DLC
+PERLLIB=$DLC/perl/lib ; export PERLLIB
+PERL5LIB=$DLC/perl/lib ; export PERL5LIB
+#
+# The Perl interpreter must exist
+#
+if [ ! -f $DLC/perl/bin/perl ]
+then
+   echo
+   echo The Perl interpreter $DLC/perl/bin/perl does not exist.
+   echo Check the Progress installation and the DLC environment variable
+   echo.
+   echo Progress DLC setting: $DLC
+   echo
+   exit 1
+fi
+#
+# Fixup OS specific environment settings
+#
+OSNAME=`uname`
+case "$OSNAME" in
+    "Linux")
+      LD_LIBRARY_PATH=$DLC/perl/lib/5.6.1/i686-linux-thread-multi/CORE:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+
+    ;;
+esac
+#
+# Execute this file as a Perl script
+#
+$DLC/perl/bin/perl -x $0 $*
+#
+# reset the original Perl environment
+#
+if [ $_HOME ]
+then
+    HOME=$_HOME
+    unset _HOME
+fi
+if [ $_PERLLIB ]
+then
+    PERLLIB=$_PERLLIB
+    unset _PERLLIB
+fi
+if [ $_PERL5LIB ]
+then
+    PERL5LIB=$_PERL5LIB
+    unset _PERL5LIB
+fi
+#
+exit 0
+################################################################################
+## Start the embedded Perl script here
+################################################################################
+#!/bin/perl
+#
+#  This program configures and starts Tomcat to work with the Progress
+#  Development environment.
+#
+use File::Copy;
+use File::Path;
+
+################################################################################
+## Functions a.k.a subroutines
+################################################################################
+#----------------------------(  recurse     )-----------------------------#
+#  FUNCTION:	recurse                                                     #
+#  PURPOSE:	Recurse through the source directory, gathering directory     #
+#		names and files in the directories.                                   #
+#  ARGS:	$mySource - the source directory                                #
+#-------------------------------------------------------------------------#
+sub recurse
+{
+  #  my($path) = @_;
+  my($path) = @_;
+  # print "my path is set to: ",$path,"\n";
+
+  ## append a trailing / if it's not there
+  $path .= '/' if($path !~ /\/$/);
+
+  ## print the directory being searched
+  # print "",$path,"\n";
+
+  ## add the directory being searched to an array
+  @dirpath=(@dirpath,$path);
+
+  ## loop through the files contained in the directory
+  for my $eachFile (glob($path.'*'))
+  {
+
+    ## if the file is a directory
+    if( -d $eachFile)
+    {
+      ## pass the directory to the routine ( recursion )
+      recurse($eachFile);
+    }
+    else
+    {
+      ## print the file ... tabbed for readability
+      # print "\tFILE: ",$eachFile,"\n";
+
+      ## add file names to an array
+      @filenames=(@filenames,$eachFile);
+    }
+  }
+}
+
+## print dirpath array
+# print "this is the directories from the dirpath array:\n";
+# print "@dirpath\n";
+
+## print filenames array
+# print "this is the files from the filenames array:\n";
+# print "@filenames\n";
+#----------------------------(  END recurse )-----------------------------#
+
+#----------------------------(  promptUser  )-----------------------------#
+#  FUNCTION:	promptUser                                                  #
+#  PURPOSE:	Prompt the user for some type of input, and return the        #
+#		input back to the calling program.                                    #
+#  ARGS:	$promptString - what you want to prompt the user with           #
+#		$defaultValue - (optional) a default value for the prompt             #
+#-------------------------------------------------------------------------#
+
+sub promptUser
+   {
+
+   #  two possible input arguments - $promptString, and $defaultValue
+   #  make the input arguments local variables.
+    local($promptString,$defaultValue) = @_;
+
+   #  if there is a default value, use the first print statement; if
+   #  no default is provided, print the second string.
+   if ($defaultValue)
+   {
+      print $promptString, "[", $defaultValue, "]: ";
+   }
+   else
+   {
+      print $promptString, ": ";
+   }
+
+   $| = 1;               # force a flush after our print
+   $_ = <STDIN>;         # get the input from STDIN (presumably the keyboard)
+
+   # remove the newline character from the end of the input the user gave us.
+   chomp;
+
+   #  if we had a $default value, and the user gave us input, return the input
+   #  if we had a default, and they gave us no input, return the $defaultValue.
+   #  if we did not have a default value return whatever the user gave us
+   if ("$defaultValue")
+      {
+      return $_ ? $_ : $defaultValue;    # return $_ if it has a value
+      }
+      else
+      {
+      return $_;
+      }
+   }
+#--------------------------(  END promptUser  )---------------------------#
+
+################################################################################
+## Main ()
+################################################################################
+
+#  The DLC should be set in the calling script or batch file
+# if not, ask user to set them as environment variables and restart script
+$DLC=$ENV{"DLC"};
+$WRKDIR=$ENV{"WRKDIR"};
+
+if (not $DLC)
+  {
+  print "DLC must be set as an environment variable to run this script.\n";
+  print "Please set DLC and WRKDIR variables and start script again.\n";
+  exit 1;
+  }
+
+if (not $WRKDIR)
+  {
+  print "WRKDIR must be set as an environment variable to run this script.\n";
+  print "Please set DLC and WRKDIR variables and start script again.\n";
+  exit 1;
+  }
+
+print "DLC is set to: $DLC\n";
+print "WRKDIR is set to: $WRKDIR\n";
+
+## Get the current Operating System for decisions to make later
+$myOS = $^O;
+print "The current operating system is: ",$myOS,"\n";
+print ".......................................................................\n";
+
+# Check to see if tomcat.properties already exists
+# if so, assume configuration done start tomcat
+if (-e "$DLC/properties/tomcat.properties")
+  {
+  if ( $myOS eq Windows_NT || $myOS eq MSWin32 )
+    {
+    print "Tomcat is already configured for OpenEdge development...\n";
+    print "To start Tomcat, run \<tomcatInstallDir\>/bin/catalina.bat start\n";
+    print "\n";
+    print "To stop Tomcat, run \<tomcatInstallDir\>/bin/catalina.bat stop or\n";
+    print "     kill the PID found in \<tomcatInstallDir\>/logs/pid.txt\n";
+    print ".......................................................................\n";
+    }
+    else
+    {
+    print "Tomcat is already configured for OpenEdge development...\n";
+    print "To start Tomcat, run \<tomcatInstallDir\>/bin/catalina.sh start\n";
+    print "\n";
+    print "To stop Tomcat, run \<tomcatInstallDir\>/bin/catalina.sh stop or\n";
+    print "     kill the PID found in \<tomcatInstallDir\>/logs/pid.txt\n";
+    print ".......................................................................\n";
+    }
+  # Add code to start tomcat here?
+  }
+
+  else
+  {
+  print "Tomcat not configured...\n";
+  print "+-------------------------------------------------------------------------+\n";
+  print "|                      Pre-Configuration Instructions                     |\n";
+  print "+-------------------------------------------------------------------------+\n";
+  print "| 1. Download Tomcat from http://tomcat.apache.org - version 5.5.23 or    |\n";
+  print "|    more recent.  Unpack or install Tomcat, remember the installation    |\n";
+  print "|    directory.                                                           |\n";
+  print "| 2. If JDK 1.5 is not included with this OpenEdge install, download a    |\n";
+  print "|    copy of the JDK and install it, remember the installation directory. |\n";
+  print "|    (OpenEdge installs on Windows come with JDK 1.5, so this program     |\n";
+  print "|    won't asked for a JDK installation location on Windows.)             |\n";
+  print "+-------------------------------------------------------------------------+\n";
+  $myconfig = &promptUser("Do you wish to configure Tomcat now? ", "Yes");
+  $myconfig = uc($myconfig);
+  # print "myconfig is set to: " . $myconfig . "\n";
+    if ($myconfig eq "YES" || $myconfig eq "Y")
+    {
+    print "Running the configuration program now...\n";
+
+    # Prompt user for the tomcat install directory
+    print "Enter your Tomcat install directory: ";
+
+    $myTcInstallDir = <STDIN>;
+    # remove the return value
+    chomp $myTcInstallDir;
+    # verify the directory is correct by checking for the catalina.jar file
+    while (not -e "$myTcInstallDir/server/lib/catalina.jar")
+      {
+      print "This directory is not correct, did not find a ";
+      print $myTcInstallDir;
+      print "/server/lib/catalina.jar file. \n";
+
+      print "Enter your Tomcat install directory: ";
+      $myTcInstallDir = <STDIN>;
+      chomp $myTcInstallDir;
+      }
+
+    # verify the java version in DLC or give user choice to change JAVA_HOME
+    $myJAVA_HOME = "$DLC/jdk";
+    $myJAVA_HOME =~ s,\\,\/,g;
+    # print "myJAVA_HOME is to: $myJAVA_HOME\n";
+    $myJAVA_Version = `$myJAVA_HOME/bin/java -fullversion 2>&1`;
+    # print "My JAVA_Version is set to: $myJAVA_Version\n";
+
+    # verify the directory is correct by checking for the catalina.jar file
+    if ( $myOS eq aix )
+    {
+    while ( not $myJAVA_Version =~ /J2RE 1.5/ )
+      {
+      print "Tomcat requires JAVA 1.5, please enter the directory path to your\n";
+      print "JDK 1.5 installation: \n";
+      $myJAVA_HOME = <STDIN>;
+      # remove the return value
+      chomp $myJAVA_HOME;
+      $myJAVA_HOME =~ s,\\,\/,g;
+      $myJAVA_Version = `$myJAVA_HOME/bin/java -fullversion 2>&1`;
+      print "The JAVA version is set to: $myJAVA_Version\n";
+      }
+    }
+    else
+    {
+    while ( not $myJAVA_Version =~ /version "1.5/ )
+      {
+      print "Tomcat requires JAVA 1.5, please enter the directory path to your\n";
+      print "JDK 1.5 installation: \n";
+      $myJAVA_HOME = <STDIN>;
+      # remove the return value
+      chomp $myJAVA_HOME;
+      $myJAVA_HOME =~ s,\\,\/,g;
+      $myJAVA_Version = `$myJAVA_HOME/bin/java -fullversion 2>&1`;
+      print "The JAVA version is set to: $myJAVA_Version\n";
+      }
+    }
+    print "Using $myJAVA_HOME as the JAVA_HOME value for Tomcat\n";
+
+# create the $DLC/properties/tomcat.properties file
+# add the value name pair tomcatInstallDir=$myTCInstallDir
+print "Creating $DLC/properties/tomcat.properties...\n";
+open (PROPFILE, ">$DLC/properties/tomcat.properties");
+print PROPFILE "tomcatInstallDir=";
+print PROPFILE $myTcInstallDir;
+print PROPFILE "\n";
+close (PROPFILE);
+
+# Now copy the $DLC/servlets to the $myTcInstallDir/webapps directory
+# first convert the DOS path separator (\) to perl separators (/)
+# this is necessary for the substitution which chokes on the DOS path separator
+
+$perlDLC = $DLC;
+$perlDLC=~ s,\\,\/,g;
+# print "This is the DLC setting: $perlDLC\n";
+
+$perlmyTcInstallDir = $myTcInstallDir;
+$perlmyTcInstallDir =~ s,\\,\/,g;
+# print "This is the Tomcat install directory: $perlmyTcInstallDir\n";
+
+$mySource="$perlDLC/servlets";
+$myTarget="$perlmyTcInstallDir/webapps";
+
+# print "dlc is set to: $DLC\n";
+# print "my source is set to: $mySource\n";
+
+# Use the recurse sub to create the list of source files and directories
+&recurse ($mySource);
+
+## make the new target directories using the array
+# COUNTS EACH ELEMENT OF THE ARRAY
+$n = 0;
+
+# USE THE SCALAR FORM OF ARRAY
+while ($dirpath[$n])
+ {
+  # print "this is the dirpath value:\n";
+  # print "$dirpath[$n]\n";
+  $dirpath[$n] =~ s/$mySource/$myTarget/g;
+  # print "this is the targpath value:\n";
+  # print "$dirpath[$n]\n";
+  # print "making the target directory now:\n";
+  mkpath( $dirpath[$n] ) if not -e $dirpath[$n];
+  $n++;
+ }
+
+## copy the files from the array to the target directories
+# COUNTS EACH ELEMENT OF THE ARRAY
+$n = 0;
+
+# USE THE SCALAR FORM OF ARRAY
+while ($filenames[$n])
+ {
+  # print "this is the fileName value:\n";
+  # print "$filenames[$n]\n";
+  $targFileName = $filenames[$n];
+  $targFileName =~ s/$mySource/$myTarget/g;
+  # print "this is the targfileName value:\n";
+  # print "$targFileName\n";
+  # print "copying the new file now:\n";
+  copy( $filenames[$n], $targFileName ) if not -e $targFileName;
+  $n++;
+ }
+
+## NOW CONFIGURE THE TOMCAT FILES FOR USE WITH PROGRESS
+## configure the catalina.bat/sh file and wspd_cgi.pl file (if Windows)
+
+if ( $myOS eq Windows_NT || $myOS eq MSWin32 )
+  {
+  print "Configuring $myTcInstallDir/bin/catalina.bat file for Progress...\n";
+
+  ## first backup a copy of the catalina.bat file
+  copy ("$myTcInstallDir/bin/catalina.bat", "$myTcInstallDir/bin/catalina.bat.bkp")
+    if not -e "$myTcInstallDir/bin/catalina.bat.bkp";
+
+  ## Now open the catalina.bat file and add the necessary evironment variables
+  ## for Progress/OpenEdge WSA, AIA and WebSpeed and add the tomcat PID to
+  ## $myTcInstallDir/logs/pid.txt file.
+  open (READCATFILE, "< $myTcInstallDir/bin/catalina.bat")
+              || die ("Could not open file: $myTcInstallDir/bin/catalina.bat");
+  open (WRITECATFILE, "> $myTcInstallDir/bin/catalina.temp")
+              || die ("Could not open file: $myTcInstallDir/bin/catalina.temp");
+
+  # reset myJAVA_HOME path separators to backslashes (\)
+  $myJAVA_HOME =~ s,\/,\\,g;
+
+  $i=1;
+  $currentLine = "current line";
+  $lastLine = "last line";
+  while (<READCATFILE>)
+  {
+    # s/muchstuff/muchstuff/;
+    $currentLine = $_;
+    #print "the current line is: ",$currentLine,"\n";
+    if ( $currentLine =~ /^\n/ && $lastLine =~ /rem ------------------------*/ )
+    {
+      print "Adding Openedge Evironment Varariables to catalina.bat...\n";
+      print WRITECATFILE "\n";
+      print WRITECATFILE "rem -- Setting Openedge Evironment Variables\n";
+      # need to split set DLC= to 2 different lines so the install tailoring
+      # does not tailor the value and break the script
+      print WRITECATFILE "set D";
+      print WRITECATFILE "LC=$DLC\n";
+      print WRITECATFILE "set WRKDIR=$WRKDIR\n";
+      print WRITECATFILE "set JAVA_HOME=$myJAVA_HOME\n";
+      print WRITECATFILE "\n";
+      print WRITECATFILE "rem -- Setting Cataline variable to capture PID in logs/pid.txt\n";
+      print WRITECATFILE "set CATALINA_PID=$myTcInstallDir\\logs\\pid.txt\n";
+      print WRITECATFILE "\n";
+    }
+    print WRITECATFILE $_;
+    $lastLine = $currentLine;
+    #print "the last line is: ",$lastLine,"\n";
+    $i++;
+  }
+  close WRITECATFILE;
+  close READCATFILE;
+
+  ## finally rename catalina.temp to catalina.bat
+  rename ("$myTcInstallDir/bin/catalina.temp", "$myTcInstallDir/bin/catalina.bat");
+
+  ## create the cgi-bin directory at webapps/ROOT/WEB-INF/cgi
+  mkpath ( "$myTcInstallDir/webapps/ROOT/WEB-INF/cgi" )
+    if not -e "$myTcInstallDir/webapps/ROOT/cgi";
+
+
+## create the wspd_cgi.pl file in the webapps/ROOT/WEB-INF/cgi directory
+open (MSNGRFILE, "> $myTcInstallDir/webapps/ROOT/WEB-INF/cgi/wspd_cgi.pl")|| die
+  ("Could not open file: $myTcInstallDir/webapps/ROOT/WEB-INF/cgi/wspd_cgi.pl");
+print "Creating the wspd_cgi.pl file...\n";
+print MSNGRFILE "\#\!$DLC/perl/bin/perl.exe\n";
+print MSNGRFILE "\#\n";
+print MSNGRFILE "\# Simple Perl messenger script for WebSpeed.\n";
+print MSNGRFILE "\n";
+print MSNGRFILE "\@data = \`$perlDLC/bin/cgiip.exe -i wsbroker1\`\;\n";
+print MSNGRFILE "print \@data\;\n";
+
+  }
+  else
+  {
+  print "Configuring $myTcInstallDir/bin/catalina.sh file for Progress...\n";
+
+  ## first backup a copy of the catalina.sh file
+  copy ("$myTcInstallDir/bin/catalina.sh", "$myTcInstallDir/bin/catalina.sh.bkp")
+    if not -e "$myTcInstallDir/bin/catalina.sh.bkp";
+
+  ## Now open the catalina.sh file and add the necessary evironment variables
+  ## for Progress/OpenEdge WSA, AIA and WebSpeed and add the tomcat PID to
+  ## $myTcInstallDir/logs/pid.txt file.
+  open (READCATFILE, "< $myTcInstallDir/bin/catalina.sh")
+              || die ("Could not open file: $myTcInstallDir/bin/catalina.sh");
+  open (WRITECATFILE, "> $myTcInstallDir/bin/catalina.temp")
+              || die ("Could not open file: $myTcInstallDir/bin/catalina.temp");
+
+  $i=1;
+  $currentLine = "current line";
+  $lastLine = "last line";
+  while (<READCATFILE>)
+  {
+    # s/muchstuff/muchstuff/;
+    $currentLine = $_;
+    #print "the current line is: ",$currentLine,"\n";
+    if ( $currentLine =~ /^\n/ && $lastLine =~ /\# ------------------------*/ )
+    {
+      print "Adding Openedge Evironment Varariables to catalina.sh...\n";
+      print WRITECATFILE "\n";
+      print WRITECATFILE "# Setting Openedge Evironment Variables\n";
+      print WRITECATFILE "DLC=$DLC\n";
+      print WRITECATFILE "WRKDIR=$WRKDIR\n";
+      print WRITECATFILE "JAVA_HOME=$myJAVA_HOME\n";
+      print WRITECATFILE "LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:$DLC/lib\n";
+      print WRITECATFILE "SHLIBPATH=\$SHLIBPATH:$DLC/lib\n";
+      print WRITECATFILE "LIBPATH=\$LIBPATH:$DLC/lib\n";
+      print WRITECATFILE "\n";
+      print WRITECATFILE "export DLC\n";
+      print WRITECATFILE "export WRKDIR\n";
+      print WRITECATFILE "export JAVA_HOME\n";
+      print WRITECATFILE "export LD_LIBRARY_PATH\n";
+      print WRITECATFILE "export SHLIBPATH\n";
+      print WRITECATFILE "export LIBPATH\n";
+      print WRITECATFILE "\n";
+      print WRITECATFILE "# Setting Cataline variable to capture PID in logs/pid.txt\n";
+      print WRITECATFILE "CATALINA_PID=$myTcInstallDir/logs/pid.txt\n";
+      print WRITECATFILE "\n";
+      print WRITECATFILE "export CATALINA_PID\n";
+      print WRITECATFILE "\n";
+    }
+    print WRITECATFILE $_;
+    $lastLine = $currentLine;
+    #print "the last line is: ",$lastLine,"\n";
+    $i++;
+  }
+  close WRITECATFILE;
+  close READCATFILE;
+
+  ## rename catalina.temp to catalina.sh and chmod to 755
+  rename ("$myTcInstallDir/bin/catalina.temp", "$myTcInstallDir/bin/catalina.sh");
+
+  chmod 0755, "$myTcInstallDir/bin/catalina.sh";
+
+  ## create the cgi-bin directory at webapps/ROOT/WEB-INF/cgi
+  print "Creating the $myTcInstallDir/webapps/ROOT/WEB-INF/cgi directory...\n";
+  mkpath ( "$myTcInstallDir/webapps/ROOT/WEB-INF/cgi" )
+    if not -e "$myTcInstallDir/webapps/ROOT/cgi";
+
+  ## copy the wspd_cgi.sh from $DLC to $myTcInstallDir/webapps/ROOT/cgi
+  print "Copying the wspd_cgi.sh to $myTcInstallDir/webapps/ROOT/WEB-INF/cgi...\n";
+  copy ("$DLC/bin/wspd_cgi.sh", "$myTcInstallDir/webapps/ROOT/WEB-INF/cgi")
+    || die ("Could not copy wspd_cgi.sh to $myTcInstallDir/webapps/ROOT/cgi/\n");
+  }
+
+  ## This section is run for Both UNIX and Windows
+  ## Now configure the WebSpeed environment in Tomcat
+
+  ## rename the server/lib/servlets-cgi.renametojar to servlets-cgi.jar
+  print "Renaming server/lib/servlets-cgi.renametojar to servlets-cgi.jar...\n";
+  rename ("$myTcInstallDir/server/lib/servlets-cgi.renametojar",
+        "$myTcInstallDir/server/lib/servlets-cgi.jar");
+
+  ## enable the CGI in conf/web.xml by enabling the servlet and the cgi-bin alias
+  ## first make a backup copy of the conf/web.xml if one does not exit
+  print "Making a copy of the $myTcInstallDir/conf/web.xml, just in case...\n";
+  copy ("$myTcInstallDir/conf/web.xml", "$myTcInstallDir/conf/web.xml.bkp") if not
+    -e "$myTcInstallDir/conf/web.xml.bkp";
+
+## Now open the web.xml file and add CGI servlet
+print "Modifying the $myTcInstallDir/conf/web.xml file to add the CGI Servlet...\n";
+open (READWEBFILE, "< $myTcInstallDir/conf/web.xml")
+              || die ("Could not open file: $myTcInstallDir/conf/web.xml");
+open (WRITEWEBFILE, "> $myTcInstallDir/conf/web.xml.temp")
+              || die ("Could not open file: $myTcInstallDir/conf/web.xml.temp");
+
+$i=1;
+
+$currentLine = "current line";
+$lastLine = "last line";
+$myString1 = "servlets-cgi.jar";
+$myString2 = "mapping for the CGI";
+while (<READWEBFILE>)
+  {
+  # s/muchstuff/muchstuff/;
+  $currentLine = $_;
+  #print "the current line is: ",$currentLine,"\n";
+  if ( $currentLine =~ /^(\s)*$/ && $lastLine =~ /[\r\t\n\s]*$myString1*/ )
+    {
+    print WRITEWEBFILE $currentLine;
+    print WRITEWEBFILE "\n";
+    print WRITEWEBFILE "\<\!-- CGI Servlet definition added by OE_TC.pl from ";
+    print WRITEWEBFILE "Progress Software Corp. --\>\n";
+    print WRITEWEBFILE "    \<servlet\>\n";
+    print WRITEWEBFILE "        \<servlet-name\>cgi\</servlet-name\>\n";
+    print WRITEWEBFILE "        \<servlet-class\>org.apache.catalina.servlets.";
+    print WRITEWEBFILE "CGIServlet\</servlet-class\>\n";
+    print WRITEWEBFILE "        \<init-param\>\n";
+    print WRITEWEBFILE "          \<param-name\>debug\</param-name\>\n";
+    print WRITEWEBFILE "          \<param-value\>0\</param-value\>\n";
+    print WRITEWEBFILE "        \</init-param\>\n";
+    print WRITEWEBFILE "        \<init-param\>\n";
+    print WRITEWEBFILE "          \<param-name\>passShellEnvironment\</param-name\>\n";
+    print WRITEWEBFILE "          \<param-value\>true\</param-value\>\n";
+    print WRITEWEBFILE "        \</init-param\>\n";
+    print WRITEWEBFILE "        \<init-param\>\n";
+    print WRITEWEBFILE "          \<param-name\>cgiPathPrefix\</param-name\>\n";
+    print WRITEWEBFILE "          \<param-value\>WEB-INF/cgi\</param-value\>\n";
+    print WRITEWEBFILE "        \</init-param\>\n";
+    print WRITEWEBFILE "        \<load-on-startup\>5\</load-on-startup\>\n";
+    print WRITEWEBFILE "    \</servlet\>\n";
+    print WRITEWEBFILE "\n";
+    }
+  elsif ( $currentLine =~ /^(\s)*$/ &&
+             $lastLine =~ /[\r\t\n\s]*$myString2*/)
+    {
+    print WRITEWEBFILE "\n";
+    print WRITEWEBFILE "  \<\!-- CGI servlet mapping added by OE_TC.pl from ";
+    print WRITEWEBFILE "Progress Software Corp. --\>\n";
+    print WRITEWEBFILE "    \<servlet-mapping\>\n";
+    print WRITEWEBFILE "        \<servlet-name\>cgi\</servlet-name\>\n";
+    print WRITEWEBFILE "        \<url-pattern\>/cgi-bin/\*\</url-pattern\>\n";
+    print WRITEWEBFILE "    \</servlet-mapping\>\n";
+    print WRITEWEBFILE "\n";
+    }
+  else
+    {
+    print WRITEWEBFILE $_;
+    $lastLine = $currentLine;
+    #print "the last line is: ",$lastLine,"\n";
+    $i++;
+    }
+  }
+  close WRITEWEBFILE;
+  close READWEBFILE;
+
+## rename web.xml.temp to web.xml
+  rename ("$myTcInstallDir/conf/web.xml.temp", "$myTcInstallDir/conf/web.xml");
+
+## Now copy the $DLC/webspeed directory to tomcat document root directory
+# $myTcInstallDir/webapps/ROOT/webspeed<version>
+# webspeed<version> comes from ubroker.properties paramater wsroot=
+#
+# find the webspeed<version>
+print "Adding the WebSpeed HTML directory to the $myTcInstallDir/webapps directory...\n";
+open (READPROPFILE, "< $DLC/properties/ubroker.properties")
+              || die ("Could not open file: $DLC/properties/ubroker.properties");
+  $i=1;
+  while (<READPROPFILE>)
+  {
+    # print "the current line is: $_\n";
+    if ( $_ =~ /wsRoot\=/ )
+    {
+      $myWebSpeedVer=$_;
+      # print "myWebSpeedVer is set to: $myWebSpeedVer\n";
+    }
+    $i++;
+  }
+  close READPROPFILE;
+  # remove the return value
+  chomp $myWebSpeedVer;
+  # remove preceding spaces
+  $myWebSpeedVer =~ s/^ *//;
+  # grab the value portion of the parameter, after wsroot=/
+  $myWebSpeedVer =~ s,wsRoot\=\/,,;
+  # print "my WebSpeed Ver is set to: $myWebSpeedVer\n";
+
+$myDocSource="$perlDLC/webspeed";
+$myDocTarget="$perlmyTcInstallDir/webapps/$myWebSpeedVer";
+
+# print "dlc is set to: $DLC\n";
+# print "my source is set to: $mySource\n";
+
+# Use the recurse sub to create the list of source files and directories
+&recurse ($myDocSource);
+
+## make the new target directories using the array
+# COUNTS EACH ELEMENT OF THE ARRAY
+$n = 0;
+
+# USE THE SCALAR FORM OF ARRAY
+while ($dirpath[$n])
+ {
+  # print "this is the dirpath value:\n";
+  # print "$dirpath[$n]\n";
+  $dirpath[$n] =~ s/$myDocSource/$myDocTarget/g;
+  # print "this is the targpath value:\n";
+  # print "$dirpath[$n]\n";
+  # print "making the target directory now:\n";
+  mkpath( $dirpath[$n] ) if not -e $dirpath[$n];
+  $n++;
+ }
+
+## copy the files from the array to the target directories
+# COUNTS EACH ELEMENT OF THE ARRAY
+$n = 0;
+
+# USE THE SCALAR FORM OF ARRAY
+while ($filenames[$n])
+ {
+  # print "this is the fileName value:\n";
+  # print "$filenames[$n]\n";
+  $targFileName = $filenames[$n];
+  $targFileName =~ s/$myDocSource/$myDocTarget/g;
+  # print "this is the targfileName value:\n";
+  # print "$targFileName\n";
+  # print "copying the new file now:\n";
+  copy( $filenames[$n], $targFileName ) if not -e $targFileName;
+  $n++;
+ }
+  if ( $myOS eq Windows_NT || $myOS eq MSWin32 )
+    {
+    print "Tomcat is now configured for OpenEdge development...\n";
+    print ".......................................................................\n";
+    print "To start Tomcat, run \<tomcatInstallDir\>/bin/catalina.bat start\n";
+    print "\n";
+    print "To stop Tomcat, run \<tomcatInstallDir\>/bin/catalina.bat stop or\n";
+    print "     kill the PID found in \<tomcatInstallDir\>/logs/pid.txt\n";
+    print ".......................................................................\n";
+    }
+    else
+    {
+    print "Tomcat is now configured for OpenEdge development...\n";
+    print ".......................................................................\n";
+    print "To start Tomcat, run \<tomcatInstallDir\>/bin/catalina.sh start\n";
+    print "\n";
+    print "To stop Tomcat, run \<tomcatInstallDir\>/bin/catalina.sh stop or\n";
+    print "     kill the PID found in \<tomcatInstallDir\>/logs/pid.txt\n";
+    print ".......................................................................\n";
+    }
+    }
+    else
+    {
+    print "Exiting program, you may rerun at anytime to configure Tomcat.\n";
+    exit 1;
+    }
+}
+
+
+# done
+print "\n";
+exit 0;
+################################################################################
+## End of the Perl script
+################################################################################
+__END__
+#

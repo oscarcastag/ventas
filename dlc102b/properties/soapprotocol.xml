@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!-- SOAP 1.1/1.2 protocol handler -->
+<waspc-config xmlns:wasp="urn:WaspServer" xmlns:xprot="urn:XMLProtocolHandlerRepository">
+
+    <!-- Module XMLProtocolHandlerRepository -->
+    <wasp:module wasp:class="WASP_XMLProtocolHandlerRepositoryImpl"/>
+
+    <!-- SOAP 1.1 handler -->
+    <xprot:protocolHandler xprot:class="WASP_SOAPProtocolHandler" xprot:name="SOAP"
+        xmlns:sph="urn:SOAPProtocolHandler"
+        sph:defaultVersion="1.1"
+    />
+
+    <!-- SOAP 1.2 handler -->
+    <xprot:protocolHandler xprot:class="WASP_SOAPProtocolHandler" xprot:name="SOAP12"
+        xmlns:sph="urn:SOAPProtocolHandler"
+        sph:defaultVersion="1.2"
+    />
+</waspc-config>

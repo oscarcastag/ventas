@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+
+<!-- Core client-side transports -->
+<waspc-config xmlns:trans="urn:TransportRepository" xmlns:wasp="urn:WaspServer">
+
+    <!-- Module TransportRepository -->
+    <wasp:module wasp:class="WASP_TransportRepositoryImpl"/>
+
+    <!-- BEGIN: Progress -->
+<!--
+    <trans:transport trans:class="WASP_FileTransportClient" trans:scheme="file" xmlns:ftc="urn:FileTransportClient"
+        ftc:extout=".out"
+    />
+
+    <trans:transport trans:class="WASP_HTTPTransportClient" trans:scheme="http" xmlns:htc="urn:HTTPTransportClient"
+        htc:retryCount="10"
+        htc:retryTime="100"
+        htc:reuseTimeout="30"
+        htc:rwTimeout="30"
+        htc:connTimeout="30"
+        htc:http10="false"
+        htc:chunked="false"
+    />
+-->
+
+    <!-- Mainly for testing purposes -->
+<!--    
+    <trans:transport trans:class="WASP_HTTPFileTransportClient" trans:scheme="httpfile"/>
+-->    
+
+    <trans:transport
+        trans:class="PSCFileTransport"
+        trans:scheme="file"
+        xmlns:ftc="urn:PSCFileTransport"
+        ftc:extout=".out"
+        ftc:extin=".in"
+    /> 
+
+    <trans:transport
+        trans:class="PSCHTTPTransport"
+        trans:scheme="http"
+        xmlns:htc="urn:PSCHTTPTransport"
+    />
+
+    <trans:transport
+        trans:class="PSCHTTPTransport"
+        trans:scheme="https"
+        xmlns:htc="urn:PSCHTTPTransport"
+    />
+    <!-- END: Progress -->    
+</waspc-config>

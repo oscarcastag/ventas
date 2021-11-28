@@ -1,0 +1,73 @@
+9951 "WARNING: A license for Client Networking was not detected.  Reports will not run correctly without Client Networking. (9951)" "When connected to Fathom from a web browser, the user selected ""reports->Create Custom Trend Reports"" but the ""4GL Client Networking"" license was not detected.  As a result, the user may not be able to run the reports listed on the page displayed." "" ""
+9952 "The user requested <number of private buffers> private read only buffers, but only <number of available buffers> were available. (9952)" "The user requested a number of private, read only buffers using either the -Bp startup option or by assigning a value to the _MyConnection._MyConn-NumSeqBuffers Virtual System Table (VST). 
+Each user can request up to 64 private, read only buffers, as long as the total number of requested buffers for all users does not exceed 25% of the -B (Blocks in Database Buffers) startup option that was specified when starting this database. 
+" "d" ""
+9953 "The user requested <number of private buffers> private read only buffers, but none were available. (9953)" "The user requested a number of private, read only buffers using either the -Bp startup option or by assigning a value to the
+_MyConnection._MyConn-NumSeqBuffers Virtual System Table (VST).
+Each user can request up to 64 private, read only buffers, as long as the total number of requested buffers for all users does not exceed 25% of the -B (Blocks in Database Buffers) startup option that was specified when starting this database." "d" ""
+9954 "Unable to perform code page conversion of field '<field>' during RAW-TRANSFER. (9954)" "An ERROR occured during RAW-TRANSFER when Progress tried to convert named field from the source code page to the target code page. " "" ""
+9955 "Last day of Month (9955)" "A choice on the repeat interval pull down menu. The repeat interval pull down menu is on the Job and Report schedule pages. The repeat interval specifies the repetition rate of the scheduled task. " "" ""
+9956 "To change <browse> <attribute> attribute to TRUE, its NO-EMPTY-SPACE attribute must be FALSE. (9956)" "These 2 attributes are mutually exclusive. If you wish to make this attribute TRUE, first turn the other attribute to FALSE. " "" ""
+9957 "<group names> Valid group list (9957)" "All groups in the comma separated list exist " "" ""
+9958 "Next scheduled run" "A label used in the user interface to identify the next time a Job or Report is scheduled to run." "" ""
+9959 "Next 5 scheduled runs" "A label used in the user interface to identify an abbreviated list of when a Job or Report is scheduled to run." "" ""
+9960 "Invalid width (<value>) specified for <browse-col>. It cannot be less than MIN-COLUMN-WIDTH (<value>) for BROWSE <browse>.  (9960)" "You have specified a width for a browse column that is less than its browser's MIN-COLUMN-WIDTH attribute value. Either increase the width of the browse column or decrease the MIN-COLUMN-WIDTH attribute for the browser." "" ""
+9961 "Cannot generate a Report without reference to an existing resource  (9961)" "The Report definition does not have a valid resource monitor selected. An existing resource must be selected as the subject of the report before a report can be generated." "" ""
+9962 "To change <browse> <attribute> attribute to TRUE, its FIT-LAST-COLUMN attribute must be FALSE. (9962)" "These 2 attributes are mutually exclusive. If you wish to make this attribute TRUE, first turn the other attribute to FALSE. " "" ""
+9963 "Could not reach the adminserver on port <adminserver port>." "Ensure the adminserver port (-port argument) specified is correct." "" ""
+9964 "Only the Administrator or this user is permitted to change this password. (9964)" "Only the user can change his own password, except for the Administrator or Admin user who is allowed to edit all passwords." "" ""
+9965 "Only the Administrator is permitted to delete a user. (9965)" "Only the Administrator or Admin user is allowed to delete a user." "" ""
+9966 "None (9966)" "Used in GUI for listing Users where there are no users." "" ""
+9967 "DB_ResourceNameConflict: Cannot create database resource <resourceName>.  A resource with this name already exists. (9967)" "User created a database configuration that has the same name as an existing Fathom non database resource. As a result, Fathom could not create a database resource for the new database configuration." "" ""
+9968 "DB_FathomTrendDatabase: The database at <database location> does not match the FathomTrendDatabase schema. (9968)" "The database running at the port specified for the FathomTrendDatabase in the Progress Explorer is not a fathom trend database.  Specify another port or stop the database running at that port and start the FathomTrendDatabase.  " "" ""
+9969 "Value for -Dsrv option ZPRGRS_RECID_BUF_SIZE is out of range. Value for Progress Recid area max is <maxlen> and min is <minlen>.  (9969)" "-Dsrv ZPRGRS_RECID_BUF_SIZE,xxx " "" ""
+9970 "Unable to read bi block, ret = <return-value> file = <file-name>.  (9970)" "An error occurred while trying to read bi block from a multi-volume database. Check bi file read permissions, file names, ...
+                                       
+
+
+
+
+
+" "M" ""
+9971 "Invalid before image version number found in bi file . (9971)" "The database manager, while opening the database, has found an invalid version number in the block header of the bi file.  This may be because it is an old bi file version. " "M" ""
+9972 "This is a version <version-number> bi file.  (9972)" "Progress version 9.1D cannot read bi files with version other than 0. Progress version 9.1D should be able to read bi files produced by Progress version 9.0A or later.  " "M" ""
+9973 "The bi file must be truncated.  (9973)" "" "M" ""
+9974 "See documentation for bimage truncate .  (9974)" "" "M" ""
+9975 "This version of PROGRESS does not support auto tuning Spin Lock. (9975)" "You may not use auto tuning Spin Lock in this version of PROGRESS. You are running a version of PROGRESS that does not support self-tuning Spin Lock (-selfspin)." "D" ""
+9976 "LogActionWriteError:There was a problem writing to the log file. Check that the directory exists and the file is writable. File:  <The file to which the action is attempting to write> (9976)" "This alert is thrown if a log action can not write to the indicated file. Either the directory does not exist, or the file does not have write permissions. " "" ""
+9977 "The user is not local, User: <user specified as default e-mail recipient in the Fathom configuration page> (9977)" "Fathom attempts to verify the default e-mail recipient via the VRFY command. If the user is not local to the server, this message is returned. " "" ""
+9978 "The default e-mail recipient could not be verified because the mail server does not support the VRFY command. User: <the default e-mail recipient>, Server:  <The SMTP host specified in the Fathom configuration page> (9978)" "Fathom attempts to verify the default e-mail recipient via the VRFY command. If the mail server does not support the VRFY command, this message is returned. " "" ""
+9979 "Select None" "Text displayed as label for button on discovery results table." "" ""
+9980 "The network defaults were successfully updated. (9980)" "This message is displayed when the user successfully modifies the values on the network defaults page. " "" ""
+9981 "Select statement is on SQL-92 schema table () which has no user visible columns. (9981)" "Most SQL-92 schema tables (such as _sysdbauth) have all their columns with the attribute _Field._sys-field set to True. Such fields can only be seen by specifically using the column's name in the select list. Usually this error arises on a statement like ""select * from _sysdbauth"".  Solution is to avoid ""select *"" on such tables or to explicitly select needed columns. " "" ""
+9982 "Select statement appears to have no user visible columns for table . (9982)" "While compiling a select statement, SQL-89 discovered (internally) that the compiled request had no column list.  This is probably because the table has all its columns hidden,  such as by setting the attribute _Field._sys-field to True for all columns in the table.
+To solve, try explicitly selecting by name all needed columns." "" ""
+9983 "isrequsername has null information   (9983)" "UBCommandPlugin: error retrieving isrequsername.
+
+
+   " "" ""
+9984 "Missing user name or password (9984)" "Missing user name or password which are required to start sub process
+
+
+   " "" ""
+9985 "User attempted to write or update Sequences, but does not have write/update access to the database. (9985)" "Action requested by user attempts to either write or update the database.  This may include update or incrementing Sequence numbers, for example. " "" ""
+9986 "An  protocol error occured:  (9986)" "An error in the network protocol occured.  The protocol name and a brief description is supplied.
+" "" ""
+9987 "The   network functionality is not supported. (9987)" "A particular (client or server) funcionality for a network protocol is not supported in ths version.
+" "" ""
+9988 "Invalid  protocol configuration:              (9988)" "One of the protocol's configuration parameters is invalid and prevents the protocol from being used.  The name of the protocol and a short error description is supplied.
+" "" ""
+9989 "Cannot find the support library for the  protocol             (9989)" "A dynamically loaded library cannot be found or loaded in order to use the named network protocol.
+" "" ""
+9990 "The  protocol connection failed:              (9990)" "A connection to the server could not be completed due to an error in the network protocol.  The protocol name and a short description of the error is supplied.
+" "" ""
+9991 " server authentication failed:  (9991)" "The client failed to authenticate the server's identity when establishing a new network session.  The protocol's name and a short description of the authentication error is provided." "" ""
+9992 " client authentication failed:  (9992)" "The server failed to authenticate the client's identity when establishing a new network session.  The protocol's name and a short description of the authentication error is provided." "" ""
+9993 "The  network connection to  timed out (9993)" "The network connection exceeded the maximum amount of idle time and was closed." "" ""
+9994 "The  connection to  was aborted:  (9994)" "The network connection to the named server was aborted abnormally.  The connection no longer exists.  The network protocol name, the connected server name, and a short description of the reason is provided." "" ""
+9995 "The   authentication was rejected:  (9995)" "The authentication process between the client and server failed and no connection was completed.  The network protocol being used, whether the client or server rejected the authentication, and a short description regarding why is provided." "" ""
+9996 "A  network protocol error occured:  (9996)" "A network protocol error occured that resulted in the connection being closed.  The protocol name and a short error description is provided." "" ""
+9997 "A  option parameter failed:  (9997)" "When configuring the named network protocol, an optional parameter value was incorrect and prevented the protocol from being used.  The protocol name and a short description of the failing option is provided." "" ""
+9998 "An AIA error was returned thru  :  (9998)" "The AIA Internet adapter reported an operational failure that prevented an operation to complete.  The name of the protocol that detected the failure and a copy of the AIA reported error is provided." "" ""
+9999 " proxy server authentication failed:  (9999)" "The network connection being established via a proxy server could not be completed because the proxy could not authenticate the client's identity.  This may be due to missing/invalid user account and passwords, but is not limited to these situations.  The name of the protocol in use and a short error description is provided." "" ""
+10000 "Charscan list of characters is too long. Shorten the list. (10000)" " " "" ""

@@ -1,0 +1,86 @@
+8951 "Stateless SDOResultSet is only allowed with the  scrolling mode. (8951)" "If the SDOParameters.setStateless(true) method is called then the PREFETCH scroling mode is automatically set and cannot be modified.
+" "" ""
+8952 "Only Stateless SDOResultSets can be detached. (8952)" "Call the setStateless(true) method on the SDOParameters object and pass that object to the _createSDOResultSet() method in order to create a Stateless  SDOResultSet.
+" "" ""
+8953 "Failed to open an SDO query. (8953)" "Check the server log for more details." "" ""
+8954 "A Batch session was already started. (8954)" "A sendBatch() method or a sendBatchAndReOpen() method must be called before a new startBatch() method call.
+" "" ""
+8955 "Only batch updates are allowed in Stateless mode. Use startBatch(), sendBatch() and sendBatchAndReOpen(). (8955)" "Call the startBatch() method before  modifying the  the SDOResultSet. When done with  the modifications, call sendBatch() or sendBatchAndReOpen().
+" "" ""
+8956 "Invalid cursor position. (8956)" "This message is received when a method that tries to access row data is called and the cursor is not in a valid position. For example, no data access is allowed when the the cursor is before the first row or after the last row.
+" "" ""
+8957 "Cannot delete a newly inserted row. (8957)" "The delete() method cannot be called when the cursor is positioned on the ""insert row"" (moveToInsertRow() was called).
+" "" ""
+8958 "moveToInsertRow() must be called first in order to insert a new row. (8958)" "An example of a valid sequence of calls is: moveToInserRow(); updateString(""name"", ""Bill""); insertRow();
+" "" ""
+8959 "null is an invalid row identifier. (8959)" "Valid row identifiers are returned from the getRowIdentity() method." "" ""
+8960 "Row 0 is invalid. The first row is 1. (8960)" "" "" ""
+8961 "beforeFirst() failed. (8961)" "" "" ""
+8962 "refreshRow() is not supported in Stateless mode. (8962)" " Use reOpenQuery() to refresh data with a Stateless SDOResultSet." "" ""
+8963 "Row  is in the batch set. Refreshing it is illegal. (8963)" " The row with that rowIdentifier was modified in a batch session. It cannot be refreshed until the bacth is sent to the server (or canceled).
+" "" ""
+8964 "Column  is invalid. (8964)" "There is no column with that name or in that position.   " "" ""
+8965 "Row  was deleted. Cannot get more rows. (8965)" "That message is an indication that wrong assumptions about the stability of the result set were made. Use the PREFETCH scrolling mode to ensure stability when other clients might delete records from this table.
+" "" ""
+8966 "Only the next() cursor movement is supported with the  scrolling mode. (8966)" "In order to be able to navigate through the result set, use another
+scrolling mode (PREFETCH or KEEP_ROWS).
+" "" ""
+8967 "The SDOResultSet is detached. It must be attached to an appObject before sending an update batch or reopening the query or accesing the SDO directly. (8967)" "Use the attachToAppObj(SDOFactory appObj) method to attach the SDOResultSet to an AppObject. All AppObjects implement the SDOFactory interface.
+
+" "" ""
+8968 "Invalid where clause: . (8968)" "The where clause must be a valid 4GL where clause." "" ""
+8969 "Invalid sort clause: . (8969)" "The sort clause must be either a valid 4GL clause (without the first BY key word) or a comma separated list of fields. Examples: ""Name BY City"", ""Name,City"", ""Name DESC, City"".
+" "" ""
+8970 "Cannot create SDO :  (8970)" "Typical reasons for failing to create an SDO procedure are: Using a wrong name for the SDO file or not setting the correct PROPATH on the AppServer. In order to create an SDOResultSet successfully,  the AppServer must have access to a compiled SDO (a *.r file), and the
+Java client application must specify the correct name (file-name.w or file-name.r) as the first argument of the _createSDOResultSet() method.
+" "" ""
+8971 "Cannot serialize a non Stateless SDOResultSet. (8971)" "Only Stateless SDOResultSets can be serialized. A Java object is serialized when, for example, it is used as an argument to a OutputStream.writeObject() method. Use theSDOParameters.setStateless(true) method and then pass the
+SDOParameters object to the _createSDOResultSet() method, in order to create a Stateless SDOResultSet object.
+" "" ""
+8972 "The Temp-Table does not have a schema of an SDO. (8972)" "The 4GL file specified in the _createSDOResultSet() method is not a valid SDO." "" ""
+8973 "The row is newly inserted and sent to the server. It cannot be updated. (8973)" "Updates to the newly inserted row are not allowed after calling the insertRow() method.
+" "" ""
+8974 "A deleted row cannot be accessed. (8974)" "A deleted row is not removed from the result set (in order to keep a stable order of rows), but no data access is allowed.
+" "" ""
+8975 "Working (8975)" "
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+8976 "Invalid event-procedure used with asynchronous request.  Procedure '<calling-procedure>':<line-number> (8976)" "The expression identifying the  event-procedure name supplied on this RUN ASYNCHRONOUS statement could not be evaluated. " "P" ""
+8977 "Invalid event-procedure context used with asynchronous request.  Procedure '<calling-procedure>':<line-number> (8977)" "The expression identifying the  event-procedure context supplied on this RUN ASYNCHRONOUS statement could not be evaluated. " "P" ""
+8978 "Asynchronous request <name> has not completed.  Cannot DELETE. (8978)" "The asynchronous request specified on the DELETE OBJECT statement still has not completed.  WAIT-FOR PROCEDURE-COMPLETE of this object before deleting it. " "P" ""
+8979 "SERVER <name> has outstanding asynchronous requests.  Cannot DELETE (8979)" "The server specified on the DELETE OBJECT statement has outstanding asynchronous requests.  WAIT-FOR PROCEDURE-COMPLETE of all asynchronous requests before deleting the server. " "P" ""
+8980 "Handle value supplied to the DELETE PROCEDURE/OBJECT statement has outstanding asynchronous requests. Procedure '<procedure>':<line>. (8980)" "The proxy persistent procedure specified in this statement still has outstanding asynchronous requsts.  WAIT-FOR PROCEDURE-COMPLETE of the asynchronous request before deleting the procedure.  The offending DELETE PROCEDURE/OBJECT statement is in <procedure> at <line>; <line> is relative to the expanded source, such as is used by the Progress DEBUGGER. " "p" ""
+8981 "Version  is not supported by the SDOResultSet class. (8981)" "The first ADM version to support access by the SDOResultSet class is
+ADM2.0 (PROGRESS version 9.0b)
+" "" ""
+8982 "Invalid event-procedure context encountered when trying to invoke event procedure '<event-procedure-name>'. (8982)" "The event-procedure context which contains the specified event-procedure is nolonger valid.  Verify that the procedure was not deleted." "P" ""
+8983 "Invalid URL specified: <URL><NEWLINE>Format is jdbc:jdbcprogress:T:(hostname):(service|port):(databasename) (8983)" " " "" ""
+8984 "Invalid driver protocol specified.<NEWLINE>Expected ""jdbc"" but got """"<user specified jdbc> instead. (8984)" " " "" ""
+8985 "Invalid driver name specified.<NEWLINE>Expected ""jdbcprogress"" but got """"<user specified driver name> instead. (8985)" " " "" ""
+8986 "Invalid network protocol specified.<NEWLINE>Expected ""T"" (tcp) but got """"<user specified network protocol> instead. (8986)" " " "" ""
+8987 "A port number or a service name must be specified. (8987)" " " "" ""
+8988 "Driver protocol not specified. (8988)" " " "" ""
+8989 "Driver name not specified. (8989)" " " "" ""
+8990 "Network protocol not specified. (8990)" " " "" ""
+8991 "Hostname not specified. (8991)" " " "" ""
+8992 "Service name or port number not specified. (8992)" " " "" ""
+8993 "Database name not specified. (8993)" " " "" ""
+8994 "Warning: <generic warning message printed along with another message> (8994)" " " "" ""
+8995 "Result group <number>. (8995)" " " "" ""
+8996 "View-as COMBO-BOX SIMPLE or DROP-DOWN requires SIZE or LIKE phrase. (8996)" "For layout purposes, a simple or drop-down combo-box must be given a dimension specification. " "" ""
+8997 "RowId duplication was detected when more rows were appended to SDOResultSet. Create an SDOResultSet with the SDOScrollingMode.PREFETCH scrolling mode. (8997)" "This problem might occur when a row that is already in the result set is deleted and a new row, with the same rowId as the deleted one, is created. Using the SDOScrollingMode.PREFETCH mode will eliminate the problem since  the set of rows is fixed until the SDOResultSet is closed." "" ""
+8998 "The handle for ""RUN ... ON SERVER"" must be either a SERVER handle or a SESSION handle. (8998)" "The ""ON SERVER"" phrase of the RUN statement must be followed by either a SERVER or a SESSION handle.  If it is a SERVER handle, the procedure will be run remotely on the AppServer associated with the supplied SERVER handle.  If it is a SESSION handle, the procedure will be run locally, as if you had not supplied the ""ON SERVER"" phrase." "P" ""
+8999 "area , dbkey , record type   (8999)" "An error has occurred during a roll forward operation. This message
+indicates the area number, database block and the after-image file record type that was being processed when the error occurred. This message is accompanied by other messages and indicates that either the after image file or the database is damaged." "" ""
+9000 "View-as COMBO-BOX SIMPLE or DROP-DOWN requires char data type. (9000)" "A simple or drop-down combo-box widget must be associated with a variable of character data type. " "" ""

@@ -1,0 +1,74 @@
+14151 "<name> Block <dbkey> with invalid chain type <number> on free chain (14151)" "syserr" "" ""
+14152 "Dbkey  is not owned by this object.  Expected . Got  (14152)" "syserr" "" ""
+14153 "CTRL-C pressed - exit free chain analysis" "This message occurs when CTRL-C is pressed during chain analysis of the free chain." "" ""
+14154 "  actual number of free block(s) found in  object  (14154)" "This message is used as part of the analysis report." "" ""
+14155 " block(s) found in the free chain of  object 
+" "This message is used as part of the analysis report.
+" "" ""
+14156 " next block() in chain is not on a cluster boundary. (14156)" "This message is used as part of the analysis report." "" ""
+14157 "  LIST OF FREE CLUSTER CHAIN BLOCKS" "This message is used as part of the analysis report." "" ""
+14158 "SYSTEM ERROR:  prev cluster rowid in  expected  prevCluster received . (14158)" "This message is generated during analysis of the free cluster chain in a type II data storage area." "" ""
+14159 "CTRL-C pressed - exit free cluster chain analysis" "This message occurs when CTRL-C is pressed during chain analysis of   the free cluster chain." "" ""
+14160 "SYSTEM ERROR:  Last rowid() in chain inconsistent () (14160)" "syserr" "" ""
+14161 " cluster(s) found in the free cluster chain.
+" "This message is used as part of the analysis report." "" ""
+14162 "SYSTEM ERROR: Chain Analysis unable to create temp db:  (14162)" "syserr" "" ""
+14163 "
+FREE CLUSTER CHAIN ANALYSIS
+---------------------------
+" "This message is used as part of the analysis report" "" ""
+14164 "SYSTEM ERROR: ChainAnalyze couldn't allocate object list (14164)" "syserr" "" ""
+14165 " Unable to acquire lock on object of type  id .  Chain analysis continuing with -scan option. (14165)" "This message is used as part of the analysis report." "" ""
+14166 " Unable to acquire associated table information for index .  Chain analysis continuing with -scan option. (14166)" "This message is used as part of the analysis report." "" ""
+14167 " Unable to acquire table lock on object .  Chain analysis continuing with -scan option. (14167)" "This message is used as part of the analysis report." "" ""
+14168 "SYSTEM ERROR:  Unexpected object type encountered  (14168)" "syserr" "" ""
+14169 "CTRL-C pressed - exit RM chain analysis" "This message occurs when CTRL-C is pressed during chain analysis of   the RM cluster chain." "" ""
+14170 "SYSTEM ERROR:  The actual number of RM block(s) found in  object  is  (14170)" "This message is used as part of the analysis report." "" ""
+14171 "SYSTEM ERROR:   block(s) found in the RM chain of  object 
+ (14171)" "This message is used as part of the analysis report." "" ""
+14172 " block(s) found in the RM chain of  object 
+" "This message is used as part of the analysis report." "" ""
+14173 "CTRL-C pressed - exit index delete chain analysis" "This message occurs when CTRL-C is pressed during chain analysis of   the index delete chain." "" ""
+14174 "The actual number of Index Delete blocks in  object  is 
+" "This message is used as part of the analysis report. " "" ""
+14175 "SYSTEM ERROR:   block(s) found in the Index Delete chain of  object 
+ (14175)" "" "" ""
+14176 " block(s) found in the Index Delete chain of  object 
+" "This message is used as part of the analysis report." "" ""
+14177 "SYSTEM ERROR: Insufficient memory for chain analysis (14177)" "syserr" "" ""
+14178 "RecSpaceSearchDepth: " "This message is used as part of the analysis report." "" ""
+14179 "
+CHAIN ANALYSIS FOR AREA """" : 
+----------------------------------------------------------" "This message is used as part of the analysis report." "" ""
+14180 "CTRL-C pressed - exit analysis" "" "" ""
+14181 "Current high water mark: 
+" "This message is used as part of the analysis report." "" ""
+14182 "     free block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14183 "     record block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14184 "     index block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14185 "     empty block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14186 "     object block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14187 "     cluster list block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14188 "     object list block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14189 "     cluster map block(s) found in the area" "This message is used as part of the analysis report." "" ""
+14190 "SYSTEM ERROR: List entry with rowid  is an orphan. (14190)" "This message is used as part of the analysis report." "" ""
+14191 " cluster list block(s) found in the storage area.
+" "This message is used as part of the analysis report." "" ""
+14192 " cluster allocation block(s) found in the storage area.
+" "This message is used as part of the analysis report." "" ""
+14193 " object block(s) found in the storage area.
+" "This message is used as part of the analysis report. " "" ""
+14194 " object list block(s) found in the storage area.
+" "This message is used as part of the analysis report." "" ""
+14195 " object allocation block(s) found in the storage area.
+" "This message is used as part of the analysis report." "" ""
+14196 " row allocation block(s) found in the storage area.
+" "This message is used as part of the analysis report." "" ""
+14197 " cluster list block(s) found in the database.
+" "This message is used as part of the analysis report." "" ""
+14198 " cluster allocation block(s) found in the database.
+" "This message is used as part of the analysis report." "" ""
+14199 " object block(s) found in the database.
+" "This message is used as part of the analysis report." "" ""
+14200 " object list block(s) found in the database.
+" "This message is used as part of the analysis report." "" ""

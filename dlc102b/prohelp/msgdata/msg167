@@ -1,0 +1,156 @@
+8301 "No entries for personality    (8301)" "
+
+
+   " "" ""
+8302 "UserName:    (8302)" "
+
+
+   " "" ""
+8303 "Password:    (8303)" "
+
+
+   " "" ""
+8304 "User  not authenticated   (8304)" "Either the user name or password or both are invalid, therefore user is not authorized to perform this function.  
+
+
+   " "" ""
+8305 "Creating a new UBRemoteCommand object   (8305)" "
+
+
+   " "" ""
+8306 "Creating a new UBRemoteCommand object   (8306)" "
+
+
+   " "" ""
+8307 " is not responding to a ping   (8307)" "
+
+
+   " "" ""
+8308 "Command Line Plugin interrupted   (8308)" "
+
+
+   " "" ""
+8309 "Command Line Plugin died:    (8309)" "
+
+
+   " "" ""
+8310 "Admin Server shutting down   (8310)" "
+
+
+   " "" ""
+8311 "Checking status of    (8311)" "
+
+
+   " "" ""
+8312 "Unable to retrieve properties for    (8312)" "The properties for the specified name cannot be found, or there was an error in retrieving them.  Check the name specified, and that the properties file has not become corrupted.
+
+
+   " "" ""
+8313 " not running (8313)" "
+
+
+   " "" ""
+8314 "Adding running broker object:   (8314)" "
+
+
+   " "" ""
+8315 "Removing running broker object:   (8315)" "
+
+
+   " "" ""
+8316 "Searching for running broker object:   (8316)" "
+
+
+   " "" ""
+8317 "Found running broker object:   (8317)" "
+
+
+   " "" ""
+8318 "Trying to connect to running broker:   (8318)" "
+
+
+   " "" ""
+8319 "Looking up URL:   (8319)" "
+
+
+   " "" ""
+8320 "URL not found.   (8320)" "
+
+
+   " "" ""
+8321 "User:  connecting to AdminServer  (8321)" "
+
+
+   " "" ""
+8322 "Unable to export RemoteCommand:   (8322)" "
+
+
+   " "" ""
+8323 "Found   (8323)" "
+
+
+   " "" ""
+8324 ": Executing command  (8324)" "
+
+
+   " "" ""
+8325 "Start request failed  already running.   (8325)" "The start process request has failed because the specified process is already running. 
+
+
+   " "" ""
+8326 "Start request failed - can't get path for  name  (8326)" "The start request has failed.  Check that the name is valid and try the command again.
+
+
+   " "" ""
+8327 ": Stop request failed  not running  (8327)" "The stop request for the specified process has failed because the process is not running.
+
+
+   " "" ""
+8328 "<user name>: Attempting to stop <service type> <service name> (8328)" "
+
+
+   " "" ""
+8329 "<user name>: Shutdown complete (8329)" "
+
+
+   " "" ""
+8330 "<broker name>: Add Server request failed - Broker not running (8330)" "The command tool was unable to add the requested servers because the specified broker is not running.
+
+
+   " "" ""
+8331 "<broker name>: Attempting to add servers (8331)" "
+
+
+   " "" ""
+8332 "Successfully added  servers (8332)" "
+
+
+   " "" ""
+8333 ": Trim Server request failed - Broker not running (8333)" "Cannot trim servers because the broker is not running and therefore no servers are available.
+
+
+   " "" ""
+8334 ": Attempting to trim servers (8334)" "
+
+
+   " "" ""
+8335 "Successfully trimmed  servers (8335)" "
+
+
+   " "" ""
+8336 "Unable to connect to Admin Server. Ensure Admin Server is running. (8336)" "Error String displayed when connect to AdminServer fails " "" ""
+8337 "An unspecified error occurred during processing.      (8337)" "String displayed in Message box in displayGenericErrorMessage() function" "" ""
+8338 "The Administration Server connection is no longer available. All open objects must be closed immediately. (8338)" "String displayed when AdminServer crashes
+" "" ""
+8339 "To change a BROWSE's QUERY attribute, the new query must have the same number of tables as the original query. (8339)" "If a BROWSE's QUERY attribute is set, that query must contain the same number of tables in its definition as the BROWSE's original query. " "" ""
+8340 "To change a BROWSE's QUERY attribute, the new query must have the same number of tables as the original query. (8340)" "If a BROWSE's QUERY attribute is set, that query must contain the same number of tables in its definition as the BROWSE's original query. " "" ""
+8341 "To change a BROWSE's QUERY attribute, the new query must be composed of the same type of database tables(s) as the original query. (8341)" "If the original QUERY is composed of temp-tables, the new query must also be composed of temp-tables. If the original QUERY is composed of database tables, the new QUERY must also be composed of database tables." "" ""
+8342 "When setting a BROWSE's QUERY attribute at runtime, the specified QUERY cannot be composed of any workfiles. (8342)" "" "" ""
+8343 "Reloading properties: , . (8343)" "Indicating that the ubroker properties file has just been reloaded into the AdminServer ubroker Property Manager Plugin.  The first parameter is the name of the property file, the second parameter is the time and the date of when the reload operation takes place. " "" ""
+8344 "To change a BROWSE's QUERY attribute, the new QUERY's temp-tables must have the same number of fields as the original QUERY's temp-tables. (8344)" "If a BROWSE's QUERY attribute is set, that query must contain the same number of tables in its definition as the BROWSE's original query. Each of those temp-tables must have the same number of fields as its original counterpart." "" ""
+8345 "Value specified for BROWSE's DOWN attribute is beyond maximum limit of 128. (8345)" "syserr " "" ""
+8346 "PropMgrPlugin: Property file:  is loaded, . (8346)" " " "" ""
+8347 "Missing mkschema component(s) in the PROGRESS binaries directory. (8347)" "syserr" "D" ""
+8348 "Transaction Log storage area must be created before re-enabling 2phase commit. (8348)" "syserr" "D" ""
+8349 "Adjusting BI blocksize to 8K (8349)" "if default BI blocksize is less than 8k, conversion auto-magically adjusts the BI blocksize to 8k." "D" ""
+8350 "Update Collation Version Field failed. (8350)" "could not update the collation version field for the current record." "D" ""

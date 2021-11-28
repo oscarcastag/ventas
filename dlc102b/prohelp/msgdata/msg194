@@ -1,0 +1,77 @@
+9651 "The specified resource is not a type that can be disabled.  <resource name> (9651)" "The resource specified could not be enabled/disabled because it is not of a type that can be disabled." "" ""
+9652 "B" "abbreviation for ""bytes"" " "" ""
+9653 "PB" "abbreviation for ""petabytes"" " "" ""
+9654 "Yes" "used as an affirmative for some VST values displayed in the Activity views " "" ""
+9655 "No" "used as an netative for some VST values displayed in the Activity views " "" ""
+9656 "Action for alert failed! Alert Name: <Alert name>, Resource Name: <Fathom resource name>, Action Name: <Action which failed>, Failure Reason: <Reason the action failed>. (9656)" "The action run in response to the alert has failed. Notification and/or handling of the alert may not have occured. " "" ""
+9657 "Alert severity change! Alert Name: <Name of alert>, Resource Name: <Fathom resource name>, New Severity: <One of Severe, Error, Warning, Information>. (9657)" "Theseverity of the alert has changed. This can occur when the condition which triggered the alert has worsened or improved. " "" ""
+9658 "The prototype for this procedure or function is too large for ProxyGen to support. (9658)" "The prototype for a single procedure or function has exceeded the size limit supported. This may be due to having too many parameters and/or very large temp-table definition.  The procedure or function should be modified to have less parameters or smaller temp-table definitions for the parameters." "" ""
+9659 "Rebuilding index delete chain (9659)" "The Database Repair utility was used to rebuild the index delete  chain of the database. " "m" ""
+9660 "Rebuilt index delete chain with <number> blocks (9660)" "The Database Repair utility was used to rebuild the index delete chain of the database. <number> blocks were put on the chain. " "m" ""
+9661 "Fathom startup failed. (9661)" "An attempt was made to start the Fathom product from the command line and the startup failed. " "" ""
+9662 "Fathom can not be stopped. (9662)" "Fathom Management is already stopped." "" ""
+9663 "Fathom shutdown interrupted: <exception text> (9663)" "An unexpected interruption occured during shutdown. The interruption text from the server is displayed." "" ""
+9664 "Fathom shutdown succeeded. (9664)" "The user requested to stop the Fathom product from the command line and the request completed successfully." "" ""
+9665 "Fathom shutdown failed. (9665)" "The user requested to stop the Fathom product from the command line and the request did not complete successfully." "" ""
+9666 "Unable to obtain current host name: <hostname> (9666)" "From within the Fathom command line tool, we are attempting to determine if the request is for a local or remote system.  In making this determination, we received an error." "" ""
+9667 "User authentication failed for user: <username> (9667)" "The password supplied for the named user failed.  Could not log into the AdminServer from the Fathom command line tool." "" ""
+9668 "A command option must be specified.  Type fathom -help for options. (9668)" "The user attempted to run the Fathom command line tool but neglected to specify an operation." "" ""
+9669 "Fathom plugin not found. (9669)" "The user successfully logged into the AdminServer from the Fathom command line but the Fathom plugin was not available and/or not loaded by the AdminServer." "" ""
+9670 "Fathom status: <status returned from server> (9670)" "From the Fathom command line tool, print the current Fathom execution status (Idle, Starting, Initializing, Running, Shutting Down) returned by the AdminServer." "" ""
+9671 "Enter password for user <username>: " "Prompt used by the Fathom command line tool to prompt user to enter password for remote login to AdminServer." "" ""
+9672 "Usage: fathom -start [options]
+
+options:
+
+" "Fathom command line usage; translate the words ""Usage"" and ""options"" only." "" ""
+9673 "Usage: fathom -stop [options]
+
+options:
+
+" "Fathom command line usage; translate the words ""Usage"" and ""options"" only." "" ""
+9674 "Usage: fathom -query [options]
+
+options:
+
+" "Fathom command line usage; translate the words ""Usage"" and ""options"" only." "" ""
+9675 "-help             Print this message." "Fathom command line option; do not translate ""-help"".  White space is significant." "" ""
+9676 "-port <""less than"" character>port>                Port where AdminServer Process resides.
+                            Default is 20931." "Fathom command line option; do not translate ""-port"".  White space is significant." "" ""
+9677 "-timeout <""less than"" character>time in sec>      Time (in seconds) for fathom to wait for a response." "Fathom command line option; do not translate ""-timeout"".  White space is significant." "" ""
+9678 "-host <""less than"" character>hostname>            Host name where the Adminserver process resides." "Fathom command line option; do not translate ""-host"".  White space is significant." "" ""
+9679 "-user <""less than"" character>username>            Username on machine where the AdminServer process
+                            resides." "Fathom command line option; do not translate ""-user"".  White space is significant." "" ""
+9680 "-password <""less than"" character>password>       *The password associated with the username specified.
+
+* Note: use of this parameter may allow others to see your password in clear
+        text." "Fathom command line option; do not translate ""-password"".  White space is significant.  The asterisk indicates the note at the bottom refers to the the -password option.  The asterisks should remain where they are in relation to the rest of the text." "" ""
+9681 "Fathom can not be started. (9681)" "The user attempted to start Fathom, but the product is not in a startable state. " "" ""
+9682 "Fathom startup was interrupted: <exception text> (9682)" "Fathom was unexpectedly interrupted while starting. The startup process was interrupted for the reason displayed in the message." "" ""
+9683 "Fathom startup succeeded. (9683)" "The Fathom product has successfully started up." "" ""
+9684 "Enter password for user <username>:" "Prompt the user to enter his password." "" ""
+9685 "Usage: fathom -<""<""char>command> [-help] [options]
+ 
+commands: 
+-start                     Starts the Fathom product. 
+-query                     Queries the execution status of the Fathom product. 
+-stop                      Stops the Fathom product.
+ 
+ " "General Fathom command line.  Do not translate dash commands.  White space is significant." "" ""
+9686 "NetworkResourceTardy: The network resource response time exceeded the tardy threshold. Response: <resource response time> ms<abbreviation for milliseconds>, Threshold: <tardy threshold> ms<abbreviation for milliseconds> (9686)" "The tardy threshold has been exceeded. A response time which is greather than the tardy threshold, but less than the timeout threshold will result in the resource status being reported as tardy.
+" "" ""
+9687 "NetworkResourceTimeout: The network resource response time exceeded the timeout threshold. Response: <resource response time> ms<abbreviation for milliseconds>, Threshold: <timeout threshold> ms<abbreviation for milliseconds> (9687)" "The timeout threshold has been exceeded.
+" "" ""
+9688 "NetworkResourceFailure: The network resource failed to respond. (9688)" "The network resource did not respond. In the case of a TCP or UDP port resource, this means that the machine on which the resource exists is available, but the port cannot be accessed. 
+" "" ""
+9689 "NetworkResourceUnreachable: The network resource is unreachable. (9689)" "The network resource cannot be reached. Attempts to ping the resource were unsuccessful." "" ""
+9690 "NetworkResourcePassed: The network resource passed. Response time: <Response time reported by the resource> ms (9690)" "This is an informational alert indicating that the resource is healthy and responded before the configured tardy threshold." "" ""
+9691 "A file name must be provided. (9691)" "The user attempted to configure a file monitor without providing a file name." "" ""
+9692 "The file size must be greater than or equal to 0 (zero). Decimal values and non-numeric values are not allowed. (9692)" "The file size for a file monitor must be numeric and must be a positive whole number. Negative values and decimal values are not allowed." "" ""
+9693 "Internal Alerts" " " "" ""
+9694 "days" " " "" ""
+9695 "hours" " " "" ""
+9696 "minutes" " " "" ""
+9697 "seconds" " " "" ""
+9698 "Equals" " " "" ""
+9699 "Greater than" " " "" ""
+9700 "Less than" " " "" ""

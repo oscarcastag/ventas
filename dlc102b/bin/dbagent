@@ -1,0 +1,72 @@
+#!/bin/sh
+# Progress DB Agent Startup script
+PROG=`basename $0`
+
+# Determine the correct directory where Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "$DLC" "/dlc/dlc102b" 
+do
+    [ ! -f "${what_dlc}/java/progress.jar" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+
+# Set the user working directory - this is a tailored value
+for what_wrkdir in "$WRKDIR" "/dlc/wrk102b" "."
+do
+    [ ! -d "${what_wrkdir}" ] && continue
+    WRKDIR=$what_wrkdir
+    export WRKDIR
+    break
+done
+
+# Set PROMSGS (if not set)
+PROMSGS=${PROMSGS-$DLC/promsgs};  export PROMSGS
+
+# In case TERM is not set, set it to avoid a warning message.
+TERM=ansi; export TERM
+
+cat $DLC/version
+
+# make sure the slib_env script can be found
+if [ ! -f $DLC/bin/slib_env ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "slib_env could not be found."
+    echo
+    echo "Progress shared library environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# set the Progress shared lib environment
+. $DLC/bin/slib_env
+
+# make sure the DB Agent executable can be found
+DBAGENT=${DBAGENT-$DLC/bin/_dbagent}
+if [ ! -f $DBAGENT ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Progress DB Agent executable could not be found."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo "Progress DB Agent executable not found: $DBAGENT"
+    echo
+    exit 1
+fi
+
+# at this point ALL required environment variables should be set
+# invoke the DB Agent 
+exec ${DBAGENT} "-installdir" "$DLC" "$@"
+

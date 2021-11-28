@@ -1,0 +1,85 @@
+6501 "SYSTEM ERROR: pstpool= pdsmStoragePool= phdr= abkoffst= magic=. (6501)" "syserr" "" ""
+6502 "SYSTEM ERROR: stVacInBlocK: Bad rent prefix (6502)" "syserr" "" ""
+6503 "SYSTEM ERROR: stVacInBlocK: overlap pabk= prev= phdr=. (6503)" "syserr" "" ""
+6504 "SYSTEM ERROR: stVacInBlocK: bad endmagic pabk= prev= phdr= (6504)" "syserr" "" ""
+6505 "stmAddPoolPtr ERROR: NULL pool (6505)" "" "" ""
+6506 "Initializing Pool List: size = . (6506)" "" "" ""
+6507 "stAddpoolPtr: Allocated pool No.  at . (6507)" "" "" ""
+6508 "stmAddPoolPtr ERROR: full pool list. (6508)" "" "" ""
+6509 "stRemovePoolPtr ERROR: NULL pool (6509)" "" "" ""
+6510 "stRemovePoolPtr ERROR: pool not found. (6510)" "" "" ""
+6511 "stMallocPUR ERROR: malloc failed (6511)" "" "" ""
+6512 "stMallocPUR ERROR: full chain. (6512)" "" "" ""
+6513 "stFreePUR ERROR: parea not found. (6513)" "" "" ""
+6514 "stGetPoolPtr ERROR: NULL area. (6514)" "" "" ""
+6515 "stGetPoolPtr ERROR: area not found. (6515)" "" "" ""
+6516 "stFindPoolPtr ERROR: pool not found. (6516)" "" "" ""
+6517 "SYSTEM ERROR: Unexpected error return from semAdd  (6517)" "syserr" "D" ""
+6518 " Unable to contact the license manager, failed to open progress.cfg. (6518)" "The License Manager depends on the progress.cfg license file residing
+in the installation path (DLC) or directly referenced by (PROCFG).
+DLC and PROCFG are environment variables on UNIX or Registry values
+on Windows NT
+
+" "" ""
+6519 "No product exists in the license file with the Product Number: <pid>.  (6519)" "The progress.cfg license file does not contain the Product number.
+The product was not installed.
+" "" ""
+6520 "Not licensed to run this product. (6520)" "The Right-To-Run this product is disabled in the progress.cfg license
+file.
+" "" ""
+6521 "Exceeded Maximum user count <maxusers> for this product. (6521)" "The license file contains the maximum allowable server process count
+for this product, it cannot be exceeded.
+" "" ""
+6522 "Invalid user count specified to release: <numRelease>, <currRes> currently reserved. (6522)" "A request to release the specified number of users has caused the 
+current reservation to drop below 0.  This indicates a logic error in the program.
+" "" ""
+6523 "Function syntax is:
+FUNCTION fname RETURNS dtype [PRIVATE] [(arg1, arg2, ...)] [ FORWARD | [MAP [TO] fname2] IN hdlexp | IN SUPER ]. (6523)" "You have a syntax error in your user-defined function declaration. See the Language Reference manual for a detailed description of the allowable syntax. In this message, fname is the name of the function as you will refer to it in this .p procedure; dtype is a PROGRESS data type (For example, integer, character, date); arg1, arg2, ... are run-time parameters to the function; and hdlexp is an expression yielding a procedure handle where the function is implemented. If you use the optional MAP phrase, you must also specify the IN phrase." "s" ""
+6524 "Conversion cancelled. You have a version 9 <version> database. (6524)" "Attempting to convert a Version 9 database to a Version 9 database." "m" ""
+6525 "Conversion completed, database is now in version 9 format. (6525)" "You have successfully converted your version 8 database to version 9." "m" ""
+6526 "Number of Semaphore Sets (-semsets): . (6526)" "This message is put into the database .lg file at server startup.  This is for informational purposes only.  " "" ""
+6527 "Table <table name> is locked.  Record create failed. (328) (6527)" "Some other user has the whole table locked.  The database manager cannot get a record lock for the newly created record.  Thus the create operation fails." "p" ""
+6528 "User-defined function '<function>' cannot be both a SUPER prototype and PRIVATE. (6528)" "The FUNCTION declaration for <function> contained both 'IN SUPER' and  'PRIVATE'.  You cannont have both in a function declaration.  Remove one of the phrases. " "" ""
+6529 "Source not specified to RAW-TRANSFER. (6529)" "The source parameter was not specified.  The proper syntax for RAW-TRANSFER is:
+
+RAW-TRANSFER [BUFFER] buffer TO [FIELD] raw-field [NO-ERROR].
+RAW-TRANSFER [FIELD] field TO [BUFFER] buffer [NO-ERROR].
+RAW-TRANSFER [BUFFER] buffer TO [BUFFER] buffer [NO-ERROR]." "" ""
+6530 "Target not specified to RAW-TRANSFER. (6530)" "The target parameter was not specified.  The proper syntax for  RAW-TRANSFER is:
+
+RAW-TRANSFER [BUFFER] buffer TO [FIELD] raw-field [NO-ERROR].
+RAW-TRANSFER [FIELD] field TO [BUFFER] buffer [NO-ERROR].
+RAW-TRANSFER [BUFFER] buffer TO [BUFFER] buffer [NO-ERROR].       " "" ""
+6531 "Unknown field  '' supplied. (6531)" "The field supplied could not be located. " "" ""
+6532 "WebSpeed Agent Error: OCTO error receiving page from Agent = errorcode> (6532)" "A TCP/IP OCTO error occurred when attempting read HTML page from Agent " "" ""
+6533 "SQL92 schema data for table  <table name> cannot be modified. (6533)" "Certain schema table columns, used for SQL92, can never be modified
+once the corresponding database object is created. For instance, the 
+_Owner and _Creator columns in _File cannot be changed once a table  
+is created. Similar columns are _Charset and _Collation in _Field,  
+and _Idxowner in _Index, and _Tbl-type in _File. 
+
+" "D" ""
+6534 "SQL92 schema data for table   <table name> can be modified only by SQL92. (6534)" "Certain schema table columns, used for SQL92, can only be updated by SQL92 product components.  For instance, the _Has-Pcnstrs column in _File can only be updated by defining or removing a Primary Key constraint in SQL92. Similar columns the other constraint columns in _File, and the _Tbl-Status column in _File.
+" "D" ""
+6535 "SQL92 schema data for table  <table name> cannot be directly modified. (6535)" "Certain schema table columns, used for SQL92, can only be updated indirectly, by changing the schema definitions that determine the SQL92 setting. For instance, the _Width column in _Field is determined by the datatype and format attributes of the column. Similarly, _Fetch-type in _Field is determined by datatype and width, and _Idxmethod in _Index is determined by the number of key components and their datatypes.
+" "D" ""
+6536 "SYSTEM ERROR: Failure updating schema during Add Table operation (id=). (6536)" "Either a database update failed or an inconsistency was detected while attempting to add SQL92 metadata for a new table." "D" ""
+6537 "Unable to connect to the Name Server (6537)" "The Messenger process was unable to connect to the NameServer TCP
+host and port.
+" "" ""
+6538 "Unable to Read Messenger Properties (6538)" "A failure to read the messenger properties occurred" "" ""
+6539 "Unable to Read Name Server Properties (6539)" "An error occurred attempting to read the Name Server properties" "" ""
+6540 "Only PARAMETER defines allowed inside a procedure prototype. (6540)" "Inside a procedure prototype, any statement other than the DEFINE <parameter-type> PARAMETER or DEFINE PARAMETER BUFFER ...  is not valid and thus disallowed by the compiler. " "" ""
+6541 "Prototypes for procedure '' contain different number of parameters. (6541)" "The compiler detected multiple prototypes for this procedure and they do not contain the same number of parameters.  Make sure the prototypes and procedure match." "" ""
+6542 "Prototype signatures for procedure '' do not match.  (Parameter ). (6542)" "Multiple prototypes for this procedure were detected and the signatures do not match.  Review the parameter identified.  Make sure the prototypes and procedure match." "" ""
+6543 "Procedure definition and prototypes for procedure '' contain different number of parameters. (6543)" "A prototype and procedure were detected and they do not contain the same number of parameters.  Make sure the prototype and procedure match." "" ""
+6544 "Procedure definition and prototype signature for procedure '' do not match.  (Parameter ). (6544)" "A prototype and procedure were detected and the signatures do not match.  Review the parameter identified.  Make sure the prototype and procedure match." "" ""
+6545 "Character <character-number> in the <table-type> table for code page <code-page-name> is not valid. (6545)" "You are executing the command:   _proutil -C codepage-compiler         <source-name> <target-name> This entry in the LEAD-BYTE table          is outside the range of allowed values.              
+" "" ""
+6546 "SQL92 schema table (table   <table name>)  can be written, modified, or deleted only from SQL92. (6546)" "There are several schema tables which are maintainable only from SQL92  product components via SQL DDL capabilities. These SQL92 schema tables cannot be written to from the 4GL. (One partial exception: the authorization tables ar authomatically maintained by the 4GL interpreter when needed, such as when a table is created. But 4GL language code cannot write these tables either.)" "D" ""
+6547 "Table  <table name> and its indexes can be modified or dropped only by SQL92. (6547)" "Tables created from SQL92 can only be changed or dropped from SQL92  product components. Columns and indexes in tables  created from SQL92 can only be changed or dropped from SQL92  product components. Progress 4GL and 4GL based products cannot do this task.     
+(SQL92 beta 1 release restriction)  " "D" ""
+6548 "Only SQL92 product components may set _File._DB-lang = 2 (table   <table name> ). (6548)" "The value of 2 for  _File._DB-lang is reserved for SQL92 product components. This value assignment was found on the indicated table." "" ""
+6549 "This version of PROGRESS does not support Multiple Semaphore Sets (-semsets). (6549)" "The multiple semaphore sets feature is only available with the Enterprise Database Server product." "D" ""
+6550 "BI File Threshold size (-bithold): <num>. (6550)" "This is an informational message displayed to the database log file
+(.lg) when a database session begins.  It is reporting the size of the threshold for growth in size of the Before Image file (.bi).                                                      " "D" ""

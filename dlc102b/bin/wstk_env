@@ -1,0 +1,23 @@
+#!/bin/sh
+# Progress Web Services Toolkit setup
+
+# Setup the Progress Web Services Toolkit environment.
+# This script expects the DLC environment variable to be set
+: ${DLC?"DLC variable must be set"}
+
+# If internal build environment - this is already setup just exit
+if [ -n "$RDLLSC" ]
+then
+  :
+else
+  # The Web Services Toolkit requires the wstk.jar file to preceed the progress.jar
+  # file in the Java CLASSPATH.  So prepend the wstk.jar file if it hasn't already
+  # been done.
+  #
+  echo $CLASSPATH | grep "wstk\.jar" > /dev/null
+  if [ $? = 1 ]
+  then
+    CLASSPATH="$DLC/java/wstk.jar:$CLASSPATH" ; export CLASSPATH
+  fi
+fi
+

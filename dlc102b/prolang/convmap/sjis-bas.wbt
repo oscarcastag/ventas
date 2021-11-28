@@ -1,0 +1,32 @@
+/*
+ *
+ * NAME: sjis-bas.wbt
+ * Progress Word Break Source File for codepage shift-jis
+ *
+ */
+
+version = 9
+codepage = shift-jis
+wordrules-name = basic
+type = 3
+
+/* Special word break rules table */
+word_attr = 
+{
+     '.',  BEFORE_DIGIT,   /* part of a word only if followed by a digit */
+     ',',  BEFORE_DIGIT,
+     '-',  BEFORE_DIGIT,
+     ''',  IGNORE,         /* completely ignore it */
+     '$',  USE_IT,         /* always part of a word */
+     '%',  USE_IT,
+     '#',  USE_IT,
+     '@',  USE_IT,
+     '_',  USE_IT,
+     0xA1, TERMINATOR,         /* half width punctuation */
+     0xA2, TERMINATOR, 
+     0xA3, TERMINATOR, 
+     0xA4, TERMINATOR, 
+     0xA5, TERMINATOR, 
+     0xA6, TERMINATOR
+
+};

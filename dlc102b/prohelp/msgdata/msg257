@@ -1,0 +1,79 @@
+12801 ": <function> failed to parse index name to be activated ret  <returncode> (12801)" "Check the name of the index to be activated, the utility cannot valid the name given.
+
+" "d" ""
+12802 " <function> Index to be activated was not specified. (12802)" "Index name to be activated is required.
+" "d" ""
+12803 " <function> cannot activate schema indexes. (12803)" "Schema indices cannot be activated - check your index name selection and try again." "d" ""
+12804 " <function> cannot activate VST indexes. (12804)" "Invalid index name was selected - select a new index name and try again." "d" ""
+12805 ": <function> cannot activate an active index. (12805)" "Index activation cannot occur on an index that is already active.
+" "d" ""
+12806 " <function> Useindex name is invalid or inactive - primary index in use. (12806)" "The -useindex name specified was invalid so the utility will use the primary index for this table." "d" ""
+12807 " <function> IdxActivate cannot use target indexes belonging to VSTs. (12807)" "The -use index specified is invalid.  Select another index name and try again.
+
+
+
+
+
+
+" "d" ""
+12808 " <function> Use index is inactive -- primary index in use. (12808)" "Informational message to indicate that -use index name was inactive and the utility will use the primary index instead." "d" ""
+12809 " <function> dsmObjectInfo failure for index  <index> ret . (12809)" "Internal Error - save database .lg for Technical Support." "d" ""
+12810 " <function> Use index is a word index -- primary index in use. (12810)" "Informational message." "d" ""
+12811 "Activating Index  <indexname> at Database timestamp  <timestamp>. (12811)" "" "d" ""
+12812 "BIW writer delay (-bwdelay): <num> (12812)" "This is an informational message written to the database log file when a database server is started.  It indicates the number of milliseconds to pause between iterations of the before image buffer writer. This is important information to have available when       
+speaking to PROGRESS Technical Support concerning database topics." "D" ""
+12813 "Allowed index cursors (-c): <num>. (12813)" "This is an informational message written to the database log file when a database server is started. It indicates the number of index cursors allowed during an OpenEdge session. This is important information to have available when speaking to PROGRESS Technical Support concerning database topics. " "d" ""
+12814 "Group delay (-groupdelay): <num>. (12814)" "This is an informational message written to the database log file 
+when a database server is started.  It indicates the number of milliseconds a transaction waits before committing. This is important information to have available when speaking to PROGRESS Technical Support concerning database topics. " "d" ""
+12815 "Lock table hash table size (-lkhash): <num> (12815)" "This is an informational message written to the database log file 
+when a database server is started.  It indicates the size of the lock table's hash table. This is important information to have available when speaking to PROGRESS Technical Support concerning database topics." "d" ""
+12816 "Maxport (-maxport): <num> (12816)" "This is an informational message written to the database log file 
+when a database server is started.  It indicates the highest port number within a range of specified ports that are accessible to a client. This is important information to have available when       
+speaking to PROGRESS Technical Support concerning database topics.      
+" "d" ""
+12817 "Minport (-minport): <num> (12817)" "This is an informational message written to the database log file     when a database server is started.  It indicates the lowest port   number within a range of specified ports that are accessible to a   client. This is important information to have available when        speaking to PROGRESS Technical Support concerning database topics.      " "d" ""
+12818 "Message Buffer Size (-Mm): <num> (12818)" "This is an informational message written to the database log file 
+when a database server is started.  It indicates the standard message buffer size in bytes. This is important information to have available when speaking to PROGRESS Technical Support concerning database topics.   " "d" ""
+12819 "Servers per Protocol (-Mp): <num> (12819)" "This is an informational message written to the database log file 
+when a database server is started. It indicates the number of servers that a broker can start to serve remote users for any one protocol.
+This is important information to have available when       
+speaking to PROGRESS Technical Support concerning database topics. " "d" ""
+12820 "Maximum Servers per Broker (-Mpb): <num> (12820)" "This is an informational message written to the database log file 
+when a database server is started. It indicates the maximum number of servers that multiple brokers can start to serve remote users for any one protocol. This is important information to have available when speaking to PROGRESS Technical Support concerning database topics." "d" ""
+12821 "Use muxlatches (-mux): <num> (12821)" "This is an informational message written to the database log file 
+when a database server is started. It indicates whether multiplexed latches will be used. This is important information to have available when speaking to PROGRESS Technical Support concerning database topics. " "d" ""
+12822 "Read Only (-RO): <num> (12822)" "This is an informational message written to the database log file 
+when a database server is started. It indicates if a database is opened for read-only access. 
+This is important information to have available when       
+speaking to PROGRESS Technical Support concerning database topics." "d" ""
+12823 "Semaphore Sets (-semsets): <num> (12823)" "This is an informational message written to the database log file 
+when a database server is started. It indicates the number of semaphore sets available to the broker. 
+This is important information to have available when       
+speaking to PROGRESS Technical Support concerning database topics." "d" ""
+12824 "Area name must be less than 33 characters." "An area name longer than 33 characters was found in a structure file." "D" ""
+12825 "Schema Area must be area number 6." "An area named Schema Area with a specified area number other than 6 was found in a structure file." "D" ""
+12826 "Area separator found but records/block not found." "An area separator "":"" was found that was not followed by the area number." "D" ""
+12827 "The area info sequence is invalid." "The area info fields in a structure file entry were not in the correct sequence. " "D" ""
+12828 "Records per block must be greater than 0." "A negative records per block value was found in a structure file." "D" ""
+12829 "Records per block in structure file must be less than 257." "A records per block value greater than 257 was found in a structure file." "D" ""
+12830 "Invalid blocks per cluster value for structure file." "An invalid cluster size value was found in a structure file." "D" ""
+12831 "Invalid area number specified for structure file." "An invalid area number was found in a structure file." "D" ""
+12832 "Area information in structure file is only valid for data extents." "A structure file entry for an extent other than a data extent was found with area information specified." "D" ""
+12833 "This database was not properly closed. (12833)" "Attempting to add an extent to a crashed database." "D" ""
+12834 "Raw partitions must be fixed size in structure files. (12834)" "A raw partition entry specifying a variable length was found in the structure file." "D" ""
+12835 "Invalid extent type  in extent length specification. (12835)" "The extent length specification contains invalid information." "D" ""
+12836 "Extent length missing. (12836)" "The extent length value was expected but not found." "D" ""
+12837 "Extent length must be greater than or equal to . (12837)" "The extent length specified is below the minimum." "D" ""
+12838 "Extent size must be a multiple of 16 database blocks. (12838)" "Extent size must be a multiple of the product of 16*blocksize." "D" ""
+12839 "Extent size exceeds maximum size of K bytes. (12839)" "The specified extent size exceeds the maximum." "D" ""
+12840 "Attempt to add extent of a different type to area <area number>. (12840)" "The structure file identified a file type that is incompatible with the specified area." "D" ""
+12841 "Invalid extent name. (12841)" "The specified extent name was either too large or not a directory name." "D" ""
+12842 "File  already exists. (12842)" "Extent identified in a structure file already exists." "D" ""
+12843 "SYSTEM ERROR: omIdToArea called with 0 objectNumber. (12843)" "syserr" "" ""
+12844 "SYSTEM ERROR: omDolru found only fixed entries in lru chain. (12844)" "syserr" "d" ""
+12845 "SYSTEM ERROR: omRemoveFromChain couldn't find type  num . (12845)" "syserr" "d" ""
+12846 "SYSTEM ERROR: omModeUpdate called for non-index object type . (12846)" "syserr" "d" ""
+12847 "Resetting om cache max fixed size to . (12847)" "This is an informational message which may be generated during online index activation.   The utility is allowed to mark 25% of the om cache as unevictable.  This message is generated when 25% of the om cache in insufficient and indicates the new number of entries which the utility is allowed to mark unevictable.  " "d" ""
+12848 "Please increase database startup parameter -omsize. (12848)" "This message is generated when the om cache is too small to support online index activation." "d" ""
+12849 "Resetting max fixed in om cache:  (12849)" "This informational message indicates that the online index activation utility needed to temporarily mark more than 25% of the om cache as unevictable.  Just before it completes, it resets the maximum number of evictable entries down to the original maximum." "d" ""
+12850 "Backup blocks will be written to <device/file>. (12850)" "This message indicates the device or file that the backup blocks were written to." "d" ""

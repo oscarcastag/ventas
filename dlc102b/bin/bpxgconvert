@@ -1,0 +1,167 @@
+#!/bin/sh
+# PXG Conversion Tool 
+PROG=`basename $0`
+PXGFLAG="false"
+KEEPFILES="no" 
+
+# Make sure the DLC environment variable is set appropriately
+if [ ! -f $DLC/java/progress.jar ]
+then
+    echo "The DLC environment variable is not set correctly."
+    echo "Set DLC to a valid directory according to the documentation."
+    exit 1 
+fi
+
+
+# Set variable for ProxyGen Batch class and package 
+BXPXGCONVERTCLASS=${BXPXGCONVERTCLASS-PXGConvert}
+PROXYGENPKG=${PROXYGENPKG-com.progress.open4gl.proxygen}
+
+# Set any environment variables below required to start the AdminClient
+
+# set the java environment
+if [ ! -f $DLC/bin/java_env ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "java_env could not be found."
+    echo
+    echo "JAVA environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the JAVA environment 
+. $DLC/bin/java_env
+
+
+if [ ! -f $JREHOME/bin/$JVMEXE ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Java Virtual Machine could not be found."
+    echo
+    echo "JREHOME environment variable may not be set correctly."
+    echo "Set JREHOME variable to a valid directory."
+    echo
+    echo "JREHOME setting: $JREHOME"
+    echo
+    exit 1
+fi
+
+
+EXTCP=${EXTCP-$DLC/java/ext/wsdl4j.jar:$DLC/java/ext/xercesImpl.jar:$DLC/java/ext/xmlParserAPIs.jar:$DLC/java/ext/soap.jar}; export EXTCP
+
+CLASSPATH=$CLASSPATH:$EXTCP; export CLASSPATH
+
+# Uncomment for testing
+# echo "CLASSPATH " $CLASSPATH
+
+# Parse the args to determine the project files for input and output
+
+STARTARGS="$@"
+while [ x$1 != x ]
+do
+  OPT=$1
+  case $OPT in
+  "-PXGFILE")
+    PXGFLAG="true"
+    if [ $#  -gt 1 ]
+    then
+      shift
+      INPUTFILE=$1
+    fi
+  ;;
+
+  "-pxgfile")
+    PXGFLAG="true"
+    if [ $#  -gt 1 ]
+    then
+     shift
+     INPUTFILE=$1
+    fi
+  ;;
+
+  "-XPXGFILE")
+    XPXGFLAG="true"
+    if [ $#  -gt 1 ]
+    then
+      shift
+      OUTPUTFILE=$1
+    fi
+  ;;
+
+  "-xpxgfile")
+    XPXGFLAG="true"
+    if [ $#  -gt 1 ]
+    then
+     shift
+     OUTPUTFILE=$1
+    fi
+  ;;
+
+  
+  *)
+  echo "Unrecognized parameter passed to batch mode ProxyGen: $1"
+  exit 1
+  ;;
+  esac
+  shift
+done
+
+if [ $PXGFLAG = "false" ]
+then
+   echo "The -pxgfile flag must be specified when running the PXG Conversion tool."
+   exit 1 
+fi
+
+if [ x${INPUTFILE} = "x" ]
+then
+    echo "Please specify a value for the flag: -pxgfile <filename>"
+    exit 1
+fi
+
+
+if [ "x$XPXGFLAG" = "xtrue" -a "x$OUTPUTFILE" = "x" ]
+then
+    echo "Please specify a value for the flag: -xpxgfile <filename>"
+    exit 1 
+fi
+
+if [ "x$XPXGFLAG" = "xtrue" ]
+then
+     XPXGARG=-DXPXGFile=${OUTPUTFILE}
+    
+fi
+
+
+# set the Progress shared lib  environment
+if [ ! -f $DLC/bin/slib_env ]
+then
+    echo "slib_env could not be found."
+    echo
+    echo "Progress shared library environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the Progress Shared lib environment
+. $DLC/bin/slib_env
+
+
+# We exec the JVMEXE exe directly because if we've installed the Open Client 
+# Toolkit to UNIX from NT, we didn't have a jvmstart exe for UNIX in the 
+# NT cdimage. 
+
+exec $JVM -DInstall.Dir=$DLC -DPXGFile=${INPUTFILE} -DJavacCP=${JDKCP} ${XPXGARG} ${PROXYGENPKG}.${BXPXGCONVERTCLASS}
+

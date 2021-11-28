@@ -1,0 +1,26 @@
+# strtsrvr
+#
+# sample script to start a PROGRESS server
+#
+# Usage:	strtsrvr
+#
+# Define the location of the PROGRESS software. If DLC
+# has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/dlc is used.
+DLC=${DLC-/usr/dlc}; export DLC
+PROSRV=${PROSRV-$DLC/bin/_mprosrv}; export PROSRV
+
+# Assign a database name.  If the user supplied a database
+# name before starting this script, use that name.  If not
+# use acmedb as the default database name.
+DBNAME=${DBNAME-acmedb}
+
+# Start PROGRESS server.
+trap "" 1
+if [ $# = 0 ]
+then
+    exec $PROSRV $DBNAME
+else
+    exec $PROSRV $DBNAME "$@"
+fi

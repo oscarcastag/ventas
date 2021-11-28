@@ -1,0 +1,63 @@
+7251 "Request failure:  (7251)" "syserr" "" ""
+7252 "Client requested STOP (7252)" "syserr" "" ""
+7253 "Server requested STOP (7253)" "syserr" "" ""
+7254 "Illegal FIND, FOR EACH or OPEN QUERY in User-defined function <function name>. (7254)" "A WHERE clause contains a User-defined function that tried to execute a FIND, FOR EACH or OPEN QUERY statement.  Evaluate the User-defined function first then put the result of the User-defined function in the WHERE clause. " "" ""
+7255 "DataServer connection failure. (7255)" "This is an informational message.  Your application requested a connection to a PROGRESS DataServer through the Unified Broker.  The request failed.  See previous error messages for specific details on the reason that the connection request failed." "" ""
+7256 "Unable to establish Unified Broker context. (7256)" "The Progress DataServer client attempted to establish a context for establishing a connection to the Unified Broker but context could not be established." "" ""
+7257 "Could not reparse Unified Broker connection parameters (7257)" "Ensure that you are using the proper format and parameters documented as required for connection to the Unified Broker." "" ""
+7258 "The keyword <keyword> in the connection parameter string is unknown. (7258)" "Get the list of required keywords for connection to the Unified Broker from the Dataserver guide.                " "" ""
+7259 "Protocol should be ""AppServer"" (7259)" "When connecting to the AppServer, the protocol in the URL parameter should be ""AppServer"".  For example: AppServer//<hostname>/<service>" "" ""
+7260 "Object is no longer available for use. (7260)" "Once you call ""_Release"" (or OC_Release for ActiveX clients) on an object (e.g. an Application Object or Procedure Object), you can no longer call any  methods on it.  If you do you will get this error message." "" ""
+7261 "This proxy version is not compatible with the current version of the Open Client RunTime code. (7261)" "You are probably trying to use an old proxy which was generated with a previous version of the Progress Open Client RunTime against a newer version of the Open Client RunTime code.  You must regenerate the proxy and try again." "" ""
+7262 "Not implemented yet. (7262)" "This feature has not been implemented." "" ""
+7263 "The parameter/return type: <parm type> is not supported from an open client.  (7263)" "Parameter/return types BUFFER, MEMPTR and dynamic TEMP-TABLE are not supported by open clients.  If a procedure or internal procedure contains such a parameter, it cannot be called from a Java or ActiveX client.  The .p should be modified or it should be removed from the ApplicationObject.  If it is an internal procedure, it should be modified, or removed by defining it as PRIVATE or by excluding it via ProxyGen." "" ""
+7264 "The r-code for this procedure contains invalid prototype information. (7264)" "The r-code has been corrupted or is an old version that is not supported by ProxyGen.
+" "" ""
+7265 "No record source was supplied. (7265)" "You are attempting to pass an input temp-table and you haven't set the source on your ProTempTable object so that it can find the data to pass to the Application Server.  You must set the DataSource property to either an ADO or DAO record set or to an automation object that implements IProTempTable." "" ""
+7266 "An invalid record source was supplied. (7266)" "You are attempting to pass an input temp-table and you have set the source on your ProTempTable object to something other than an ADO or DAO record set or to an automation object that implements IProTempTable." "" ""
+7267 "The field value supplied is an unsupported Variant type. (7267)" "The value of one of the fields for an input temp-table is a Variant which is a type that we don't support.  Please check the documentation for the valid data types that map to Progress 4GL types." "" ""
+7268 "No fields are available. (7268)" "You are attempting to get fields from an output Temp-Table but have not successfully called any method that filled ProTempTable's source with the output data.
+" "" ""
+7269 "
+INDEX DELETE CHAIN ANALYSIS" "informational header message" "" ""
+7270 " block(s) found in the Index Delete chain.
+" "Information message" "" ""
+7271 "The actual number of Index Delete blocks =  (7271)" "This message is used as part of the analysis report " "" ""
+7272 "The object block indicates <num> blocks on the index delete chain. (7272)" "This message is used as part of the analysis report " "" ""
+7273 " Index Delete chain count inconsistancy. (7273)" "This message is used as part of the analysis report " "" ""
+7274 "The following zip file needed to generate proxies is corrupted: <filename>; <exception message>. (7274)" "Template files needed for proxy generation are contained in the specified .zip file.  An unexpected error occur when attempting to extract an entry from this .zip file.  It is possible that ProxyGen needs to be reinstalled. 
+" "" ""
+7275 "The following zip file needed to generate proxies cannot be opened: <filename>. (7275)" "Template files needed for proxy generation are contained in the specified .zip file.  This file either cannot be found or cannot be opened for some reason.
+" "" ""
+7276 "Index compact utilization must be greater than or equal to <minimum> and less than or equal to <maximum> (7276)" "The index compaction utilization factor must be between the set minimum and maximum values for that parameter." "" ""
+7277 "The file: <zip file entry> which is needed to generate proxies cannot be extracted from: <zip filename>. (7277)" "The named file is not contained in the specified .zip file.  This .zip file may have been corrupted and it may be necessary to reinstall ProxyGen.
+" "" ""
+7278 "<name> Block <dbkey> with type <number> is not an index block. (7278)" "syserr" "" ""
+7279 "<name> Block <dbkey> with invalid chain type <number> on index delete chain. (7279)" "syserr" "" ""
+7280 " index delete chain points above high water mark (7280)" "This message is used as part of the analysis report " "" ""
+7281 " The index delete chain extends above high water mark. (7281)" "This message is used as part of the analysis report " "" ""
+7282 " The index delete chain is a circular list. (7282)" "This message is used as part of the analysis report " "" ""
+7283 "          LIST OF INDEX DELETE CHAIN BLOCKS" "This message is used as part of the analysis report " "" ""
+7284 "        dbkey   Block" "This message is used as part of the analysis report " "" ""
+7285 "Cannot load specified preferences file <filename> for ProxyGen. (7285)" "The specified preferences file was found in the specified location, but when ProxyGen attempted to load the contents of the file, errors were encountered that caused the load to fail.  For the case of the default preferences file, proxygen.preferences, the file would be found under the $DLC/properties directory. " "" ""
+7286 "Enumerated preference group error: . (7286)" "The specified preference group has an error in its definition." "" ""
+7287 "Cannot find preference group <name> in the preferences file. (7287)" "A search through the preferences file failed to find a matching group entry for the string printed in this error message." "" ""
+7288 "Cannot find preference group collection <name> in the preferences file. (7288)" "A search through the preferences file failed to find a matching collection group entry for the string specified." "" ""
+7289 "Cannot update preference <name> to new value: <value>. (7289)" "ProxyGen was unable to set the value of the specified preference to the value entered.
+" "" ""
+7290 "Cannot get the value of preference: <name>. (7290)" "ProxyGen was unable to retrieve a value for the specified preference from the preferences file.
+" "" ""
+7291 "Cannot update the preference collection: <name>. (7291)" "ProxyGen was unable to update the value of the specified preference collection to the new value entered.
+" "" ""
+7292 "Cannot save preference group <name> to preference file, <name>. (7292)" "ProxyGen was unable to save the values of the entity grouped together as the specified group, to the specified preference file." "" ""
+7293 "Cannot get parent groups. (7293)" "ProxyGen was unable to retrieve parent groups for the specified preferences file when entries were expected.
+" "" ""
+7294 "Cannot save preferences file: <name>. (7294)" "ProxyGen was unable to save the preferences setting to the preferences files that resulted from this ProxyGen session.  
+" "" ""
+7295 "Cannot remove preferences for group: <name>. (7295)" "ProxyGen was unable to remove the preferences from the preferences files for the specified group.  
+" "" ""
+7296 "Server login failed.  Server id  is invalid. (7296)" "A server connection has failed due to an internal error." "" ""
+7297 "Server login failed. Server id  already in use. (7297)" "A server connection has failed due to an internal error." "" ""
+7298 "conversion:  mkschema failure, error code = .\n (7298)" "syserr" "D" ""
+7299 "Please enter a value into the <name> field.  (7299)" "ProxyGen requires a value in the field in order to continue and the field was left blank." "" ""
+7300 "The Propath component is not a valid path: <path>.  (7300)" "ProxyGen requires a Propath field which is used to locate r-code files when procedures are initially added to an AppObject. The syntax for the Propath field is any number of valid pathnames. The path specified in the error message was not found. " "" ""

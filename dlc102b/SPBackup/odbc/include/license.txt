@@ -1,0 +1,841 @@
+End User License Agreement
+
+CAUTION: YOU SHOULD CAREFULLY READ THE FOLLOWING TERMS AND CONDITIONS OF 
+THIS END USER LICENSE AGREEMENT BEFORE INSTALLING OR USING THE PRODUCT AND 
+DOCUMENTATION TO WHICH THIS AGREEMENT RELATES. BY ACCEPTING THIS 
+AGREEMENT YOU ARE CONSENTING TO BE BOUND BY THE TERMS AND CONDITIONS 
+CONTAINED HEREIN AND ACKNOWLEDGING YOUR AUTHORITY TO DO SO ON BEHALF OF 
+YOUR COMPANY (IF APPLICABLE). IF YOU DO NOT AGREE WITH THESE TERMS AND 
+CONDITIONS, DO NOT PROCEED WITH THE INSTALLATION OF THE PRODUCT(S) AND 
+PROMPTLY RETURN THE PRODUCT(S), DOCUMENTATION, AND ALL COPIES THEREOF TO 
+THE SUPPLIER FORM WHICH IT WAS ACQUIRED FOR A FULL REFUND OF THE LICENSE FEES, 
+IF ANY, PAID FOR THE PRODUCT(S). THE TERM "PROMPTLY" AS USED HEREIN SHALL MEAN 
+NO LATER THAN SIXTY (60) DAYS FOLLOWING THE DELIVERY OF THE PRODUCT TO YOU.
+
+1.  License Grant.   
+
+1.1  For purposes of this Agreement, "Progress" refers to Progress Software 
+Corporation and "you" or "Licensee" refers to the individual installing or 
+using the Product(s), if you are acting as an individual on your own behalf; 
+otherwise, "you" or "Licensee" means the business or other entity for which 
+you are obtaining the Product(s) and that will exercise the rights granted 
+under this Agreement.  Subject to the terms and conditions contained in this 
+End User License Agreement, including all exhibits, Orders (as defined below) 
+and License Addenda (as defined below)(collectively, this "Agreement"), 
+Progress grants to you a non-exclusive, non-transferable, limited, personal 
+license (without the right to sublicense) to use the software product(s) 
+(each individually, a "Product"), for which valid control codes have been 
+issued by Progress, identified in (i) the written or electronic order 
+document, form or invoice provided or accepted by Progress (each an "Order") 
+or (ii) the installation procedure. Any update, patch, solution pack, service 
+pack, value-add pack, hotfix, workaround, prepackaged module and/or new 
+release, version or enhancement issued to Licensee by Progress relating 
+to the Product (each an "Update") replaces part or all of a Product or Update 
+previously licensed to Licensee and shall terminate such previously licensed 
+Product or Update to the extent replaced by the Update.  Each Update shall be 
+subject to the terms and conditions of the license agreement accompanying the 
+Update.  In addition and subject to the terms and conditions contained herein, 
+Progress grants Licensee a non-exclusive, non-transferable, limited, personal 
+license (without the right to sublicense) to use the written technical 
+materials and end user instructions including all updates and versions thereof 
+released by Progress and associated with the Product, if any, distributed with
+the Product (the "Documentation"). 
+
+1.2  By virtue of this Agreement, Licensee acquires only the non-exclusive 
+right to use the Product and does not acquire any rights of ownership to 
+(i) the Product, (ii) any Documentation provided therewith or (iii) the media, 
+if any, upon which the Product and Documentation are embodied. Progress and/or 
+its licensors shall at all times retain all right, title, and interest in the 
+Product, the Documentation, and any media provided therewith.  Except for the 
+license rights expressly granted herein, this Agreement grants no additional 
+express or implied license, right or interest in the Product or in any 
+copyright, patent, trade secret, trademark, invention or other intellectual 
+property rights of Progress, its affiliates or their licensors.  Progress 
+reserves all rights not expressly granted to Licensee in this Agreement. 
+
+1.3  The term of the license is set forth in Exhibit A or the applicable Order, 
+unless otherwise terminated in accordance with the terms of this Agreement.   
+
+1.4  Licensee agrees to pay the applicable fees as set forth in the Order. 
+Licensee further agrees to pay any applicable transportation charges, 
+value-added taxes or other applicable taxes, tariffs or withholding taxes 
+which the relevant authorities require to pay. All fees are exclusive of any 
+such taxes or tariffs unless expressly stated in the Order.
+
+1.5  Shipping terms for Product(s) shipped on physical media is FOB shipping 
+point.  For Product(s) shipped via electronic delivery, delivery is deemed 
+complete, FOB shipping point, when the Product(s) is/are made available at the 
+electronic software download ("ESD") site specified by Progress and Licensee 
+is e-mailed or otherwise issued a password to access and download the 
+Product(s).
+
+2.  License Restrictions.  
+
+2.1  Licensee's use of the Product and Documentation is limited to internal 
+use within Licensee's organization. The Product and Documentation may not be 
+used by affiliated parties of Licensee unless specifically authorized in 
+Exhibit A.  Use shall be in accordance with the provisions of and limitations 
+set forth in this Agreement, including Exhibit A hereto, and the additional 
+terms, if any, set forth in any Order or additional agreement executed by 
+Progress and Licensee in connection with this Agreement which specifically 
+states the terms thereof shall be in addition to or in lieu of any of the 
+terms set forth herein (each a "License Addendum" and collectively, the 
+"License Addenda"). 
+
+2.2  The license model for the Product is set forth in the Order and 
+described in Exhibit A. Third party rights and any additional licensing 
+restrictions are set forth or referenced in Exhibit A.
+
+2.3  If Licensee receives the Product in conjunction with a software 
+application provided by a third party, the Product may only be used with or 
+as part of such software application.  
+
+2.4  Licensee shall not copy (except as provided in Section 5.2 hereof), 
+disassemble, reverse engineer, decompile, modify or create derivative works 
+of the Product and the Documentation to the extent that such restriction is 
+not prohibited by applicable mandatory law.  
+
+2.5  Licensee may not sublicense, sell, rent, encumber, outsource, lease or 
+grant any other rights in the Product and/or the Documentation to others or 
+otherwise allow the Product to be accessed, used or possessed by another party. 
+For these purposes, the term "use" shall include, without limitation, direct 
+or indirect use via thin-client or web-based remote access software which but 
+for the use thereof would have required a copy of the Product to be installed 
+or used locally by that user.
+ 
+2.6  Licensee shall have no right to use the Product to provide time sharing, 
+outsourced services, or facility management services or to act as or operate 
+a service bureau or provide information, data processing, subscription or 
+hosting services for another party.  
+
+2.7  The Product, including technical data, are subject to U.S. export control 
+laws, including, without limitation, the U.S. Export Administration Act and 
+its associated regulations, and may be subject to export or import regulations 
+in other countries. Licensee shall not directly or indirectly export or 
+re-export the Product, or any direct product thereof, without first obtaining 
+Progress's written approval. Licensee agrees to comply strictly with all 
+regulations and acknowledges that it has the responsibility to obtain licenses 
+to export, re-export or import the Product. The Product may not be downloaded, 
+or otherwise exported or re-exported (i) into, or to a national or resident 
+of any country to which the U.S. has embargoed goods; or (ii) to anyone on the 
+U.S. Treasury Department's list of Specially Designated Nationals, or the U.S. 
+Commerce Department's Table of Denial Orders as amended from time to time, or 
+any other list distributed by the United States government setting forth 
+individuals or entities to which distribution of the Product would be 
+prohibited by United States law.  
+
+2.8  Licensee shall be solely responsible for identifying and complying with 
+all laws of any jurisdiction outside of the United States regarding the use 
+of the Product and any technical data supplied by Progress.  Licensee agrees 
+to obtain all licenses, permits or approvals required by any government at 
+Licensee's sole cost and expense.  Licensee's obligations under this 
+Section 2.8 shall survive termination for any reason whatsoever. 
+
+2.9  If the Product is being acquired by or on behalf of the U.S. Government 
+or by a U.S. Government prime contractor or subcontractor (at any tier), 
+then the U.S. Government's rights in the Product will be only as set forth 
+herein.  The Product and related Documentation is a "commercial item" as that 
+term is defined at 48 C.F.R. 2.101, consisting of "commercial computer 
+software" and "commercial computer software Documentation" as such terms are 
+used in 48 C.F.R. 12.212. Consistent with 48 C.F.R. 12.212 and 
+48 C.F.R. 227.7202-1 through 227.7202-4, all U.S. Government end users 
+acquire the Product and such Documentation with only those rights set forth 
+herein. Contract/Manufacturer is Progress Software Corporation, 14 Oak Park, 
+Bedford, MA 01730. 
+ 
+2.10  This Agreement is personal to Licensee and Licensee may not transfer, 
+assign or otherwise convey, novate or encumber this Agreement or the Product, 
+in whole or in part, by operation of law, merger or otherwise, to any other 
+party, including any parent, subsidiary or affiliated entity.  A Change of 
+Control of Licensee shall constitute an assignment hereunder.   A "Change of 
+Control" shall include, but not be limited to, any merger, consolidation, 
+amalgamation, reorganization or sale, transfer or exchange of the capital stock 
+or equity interests of Licensee in a transaction or series of transactions 
+which results in the holders of Licensee's capital stock or equity interests 
+holding less than 50% of the outstanding capital stock or equity interests 
+immediately following such transaction(s). 
+
+3.  Limited Warranty. 
+
+3.1  Progress warrants that, for a period of ninety (90) days from either the 
+date of the initial shipment or availability for download from a Progress 
+website of the Product whichever occurs first (the "Warranty Period"), 
+(i) the Product will conform in all material respects to the Documentation and 
+(ii) the media, if any, on which the Product is recorded will be free from 
+defects in materials and that the Product is properly recorded on the media. 
+As the sole and exclusive remedy for physically defective media (such as the 
+diskettes, cartridges, CD-ROMs, DVDs or magnetic tapes), Progress will replace 
+it free of charge if claimed during the Warranty Period.  As the sole and 
+exclusive remedy for any failure of the Product to materially conform to the 
+Documentation, Progress shall repair or replace the Product if such failure is 
+reported during the Warranty Period or, if Progress, at its discretion, 
+reasonably determines that such remedy is not economically or technically 
+feasible, this Agreement and the licenses granted hereunder will terminate 
+and Progress or its supplier (as applicable) shall provide a full refund of 
+the license fee paid with respect to the particular Product. The above 
+warranties do not cover Updates, generic non-configured solution packs, any 
+Product provided on an evaluation basis, or defects to the Product due to 
+accident, abuse, service, alteration, modification or improper installation 
+or configuration by Licensee, its personnel or any third party.  
+
+3.2  Progress does not warrant that the functions of the Product will meet 
+Licensee's requirements or that operation of the Product will be uninterrupted 
+or error free. Licensee assumes responsibility for selecting the Product to 
+achieve its intended results and for the use and results obtained from the 
+Product. 
+
+3.3  THE LIMITED WARRANTY SPECIFIED IN SECTION 3.1 SETS FORTH ALL WARRANTIES 
+AND REPRESENTATIONS PROVIDED TO LICENSEE WITH RESPECT TO THE PRODUCT AND 
+ANY SERVICES AND UPDATES PROVIDED HEREUNDER, AND SUCH LIMITED WARRANTY IS 
+PROVIDED SOLELY BY PROGRESS AND NOT ITS LICENSORS. EXCEPT AS EXPRESSLY SET 
+FORTH IN THIS AGREEMENT, PROGRESS, ITS LICENSORS AND THEIR RESPECTIVE 
+SUPPLIERS MAKE NO WARRANTIES OR REPRESENTATIONS, EXPRESS OR IMPLIED, 
+RELATING TO THE PRODUCT, OR ANY SERVICES OR UPDATES PROVIDED UNDER THIS 
+AGREEMENT.  ANY UPDATES OR SERVICES DELIVERED HEREUNDER ARE DELIVERED "AS 
+IS" WITHOUT ANY WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, STATUTORY OR 
+OTHERWISE. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW ALL OTHER 
+IMPLIED WARRANTIES AND REPRESENTATIONS INCLUDING, BUT NOT LIMITED TO, ANY 
+IMPLIED WARRANTY OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE 
+AND NON-INFRINGEMENT WITH RESPECT TO THE PRODUCT, OR ANY SERVICES AND 
+UPDATES PROVIDED UNDER THIS AGREEMENT ARE DISCLAIMED. Further, the Product is 
+not fault tolerant and is not designed, manufactured or intended for use in 
+hazardous environments requiring fail-safe performance (including, without 
+limitation, the design, construction, operation or maintenance of any nuclear 
+facility; direct life support machines; weapon systems; or control of aircraft,
+air traffic, aircraft navigation or aircraft communications), in which the 
+failure of the Product could lead directly or indirectly to death, personal 
+injury or severe physical or environmental damage. Without limiting the scope 
+of the disclaimers set forth herein, Progress for itself and on behalf of its 
+licensors and their respective suppliers, disclaims any express or implied 
+warranty of fitness for any such high risk uses. 
+
+4.  Indemnity
+
+4.1  Progress will defend, indemnify and hold Licensee harmless against any 
+and all costs and reasonable expenses finally awarded by a court or agreed to 
+in settlement which directly result from any third party claim based on an 
+allegation that a Product infringes either a valid (a) United States patent 
+or (b) copyright of a country that is a party to the Agreement for Trade 
+Related Aspects of Intellectual Property Rights ("TRIPS") but only if 
+Progress is notified promptly in writing of such claim and given sole control 
+of the defense of any such claim and all negotiations for its settlement or 
+compromise. Licensee agrees to reasonably cooperate with Progress in the 
+defense, settlement or compromise of any such claim. In the event that a final 
+injunction is obtained against Licensee's use of the Product,  if Progress 
+reasonably believes that Licensee's use of the Products could be so enjoined, 
+or if in Progress's opinion the Product is likely to become the subject of a 
+successful claim of such infringement, Progress shall, at its option and 
+expense, (i) procure  for Licensee the right to continue using the Product 
+as provided in this Agreement, (ii) modify or require replacement of the 
+Product that Licensee is then currently using so that the Product becomes 
+non-infringing (so long as the functionality of the Products is substantially 
+similar) or, in the event neither of the previous two options are commercially 
+reasonable for Progress, (iii) terminate this Agreement and the rights granted 
+hereunder and refund to Licensee the amount paid to Progress for the Product 
+less an amount for depreciation determined on a straight-line five-year 
+depreciation basis with a commencement date as of the respective shipment 
+date of the applicable copies of the Product.  Notwithstanding the foregoing, 
+Progress shall have no liability for a claim to the extent based on (A) the 
+use by Licensee of the Product more than thirty (30) days after Progress has 
+notified Licensee of (i), (ii) or (iii), above or (B) the version of the 
+Product used by Licensee is not the current release version of the Product.  
+
+4.2  Notwithstanding the foregoing, Progress shall have no liability to 
+Licensee under this Section 4 to the extent that any infringement or claim 
+thereof is based upon (i) the combination, operation or use of a Product in 
+combination with equipment or software not supplied by Progress hereunder 
+where the Product would itself not be infringing, (ii) Licensee's 
+non-compliance with designs, specifications or instructions provided by 
+Progress to Licensee, (iii) use of a Product in an application or environment 
+for which it was not designed or not contemplated under this Agreement,  
+(iv) modifications of a Product by anyone other than Progress where the 
+unmodified version of the Product would not be infringing, or (v) use by 
+users or affiliated parties of Licensee not permitted by this Agreement. 
+
+4.3  THE FOREGOING INDEMNIFICATION PROVISIONS STATE THE ENTIRE LIABILITY OF 
+PROGRESS AND THE SOLE AND EXCLUSIVE REMEDY OF LICENSEE WITH RESPECT TO ANY 
+INFRINGEMENT OR ALLEGED INFRINGEMENT BY PROGRESS OF ANY INTELLECTUAL 
+PROPERTY RIGHTS OR PROPRIETARY RIGHTS IN RESPECT OF THE PRODUCT OR ITS USE.
+
+4.4  If any affiliated  party of Licensee is specifically authorized in writing 
+and as a term of this Agreement to use the Product pursuant to Section 2.1 hereof 
+and Exhibit A, Licensee shall defend, indemnify and hold Progress harmless for 
+all acts and omissions of such affiliated party.  
+
+5.  Confidentiality; Notices
+
+5.1  Licensee acknowledges that the Products, including all source and/or object 
+code and all parts and aspects thereof, and any Updates, modifications, 
+translations, localizations, or other derivative works thereof, in whatever 
+form, whether or not marked as confidential, the Documentation and any other 
+documentation or materials provided with or related to the Product 
+(collectively, the "Confidential Information"), are the valuable proprietary 
+and trade secret information of Progress and/or its licensors and suppliers.  
+Licensee shall (i) limit use and disclosure of the Confidential Information to 
+its employees and its consultants who are authorized pursuant to this Agreement 
+to use the Products and who agree to be bound by the terms of this Agreement or 
+are otherwise bound to a confidentiality agreement containing substantially 
+similar terms; (ii) not provide or disclose any of the Confidential Information 
+to another party; and (iii) treat the Confidential Information with the same 
+degree of care to avoid disclosure to any third party as is used with respect 
+to Licensee's information of like importance which is to be kept secret, but 
+with no less than reasonable care.  The foregoing obligations shall be in 
+addition to any obligations set forth in any separate confidentiality agreement 
+between Progress and Licensee.   
+
+5.2  Licensee agrees, under penalty of license termination but not exclusive of 
+any other remedies, not to cause or permit the copying of the Product for any 
+purpose other than expressly set forth herein.  Licensee may copy the Product 
+only for archival and off-line backup purposes, but not for disaster recovery 
+purposes unless Licensee has purchased the appropriate disaster recovery or 
+replication license.  Licensee may copy the Documentation solely for the 
+purpose of facilitating Licensee's use of the Product in accordance with, and 
+subject to, the terms and conditions of this Agreement. Licensee agrees not 
+to remove any product identification, copyright notices, or other notices or 
+proprietary restrictions from the Product. 
+
+5.3  Benchmark results for the Product may not be disclosed or published 
+without the written consent of Progress. 
+
+5.4  Licensee acknowledges that in the event of a breach or threat of breach of 
+this Section 5, money damages will not be adequate.  Therefore, in addition to 
+any other legal or equitable remedies, Progress shall be entitled to seek 
+injunctive or similar equitable relief against such breach or threat of breach.
+
+5.5  All notices and requests in connection with this Agreement to be sent to 
+Progress shall be given in writing and shall be sent by hand delivery, 
+overnight courier or certified mail with proof of delivery to the following 
+address:  14 Oak Park Drive, Bedford, MA 01730, Attention: General Counsel.  
+All notices and requests in connection with this Agreement to be sent to 
+Licensee shall be given in writing and shall be sent by hand delivery, 
+overnight courier or certified mail with proof of delivery to the address 
+first set forth in the Order.  Either party may change its address for receipt 
+of notices upon written notice to the other party, and notices shall be deemed 
+given on the day of receipt or the date evidenced on the proof of delivery, 
+whichever is earlier.
+
+6.  Limitation of Liability.
+
+6.1  TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LIABILITY OF 
+PROGRESS, IF ANY, FOR DAMAGES RELATING TO ANY PRODUCT, UPDATE AND/OR 
+SERVICES SHALL BE LIMITED TO THE ACTUAL AMOUNTS PAID BY LICENSEE FOR SUCH 
+PRODUCT, UPDATE AND/OR SERVICES. PROGRESS'S LICENSORS AND THEIR SUPPLIERS 
+SHALL HAVE NO LIABILITY TO LICENSEE FOR ANY DAMAGES SUFFERED BY LICENSEE OR 
+ANY THIRD PARTY AS A RESULT OF USING THE PRODUCT, ANY UPDATE, OR ANY PORTION 
+THEREOF, OR AS A RESULT OF ANY SERVICES RELATING THERETO. NOTWITHSTANDING 
+THE FOREGOING, IN NO EVENT SHALL PROGRESS, ITS LICENSORS, OR ANY OF THEIR 
+RESPECTIVE SUPPLIERS BE LIABLE FOR ANY LOST REVENUE, PROFIT OR DATA, OR FOR 
+INDIRECT, PUNITIVE, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES OF ANY 
+CHARACTER, INCLUDING, WITHOUT LIMITATION, ANY COMMERCIAL DAMAGES OR 
+LOSSES, HOWEVER CAUSED AND REGARDLESS OF THE THEORY OF LIABILITY, ARISING 
+OUT OF THE USE OR INABILITY TO USE THE PRODUCT, ANY UPDATE, OR ANY PORTION 
+THEREOF, OR ANY SERVICES, EVEN IF PROGRESS, ITS LICENSORS AND/OR ANY OF THEIR 
+RESPECTIVE SUPPLIERS HAVE BEEN INFORMED OF THE POSSIBILITY OF SUCH DAMAGES. 
+EACH EXCLUSION OR LIMITATION IS INTENDED TO BE A SEPARATE AND THEREFORE 
+SEVERABLE EXCLUSION.
+
+7.  Audit Rights.  Progress may install, enable and utilize automated license 
+tracking, management and/or enforcement solutions with the Products, which 
+Licensee may not disrupt or alter.  Licensee shall maintain books and records 
+in connection with this Agreement and the use of the Products and any Updates 
+and/or services provided hereunder.  Such books and records shall include at a 
+minimum the number of licenses purchased and being used by Licensee.  At its 
+expense and with reasonable written notice to Licensee, Progress or a third 
+party appointed by Progress may audit the books, records, and if necessary, 
+the systems on which the Product or any Update is installed for the sole 
+purpose of ensuring compliance with the terms of this Agreement.  Progress 
+shall have the right to conduct follow-up audits as necessary.  All audits 
+shall be conducted during regular business hours at Licensee's offices and 
+shall not interfere unreasonably with Licensee's activities.  Progress shall 
+treat all such records and books as confidential information. If any audit 
+reveals that Licensee has underpaid license or maintenance and support fees, 
+Licensee shall be invoiced for all such underpaid fees based on Progress list 
+price in effect at the time the audit is completed.  If the underpaid fees are 
+in excess of five percent (5%) of the fees previously paid by Licensee, then 
+Licensee shall also pay Progress's reasonable costs of conducting the audit 
+and enforcement of this Agreement. 
+
+8.  Termination.
+
+8.1  Progress may terminate this Agreement by written notice at any time if 
+Licensee defaults in the performance of any provision of this Agreement and 
+fails to cure such default to the satisfaction of Progress within thirty (30) 
+days after such notice. This remedy shall not be exclusive and shall be in 
+addition to any other remedies which Progress may have under this Agreement 
+or otherwise.
+
+8.2  Any purported transfer or assignment of this Agreement or the licenses 
+granted hereunder by Licensee or other action by Licensee in contravention of 
+Section 2.10 above or any purported transfer or assignment of this Agreement 
+or the licenses granted hereunder as a result of Licensee's bankruptcy, 
+insolvency, or liquidation or as a result of an assignment of Licensee's assets 
+for the benefit of creditors shall be void and this Agreement and the licenses 
+granted hereunder shall thereupon automatically terminate without further 
+notice or action by Progress.
+
+8.3  Within ten (10) days of the date of expiration or termination of this 
+Agreement and/or any of the licenses granted hereunder, Licensee shall return 
+all copies of the Products, including all Updates, and related Documentation to 
+Progress or, if requested by Progress, destroy such Products, Updates and 
+Documentation and certify in writing to such return or destruction. 
+
+9.  Miscellaneous.
+
+9.1  If Progress offers maintenance and support for the Product, and if 
+Licensee orders and pays for such maintenance and support, such maintenance 
+and support shall be provided in accordance with Progress' then current and 
+applicable maintenance and support policies. 
+
+9.2  THIS AGREEMENT, INCLUDING ANY EXHIBITS AND ANY LICENSE ADDENDUM(S), 
+CONSTITUTES THE COMPLETE AGREEMENT BETWEEN THE PARTIES WITH RESPECT TO THE 
+PRODUCT AND SUPERCEDES ANY OTHER AGREEMENT, PROPOSAL, COMMUNICATION OR 
+ADVERTISING, ORAL OR WRITTEN, SIGNED OR UNSIGNED, WITH RESPECT TO THE 
+PRODUCT.  To the extent there are any terms and conditions contained in 
+Licensee's purchase order or other documentation supplied by Licensee such 
+terms and conditions shall be deemed to be stricken and the terms and 
+conditions of this Agreement shall govern. In the event any provision of 
+this Agreement is held to be invalid or unenforceable, the remaining 
+provisions of this Agreement will remain in full force and effect.
+
+9.3  For administrative convenience, Progress invoices may be issued by a 
+local affiliate of Progress.  
+
+9.4  This Agreement has been drawn up in English at the express wish of 
+the parties.  Le present contrat a ete redige en anglais a la demande 
+expresse des parties.  
+
+9.5  Except as otherwise expressly set forth herein, this Agreement is 
+governed by the laws of the Commonwealth of Massachusetts, without regard 
+to its choice of law principles, and without regard to the provisions of 
+any state Uniform Computer Information Transactions Act or similar federal, 
+state, local or foreign laws, regulations or conventions. 
+
+9.6  This Agreement may not be modified or amended except in a writing 
+executed by both Progress and Licensee. 
+
+9.7  Failure or delay on the part of Progress to exercise any right, power, 
+privilege or remedy hereunder shall not constitute a waiver thereof.  A 
+waiver of default shall not operate as a waiver of any other default or of 
+the same type of default on future occasions. 
+
+9.8  The parties expressly disclaim the application of the United Nations 
+Convention on Contracts for the International Sale of Goods.  
+
+9.9  If the Product is acquired outside the United States local law may 
+apply.
+
+
+EULA Revised 08/06/10
+
+
+EXHIBIT A
+
+TERM OF LICENSE:
+
+Perpetual.  
+
+APPLICABLE FEES:
+
+Any applicable license fees or maintenance and support fees will be set 
+forth in the Order.
+
+AFFILIATE USE, IF ANY:
+
+See Order.  
+
+ADDITIONAL TERMS, IF ANY:
+
+Runtime License Checker:
+The Products may include code to verify that Licensee has not exceeded the 
+license keys issued by Progress (the "Runtime License Checker") and in the 
+event that the Runtime License Checker determines that Licensee has exceeded 
+its license the Products may cease to operate.
+
+Bulk Loading Features:  
+If the Product is licensed with Bulk Loading Features (hereinafter defined) 
+Licensee is not limited to a certain number of rows.  If the Product is not 
+licensed with Bulk Loading Features and Licensee exceeds 10,000 rows the 
+Product shall cease to operate.  For the purposes hereof, "Bulk Loading 
+Features" shall mean anything in the Documentation that refers to "Bulk Load", 
+"Progress DataDirect Bulk Load" or "Bulk Loading Features." 
+
+(a)  For Progress DataDirect Connect for ADO.NET (release 3.2 or higher only): 
+There are two (2) methods of using Bulk Loading Features as follows: 
+(1) setting the "Bulk Load Protocol" connection option to "Automatic" or 
+"Bulk"  in the connection string; or (2) calling the methods WriteToToServer 
+in the DbBulkCopy, DB2BulkCopy, OracleBulkCopy, SybaseBulkCopy or 
+SQLServerBulkCopy classes.
+
+(b)  For Progress DataDirect Connect for ODBC and Progress DataDirect 
+Connect64 for ODBC (release 6.0 or higher only):  There are four (4) methods 
+of using Bulk Loading Features as follows: (1) setting the "EnableBulkLoad" 
+connection option to 1 in the connection string or datasource, (2) calling 
+the functions LoadTableFromFile, LoadTableFromFileW, ExportTableToFile, 
+ExportTableToFileW, ValidateTableFromFile, or ValidateTableFromFileW, 
+(3) using any of the Bulk Load options and functionality that are available 
+on the "Bulk Load" Tab of the drivers' setup dialogs, or (4) setting the 
+SQL_BULK_EXPORT statement attribute by calling SQLSetStatementAttr.
+
+(c)  Bulk Loading Features for Progress DataDirect Connect for JDBC 
+(release 4.0 service pack 2 or higher only): There are two (2) methods of 
+using Bulk Loading Features as follows:  (1) set the EnableBulkLoad option 
+to true in the connection string or datasource, or (2) create any instance 
+of a DDBulkLoad object (directly or by calling the getDDBulkLoad() method) 
+or use any methods or properties on that object.
+
+Use Restrictions:  
+
+1.  Application Specific.  If the Order lists a specific application 
+authorized for use with the Product, or if Licensee obtained a Product in 
+conjunction with a software application provided by a third party, the 
+Product is licensed for use only with such application.  Use with any 
+other application/product is strictly prohibited.   
+
+2.  Term License.  If the Order specifies that Licensee's license to the 
+Products is for a term ("Term"), then the term of this Agreement and 
+Licensee's license to the Products hereunder shall expire on the expiration 
+date stated in the Order unless sooner terminated in accordance with 
+Section 8 of the Agreement.  Upon completion of the Term, Licensee shall 
+return all Products licensed under the Order and associated documentation 
+and related information (including all copies) to Progress, or certify its 
+destruction in a writing delivered to Progress.  All license rights in and 
+to the Products under the terms of the Agreement shall terminate at the end 
+of the Term. 
+
+3.  Operating Systems or Platforms.  If the Order specifies that Licensee's 
+license to the Products is limited to a specific Operating System ("OS") or 
+Platform, then the Product is licensed with the additional restriction that 
+it be used solely in conjunction with the specified OS or Platform.  Use 
+with any other OS or Platform is strictly prohibited.
+
+4.  Competitive Use. License may not use the Products to develop, test, 
+support or market products that are competitive with and/or provide similar 
+functionality to the Products.
+
+5.  Evaluation License Only. License acknowledges and agrees that the 
+evaluation period may not be extended by uninstalling and re-installing 
+the Product or by any other means other than Progress' written consent.
+
+Other:
+
+1.  Progress DataDirect Connect for ODBC, Progress DataDirect SequeLink 
+for ODBC, Progress DataDirect OpenAccess for ODBC for Salesforce Data 
+Source, Progress DataDirect OpenAccess for ODBC for Wonderware Data 
+Source, and Progress DataDirect OpenAccess for ODBC for Intellution 
+FIX and Dynamics Data Sources.  If the Product licensed to Licensee is 
+Progress DataDirect Connect for ODBC, Progress DataDirect SequeLink for 
+ODBC, Progress DataDirect OpenAccess for ODBC for Salesforce Data Source, 
+Progress DataDirect OpenAccess for ODBC for Wonderware Data Source, or 
+Progress DataDirect OpenAccess for ODBC for Intellution FIX and Dynamics 
+Data Sources (each the "Licensed Product"), the following additional 
+requirements shall apply: Progress has licensed, and has rights to 
+sub-license certain third party software that is part of the ODBC SDK 
+components and which is usable for certain non-Windows platforms -- 
+Mac OS, OS/2, HP-UX, AIX, Linux, Solaris, and other non-Windows operating 
+systems.  This section sets forth the conditions that govern Licensee's 
+permitted use of the various non-windows SDK components:  Licensee is not 
+licensed to use the ODBC Core Components (hereinafter defined) other than 
+with the Licensed Product.  Use of the ODBC Core Components with any ODBC 
+drivers other than the Licensed Product is expressly prohibited.  Licensee 
+may not embed in any products, or otherwise sub-license the ODBC Core 
+Components, without a separate license agreement.  For the purposes hereof, 
+the term "ODBC Core Components" shall mean the ODBC Driver Manager and 
+support files for non-Windows operating systems.  A separate license must 
+be obtained from Progress if Licensee wants to embed and sub-license the 
+ODBC Header Files (hereinafter defined) with any software product.  For 
+the purposes hereof, the term "ODBC Header Files" shall mean the text files 
+for compilation and development of software. 
+
+2.  Stylus Studio Products. If the Product licensed to Licensee is a Stylus 
+Studio product the following requirements shall apply:
+
+(i)  If the Product is Stylus Studio, Stylus Studio XML Enterprise Suite, 
+or Stylus Studio XML Professional Suite then the Product is licensed on a 
+named user basis meaning specific individuals are authorized to access the 
+Product and the total number of named users may not exceed the total number 
+licensed by Licensee.  Stylus Studio, Stylus Studio XML Enterprise Suite 
+and Stylus Studio XML Professional Suite are subject to the additional 
+restriction that it may be used by Licensee solely for development and 
+testing of software applications, and not in conjunction with the 
+deployment of such software applications. 
+
+(ii)  If the Product is Stylus Studio XML Home Edition, then the Product 
+is licensed on a single named user basis for personal use only.  The 
+Stylus Studio XML Home Edition is subject to the additional restriction 
+that it not be used in conjunction with any commercial or for-profit 
+transactions.  NOTWITHSTANDING ANYTHING TO THE CONTRARY IN SECTION 3 OF 
+THE AGREEMENT, AND EXCEPT AS PROHIBITED BY APPLICABLE LAW, STYLUS STUDIO 
+XML HOME EDITION IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.  
+PROGRESS MAKES NO WARRANTIES WITH RESPECT TO THE STYLUS STUDIO XML HOME 
+EDITION, EXPRESS, IMPLIED, OR ARISING BY CUSTOM OR TRADE USAGE, AND 
+SPECIFICALLY MAKES NO WARRANTY OF MERCHANTABILITY OR OF FITNESS FOR ANY 
+PARTICULAR PURPOSE OR NONINFRINGEMENT.  Licensee shall have the sole 
+responsibility for adequate protection and back-up of all data use in 
+connection with the product.  
+
+(iii)  Notwithstanding anything to the contrary in Evaluation License 
+Model set forth below, if the Product is an evaluation version of 
+Stylus Studio, then the Product is licensed on a single named user 
+basis and is subject to the additional restriction that it be used by 
+Licensee solely for evaluation of software applications, and not in 
+conjunction with the development or deployment of such software 
+applications. Licensee must purchase a license for Stylus Studio for 
+the development and testing of software applications.  Evaluation 
+includes the use of Products in performance benchmarking.  Progress 
+updates the Product regularly and benchmarking data for the Product 
+is subject to change.  Benchmark tests on prior versions of the Product 
+may yield results that are not reflective of the performance of the 
+current version of the Product.  The most current version of the 
+Product is available at www.stylusstudio.com.  LICENSEE UNDERSTANDS 
+AND ACKNOWLEDGES THAT THE EVALUATION VERSION OF STYLUS STUDIO 
+CONTAINS A DISABLING DEVICE THAT WILL AUTOMATICALLY DISABLE THE 
+PRODUCT FIFTEEN (15) DAYS FROM INSTALLATION.  NOTWITHSTANDING ANYTHING 
+TO THE CONTRARY IN SECTION 3 OF THE AGREEMENT, EVALUATION VERSION OF 
+STYLUS STUDIO IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.  
+PROGRESS MAKES NO WARRANTIES WITH RESPECT TO THE EVALUATION VERSION OF 
+STYLUS STUDIO, EXPRESS, IMPLIED, OR ARISING BY CUSTOM OR TRADE USAGE, 
+AND SPECIFICALLY MAKES NO WARRANTY OF MERCHANTABILITY OR OF FITNESS 
+FOR ANY PARTICULAR PURPOSE OR NONINFRINGEMENT. 
+
+(iv)  If Licensee ordered or obtained the Product license from a 
+third party authorized by Progress to resell the Product in 
+conjunction with such third party's software product(s) ("Third Party 
+Reseller"), then, in addition to the terms and conditions of this 
+Agreement, Licensee's use of the Product may be subject to additional 
+scope of license terms and conditions (if any) specified by the Third 
+Party Reseller, including, without limitation, a restriction that 
+Licensee limit its use of the Product to use solely in conjunction 
+with the Third Party Reseller's software product(s) licensed by the 
+Third Party Reseller to Licensee.  To the extent that any additional 
+scope of license terms and conditions communicated by the Third Party 
+Reseller to Licensee are in direct conflict with the scope of license 
+specified herein, then the scope of license terms and conditions 
+specified by the Third Party Reseller shall apply.  Otherwise the terms 
+and conditions of this Agreement shall govern.  In no event does 
+Progress make any representations or warranties, express, implied or 
+arising by custom or trade usage, regarding the Third Party Reseller's 
+software products and assumes no liability or responsibility with 
+regard to said software products.
+
+(v)  The Product may contain programs that perform automated collection 
+of system data and transmit said data to equipment owned or under the 
+control of Progress in order to (i) register the Licensee's activation 
+of the Product, (ii) perform automated updating services for the 
+Product, and/or (iii) validate whether Licensee is entitled to use the 
+Product.  System data collected through such programs may be used by 
+Progress for the purpose of providing Licensee with remote system 
+services and/or for the purpose of enforcing the terms and conditions 
+of this Agreement.
+
+(vi)  Notwithstanding anything to the contrary in Section 9.1 of the 
+Agreement, maintenance and support for Stylus Studio products is only 
+available online via the Stylus Studio Developer Network (SSDN).
+
+
+LICENSE MODELS AND DEFINITIONS:
+The license model for the Product(s) purchased is set forth in the Order.  
+The description of each Progress license model is set forth below.
+
+For purposes of this Exhibit A, the following terms shall have the 
+following definitions:
+
+"Client Device":  A Client Device is any input technology that allows 
+the Licensee to access the Product, including but not limited to a 
+workstation, a personal computer, a PDA device, a cellular phone, a 
+laptop or other device that is operated by an individual.  
+
+"Non-Human Operated Device":  A Non-Human Operated Device is a device 
+that is not operated by an individual including, but not limited to, 
+a temperature device, a production line bar code scanner, or a 
+tracking device. 
+
+"Platform":   A Platform is the specific combination of the hardware 
+and the operating system, a change to either would constitute a 
+platform change.  
+
+"Process": A Process is any automated process that is not initiated 
+by a Client Device or a Non-Human Operated Device and includes, 
+without limitation, automated controls and background jobs.
+
+"Server": a logical computer with one or more CPUs on which the 
+Product resides, along with the applications utilizing the Product, 
+and which can be accessed by other computers.  The term "Server" 
+includes, but is not limited to, web servers, batch servers and 
+application servers.
+
+Connection Basis License (for DataDirect Connect for ODBC only):  
+If the Product is licensed on a Connection basis, then a license fee 
+must be paid for both the maximum number of simultaneous Connections 
+utilized by the Server and the maximum number of processors ("CPUs") 
+utilized by the Server whether or not such access is simultaneous or 
+consecutive. For the purposes of this provision only a "Connection" 
+shall be defined as the driver state after a successful call to 
+SQLConnect, SQLDriverConnect, or SQLBrowseConnect and before 
+termination of this state, normally through a successful call to 
+SQLDisconnect.  Servers utilizing dual core processing (or multiple 
+core processing) or other multi-processor technology shall have 
+each core processor count as one (1) CPU. The Product may only be 
+used by Server-based applications running on that Server accessed 
+by other computers and may not be installed via file sharing on a 
+local area network file system.  
+
+Connection Basis (for DataDirect Connect for JDBC only):  
+If the Product is licensed on a Connection basis, then a license 
+fee must be paid for both the maximum number of simultaneous 
+Connections utilized by the Server and the maximum number of 
+processors ("CPUs") utilized by the Server whether or not such 
+access is simultaneous or consecutive. For the purposes of this 
+provision only a "Connection" shall be defined as the driver state 
+after a successful call to the DriverManager.getConnection method 
+or the driver's Driver.connect, DataSource.getConnection, 
+ConnectionPoolDataSource.getPooledConnection, 
+XADataSource.getXAConnection, or 
+ManagedConnectionFactory.createManagedConnection methods and 
+before termination of this state, normally through a successful 
+call to the driver's Connection.close, PooledConnection.close or 
+ManagedConnection.destroy methods.  Servers utilizing dual core 
+processing (or multiple core processing) or other multi-processor 
+technology shall have each core processor count as one (1) CPU. 
+The Product may only be used by Server-based applications running 
+on that Server accessed by other computers and may not be installed 
+via file sharing on a local area network file system.  
+
+Connection Basis (for DataDirect Connect for ADO.NET only):  
+If the Product is licensed on a Connection basis, then a license 
+fee must be paid for both the maximum number of simultaneous 
+Connections utilized by the Server and the maximum number of 
+processors ("CPUs") utilized by the Server whether or not such 
+access is simultaneous or consecutive. For the purposes of this 
+provision only a "Connection" shall be defined as the provider state 
+after a successful call to the Open method in the 
+System.Data.Common.DbConnection class or the 
+DDTek.DB2.DB2Connection class or the 
+DDTek.Oracle.OracleConnection class or the 
+DDTek.SQLServer.SQLServerConnection class or the 
+DDTek.Sybase.SybaseConnection class and before termination of this 
+state, normally through a successful call to the Close method in the 
+System.Data.Common.DbConnection class or the 
+DDTek.DB2.DB2Connection class or the 
+DDTek.Oracle.OracleConnection class or the 
+DDTek.SQLServer.SQLServerConnection class or the 
+DDTek.Sybase.SybaseConnection class.  Servers 
+utilizing dual core processing (or multiple core processing) or 
+other multi-processor technology shall have each core processor count 
+as one (1) CPU. The Product may only be used by Server-based 
+applications running on that Server accessed by other computers and 
+may not be installed via file sharing on a local area network file 
+system. 
+
+Core Licenses:  A Product licensed on a "Core" basis grants Licensee 
+the right to run the Product on a single Core on a single server.  
+The total number of Cores on the machine may not exceed the total 
+number licensed to Licensee. Additional Core License(s) are required 
+for each Core of the server on which the Product runs, including, 
+without limitation, servers configured for disaster recovery, load 
+balancing, clustering, development, testing and reporting.  
+
+For purposes of the "Core" license model:
+
+ "Core" means a core of a CPU as allocated by Licensee made up of 
+an independent processor combined onto a single integrated circuit 
+or silicon chip, in both virtualized and/or non-virtualized 
+environment, and regardless of whether used in a production or 
+non-production (e.g. test, development) environment.
+
+ "CPU" means a computer processing unit, also known as a processor 
+or microprocessor. It can contain multiple cores in both virtualized 
+and/or non-virtualized environment.
+
+CPU:  A CPU License grants Licensee the right to run the Product, or 
+an application which can access the Product, on a single core 
+processing unit ("CPU") on a single server and on a single Platform. 
+Each processor core of a multiple core processor in a server shall 
+count as one (1) CPU.  Additional CPU License(s) are required for each 
+CPU that runs the Product, including, without limitation, servers 
+configured for disaster recovery, load balancing, clustering, 
+development, testing and reporting. A CPU License may not be 
+transferred from one CPU or one Platform to another. 
+
+Developer:   A Developer License limits Licensee's access and use of 
+the Product to internal application development and support purposes 
+only.  If the license is for components of the Product only, then 
+such right is limited to such components.   Licensee shall be 
+further subject to the license terms of the appropriate license 
+model for the Product set forth in this Exhibit A.  A Developer 
+License may not be transferred. 
+
+Disaster Recovery:  A Disaster Recovery License shall only be used 
+by Licensee for the sole purpose of application recovery in the 
+event a system fails or crashes or the Product or database files 
+become corrupt.  Licensee shall be further subject to the license 
+terms of the appropriate license model for the Product set forth 
+in this Exhibit A. A Disaster Recovery License may be transferred 
+from one server or CPU to another with prior notice to Progress so 
+long as such change is permitted by the underlying license model.  
+No Disaster Recovery license is required for a switch from a 
+primary server to secondary server so long as the primary server 
+is permanently disabled.  However a Disaster Recovery license is 
+required for any other temporary reassignment between the primary 
+server and any other server.  The foregoing transfer right shall 
+not affect the assignment prohibition set forth in Section 2.10 
+of this Agreement.
+
+Evaluation:  If a Product is licensed on an evaluation basis, 
+the Product may be used by Licensee solely for evaluation and 
+testing purposes and not for deployment or production purposes 
+for a period of fifteen (15) days from download or receipt 
+(as the case may be) unless a different term is listed in an Order.  
+THE WARRANTIES SET FORTH IN SECTION 3 OF THE AGREEMENT DO NOT APPLY.  
+PROGRESS MAKES NO WARRANTIES WITH RESPECT TO A PRODUCT LICENSED ON 
+AN EVALUATION BASIS, EXPRESS, IMPLIED, OR ARISING BY CUSTOM OR 
+TRADE USAGE, AND SPECIFICALLY MAKES NO WARRANTY OF INFRINGEMENT, 
+MERCHANTABILITY OR OF FITNESS FOR A PARTICULAR PURPOSE.  Licensee 
+shall be further subject to the license terms of the appropriate 
+license model for the Product set forth in this Exhibit A.  
+
+z/OS Operating System Image Basis:  If the Product is licensed to 
+Licensee on an z/OS Operating System Image basis, then a license 
+fee must be paid for the number of z/OS Operating System Images 
+where the Product is installed.  Licensee shall identify the number 
+of z/OS Operating System Images where the Product is installed and 
+provide the information to Progress.
+
+Testing and Staging License:  A Testing and Staging License grants 
+Licensee the right to use the Product for internal quality assurance 
+testing purposes only and Licensee may not deploy the Product in a 
+production environment.  Licensee shall be further subject to the 
+license terms of the appropriate license model for the Product set 
+forth in this Exhibit A.  A Testing and Staging License may not be 
+transferred.
+
+Workstation Basis:  If the Product is licensed on a Workstation basis, 
+each Workstation using or accessing the Product must be licensed.  
+A license must be purchased for each Workstation using or accessing 
+the Product.  A "Workstation" shall be defined as a computer that is 
+operated, either attended or via remote access, by one person at a 
+time, and cannot be used by more than one person, directly or 
+indirectly, simultaneously.  In no event shall the number of 
+workstations utilizing or accessing the Product exceed the number of 
+Workstations identified in the Order Letter.
+
+THIRD PARTY TERMS AND RESTRICTIONS:
+
+The Product may contain or be accompanied by certain third-party 
+components which are subject to additional restrictions.  These 
+components, if any, are identified in, and subject to, special 
+license terms and conditions set forth in either the "[readme].txt" 
+file or the [notices.txt] file accompanying the Product ("Special 
+Notices"). The Special Notices include important licensing and warranty 
+information and disclaimers.  In the event of conflict between the 
+Special Notices and the other portions of this Agreement, the Special 
+Notices will take precedence (but solely with respect to the 
+non-proprietary third party component(s) to which the Special Notice 
+relates). 
+
+PROGRESS MAINTENANCE AND SUPPORT PLAN (IF ANY):
+
+As indicated in the applicable Order. 
+
+
+EULA -- Connect Products (revised 08/06/10)
+

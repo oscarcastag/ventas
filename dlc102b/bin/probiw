@@ -1,0 +1,4 @@
+#!/bin/sh
+DLC=${DLC-/dlc/dlc102b};export DLC
+PROSHUT=${PROSHUT-$DLC/bin/_mprshut}
+$PROSHUT "$@" -C biw 2>&1 

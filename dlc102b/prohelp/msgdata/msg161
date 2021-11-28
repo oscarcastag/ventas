@@ -1,0 +1,71 @@
+8001 "SYSTEM ERROR: Internal inconsistency. Could not locate index information for table '<table>', index number <indexnum>. (8001)" "The Progress compiler referenced an index for the cited table, but then later was unable to locate the index information. Please contact Progress technical support." "c" ""
+8002 "PROFILER:TRACING attribute value too large to extract. Increase -s. (8002)" "You attempted to read the PROFILER:TRACING attribute, but there was not enough room on the -s stack to extract it. Increase your -s startup parameter." "p" ""
+8003 "PROFILER:TRACE-FILTER attribute value too large to extract. Increase -s. (8003)" "You attempted to read the PROFILER:TRACE-FILTER attribute, but there was not enough room on the -s stack to extract it. Increase your -s startup parameter." "p" ""
+8004 " <routine>: <reason>  (8004)" "Schema management function <routine> encountered an unexpected failure, described by <reason>. Probable cause is internal error. 
+" "" ""
+8005 " <routine>: <reason> (8005)" "Schema management function <routine> encountered an unexpected failure, described by <reason>. Probable cause is internal error. " "" ""
+8006 " <routine>: column <<column name> in schema metadata not known for schema table# <table number>. (8006)" "Schema management function <routine> encountered an unexpected failure, not finding a schema column name in its internal schema tables. The schema table in use has table number  <table number>. [schema bigger than name vector] 
+Probable cause is internal error." "" ""
+8007 "Application Service <application service> Not Found. (8007)" "A requesting application requested an AppServer that supports the application service specified by <application service>.  There are no AppServers registered at this NameServer for the application service that was specified.  " "" ""
+8008 "Host <host name> Is Not Known. (8008)" "The multicast groupname that was specified is invalid. " "" ""
+8009 " <routine>: columns expected in schema metadata not known for schema table# <table number> [ ,  ]."" (8009)" "Schema management function <routine> encountered an unexpected failure, not finding expected column names in the schema for a particular table. The schema table in use has table number <table number>.
+Probable cause is internal error." "" ""
+8010 " <routine>: <reason> (<reason code>) (8010)" "Schema management function <routine> encountered an unexpected failure, described by <reason> and by <reason code>. 
+Probable cause is internal error." "" ""
+8011 " <routine>: <reason>, table# = <table-number> (<reason code>, <return code>) (8011)" "Schema management function <routine> encountered an unexpected failure, described by <reason> and by <reason code>, and <return code>. The schema table failing is given by <table-number>. 
+Probable cause is internal error." "" ""
+8012 " A version <new version> client may not modify schema on a version <old version> database. (8012)" "A version <new version> client can update the schema for a database created or converted to version <new version>. 
+A version <new version> client cannot update the schema for a database from prior version <old version>.
+[This message not currently used. sfMSG100 used instead.] " "" ""
+8013 "Could not open Dynamic Library: <libraryName> (8013)" "" "" ""
+8014 "DLL Error : <dllerror> (8014)" "syserr " "" ""
+8015 "Code page error: Cannot convert from  to (328) (8015)" "There is a codepage mismatch.
+ " "" ""
+8016 "
+Target db has different Records/Block than source for area: """". (8016)" "The target database has different Records/Block than the source database for this specific area.  Remove the target area and add a new area with the same records/block as the source.   " "D" ""
+8017 "
+Target db Records/Block: 
+Source db Records/Block: 
+" "" "D" ""
+8018 "Structure File Creation Failure for Target Database. (8018)" "syserr" "D" ""
+8019 "Expected ai file number  but file specified is  in sequence. (8019)" "An attempt is being made to apply an after-imaging file out of sequence." "" ""
+8020 "An incomplete client request. (8020)" "The client stopped sending input data in the middle. That could be the result of an interruption on the client side. " "" ""
+8021 "The server received a STOP request. (8021)" "The client sent a message to the AppServer to stop sending output data. That could be the result of hitting CTRLC at a 4GL client, or calling the _cancelAllRequests() method at a non 4GL client or any other interruption (such as an error) at the client side." "" ""
+8022 "Failed to delete procedure . (8022)" "An error occurred when trying to delete the specified procedure.
+ " "" ""
+8023 "AppServer 4GL condition occurred. Detailed error messages might be found in the broker's logs. (8023)" "AppServer 4GL condition occurred. Detailed error messages might be found in the broker's logs. " "" ""
+8024 "It is not allowed to set SERVER-CONNECTION-BOUND-REQUEST to 'yes' in the startup  procedure of a stateless server. (8024)" "The AppServer can be bound to a client. It is meaningless to bind
+it before there is any client connected to it. " "" ""
+8025 " <procedure name> <procedure type> procedure ended with an ERROR condition. (8025)" "This message is printed in the AppServer's log when a: startup,       shutdown, connect, disconnect, activate or deactivate procedure raised an ERROR condition.     " "" ""
+8026 " <procedure name> <procedure type> procedure ended with an STOP condition. (8026)" "This message is printed in the AppServer's log when a: startup,       shutdown, connect, disconnect, activate or deactivate procedure raised a STOP condition.     " "" ""
+8027 " <procedure name> <procedure type> procedure ended with an QUIT condition. (8027)" "This message is printed in the AppServer's log when a: startup, shutdown, connect, disconnect, activate or deactivate procedure raised a QUIT condition." "" ""
+8028 "Table  <table name> mismatch: The client data type of field  does not match the definition on the AppServer. (8028)" "Temp-table parameters match only if they have the same signature. An  example of nonmatching temp-table parameters: The caller's temp-table  signature and the called procedure temp-table signature are         (respectively):                                                     {char, char, char} and {char, int, char}. If the mismatch is between a non 4GL client (Java or ActiveX) and AppServer 4GL code, then the typical reason for the mismatch is a modified 4GL temp-table without client proxies rebuilt.       " "" ""
+8029 "Table <table name> mismatch: The extent number of field  does not match the local definition. (8029)" "Temp-table parameters match only if they have the same signature. An  example of nonmatching temp-table parameters: The caller's temp-table  signature and the called procedure temp-table signature are (respectively):
+ {char, int[5], char} and {char, int[3], char}.
+If the mismatch is between a non 4GL client (Java or ActiveX) and   AppServer 4GL code, then the typical reason for the mismatch is a   modified 4GL temp-table without client proxies rebuilt.          " "" ""
+8030 "Parameter number  (table <table name>) mismatch. Has <field#> fields - client schema  has <fields#> fields. (8030)" "Temp-table parameters match only if they have the same signature. An  example of nonmatching temp-table parameters: The caller's temp-table  signature is: {char, int, char}, and the called procedure temp-table   signature is: {char, char, int}.
+If the mismatch is between a non 4GL client (Java or ActiveX) and AppServer 4GL code, then the typical reason for the mismatch is a modified 4GL temp-table without client proxies rebuilt.    " "" ""
+8031 "The client's code page in unknown. No code page conversions will be made. (8031)" "The AppServer did not get from the client a legal code page name.     No code page conversions will be performed for that client.  " "" ""
+8032 "Code page error: Cannot convert from <code page> to <code page>. (8032)" "The AppServer fails to convert text from and to the client's code page.  No code page conversions will be performed for that client.    " "" ""
+8033 "No code page conversions will be made. (8033)" "See explanation to message 8032. " "" ""
+8034 "WARNING: Client's code page is unknown. No text conversions will be performed. (8034)" "The AppServer did not get from the client a legal code page name.
+No code page conversions will be performed for that client. " "" ""
+8035 "Insufficient stack space. Increase the -s startup parameter. <number of bytes> bytes are needed, Only <number of bytes> are available. (8035)" "Increase the -s startup parameter to the size suggested in the error message.
+" "" ""
+8036 "Not enough memory  bytes. Source is  bytes. (8036)" "The application server failed to convert text from one code page to another because of lack of memory. The size of the text field should be reduced (by, for example, storing it in an array of CHAR fields). " "" ""
+8037 "ubroker version: <ubrokerbuildid> (328) (8037)" "" "" ""
+8038 "ubroker version: <ubrokerbuildinfo> (8038)" "This identifies the internal build version of the ubroker.
+" "" ""
+8039 "main() shutdown sleep InterruptedException: <InterruptedException_string> (8039)" "" "" ""
+8040 "main() ubListener.join() InterruptedException: <InterruptedException_string> (8040)" "An unexpected error occured while waiting for the broker to shut down." "" ""
+8041 "ubroker <ubrokerbuildinfo> done. (8041)" "The broker has finished executing." "" ""
+8042 "RMI export failed: URL = <rmiURL> (8042)" "The broker failed to bind to the Admin Server.  " "" ""
+8043 "Started listener thread: <listenerThreadName> (8043)" "The broker thread which listens for client connections has started." "" ""
+8044 "Could not listen on port: <portNum> (8044)" "The broker failed to reserve the specified port.  The most likely cause for this error is that the port is in use by another process.  Verify that this port is available and restart the broker." "" ""
+8045 "Listening ...  (8045)" "The broker is waiting for client connections.
+" "" ""
+8046 "accept() on port <portNum> is interrupted: <InterruptedIOException_string> (8046)" "The broker was interrupted while waiting for a client connection." "" ""
+8047 "accept() on port <portNum> failed: <IOException_string> (8047)" "The broker's attempt to listen for client connections on the specified port was unsuccessful.  The most likely cause for this failure is that the port is in use by another process.  Verify that the port is available, and restart the broker." "" ""
+8048 "Shutdown complete. (8048)" "All shutdown processing has been completed." "" ""
+8049 "Processing shutdown request ... (8049)" "The broker has initiated shutdown processing." "" ""
+8050 "Shutting down <numClients> client threads ... (8050)" "The broker has detected active client connections during the shutdown process, and has initiated their termination." "" ""

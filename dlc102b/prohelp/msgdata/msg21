@@ -1,0 +1,77 @@
+1001 "Schema change complete, restarting session. (1001)" "Changes have been made to the schema that require aborting execution and restarting. " "" ""
+1002 "Incorrect or unsupported option <option> in function <name> (1002)" "The named function was called with an invalid parameter value " "" ""
+1003 "Cycle in procedure calls detected in '<procedure>' while executing ASSIGN trigger for <table>.<field>. (1003)" "A cycle was detected in your system of database triggers. Specifically, an ASSIGN trigger was executing and caused another database trigger to execute; the second database trigger tried to change the value of the field for which the first ASSIGN trigger was executing. Note that it is not considered a cycle if the ASSIGN trigger itself modifies the field for which the ASSIGN trigger is executing. It is only a cycle if another trigger attempts to modify the field while the first trigger is already executing. " "p" ""
+1004 "Procedure <proc> passed no parameters to <proc>, which expected some. (1004)" "A called procedure had at least one runtime parameter declared, but the calling procedure did not pass any parameters. Check the parameters in both the RUN statement and in the called procedure. " "" ""
+1005 "Procedure <proc> passed parameters to <proc>, which didn't expect any. (1005)" "A procedure passed runtime parameters to a subprocedure that did not declare any parameters. " "" ""
+1006 "<program name> Database <dbname> not connected. (1006)" "You were unable to connect to the database. Check your network parameters.  Also, you might have tried to run an r-code file that was compiled for a database with one name, under a database that has a different name.  To resolve the latter, use an alias for the database with the different name.  If the databases have the same structure, then the r-code can still run. " "" ""
+1007 "SYSTEM ERROR: unexpected wakeup from wait code <number>, user <user-number> (1007)" "syserr " "" ""
+1008 "<program name> non-PROGRESS database <name> unknown. (1008)" "You are referencing a non-PROGRESS database that is not known.  Use a logical name or an alias when connecting the database. " "" ""
+1009 "DISCONNECT:  Database <name> is unopen or unknown. (1009)" "You issued a disconnect for a database that is not connected.  Use the NO-ERROR option on the DISCONNECT statement to suppress this message. " "" ""
+1010 "** Cardinality violation: query returned more than one row. (1010)" "Neither an SQL subquery preceded by a comparison operator (=, >, etc., as opposed to IN), nor a SELECT INTO query, can return more than one row that satisfies the query.  Either supply a WHERE or HAVING clause that finds only one row, or use a quantified comparision operator for subquery processing, for example, Cust-Num = ANY (SELECT ...). " "" ""
+1011 "** SQL table <name> can be modified only through SQL DDL statements. (1011)" "You cannot alter the file definitions or privileges for files that were created using the SQL CREATE TABLE statement, except by using SQL DDL statements, such as GRANT and ALTER TABLE. " "" ""
+1012 "** Warning -- database <name> is already connected. (1012)" "You tried to connect to a database with the same logical name twice. The connect is not actually done. Use the CONNECTED function to test whether the database is connected before using CONNECT, or use the NO-ERROR option on the CONNECT statement. If you disconnected a database before issuing the CONNECT, note that the disconnection may have been deferred until the end of the transaction or until there are no longer any active procedures that depend on the database. " "" ""
+1013 "** Insufficient privileges to create view. (1013)" "You must have SELECT privilege on all underlying tables in order to create a view. " "" ""
+1014 "** SELECT INTO cannot supply GROUP BY/HAVING clauses.   (1014)" "The ANSI SQL standard does not allow a singleton SELECT .. INTO statement to supply a GROUP BY or HAVING clause.  Remove the GROUP BY or HAVING clause from your SELECT statement. " "" ""
+1015 "Database <name> was disconnected. (1015)" "The named database was disconnected and is no longer available to your PROGRESS session.  You might be to reaccess the database by issuing a CONNECT statement. There are several possible reasons the database was disconnected. For example, the database server may have been shut down, or the PROSHUT program was used to disconnect you. " "" ""
+1016 "Unknown name, possibly physical name when should be logical <name>. (1016)" "A reference to a database in any statement other than a CONNECT must contain the LOGICAL name, not the PHYSICAL name.  For example:   DISCONNECT mydb.           /*correct*/   DISCONNECT c:\x\mydb.db.   /*not correct*/ " "" ""
+1017 "Only 100 fields can have the same name. (1017)" "You have more than 100 tables with the same field.  Qualify references to that field with the table name. " "" ""
+1018 "Database physical names <name> and <name> do not match.  No connect. (1018)" "You tried to connect two databases with different names at once, using the same logical name for both.  Disconnect one of the databases before connecting the other if you need to use the same logical name. Remember that a database disconnect does not take effect until the transaction has terminated, and all the currently executing PROGRESS r-code files that reference that database have completed. " "" ""
+1019 "A server for <database-name> is already active. (1019)" "A server for the specified database has already been started.  It is not possible to start multiple servers on a database " "" ""
+1020 "Could not extract _Db-type. (1020)" "When auto-connecting to a database, the _Db-type field must be filled in with PROGRESS, ORACLE, etc. " "" ""
+1021 "** Database <db name> not connected. (1021)" "You must connect the named database before you compile this procedure. " "C" ""
+1022 "** Ignoring invalid CASE-SENSITIVE keyword for non-character column. (1022)" "You can only specify the keyword CASE-SENSITIVE for a CHAR column. " "C" ""
+1023 "SYSTEM ERROR: invalid wait code <number> (1023)" "syserr " "" ""
+1024 "You must have your database backed up before running the conversion. (1024)" "A full backup should be performed on a database prior to running the conversion utility.  If the conversion process should fail, the resulting database may be unusable.  The backup copy of the database can be used to recover from the failed conversion process. " "m" ""
+1025 "** Table or view name <name> is in databases <db name> and <db name> (1025)" "The named table or view name is ambiguous. It is located in at least two connected databases. Qualify the references to this table or view with the correct database name. " "C" ""
+1026 "Have you done this (y/n) ?" "This message asks you to confirm that you have completed a task, such as backing up your database before trying to convert it from one version to another.  This is because an error (out of disk space,etc.) during conversion may destroy your database. " "m" ""
+1027 "** Column <name> not in any table in current scope. (1027)" "The named column is not present in any table in the current FROM clause, or in any other FROM clause that is part of the scope of this query. " "" ""
+1028 "SYSTEM ERROR: Rollforward Apply AI note, BKUPDCTR=<number>, note updctr=<number>. (1028)" "This message occurs during a PROGRESS roll forward operation.  It indicates that an unexpected system error has occurred.  Please contact your dealer or Progress Software Corporation. " "R" ""
+1029 "SYSTEM ERROR: Note leading and trailing counts don't match   (1029)" "" "" ""
+1030 "Invalid transaction operation code (1030)" "The operation code was not 'commit' or 'rollback' " "" ""
+1031 "** Invalid language table <number> requested. ENGLISH will be used. (1031)" "The table requested was not found.  PROGRESS still functions if this message displays, but the language it will use is the default language, which is English. " "D" ""
+1032 "** You cannot execute an SQL CREATE statement on a non-PROGRESS database. (1032)" "The current default (DICTDB) database is not a PROGRESS database. You can execute SQL DDL statements only against PROGRESS databases. " "C" ""
+1033 "** This version of Progress cannot make schema changes to a Version 5 or Version 6 database. (1033)" "You have a version mismatch between your database (that was created under Progress Version 5 or 6), and your Progress procedure (that is executing under Progress Version 7). The procedure is attempting to set schema values that are defined only for Version 7. " "D" ""
+1034 "Looping for debugging, user # <number>. (1034)" "For debugging only. If requested via the monitor, the process will loop. " "" ""
+1035 "Invalid cursor state (1035)" "The cursor was not in a valid state for the operation.  For example, the cursor was already open (on an open call) " "" ""
+1036 "Operation cancelled (1036)" "" "" ""
+1037 "SYSTEM ERROR: proundo called picb= plbi= pnote= len= (1037)" "syserr " "" ""
+1038 "Case table for code page <code-page> and case name <case-name> was not found in <filename>. (1038)" "The executable is attempting to load up and down case tables for the code page designated by the -charset parameter and the case name designated by the -cpcase parameter. The default case name is ""basic"". It cannot find an appropriate table to load from the file designated by the -convmap parameter. " "" ""
+1039 "Unable to read up and down case tables for code page <code-page> and case name <case-name> from <filename>. (1039)" "The executable is attempting to load up and down case tables for the code page designated by the -charset parameter and the case name designated by the -cpcase parameter.  The default -cpcase value is ""basic"". It cannot find an appropriate table to load from the file designated by the -convmap parameter. " "" ""
+1040 "SYSTEM ERROR: Not enough database buffers (-B). (1040)" "The following error:
+
+   SYSTEM ERROR: Not enough database buffers (-B). (1040)
+
+can occur when PROGRESS can not find an available buffer in the
+database buffer pool in shared memory to store data into, even after trying several times.
+
+If all buffers are filled and nothing can be evicted from the buffer pool because *every* buffer is locked, this message will occur and the database may shutdown.
+
+This error should be rare and only occur where users are placing a
+heavy workload on a database with a small -B.  A larger -B and running APW's should prevent this error from occurring. Currently the Workgroup Database Server do not have APW. See kbase 15340.
+
+A -B of 500 to 1000 is considered a small size for the database
+buffer pool.  If this error occurs, increase -B to at least 2000.
+
+Running Asynchronous Page Writers (APW's) can help prevent this
+error by ensuring that modified buffers are flushed to disk thus
+making more buffers available.
+
+Upon restarting the database after recieving this error (presumeably with a larger value for -B) crash recovery will occur and the database can be accessed normally again.  This error does *not* indicate any kind of database corruption.
+
+There is a bug associated with this error in version 7.  This bug is resolved in the following versions,
+
+NLM                  7.3C08
+HP825                7.3D03
+IBM6000              7.3D03
+SOLARIS              7.3D03
+Other UNIX platforms 7.3C11" "" ""
+1041 "SYSTEM ERROR: bklok: inconsistent pointers, ptbl <val> oldbktbl <val> (1041)" "syserr " "" ""
+1042 "Conversion canceled. (1042)" "You have not backed up your database, so it is not safe to proceed with the conversion. " "m" ""
+1043 "Collation table for code page <code-page> and collation name <collation-name> was not found in <filename>. (1043)" "The executable is attempting to load collation tables for the code page designated by the -charset parameter and the collation name designated by the -xc parameter. The default collation name is ""basic"".  It cannot find an appropriate table to load from the file designated by the -convmap parameter. " "" ""
+1044 "Unable to read collation tables for code page <code-page> and collation name <collation-name> from <filename>. (1044)" "The executable is attempting to load collation tables for the code page designated by the -charset parameter and the collation name designated by the -xc parameter.  The default -xc value is ""basic"". It cannot find an appropriate table to load from the file designated by the -convmap parameter. " "" ""
+1045 "Unrecognised Sybase datatype <datatype> (1045)" "" "" ""
+1046 "SYSTEM ERROR: Roll forward of file <file name> did not complete normally (1046)" "" "" ""
+1047 "RMS character value too large. (1047)" "An RMS character field contains more characters than can be supported by PROGRESS. PROGRESS does not truncate character strings. " "d" ""
+1048 "SYSTEM ERROR: End of last note read is at file offset  (1048)" "" "" ""
+1049 "SYSTEM ERROR: write to <backup device> failed, errno = <code> (1049)" "" "" ""
+1050 "RMS bit position not between 0 and 7. (1050)" "The bit offset in an RMS bit field cannot be larger than 7. This offset indicates where the bit string begins in the first byte of the string.  Double-check the schema information for this field. " "d" ""

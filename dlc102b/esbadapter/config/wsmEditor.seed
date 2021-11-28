@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Domain xmlns="http://www.sonicsw.com/mf" xsi:schemaLocation="http://www.sonicsw.com/mf MFConfigurationElements.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="[[ds-domain]]">
+	<Directory name="/">
+		<Directory name="/_MFLibrary/editors">
+			<ConfigElement>
+				<ElementID name="/_MFLibrary/editors/WSM_1.0" type="MF_EDITOR" version="1" creationTimestamp="1" releaseVersion="1.0"/>
+				<AttributeSet>
+					<Attribute name="EXTENSION" type="string" value="wsm"/>
+					<Attribute name="DESCRIPTION" type="string" value="OpenEdge WSM Editor"/>
+					<Attribute name="CLASS" type="string" value="com.progress.esb.tools.OEServiceDefResourceEditor"/>
+				</AttributeSet>
+			</ConfigElement>
+		</Directory>
+	</Directory>
+</Domain>

@@ -1,0 +1,111 @@
+#!/bin/sh
+# Progress WebServices prosoapview Command Line Util
+PROG=`basename $0`
+
+# prosoapview is a tool for tracking http and SOAP message traffic to 
+# and from a Web Services server 
+# Prosoapview acts as a proxy web server so that you only have to specify 
+# the port to listen on.  The HTTP request will automatically be forwarded
+# to the correct destination.  
+# The default port will be 4444 if you do not specify a specific port.
+#
+# usage: prosoapview [<listen_port>]
+#
+# Environment variables that must be set in order
+# to run the prosoapview script
+
+DLC=$DLC; export DLC
+
+# make sure the install directory is real.
+if [ "$DLC" = "" ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Install directory is invalid."
+    echo
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to a valid directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    exit 1
+fi
+
+# set the java environment
+if [ ! -f $DLC/bin/java_env ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "java_env could not be found."
+    echo
+    echo "JAVA environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the JAVA environment 
+. $DLC/bin/java_env
+
+if [ ! -f $JREHOME/bin/$JVMEXE ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Java Virtual Machine could not be found."
+    echo
+    echo "JREHOME environment variable may not be set correctly."
+    echo "Set JREHOME variable to a valid directory."
+    echo
+    echo "JREHOME setting: $JREHOME"
+    echo
+    exit 1
+fi
+
+if [ ! -f $DLC/java/ext/waspj4c.jar ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "wasp4c.jar could not be found."
+    echo
+    echo "DLC environment variable may not be set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    exit 1
+fi
+
+
+# Set a default DISPLAY value if one is not already defined.
+if [ "$DISPLAY" = "" ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "DISPLAY variable not set."
+    echo
+    echo "DISPLAY environment variable may not be set correctly."
+    echo "Set the DISPLAY environment variable to the correct X-Window display."
+    echo
+    exit 1
+fi
+
+# Add the SOAPSpy application to the classpath.
+_CP="$DLC/java/ext/waspj4c.jar:$CLASSPATH"
+_PORT=4444
+
+echo "Starting the prosoapview application."
+
+if [ $# -ne 0 ]
+then
+	if [ "$1" = "-h" ]
+	then
+		echo 'usage: prosoap [<listen_port>]'
+	else
+		_PORT=$1
+	fi
+fi
+exec $JVM -classpath $_CP -Dtorun=com.idoox.wasp.tools.soapspy.ui.JSpyFrame -Dwasp.location=$WASPC_HOME -Dwasp.config.location="" com.idoox.build.ant.Runner --port $_PORT
+

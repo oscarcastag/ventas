@@ -1,0 +1,124 @@
+201 "** Unknown Field or Variable name - <field-name>. (201)" "PROGRESS was expecting a field name or a variable name, and you gave it a misspelled name, or perhaps a filename or keyword.  PROGRESS could not find the name you gave in its list of program variables, or in the Data Dictionary. Also note that a character constant with missing quotes may get interpreted as a field name. For example,    NAME = JOE   ...... JOE is looked up as a field name.  NAME = ""JOE"" ...... JOE is taken to be a constant value.
+
+Another case where you can get this error is when you are using type-name syntax for referencing a static member of a class.  If you supply an invalid type name, e.g., cme.MyABLClass:staticMeth(), where ""cme"" should be ""Acme"", you will get ""Unknown Field or Variable - cme""   
+
+You can also get it if you supply an invalid string attribute for quoted string, e.g., DISPLAY ""Hi"":Rx5.  The x is not valid.  You'll get Unknown Field or Variable ""Hi"".  This is because when we see the colon after the quoted string, it could be a string attribute or it could be static type-name syntax.  We used to get ""Invalid String Attribute right away.  But now we have to keep analyzing.  Ultimately we figure out that ""Hi"" is not a field, variable or type-name.  But by then, we've lost the context that allows us to give the ""Invalid String Attribute"" error.
+
+If this error occurs while opening a procedure in the AppBuilder it may be for one of the following reasons:
+
+1) The procedure being opened contains a database field that has been removed from the database.  To resolve this you need to add the field back to the database so that the procedure can be opened in the AppBuilder.  You can then remove the field from the procedure and then from the database.
+
+2) The procedure being opened contains a database field and that field name has changed in the database.  To resolve this you need to re-name the field in the database back to its original name so that the procedure can be opened in the AppBuilder.  You then need to remove the database field from the procedure, re-name the field in the database back to its modified value and then add it back to the procedure with the AppBuilder.
+
+3) A SmartDataViewer is being opened and a field on that SmartDataViewer has been removed from its Data Source (SmartDataObject).  To resolve this you need to add the field back to the SmartDataObject so that the SmartDataViewer can be opened in the AppBuilder.  You can then remove the field from the SmartDataViewer and then from the SmartDataObject.
+
+4) A SmartDataViewer is being opened and a field on that SmartDataViewer has been re-named in its Data Source.  To resolve this you need to re-name the field in the SmartDataObject back to its original value so that the SmartDataViewer can be opened in the AppBuilder.  You then need to remove the field from the SmartDataViewer, re-name the field in the SmartDataObject back to its modified value and add the field back to the SmartDataViewer." "S" ""
+202 "The path (<path-name>) for <attribute> on the <widget-id> was not found. (202)" "The specified path was not located on the current search path. " "" ""
+203 "** INSERT requires a valid tablename. (203)" "The INSERT statement is really a shorthand way to say:     CREATE <table>.     UPDATE <table>. So its syntax is INSERT <table>. The <table> cannot be a list of fields as it can in UPDATE, SET, etc. " "S" ""
+204 "** No corresponding input field was found for <field-name>. (204)" "In an ASSIGN statement or in a USING phrase, fields given are assumed to have an implicit INPUT keyword in front of them.  For these fields and for any others that appear with the explicit INPUT keyword, you must locate a frame in their block or in a higher enclosing block that contains that field as input data.  This message is caused by the same field being input in two or more frames known in the same block.  The closest instance is chosen, which might not be what you wanted. " "S" ""
+205 "** AT COLON or TO option must be followed by an INTEGER constant. (205)" "AT COLON and TO keywords cannot be followed by a field or variable. For example:        DISPLAY FIELD1 AT 23 WITH SIDE-LABELS. " "S" ""
+206 "The file (<file-name>) for <attribute> on the <widget-id> is invalid on the current system. (206)" "The specified file is not valid on the current OS. This can be because the filename has invalid characters in it or because the file is not found in the working directory, or on the search path if one is used. " "" ""
+207 "SYSTEM ERROR: Too many transactions. (207)" "syserr " "" ""
+208 " ** PROMPT field <field> should be used with INPUT prefix or ASSIGNed. (208)" "The PROMPT statement does not cause a field to be updated with a value.  It merely allows the value to be entered for the field and held as INPUT field, until it is needed.  If you use it as a look-up value, a FIND .. USING will refer to it.  If you use it for assignment, you can refer to it in an ASSIGN statement or assign it to another field using the INPUT prefix:    FLD1 = INPUT FLD2. The SET statement does assign the value entered to the field." "P" ""
+209 "** Cannot find NEXT LEAVE RETRY or UNDO label on appropriate block. (209)" "The label on a branch keyword must be on the current block, or an enclosing block. (that is, on a block whose block start statement is earlier in the program than this statement, and whose END statement is later.) Forward references are not allowed; you can only NEXT, LEAVE, RETRY, or UNDO a block that is currently active.  If the branch is UNDO or RETRY, the label's block start statement must be a FOR or REPEAT, or a DO with the TRANSACTION or ON ERROR keywords. " "S" ""
+210 "SYSTEM ERROR: Attempt to read block <number> which does not exist. (210)" "The Progress DBMS has received a request to read a block which does not exist in the database.  The block requested is either beyond the highest block used in the database or the block number requested was a negative number.  This error may indicate database corruption.  If you cannot restart your database, contact your Progress technical support representative to help determine the extent and cause of the database corruption.  Typically, to recover a corrupted database requires restoring your database from backup and rolling forward your ai file if you have one." "" ""
+211 "** INPUT prefixed field cannot be used in this context. (211)" "A field that has been entered into an input frame can be referred to later as ""INPUT fieldname"".  This form is legal for displays or assignments, but does not make sense for example in a PROMPT or SET statement. " "S" ""
+212 "Unique finds for workfiles are illegal.  Use FIRST, LAST, NEXT, PREV. (212)" "Unique FINDs in PROGRESS require an index.  Since workfiles do not have indexes, unique finds are not allowed. However, unique finds with the recid function are allowed. " "P" ""
+213 "** FIND cannot be processed for a FOR EACH mode record. (213)" """FIND table"" requires that ""table"" has not been found already in an enclosing ""FOR EACH file"" block.  If you are trying to FIND a different record in the same table, use the DEFINE BUFFER statement and FIND from the table into that buffer. " "S" ""
+214 "** WARNING--TRANSACTION keyword given within actual transaction level. (214)" "The TRANSACTION keyword was given, but the real transaction level is at some enclosing block due to an UPDATE or CREATE or other default transaction.  If you intended the transaction to be the enclosing block, move the TRANSACTION keyword.  Otherwise, you might want to use a DO TRANSACTION... END  block around the updates being done in the enclosing block. " "P" ""
+215 "** CREATE cannot be processed for an EACH mode record--<table>. (215)" "The CREATE statement assumes that a new record is being made, and can not carry out this action in the body of a block that uses the FOR EACH method of getting records. " "S" ""
+216 "** Only constant increments or decrements allowed in N to M by K. (216)" "In a header statement (DO, FOR, REPEAT ..) you supplied a phrase ""N to M by K"".  N and M can be constants, expressions and variables. However, the increment K must be a constant. If you want to do this but K must be an expression, then use DO WHILE and make the test yourself in the block with an IF statement. " "S" ""
+217 "** Duplicate name in DEFINE BUFFER, TEMP-TABLE or WORKFILE-<name>. (217)" "You cannot use the same buffer name in more than one DEFINE BUFFER statement in the same procedure.  You cannot use the same workfile name in more than one DEFINE WORKFILE statement, or the same tempfile name in more than one DEFINE TEMP-FILE statement. " "S" ""
+218 "** Duplicate variable, property, or event name--<name>. (218)" "You cannot use the same name in more than one DEFINE VARIABLE, DEFINE PROPERTY, and/or DEFINE EVENT statement in the same procedure or class. " "S" ""
+219 "Could not locate find descriptor for <filename> (219)" " " "" ""
+220 "** FRAME must be followed by a frame name. Do not use keywords. (220)" "You left out the frame name or you chose a name that is a reserved keyword (ROW, WIDTH).  Also, you might have given a constant (quoted string or numeral) for the name. " "" ""
+221 "** No corresponding input variable was found for variable <variable>. (221)" "If the INPUT prefix is used with a variable, or the variable is used in an ASSIGN statement, a USING phrase, or in the NOT ENTERED function, then PROGRESS looks for a frame in the current block or in an enclosing block with that same field as input data.  This error occurs if none is found.  The variable should have been used in a prior PROMPT, UPDATE, DISPLAY or SET statement. " "S" ""
+222 "** Invalid datatype -- sample types are: char, integer, date, logical (222)" "In a DEFINE VARIABLE statement you gave an invalid datatype.      Some valid types are:        character, integer, date, logical, decimal, widget-handle,        recid.. " "S" ""
+223 "** Incompatible data types in expression or assignment. (223)" "Certain operators require special datatypes or agreement of datatypes among operands of an expression (e.g. you may only multiply numeric types, substr only character data, and character data may not be compared or assigned to numeric). These rules can be modified by using the PROGRESS functions to change datatype such as STRING, INTEGER and DATE.  Also, constants are given default datatypes--quoted constants are character, numerals without decimal points are integers, unquoted yes and no are logical, etc." "S" ""
+224 "** Unable to convert constant data. (224)" "You may have given a constant in a statement, for example DATEFIELD = //05/84.  The //05/84 looks like a date, but when conversion to PROGRESS internal format is attempted it fails.  Check your constants for extra decimal points, and your dates for correct form. " "S" ""
+225 "The file (<file-name>) for <attribute> on the <widget-id> is too large for the widget. (225)" "The size of the data in the specified file is too large to be handled by the widget. " "" ""
+226 "A failure occurred while listening for a client connection request. (226)" "The PROGRESS server got a streams network error during t_listen.  The t_error may be found in /usr/include/sys/tiuser.h on most systems. " "" ""
+227 "** Function requires <number> arguments. (227)" "You gave the wrong number of arguments for a function. Check for missing commas between arguments. " "" ""
+228 "** Invalid MESSAGE-UPDATE option. (228)" "The only legal MESSAGE-UPDATE options are AUTO-RETURN and FORMAT. " "S" ""
+229 "** Could not find Index <index-name> in table <table>. (229)" "You gave the USE-INDEX phrase and named an index that is not in the table you named.  Check the spelling of the index and the table, and use DICTIONARY to verify the names. " "S" ""
+230 "** ""<table> of <table>"".  Index fields of table 1 must be fields in table 2. (230)" "Table1 of Table2 is shorthand for         where Table1.fld = Table2.fld The OF phrase causes PROGRESS to look for a field of the same name and datatype in both tables.  It confines its search to unique index fields of either Table1 or Table2.  If a field is an array, it is ignored.  If the common field is in a non-unique index, it is also ignored. " "S" ""
+231 "** Invalid reference to a frame outside its scope. (231)" "Except for the VIEW/HIDE statements, a reference to a frame must refer to a frame in the current block, or in an enclosing block.  Once a block has terminated, (after its END statement), it is no longer legal to refer to frames in it.   This can be fixed by creating an enclosing block around the entire area in which the frame is to be known and attaching the frame to that new block.  This can be done with a DO statement. e.g.    DO WITH FRAME xxx:    etc....        END." "S" ""
+232 "** Missing FOR, FIND or CREATE for a table with <field> in current block. (232)" "The field you gave exists in your database, but you have not referenced its table yet in the current block or in any enclosing block.  You need to reference this before you can reference its fields.  For example:     FOR EACH <table>:     FIND <table>.     CREATE <table>     IF AVAILABLE <table> " "S" ""
+233 "** Insufficient access privilege for Field <field-name>. (233)" "A procedure cannot compile if you do not have at least read permission for all the fields in it. If the field is being updated, you must also have update permission. " "C" ""
+234 "** Insufficient access privilege for table <table>. (234)" "A procedure cannot compile if you do not have at least read access for every table in the request.  If a table is to be updated, deleted from, or created into, you must have those corresponding privileges. " "C" ""
+235 "** Missing file specification after FOR keyword. (235)" "The FOR keyword is reserved for database references. For example:    FOR EACH CUSTOMER:    REPEAT FOR ITEM:    DO FOR ITEM:    FOR EACH ORDER WHERE etc...... In the examples, CUSTOMER, ITEM and ORDER are file names that are required with the FOR syntax. You cannot say:    FOR COUNTER < 5:             (invalid) Instead say:       REPEAT WHILE COUNTER < 5:    (valid)" "S" ""
+236 "Illegal nested FOR EACH statements for <filename> (236)" "You cannot have nested FOR EACH statements for the same buffer.  For example:   FOR EACH customer:       FOR EACH customer:       END.   END. is not permitted.  Use a different buffer name for each FOR EACH or change your program so they are not nested. " "" ""
+237 "** Cannot understand WHILE phrase. (237)" "The WHILE keyword must be followed by an expression. Examples:   DO WHILE COUNTER <= 100:               ... counter = counter + 1...             END.             REPEAT WHILE IDX < EXTNT AND OK:               ...if...then ok = false...             END. " "S" ""
+238 "** Cannot understand field assignment. (238)" "You typed only part of a field assignment. For example: ""FLD1 = ."" This could be caused by a missing parameter.  For example:         FLD1 = {3}.         If the third parameter to the procedure is not         passed, {3} will be a blank and         this message displays. " "S" ""
+239 "** This title is too wide for the frame: . (239)" "The title specified for the frame is too long for the width specified for the frame.  For example,     display ""hi"" with title ""way too long"" width 5. will cause this message to appear. " "S" ""
+240 "** Missing table name in FIND statement. (240)" "Correct syntax is:                     
+FIND [ FIRST | LAST | NEXT | PREV ] <table name> ....
+
+Examples:
+--------  
+FIND FIRST customer.. 
+
+FIND customer... 
+
+FIND PREV order... 
+
+You might have left out the table or supplied it in an unexpected position in the statement. Also, the table cannot be a constant (quoted string) or a reserved keyword. " "S" ""
+241 "** CREATE must be followed by a table name. (241)" "The syntax for CREATE syntax is:
+
+CREATE table-name... 
+
+Example:
+-------
+
+CREATE item.
+ 
+The above statement creates a template item record. You cannot give a list of fields in a CREATE.  Use the UPDATE, SET, ASSIGN, or assignment(=) statements to put field values into the new record. " "S" ""
+242 "** DELETE must be followed by a table name. (242)" "The syntax for DELETE is:   
+
+DELETE <tablename>. 
+
+Example:
+-------          
+
+FOR EACH customer:   
+ DELETE customer.          
+END. " "S" ""
+243 "** Illegal nested block statement reference to table <table> . (243)" "Examples:
+--------
+Illegal:
+
+FOR EACH customer:
+ FOR EACH customer:
+   DISPLAY   CustNum.
+ END. 
+END. 
+ 
+Legal:
+
+DO FOR customer:
+ FOR EACH customer:
+   DISPLAY   custNum.
+ END. 
+END. 
+     " "S" ""
+244 "** Reference to table <table> conflicts with block statement reference. (244)" "Examples:
+
+Illegal
+------
+DO FOR customer:
+ DISPLAY custnum.
+END.
+FIND customer 1.
+
+Legal:
+----
+DO FOR customer:
+FIND customer 1.
+DISPLAY custnum.
+END.  " "S" ""
+245 "Unable to accept client connection request. (245)" "The PROGRESS server was unable to complete a user login.  The t_errno may be found in /usr/include/sys/tiuser.h on most systems. " "" ""
+246 "** <program> One or more END statements is missing. (246)" "If no END statements exist at all in a PROGRESS program, then none are required.  All blocks are assumed to end at the end of the procedure.  However, once you put in the first one, then every DO, REPEAT and FOR statement will require a matching END statement. " "S" ""
+247 "** Unable to understand after -- ""<string>"". (247)" "PROGRESS only understood a part of a statement. Look carefully at your procedure and at <string>.  The problem should be in the next word or special character after <string> ends.  Check the previous statement for a missing terminator (period or colon).  Check for misplaced keywords or constants that are missing quotes. " "S" ""
+248 "** Cannot understand expression involving OR operator. (248)" "PROGRESS identified a left-side of an OR expression but cannot get the right-side.   Example:   FLD1 OR .     The above might be caused by a misplaced period (.) or colon (:), or by a missing parameter that was left as blanks. For example:    FLD1 OR {3}. If parameter 3 is missing, the {3} ends up as blanks. " "S" ""
+249 "** Cannot understand expression involving AND operator. (249)" "PROGRESS identified a left side of an AND expression, but cannot find the right side.  Example:  FLD1 AND .    This might be caused by a misplaced period (.) or colon (:), or by a missing parameter. For example:           FLD1 AND {3}. becomes   FLD1 AND . if there is no third parameter to the procedure. " "S" ""
+250 "** Cannot process comparison in expression. (250)" "Comparison operators are:  <, >, =, <= , >=, <>, lt, gt, eq, le, ge, ne. Only one side of the comparison present.  One side might be missing due to a misplaced period (.) or colon (:), or a missing parameter. For example:           FLD1 = {3}. becomes   FLD1 = . if the third parameter is missing and becomes all blanks. " "S" ""

@@ -1,0 +1,62 @@
+13901 "This codebase cannot copy a 32-bit dbkey database with two-phase commit enabled. (13901)" "64-bit dbkey code cannot copy a 32-bit dbkey dtabase. Use the 10.1A utilities to disable two-phase commit." "" ""
+13902 "This codebase cannot copy a 32-bit dbkey database with JTA enabled. (13902)" "64-bit dbkey code may not copy a 32-bit dbkey database. Use the 10.1A utilities to disable JTA." "" ""
+13903 "An attempt was made to reference property  in an ASSIGN type statement in such a way that an accessor method would be invoked after an assignment to key field ''. (13903)" "Your code has an ASSIGN (or SET, UPDATE, IMPORT, etc.) statement that is referencing a property after that same statement attempts to assign a value to a field that participates in an index. The property you are referencing has an accessor (SET or GET) that has a body implementation, so the reference really means that the accessor method will run. You need to move the reference to the property earlier in the ASSIGN statement so that it happens before the assignment to any key field. Alternatively,  you can split the ASSIGN statement up into multiple statements. " "c" ""
+13904 "Cannot pass a table or dataset BY-REFERENCE or BIND with a target temp-table <name> that is defined SHARED. (13904)" "The BY-REFERENCE/BIND mechanism redirects the compiled static definition of a temp-table or dataset to some other source temp-table or dataset.   If the temp-table or dataset to be redirected is already SHARED, then it can be redirected in a different and incompatible way so this is disallowed. " "" ""
+13905 "Auxiliary database connections are not permitted while a global transaction is active. (13905)" "An attempt was made to connect to an auxiliary database while a global transaction was active.  Connections to auxiliary databases are not permitted while a global transacation is active for the primary connection." "D" ""
+13906 "No Result Set created. Please check CREATE PROCEDURE statement. (13906)" "" "" ""
+13907 "An error occurred reading the SQL properties file. (13907)" "An error occurred reading the SQL properties file. Refer to the documentation for the structure of the properties file." "" ""
+13908 "SYSTEM ERROR: lklocky: illegal record lock request table  rowid  (13908)" "syserr" "D" ""
+13909 "SYSTEM ERROR: newLktend detected infinite loop usr  txn  lockcount  inuse  (13909)" "syserr" "D" ""
+13910 "SYSTEM ERROR: Calling oldLktend to remove locks.  Consider using -lkrela database startup parameter to use the alternate lock release algorithm. (13910)" "syserr" "D" ""
+13911 "SYSTEM ERROR: newLktend found null lock in list usr  trid  (13911)" "syserr" "D" ""
+13912 "SYSTEM ERROR: lkrend detected infinite loop with usr  count:  inUse:  (13912)" "syserr" "D" ""
+13913 "SYSTEM ERROR: lkLockListAdd usr  txn  lock list head has non-null prev pointer (13913)" "syserr" "D" ""
+13914 "SYSTEM ERROR: lkLockListAdd usr  txn  lock list tail has non-null next pointer (13914)" "syserr" "D" ""
+13915 "SYSTEM ERROR: lkLockListRemove usr  txn  lock list head has non-null prev pointer (13915)" "syserr" "D" ""
+13916 "SYSTEM ERROR: lkLockListRemove usr  txn  lock list tail has non-null next pointer (13916)" "syserr" "D" ""
+13917 "Cannot execute user-defined function, method or property accessor '<func>' in an ASSIGN statement after an indexing error. (13917)" "Your code has an ASSIGN (or SET, UPDATE, IMPORT, etc.) statement that is referencing the cited UDF, method or property (with explicit body code) after that same statement assigned a value to a field that participates in an index. You need to move the reference to the UDF, method or property earlier in the ASSIGN statement so that it happens before the assignment to any key field. Alternatively, you can split the ASSIGN statement up into multiple statements." "p" ""
+13918 "The After-image Archiver has been enabled. (13918)" "The after-image archiver has been enabled." "" ""
+13919 "An error was encountered when enabling the After-image Archiver. (13919)" "An error was encountered when enabling the after-image archiver.  See the previous message(s) to determine the problem." "" ""
+13920 "The After-image Management Daemon will begin in a few moments. (13920)" "The After-image management daemon will begin execution in a few moments." "" ""
+13921 "The After-image Archiver is already enabled for this database. (13921)" "The after-image archiver is already enabled for this database." "" ""
+13922 "This client can not access lobs that have a 64-bit ROWID. (13922)" "" "" ""
+13923 "The INSERT statement has a query expression which selects a LOB.  This functionality is currently not supported. (13923)" "" "" ""
+13924 "Maximum Shared Memory Segment Size (-shmsegsize) <num> Mb. (13924)" "Shared Memory Segment Size that has been specified using the -shmsegsize argument or the value that the OpenEdge RDBMS has automatically chosen based on the shared memory requirements." "" ""
+13925 "Error in structure file at line <line number>
+<source line>" "An error was detected in processing the structure file for a prostrct add or create. The structure file is invalid for this operation due to exceeding some database limit. No new extents will be created." "" ""
+13926 "Creation of this extent would exceed the maximum number of blocks for area <area number>" "A prostrct create or add operation has called for creating a new extent that would exceed the maximum number of blocks that can be addressed in an area. No new extents are created. " "" ""
+13927 "Creation of this extent would exceed the maximum number of extents for area <area number>" "A prostrct create or add operation has called for creating a new extent that would exceed the maximum number of extents for an area. No new extents are created." "" ""
+13928 "SYSTEM ERROR: newLktend detected infinite loop in CHECKED loop for usr <user-id> lockcount <loop repititions> inuse <locks in use> (13928)" "syserr" "d" ""
+13929 "If you enable large key entries support for this database, it may cause runtime issues to pre-10.1B clients that connect to this database.
+Do you really want to enable large keys support? (y/n) (13929)" "" "" ""
+13930 "Misplaced GET keyword. (The problem may be that a property's GET accessor was found after its SET accessor. The GET needs to come before the SET.)  (13930)" "The compiler found a statement that begins with ""GET"" in a context where it is invalid. A common reason for this is that the GET was meant to be part of a class property definition, but should have been placed before the property's SET accessor." "" ""
+13931 "Loading table <name>, Table number <num>
+starting with record  <num>, section <num>. (13931)" "" "" ""
+13932 "Dumped  records.<total-records> (13932)" "" "" ""
+13933 "SYSTEM ERROR: User <usrnum> died holding the Large Keys Enablement latch. (13933)" "A user enabling the Large Keys database feature has died while holding a latch." "" ""
+13934 "SYSTEM ERROR: strent request for more than 2GB. (13934)" "strent cannot allocate more than 2 GB.  syserr " "" ""
+13935 "Processing  records of table _aud-audit-data. (13935)" "" "" ""
+13936 "Use ':' instead of '::' to access class members through an object reference. (13936)" "The compiler detected an object reference followed by two colons (for example, objref::var1). The correct syntax to use when an object reference accesses one of its members is objref:var1.  " "" ""
+13937 "The template record for table <num> cannot be read by a 10.1A or older client.  Reason code <num> was returned.  (13937)" "The template record for the indicated table cannot be read.  This error occurrs when an older client attempts to access a table that was added with the 10.1B product and whose data is out of reach of this older client." "" ""
+13938 "SYSTEM ERROR: Record delete place holder could not be inserted due to lack of space in the current block, fragment rowid <rowid> area <areanum>. (13938)" "This block does not contain enough space to allow a record delete place holder.  If you encounter this error, you should contact your Progress technical support representative for help  in diagnosing the source of  this error.  It is either fixed by dbtool  or dump and load. " "d" ""
+13939 "Constructors cannot be called directly. (13939)" "The compiler detected an attempt to call a constructor as if it were a method. Constructors cannot be called directly. They must be invoked through the use of NEW, THIS-OBJECT, or SUPER. " "" ""
+13940 "SYSTEM ERROR: lkpurge: record not locked. (13940)" "syserr" "d" ""
+13941 "The agent name that begins with <name> in property <name> is greater than 15 characters in length. (13941)" "The maximum length of an agent name is 15 characters.  Correct the agent name and then attempt the operation again." "" ""
+13942 "Idxbuild is running with threads, the maximum number of threads is . (13942)" "" "D" ""
+13943 "TB value is , TM value is , SG value is , packing factor is . (13943)" "" "D" ""
+13944 "Enter the indexes to be built. (13944)" "This message is used in the UI for the Index Fix utility." "D" ""
+13945 "Source index<index-num>  (<table-owner>.<table-name>, <index-name>): <n-keys> keys. (13945)" "This message is part of the user interface of the index fix utility." "D" ""
+13946 "Built index<index-num>  (<table-owner>.<table-name>, <index-name>): <n-keys> keys. (13946)" "This message is part of the user interface of the index fix utility." "D" ""
+13947 "Select one of the following:
+All           (a/A) - Fix all the indexes 
+Some          (s/S) - Fix only some of the indexes 
+By Area       (r/R) - Fix indexes in selected areas
+By Schema     (c/C) - Fix indexes  by schema owners" "User interface for index fix utility.      " "" ""
+13948 "By Table      (t/T) - Fix indexes in selected tables 
+By Activation (v/V) - Fix selected active or inactive indexes
+
+Quit     (q/Q) - Quit, do not fix 
+
+Enter your selection:" "User interface for index fix utility" "" ""
+13949 "The area could not be found. (13949)" "Index fix utility message." "D" ""
+13950 "Can't have more than 16 components per index key. (13950)" "" "" ""

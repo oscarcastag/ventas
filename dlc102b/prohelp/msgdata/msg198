@@ -1,0 +1,67 @@
+9851 "DB_Startup: A startup has occured for database <database name>. (9851)" "A database startup has been detected.  " "" ""
+9852 "DB_AgentStartup:  A normal startup has occured for database agent, <agent name>. (9852)" "Alert generated when a database agent starts." "" ""
+9853 "NoSearchCriteria: The Log File Monitor does not have any Search Criteria associated with it. (9853)" "The Log File Monitor may have one or more Search Criteria associated with it, but it must have at least one.  The Log File Monitor could not find any Search Criteria to look for in the log file.  Define a Search Criteria in the Log File Monitor and try again. " "" ""
+9854 "The OSMetrics library failed to load for container. Container name  <Name of container> (9854)" "The OSMetrics library failed to load for the specified container. This could be caused by a permission problem or a system dependency which has not been met." "" ""
+9855 "The system resource: <Fathom resource name> is associated with an invalid query identifier. (9855)" "An invalid query identifier can be caused by problems loading or initializing the system component OSMetrics library. It indicates that the resource is associated with a query instance that no longer exists on the system." "" ""
+9856 "A data collection failure occurred for the system resource: <Fathom resource name>. (9856)" "An error occurred when the named system resource attempted to collect data from the underlying system collection service in the system component OSMetrics library. " "" ""
+9857 "ProjectLoadFailed: Fathom project file could not be loaded. Project file renamed and new project created. Old project file: <filename>. (9857)" "This alert is generated when an existing Fathom project file cannot be loaded at Fathom start time. The existing Fathom project file is renamed and a default project file is created. " "" ""
+9858 "Loading the Fathom OSMetrics library for container. Container name  <Name of container>" "Informational message at startup, or when a container registers with Fathom, to indicate the OSMetrics library is being loaded for that container. " "" ""
+9859 "Fathom OSMetrics library loaded for container. Container name:  <Name of container>" "Informational message at startup, or when a container registers with Fathom, to indicate that the OSMetrics library loaded for that container. " "" ""
+9860 "or 
+
+ Usage: fathom [-httpport <""less than"" character>port] -<""less than"" character>command> <""less than"" character>options> [-help]
+Commands:
+<list of commands>" "General Fathom command line.  Do not translate fathom or  dash commands  (fathom, -httpport, -help). " "" ""
+9861 "For more information, use the -help option for the command. (9861)" "General Fathom command line.  Do not translate -help. " "" ""
+9862 "Clear an alert" "If this is to become more than 46 characters, the next line should contain 24 space characters before the next word. " "" ""
+9863 "Enable a resource." "If this is to become more than 46 characters, the next line should contain 24 space characters before the next word. " "" ""
+9864 "Disable a resource." "If this is to become more than 46 characters, the next line should contain 24 space characters before the next word. " "" ""
+9865 "fathom -enable | -disable <<>option> 
+Options are as follows: 
+   [-httpport <<>portno>] <<>resource> 
+   [-httpport <<>portno>] -resource <<>resource> 
+   [-httpport <<>portno>] -restype <<>resource type> 
+   -Fathom " "Do not translate the - commands (-httpport, -enable, -disable, -restype, -Fathom).  White space preceding the commands and options (after the %r's) is significant and should be maintained in translation. " "" ""
+9866 "resource       The name of the resource as defined in Fathom
+restype        Keyword defining one of these types: 
+<resource types>" "Fathom command line option; do not translate words at beginning of line. White space is significant, if the descriptions take additional lines, the line should begin with 15 space characters." "" ""
+9867 "Fathom         Keyword indicating action on the top level of Fathom,
+               Use of -Fathom option will not change the status of 
+               individual resources." "Fathom command line option; do not translate Fathom at beginning of line. Do not translate keyword: -Fathom in text.  White space is significant, if the descriptions take additional lines, the line should begin with 15 space characters." "" ""
+9868 "DB Service  is not defined. (9868)" "The definition for the DB Service is not found.  Please check the spelling of the DB Service name used and try again. " "" ""
+9869 "Error reading properties for DB Service  from the property file .  (9869)" "The properties for the DB Service cannot be found in the property file or the property file is not found.  This could indicate that the DB Service/Add-on has not been installed or the property file has been altered, moved or deleted.  " "" ""
+9870 "The DB Service  must be pre-registered before it can be started. (9870)" "The DB Service must be pre-registered by the database broker before it can be started.  To pre-register a the DB Service use -DBService  servicename when starting the broker. " "" ""
+9871 "The DB Service  cannot be started at this time.  (9871)" "The DB Service manager does not have resources available to manage additional DB Services.  To allocate additional resources for the DB Service manager, the -pids nn startup argument must be specified when starting the broker.  " "" ""
+9872 "SYSTEM ERROR: An attempt was made to locate a registered DB Service using an invalid search method.  Handle = , ID = , name = . (9872)" "The DB Service manager is not functioning properly.  " "" ""
+9873 "SYSTEM ERROR: The specified area  does not exist. (9873)" "The area entered does not exist in the database.  Please use a different area number." "" ""
+9874 "SYSTEM ERROR: strent request for more than 64K. (9874)" "strent cannot allocate more than 64K.  PROGRESS tried to allocate a larger storage area. syserr " "" ""
+9875 "Load balancing enabled. (9875)" "The client has requested a load balanced connection. When connection to a Sonic broker that has load balancing enabled, the connection may be redirected to a different Sonic Broker. The getURL method may be used to programmatically determine which Sonic Broker the client has connected to. " "" ""
+9876 "Failover enabled. Failover list set to <failoverlist>. (9876)" "The client has specified a list of Sonic Brokers that it will attempt to connect to. In the event that it is unable to connect to the first Sonic Broker it tries, it will attempt to connect to the next Sonic Broker in the list. " "" ""
+9877 "Connected to Sonic Broker at <getURL()>. (9877)" "" "" ""
+9878 "S&hutdown Parameters: (9878)" "This is a text label for the Shutdown Parameters on the database|insert dialog box." "" ""
+9879 "Load balancing is not supported with the version of the Sonic Client in use. (9879)" "You are using an older version of the Sonic Client software that does not support load balancing. Update you client software to be the same version as the Sonic Broker you are connecting to.
+ " "" ""
+9880 "Failover is not supported with the version of the Sonic Client in use. (9880)" "You are using an older version of the Sonic Client software that does not support failover lists. Update you client software to be the same version as the Sonic Broker you are connecting to.
+ " "" ""
+9881 "Client version does not support disabling flow control. (9881)" "You are using an older version of the Sonic Client software that does not support disabling of flow control. This means that your 4GL application can appear to hang when sending a message to a queue or topic that is full.
+
+ " "" ""
+9882 "Unable to update _storageobject records. (9882)" "You tried to update a database record and failed with the named error. syserr " "D" ""
+9883 "Error: repair for file <dbname> cannot add or delete entries (9883)" "Prostrct repair will validate extents in .db file and .st file before updating .db file. You will see this error message when extents in .st file don't match extents in .db file. syserr " "D" ""
+9884 "Database remove extent:  Error getting the data area extent descriptor. (9884)" "syserr " "D" ""
+9885 "Database add extent: Error reading object block. (9885)" "syserr " "D" ""
+9886 "Database remove extent:  Error reading object block. (9886)" "syserr " "D" ""
+9887 "Database remove extent: Error writing object block. (9887)" "syserr " "D" ""
+9888 "Error checking to see if database is a relative or absolute path. (9888)" "syserr " "D" ""
+9889 "Database add extent:  Error getting the data area extent descriptor. (9889)" "syserr " "D" ""
+9890 "Database add extent: Error writing object block. (9890)" "syserr " "D" ""
+9891 "Overflow occurred for value <value> because the field length is <length>. The character field was truncated. (9891)" "The character field is too large to fit into the AS/400 database field, so PROGRESS truncated the field. Check the FORMAT statement defined for the field to make sure it's compatible with field's declaration. " "M" ""
+9892 "FathomTrendingUnavailable: Fathom cannot reach the trend database at <machine:port>.  Check the log file for more information. (9892)" "There was a problem reaching the defined trend database at the specified HTTP port.  There are several possible problems: Fathom is not running at the location specified.  The location specified does not have a local trend database defined.  The trend database is not running at the specified location.  There is a communication problem.  Some other problem has occurred.  The admserv.log on the specified machine should have a message concerning trending. " "" ""
+9893 "Trending has resumed." "trending has been resumed after an unsuccessful trend attempt." "" ""
+9894 "Subtotals:      " "" "" ""
+9895 "SearchItemsFileNotFound: The Log File Monitor could not find the file searchitems.xml to load in the default Search Criteria. (9895)" "The Log File Monitor within Fathom could not find the file config/searchitems.xml.  This file is needed to load the default Search Criteria for this Monitor.  This error is not generated when the Monitor is having trouble opening the file, but when it cannot find the file at all." "" ""
+9896 "SearchItemsIOException: The Log File Monitor could not open searchitems.xml to load in the default Search Criteria. (9896)" "The Log File Monitor within Fathom had an input/output exception with the file config/searchitems.xml.  This file is needed to load the default Search Criteria for the Monitor.  This error could be generated when the Monitor is having trouble opening the file, having permissions problems, or the IO stream has been interrupted, among others." "" ""
+9897 "<log file entry> User is not authenticated. (9897)" "This user is not a valid user." "" ""
+9898 "<log file entry> User is authenticated and authorized (9898)" "For admserv.log " "" ""
+9899 "<log file entry> User is not authorized (9899)" "For admserv.log " "" ""
+9900 "<log file entry> Failed to find the admingroup(s) (9900)" "For admserv.log " "" ""

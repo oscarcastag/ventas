@@ -1,0 +1,68 @@
+701 "** Not enough storage to build setuserid message. (701)" "You logged into a network version of PROGRESS without enough memory available to run the SETUSERID function. " "" ""
+702 "** Not enough storage to send network messages. (702)" "You logged into a multi-user version of PROGRESS without enough memory available. " "" ""
+703 "** DISCONNECT requires a logical dbname (no path or .db suffix). (703)" "The logical name of a database is usually the last component of the physical name, with the path and .db suffix removed.  It is whatever you gave in the -ld option when you connected the database. " "" ""
+704 "** There is no server active for database <database> on -H <hostname> -S <servicename>. (704)" "There is no server available for the -H and -S combination you supplied. Recheck the values you gave for -H and -S, or make sure that the server is actually running. " "" ""
+705 "** The -S parameter was ignored because -H was not supplied. (705)" "The -S parameter specifies a server on a host machine provided by the -H parameter to PROGRESS. " "" ""
+706 "** Disconnected by the server, code <code>. (706)" "You were disconnected from the server in a multi-user session.  The code displayed describes the reason for the disconnection.  Its values can be found in nsmgr.h by contacting your PROGRESS Technical support representative. " "" ""
+707 "SYSTEM ERROR: ** Field should be an array field but is not--bfvu. (707)" "This could be caused by a program bug or by damaged data in a PROGRESS database.  PROGRESS thinks it is dealing with an array field, but the data in question does not appear to be an array. " "" ""
+708 "Userid is now <name>. (708)" "This message is written to the database log (.lg) file when the user logs in or sets their userid using SETUSERID. " "" ""
+709 "** -P and -U startup parameters require _User file records. (709)" "Your PROGRESS database must have users defined in it using the data dictionary before you can give the Password and Userid parameters to PROGRESS. " "" ""
+710 "** Your Password and Userid  do not match. (710)" "You supplied the Password and Userid parameters to PROGRESS, but the password is not correct. " "" ""
+711 "** You can only change your own password. (711)" "You can only change the Password field in a _user record if you own that _user record.  That is, if it is the record for the use ID you currently have. " "" ""
+712 "** You cannot change the Userid field in an existing User record. (712)" "The only way to change a Userid field is to delete the User record and re-create it with the new user ID. " "" ""
+713 "** Unable to analyze Data Dictionary expression for table <table>. (713)" "You have a PROGRESS table with a bad _VALEXP field.  Use the PROGRESS Data Dictionary to correct the situation. " "" ""
+714 "** COUNT-OF must reference the lowest BY expression. (714)" "If you have a BREAK BY phrase with multiple sort expressions and you are using COUNT-OF in association with that BREAK phrase, you must use the last of the multiple sort expressions in the COUNT-OF phrase. " "" ""
+715 "** Word-wrap (TEXT) fields must be CHARACTER type. (715)" "The fields in a TEXT list must all be character data type. " "" ""
+716 "** Word wrap (TEXT) field contains a non 'x' in its format <format> (716)" "The format for a field in a TEXT list may only contain the 'x' character and no others. " "" ""
+717 "** You can choose only one field in CHOOSE ROW. (717)" "The ROW form of CHOOSE can contain only one field in its field list, in contrast to the many fields that can be given in the FIELD form of CHOOSE. " "" ""
+718 "** Only program variables without subscripts allowed in KEYS phrase. (718)" "The CHOOSE statement can be used with a KEYS <variable> phrase.  The variable in the KEYS phrase cannot be an array reference. " "" ""
+719 "** Not enough storage to analyze dictionary expression. (719)" "You ran out of memory while PROGRESS was trying to analyze a dictionary validate expression. " "" ""
+720 "** Unable to open keyword-forget file <filename>. (720)" "If you give the -k PROGRESS parameter, it must be followed by the name of a file that can be opened by PROGRESS and contains all the keywords to be disabled. " "" ""
+721 "** Warning: Keyword-forget file <name> has illegal word <word>. (721)" "You gave the -k <filename> parameter to PROGRESS and the <filename> contains a word that is not a PROGRESS keyword. " "" ""
+722 "SYSTEM ERROR: Unexpected case in drutil switch <number> (722)" "syserr " "" ""
+723 "** The server has disconnected. (723)" "You are running a multi-user session, and for some reason the server decided to disconnect you.  You can continue to operate as long as you do not reference the database.  Otherwise, you must quit and retry. " "" ""
+724 "** You cannot run programs that access data in this PROGRESS version. (724)" "You are running a COMPILE-ONLY version of PROGRESS. In order to run programs normally you must purchase a full or run-time version of PROGRESS. " "" ""
+725 "Unknown or ambiguous table <table>. (725)" "You might have failed to connect to the database that contains this table, or the table name might exist in more than one database, or you gave an abbreviation that isn't unique.  Use the full table name, qualified with the database name. " "" ""
+726 "This is the last time you can use this database. (726)" "You have the demo version of PROGRESS, which allows a limited number of uses.  To save the data you have dump the database and get a new empty demo database and reload it, or buy full PROGRESS and reload it. " "" ""
+727 "Use the dictionary to dump any data you want to save. (727)" "You have the demo version of PROGRESS, which allows a limited number of uses.  To save the data you have dump the database and get a new empty demo database and reload it, or buy full PROGRESS and reload it. " "" ""
+728 "You may use PROGRESS on this database <number> more time(s). (728)" "You have the demo version of PROGRESS, which allows a limited number of uses.  To save the data you have dump the database and get a new empty demo database and reload it, or buy full PROGRESS and reload it. " "P" ""
+729 "** Server has resynchronized <num> . (729)" "You were running a LAN version of PROGRESS and the server has corrected some error condition by stopping your tasks, backing them out, and sending a notice to your process to do the same. Values for <num> are:         4, 13     Not enough storage to complete request.       5, 6, 8     Network transmission error.            10     CTRL-C was pressed.            12     Network messages out of sequence.            16     Your server ran out of cursors." "" ""
+730 "** NETBIOS must be loaded and working before running PROGRESS. (730)" "You are running a NETBIOS LAN version of PROGRESS and have not loaded the NETBIOS software on your operating system. There is usually a NETBIOS.COM or NETBIOS.EXE that must be executed for a DOS environment in order to load NETBIOS. If you are trying to connect to a local database, use the -1 parameter along with the database name (i.e. -db sports -1) " "" ""
+731 "** Client with name  already using NETBIOS. (731)" "You are running a NETBIOS LAN version of PROGRESS. The network name that PROGRESS uses for each client contains the network adapter card number.  PROGRESS assumes that this number is unique.  If it is not, you may get this message.  You can get around this by giving the -H <name> parameter to PROGRESS.  Then PROGRESS will use <name> as the network name for your session. " "" ""
+732 "** Client name <name> could not be added to NETBIOS. (732)" "The default name chosen by PROGRESS cannot be accepted by NETBIOS. The PROGRESS parameter -H <name> can be used to override the PROGRESS default name.  This <name> must be unique on the network. " "O" ""
+733 "** Server <servername> unavailable. (733)" "You are trying to start a client PROGRESS session on adatabase for which the server has not been started or for which the server has gone down. Go to the server machine and run PROSERVE<dbname>.
+
+When using SPX to connect to a Progress Database on an NT
+server, you must use uppercase letters for the -S parameter
+on the client startup.
+
+For example, the following produces error 733 Server unavailable:
+_mprosrv sports -N SPX -S ntsvc
+_prowin sports -N SPX -S ntsvc
+
+The following will connect successfully:
+_mprosrv sports -N SPX -S ntsvc
+_prowin sports -N SPX -S NTSVC
+
+This is due to the NT SAP agent, which must be running on the
+NT server in order to use SPX. The SAP agent uppercases service
+names during service broadcasts, so all SPX clients must use an
+uppercase service name to connect." "" ""
+734 "** Unable to contact server. (734)" "You are running NETBIOS LAN PROGRESS and communication with the server has been lost.  Reboot your machine and restart your session.  If that fails, reboot both your machine and the server machine. " "O" ""
+735 "** Incomplete write when writing to the server. (735)" "You are running LAN PROGRESS and an interrupt has caused an incomplete message to be sent to the server.  The safest thing to do is restart your PROGRESS session. " "" ""
+736 "** Error <reading/writing> pipe, ret=<num>, errno=. (736)" "You are running OPENNET LAN PROGRESS and a network error occurred. Restart your PROGRESS session or your node. " "O" ""
+737 "Status:  Unknown" "This message is generated by the after-image extent listing option of rfutl " "D" ""
+738 "Blocking factor exceeds <number> (738)" "The -bf parameter must be less than or equal to the number specified in the message. " "" ""
+739 "Logout usernum <num>, userid <name>, on <tty/node>. (739)" "This message is put into the <dbname>.lg file whenever a user logs out. " "" ""
+740 "** User number  not logged on. (740)" "You are probably trying to disconnect a user from the server, but the user is no longer logged on, or you gave the wrong user number.  User numbers can be determined by looking in the <dbname>.lg file for the login messages. " "" ""
+741 "<time> Disconnecting user <number>. (741)" "The server puts this message in the <dbname>.lg file whenever it has been asked to disconnect a user. " "" ""
+742 "Login usernum <num>, userid <name>, on <tty/node>. (742)" "This message is put into the <dbname>.lg file by the server whenever a user logs in. " "" ""
+743 "SYSTEM ERROR: Unable to kill parent process, errno= . (743)" "syserr " "" ""
+744 "Forcing shutdown, reason <num>. (744)" "The server is shutting down.  Some reasons are:      2   Bad version of PROGRESS      4   Not enough storage to keep running 5,6,8,12 Network transmission errors. " "" ""
+745 "Server with name <name> already using NETBIOS. (745)" "You started a server and for some reason the server name wasn't properly deleted after the last server session on the same database. Try re-booting your server machine to clear the NETBIOS name table. " "" ""
+746 "Server name <name> could not be added to NETBIOS. (746)" "This message is usually caused by the server name not being deleted properly from a previous PROGRESS server session. Try re-booting your server machine to clear the name from the NETBIOS name table. " "O" ""
+747 "Permanent error during listen. (747)" "The server encountered a permanent error while accepting logins in a NETBIOS session.  The most common reasons for this are:  too many login requests at once causing overload on the server, or timeout occurring on the login CALL request due to a difference in machine speeds.  Most networks have tuning parameters to allow for changes to the automatic network timeouts and adapter buffer capacity. Consult your network installation documentation for instructions on setting these parameters." "O" ""
+748 "The server or the system has no more resources. Please contact Progress Technical Support. (748)" "You may wait until someone logs out and try your operation again.  You may wait until someone logs out and try your operation again. Make
+sure to contact your system administrator, as the server many be running out of Progress licenses. Finally, the machine the PROGRESS server is running on may have run out of processes, or semaphores.  In this case it may be possible to reconfigure the machine to provide more resources." "" ""
+749 "Permanent error during send/receive <num>. (749)" "The server encountered a permanent network error.  This usually occurs while the server is running NETBIOS or SPX. If it is a NETBIOS session, the most common errors are:   5 timeout,  8 incorrectly established session, 24 abnormal termination of the client,  33 or 34 overload.    Most networks have tunable parameters for session timeout and buffer usage.  See your network installation manual for details. " "O" ""
+750 "Could not end after-imaging (750)" "The aimage end command failed to end after imaging.  This error may occur when 2phase commit is enabled for the database and an ai file for the database is lost or damaged.  If you want to end after imaging to clear this condition, then you must end 2phase commit first. " "" ""

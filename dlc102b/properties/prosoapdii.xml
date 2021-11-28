@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+
+<!-- DII configuration -->
+<waspc-config xmlns:wasp="urn:WaspServer" xmlns:dii="urn:DIIModule" xmlns:ser="urn:Serialization">
+
+    <!-- Default serialization -->
+    <ser:serialization ser:name="CommonDiiSerializationRepository">
+        <!-- BEGIN: Progress -->
+<!--        
+        <ser:serializer ser:class="WASP_DII_Serializer" ser:emitType="false" ser:emitHrefs="true"/>
+-->        
+        <ser:serializer ser:class="WASP_DII_Serializer" ser:emitType="true" ser:emitHrefs="true"/>
+        <ser:serializer ser:class="PSCSoapEncodedTempTableSerializer"/>
+        <ser:deserializer ser:class="PSCSoapEncodedTempTableDeserializer"/>
+        <ser:serializer ser:class="PSCAnyTypeSerializer"/>
+        <ser:deserializer ser:class="PSCAnyTypeDeserializer"/>
+        <!-- END: Progress -->
+        <ser:deserializer ser:class="WASP_DII_Deserializer"/>
+        <ser:resolver ser:class="WASP_DII_MessageAttachmentResolver"/>
+        <ser:resolver ser:class="WASP_DII_BinaryDataResolver"/>
+        <ser:resolver ser:class="WASP_EmptyResolver" ser:default="false">
+            <ser:cppType>WASP_DII_FaultException</ser:cppType>
+        </ser:resolver>
+        <ser:deserializer ser:class="WASP_ProcessingFaultExceptionDeserializer"/>
+    </ser:serialization>
+
+    <ser:serialization ser:name="http://systinet.com/waspc/dii/soap-encoding/">
+        <ser:import ser:ref="CommonDiiSerializationRepository"/>
+        <ser:resolver ser:class="WASP_DII_ExtendedResolver" ser:encoded="true"/>
+        <ser:deserializer ser:class="WASP_DII_MessageAttachmentDeserializer" ser:encoded="true"/>
+        <ser:serializer ser:class="WASP_DII_MessageAttachmentSerializer" ser:encoded="true"/>
+    </ser:serialization>
+    
+    <ser:serialization ser:name="http://systinet.com/waspc/dii/literal-encoding/">
+        <ser:import ser:ref="CommonDiiSerializationRepository"/>
+        <ser:resolver ser:class="WASP_DII_ExtendedResolver" ser:encoded="false"/>
+        <ser:deserializer ser:class="WASP_DII_MessageAttachmentDeserializer" ser:encoded="false"/>
+        <ser:serializer ser:class="WASP_DII_MessageAttachmentSerializer" ser:encoded="false"/>
+    </ser:serialization>
+    
+    <dii:mappers>
+        <!-- add here, before default,  type-mapper for own types -->
+        <!-- BEGIN: Progress -->
+        <dii:mapper dii:class="PSCStructureToAnyTypeMapper"/>
+        <!-- END: Progress -->
+        <dii:mapper dii:class="WASP_DII_TypeMapperImpl"/>
+    </dii:mappers>
+
+    <wasp:module wasp:class="WASP_DII_ModuleImpl"/>
+
+    <dii:schema dii:namespaceURI="http://systinet.com/waspc/dii/">
+        <dii:type dii:name="fallbackType"          dii:cppType="WASP_DII_AnyType"/>
+        <dii:type dii:name="string"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="structure"             dii:cppType="WASP_DII_Structure"/>
+        <dii:type dii:name="array"                 dii:cppType="WASP_DII_Array"/>
+        <dii:type dii:name="attachment"            dii:cppType="WASP_DII_MessageAttachment"/>
+        <dii:type dii:name="binaryData"            dii:cppType="WASP_DII_BinaryData"/>
+    </dii:schema>
+
+    <dii:schema dii:namespaceURI="http://www.w3.org/2001/XMLSchema">
+        <dii:type dii:name="string"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="normalizedString"      dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="token"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="language"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="Name"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NCName"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ID"                    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="IDREF"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITY"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKEN"               dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="IDREFS"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITIES"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKENS"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="QName"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NOTATION"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="decimal"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="integer"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonPositiveInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="negativeInteger"       dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonNegativeInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="positiveInteger"       dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="base64Binary"          dii:cppType="WASP_DII_Binary"/>
+        <dii:type dii:name="hexBinary"             dii:cppType="WASP_DII_Binary"/>
+
+        <dii:type dii:name="duration"              dii:cppType="WASP_DII_Duration"/>
+        <dii:type dii:name="dateTime"              dii:cppType="WASP_DII_DateTime"/>
+        <dii:type dii:name="time"                  dii:cppType="WASP_DII_Time"/>
+        <dii:type dii:name="date"                  dii:cppType="WASP_DII_Date"/>
+        <dii:type dii:name="gYearMonth"            dii:cppType="WASP_DII_GYearMonth"/>
+        <dii:type dii:name="gYear"                 dii:cppType="WASP_DII_GYear"/>
+        <dii:type dii:name="gMonthDay"             dii:cppType="WASP_DII_GMonthDay"/>
+        <dii:type dii:name="gDay"                  dii:cppType="WASP_DII_GDay"/>
+        <dii:type dii:name="gMonth"                dii:cppType="WASP_DII_GMonth"/>
+        <!-- Signed -->
+        <dii:type dii:name="long"                  dii:cppType="WASP_DII_Long"/>
+        <dii:type dii:name="int"                   dii:cppType="WASP_DII_Int"/>
+        <dii:type dii:name="short"                 dii:cppType="WASP_DII_Short"/>
+        <dii:type dii:name="byte"                  dii:cppType="WASP_DII_Byte"/>
+        <!-- Unsigned -->
+        <dii:type dii:name="unsignedLong"          dii:cppType="WASP_DII_UnsignedLong"/>
+        <dii:type dii:name="unsignedInt"           dii:cppType="WASP_DII_UnsignedInt"/>
+        <dii:type dii:name="unsignedShort"         dii:cppType="WASP_DII_UnsignedShort"/>
+        <dii:type dii:name="unsignedByte"          dii:cppType="WASP_DII_UnsignedByte"/>
+        <!-- Others -->
+        <dii:type dii:name="boolean"               dii:cppType="WASP_DII_Boolean"/>
+        <!-- BEGIN: Progress -->
+<!--        
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Float"/>
+-->        
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Double"/>
+        <!-- END: Progress -->
+        <dii:type dii:name="double"                dii:cppType="WASP_DII_Double"/>
+
+        <dii:type dii:name="anyURI"                dii:cppType="WASP_DII_AnyURI"/>
+
+        <dii:type dii:name="anyType"               dii:cppType="WASP_DII_AnyType"/>
+        <dii:type dii:name="anySimpleType"         dii:cppType="WASP_DII_String"/>
+    </dii:schema>
+
+    <dii:schema dii:namespaceURI="http://www.w3.org/2000/10/XMLSchema">
+        <dii:type dii:name="string"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="token"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="language"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="Name"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NCName"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ID"                    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="IDREF"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITY"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKEN"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="CDATA"                 dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="IDREFS"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITIES"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKENS"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="QName"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NOTATION"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="decimal"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="integer"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonPositiveInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="negativeInteger"       dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonNegativeInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="positiveInteger"       dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="binary"                dii:cppType="WASP_DII_Binary"/>
+
+        <dii:type dii:name="timeDuration"          dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="recurringDuration"     dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="timeInstant"           dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="timePeriod"            dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="time"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="date"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="recurringDay"          dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="recurringDate"         dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="century"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="year"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="month"                 dii:cppType="WASP_DII_String"/>
+        <!-- Signed -->
+        <dii:type dii:name="long"                  dii:cppType="WASP_DII_Long"/>
+        <dii:type dii:name="int"                   dii:cppType="WASP_DII_Int"/>
+        <dii:type dii:name="short"                 dii:cppType="WASP_DII_Short"/>
+        <dii:type dii:name="byte"                  dii:cppType="WASP_DII_Byte"/>
+        <!-- Unsigned -->
+        <dii:type dii:name="unsignedLong"          dii:cppType="WASP_DII_UnsignedLong"/>
+        <dii:type dii:name="unsignedInt"           dii:cppType="WASP_DII_UnsignedInt"/>
+        <dii:type dii:name="unsignedShort"         dii:cppType="WASP_DII_UnsignedShort"/>
+        <dii:type dii:name="unsignedByte"          dii:cppType="WASP_DII_UnsignedByte"/>
+        <!-- Others -->
+        <dii:type dii:name="boolean"               dii:cppType="WASP_DII_Boolean"/>
+        <!-- BEGIN: Progress -->
+<!--        
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Float"/>
+-->        
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Double"/>
+        <!-- END: Progress -->
+        <dii:type dii:name="double"                dii:cppType="WASP_DII_Double"/>
+
+        <dii:type dii:name="uriReference"          dii:cppType="WASP_DII_AnyURI"/>
+
+        <dii:type dii:name="anyType"               dii:cppType="WASP_DII_AnyType"/>
+        <dii:type dii:name="anySimpleType"         dii:cppType="WASP_DII_String"/>
+    </dii:schema>
+
+    <dii:schema dii:namespaceURI="http://www.w3.org/1999/XMLSchema">
+        <dii:type dii:name="string"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="language"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="Name"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NCName"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ID"                    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="IDREF"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITY"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKEN"               dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="IDREFS"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITIES"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKENS"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="QName"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NOTATION"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="decimal"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="integer"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonPositiveInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="non-positive-integer"  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="negativeInteger"       dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="negative-integer"      dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonNegativeInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="non-negative-integer"  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="positiveInteger"       dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="positive-integer"      dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="binary"                dii:cppType="WASP_DII_Binary"/>
+
+        <dii:type dii:name="timeDuration"          dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="recurringDuration"     dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="timeInstant"           dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="timePeriod"            dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="recurringInstant"      dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="time"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="date"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="recurringDay"          dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="recurringDate"         dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="century"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="year"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="month"                 dii:cppType="WASP_DII_String"/>
+        <!-- Signed -->
+        <dii:type dii:name="long"                  dii:cppType="WASP_DII_Long"/>
+        <dii:type dii:name="int"                   dii:cppType="WASP_DII_Int"/>
+        <dii:type dii:name="short"                 dii:cppType="WASP_DII_Short"/>
+        <dii:type dii:name="byte"                  dii:cppType="WASP_DII_Byte"/>
+        <!-- Unsigned -->
+        <dii:type dii:name="unsignedLong"          dii:cppType="WASP_DII_UnsignedLong"/>
+        <dii:type dii:name="unsignedInt"           dii:cppType="WASP_DII_UnsignedInt"/>
+        <dii:type dii:name="unsignedShort"         dii:cppType="WASP_DII_UnsignedShort"/>
+        <dii:type dii:name="unsignedByte"          dii:cppType="WASP_DII_UnsignedByte"/>
+        <!-- Others -->
+        <dii:type dii:name="boolean"               dii:cppType="WASP_DII_Boolean"/>
+        <!-- BEGIN: Progress -->
+<!--
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Float"/>
+-->
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Double"/>
+        <!-- END: Progress -->        
+        <dii:type dii:name="double"                dii:cppType="WASP_DII_Double"/>
+
+        <dii:type dii:name="uri"                   dii:cppType="WASP_DII_AnyURI"/>
+        <dii:type dii:name="uriReference"          dii:cppType="WASP_DII_AnyURI"/>
+
+        <dii:type dii:name="wildcard"              dii:cppType="WASP_DII_AnyType"/>
+        <dii:type dii:name="anySimpleType"         dii:cppType="WASP_DII_String"/>
+    </dii:schema>
+
+    <dii:schema dii:namespaceURI="http://schemas.xmlsoap.org/soap/encoding/">
+        <!-- Mapping to WASP_DII_String -->
+        <dii:type dii:name="string"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="normalizedString"      dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="token"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="language"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="Name"                  dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NCName"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ID"                    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="IDREF"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITY"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKEN"               dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="IDREFS"                dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="ENTITIES"              dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NMTOKENS"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="QName"                 dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="NOTATION"              dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="decimal"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="integer"               dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonPositiveInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="negativeInteger"       dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="nonNegativeInteger"    dii:cppType="WASP_DII_String"/>
+        <dii:type dii:name="positiveInteger"       dii:cppType="WASP_DII_String"/>
+
+        <dii:type dii:name="base64Binary"          dii:cppType="WASP_DII_Binary"/>
+        <dii:type dii:name="base64"                dii:cppType="WASP_DII_Binary"/>
+        <dii:type dii:name="hexBinary"             dii:cppType="WASP_DII_Binary"/>
+
+        <dii:type dii:name="duration"              dii:cppType="WASP_DII_Duration"/>
+        <dii:type dii:name="dateTime"              dii:cppType="WASP_DII_DateTime"/>
+        <dii:type dii:name="time"                  dii:cppType="WASP_DII_Time"/>
+        <dii:type dii:name="date"                  dii:cppType="WASP_DII_Date"/>
+        <dii:type dii:name="gYearMonth"            dii:cppType="WASP_DII_GYearMonth"/>
+        <dii:type dii:name="gYear"                 dii:cppType="WASP_DII_GYear"/>
+        <dii:type dii:name="gMonthDay"             dii:cppType="WASP_DII_GMonthDay"/>
+        <dii:type dii:name="gDay"                  dii:cppType="WASP_DII_GDay"/>
+        <dii:type dii:name="gMonth"                dii:cppType="WASP_DII_GMonth"/>
+        <!-- Signed -->
+        <dii:type dii:name="long"                  dii:cppType="WASP_DII_Long"/>
+        <dii:type dii:name="int"                   dii:cppType="WASP_DII_Int"/>
+        <dii:type dii:name="short"                 dii:cppType="WASP_DII_Short"/>
+        <dii:type dii:name="byte"                  dii:cppType="WASP_DII_Byte"/>
+        <!-- Unsigned -->
+        <dii:type dii:name="unsignedLong"          dii:cppType="WASP_DII_UnsignedLong"/>
+        <dii:type dii:name="unsignedInt"           dii:cppType="WASP_DII_UnsignedInt"/>
+        <dii:type dii:name="unsignedShort"         dii:cppType="WASP_DII_UnsignedShort"/>
+        <dii:type dii:name="unsignedByte"          dii:cppType="WASP_DII_UnsignedByte"/>
+        <!-- Others -->
+        <dii:type dii:name="boolean"               dii:cppType="WASP_DII_Boolean"/>
+        <!-- BEGIN: Progress -->
+<!--        
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Float"/>
+-->
+        <dii:type dii:name="float"                 dii:cppType="WASP_DII_Double"/>
+        <!-- END: Progress -->        
+        <dii:type dii:name="double"                dii:cppType="WASP_DII_Double"/>
+
+        <dii:type dii:name="anyURI"                dii:cppType="WASP_DII_AnyURI"/>
+
+        <dii:type dii:name="anySimpleType"         dii:cppType="WASP_DII_String"/>
+    </dii:schema>
+
+</waspc-config>

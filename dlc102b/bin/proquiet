@@ -1,0 +1,21 @@
+#!/bin/sh
+
+DLC=${DLC-/dlc/dlc102b};export DLC
+PROSHUT=${PROSHUT-$DLC/bin/_mprshut}
+case "$*" in
+  *enable*)
+    DBNAME=$1
+    shift
+    $PROSHUT $DBNAME -C quiet "$@"
+  ;;
+  *disable*)
+    DBNAME=$1
+    shift
+    $PROSHUT $DBNAME -C quiet "$@"
+  ;;
+  *bithreshold*)
+    DBNAME=$1
+    shift
+    $PROSHUT $DBNAME -C quiet "$@"
+  ;;
+esac

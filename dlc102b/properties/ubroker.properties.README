@@ -1,0 +1,1963 @@
+##########################################################################
+##                                                                      ##
+##        Copyright (c) 1998-2009 by Progress Software Corporation      ##
+##                                                                      ##
+## All rights reserved.  No part of this program or document may be     ##
+## reproduced in any form or by any means without permission in writing ##
+## from Progress Software Corporation.                                  ##
+##                                                                      ##
+##########################################################################
+ 
+---------------------- ubroker.properties.README -------------------------
+ 
+This file describes the properties that you can define in the ubroker.properties
+file.  The components you can configure in this file are:
+
+    Adapters:  AppServer Internet Adapter, Web Services Adapter, SonicMQ Adapter
+    UBrokers:  WebSpeed, AppServer, MSS DataServer, ODBC DataServer and 
+               Oracle DataServer
+    Messengers:  CGIIP, WSASP, WSISA, WSNSA
+    NameServers:  Local and Remote
+    Miscellaneous: Environment, Preferences,  AdminRole
+---------------------------------------------------------------------------    
+Comments indicate which properties you cannot modify. Many properties have
+pre-defined defaults. Environment variables are valid for all properties
+(both numeric and character) using the standard conventions - $ENVVAR or
+${ENVVAR}.  Also, tilde (~) is supported as the escape character (e.g ~$)
+so that you can include a '$' as a keyword value.
+In addition to environment variables, Registry values are also supported.
+The syntax for specifying a value from the registry is @{Key\Value}.
+Where 'Key' is a registry key off the PROGRESS base key: 
+
+ HKEY_LOCAL_MACHINE\SOFTWARE\PSC\PROGRESS\<version>
+   where <version> is the current PROGRESS version (e.g. 10.0A).
+
+For example, @{Startup\DLC} will read the DLC value from the key
+HKEY_LOCAL_MACHINE\SOFTWARE\PSC\PROGRESS\10.0A\Startup.
+
+If the 'Key' is omitted - @{Value}, The PROGRESS base key is
+used, as in @{WorkPath}.
+---------------------------------------------------------------------------    
+When modifying the ubroker.properties file directly, it is recommended that you
+test your changes with the *config commands.  The commands check for syntax and 
+port problems.  Run the *config commands with no options (or -h) for usage help.
+
+adaptconfig -    for SonicMQ Adapter
+aiaconfig   -    for AppServer Internet Adapter
+asconfig    -    for AppServer
+nsconfig    -    for NameServer
+wsaconfig   -    for Web Services Adapter
+wsconfig    -    for WebSpeed
+
+We also recommend using "mergeprop" to modify the ubroker.properties.  The 
+"mergeprop" tool allows you to add, update, and delete the ubroker.properties 
+and validates changes automatically.  Using "mergeprop -h" will give you usage
+help.
+---------------------------------------------------------------------------
+%% version b001
+
+This is a schema version of the ubroker.properties file.  It represents the last
+version that the schema (structure) of the ubroker.properties file was changed.
+It does not represent the current version.
+---------------------------------------------------------------------------
+The sections of the ubroker.properties have a hierarchy.  
+
+There is a parent, example [UBroker], here all available parameters are listed.
+
+Property settings are inherited by the "child" sections: [UBroker.WS] and 
+[UBroker.AS] for example.
+
+These sections are in turn parents of the [UBroker.WS.<broker-name>] and
+[UBroker.AS.<appserver-name>] sections.
+----------------------------------------------------------------------------
+##########################################################################
+##                                                                      ##
+##        Default properties for SonicMQ Adapter broker.                ##
+##                                                                      ##
+##########################################################################
+ [Adapter] 
+
+    actionalEnabled=0
+	0 - (defaut) do not gather network information and forward to an 
+		Actional agent running on the same machine
+	1 - enable process to gather network information and forward to an 
+		Actional agent running on the same machine
+
+    actionalGroup=OpenEdge
+	Used when actionalEnabled=1 sets the group name which is displayed in 
+		Actional Management Server console
+	Default is "OpenEdge"
+
+    allowRuntimeUpdates=0
+        0 - to not allow certain properties to be dynamically updated
+        1 - to allow certain properties to be dynamically updated
+
+    appServerKeepaliveCapabilities=denyClientASK,denyServerASK
+        A comma separated list of keepalive capabilities the SonicMQ Broker
+        Connect Adapter responds with when a client connects to the Adapter and
+        requests the keepalive feature.  Both client and server must specify 
+        "allow" to enable the feature. 
+            denyServerASK  - disables server initiated keepalive 
+            allowServerASK - enables server initiated keepalive
+            denyClientASK  - currently unused - for future development 
+            allowClientASK - currently unused - for future development
+
+    appserviceNameList=
+        Always be "adapter.progress.jms" defined in child section DO NOT MODIFY
+
+    autoStart=0
+        0 - to not start when AdminServer starts
+        1 - to start when AdminServer starts
+        
+    autoTrimTimeout=0
+        0 - to never trim agents
+        This value should always be 0.  The SonicMQ Adapter broker does
+        not support trimming adapter threads.
+            
+    brkrLogAppend=1
+        0 - to start a new log each time the broker is restarted
+        1 - to append to existing log file when broker is restarted
+        
+    brkrLogEntries=0
+        **Currently unused**
+        
+    brkrLogEntryTypes=UBroker.Basic
+        A single entry or comma delimited list of logging entry types.  
+        UBroker.basic is default, another example is UBroker.SSL.
+        This property can be dynamically updated.
+        
+    brkrLoggingLevel=2
+        Logging level for messages into the broker log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+        This property can be dynamically updated.             
+
+    brkrLogThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the broker creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647.
+            
+    brkrNumLogFiles=3
+        Limit on how many broker log files will be kept on the system when 
+        there is a threshold limit. It represents the number of log files 
+        including the current one. Includes any rolled over log files that 
+        already exist when process started.
+        
+    brokerLogFile=
+        Location and name of broker log file.
+        
+    certStorePath=
+        Location of SSL certificates.
+        
+    classMain=com.progress.ubroker.broker.ubroker
+        Name of class used to start the process.  DO NOT MODIFY.
+        
+    controllingNameServer=
+        NameServer process Adapter will register with.
+        
+    description=
+        Text description of the Adapter
+        
+    environment=
+        Sets location where environment values are set.  
+            Example: [Adapter.SonicMQ1] 
+            
+    groupName=
+        Used with userName.  The groupname for the userName starting the 
+        process. (Used only on UNIX).
+        
+    hostName=
+        Specifies the hostname value to be used if the registrationMode
+        property is set to Register-HostName.  In all other cases, this
+        property is ignored.
+        
+    infoVersion=9010
+        Internal use.  DO NOT MODIFY
+        
+    initialAdptrThreads=20
+        Number of threads to start when process started.  Do not set this
+        to a value less than the minAdptrThreads value.
+
+    ipver=
+        Internet Protocol to use for network communication.
+            Default: IPv4 - will only accept IPv4 connections
+                     IPv6 - will allow IPv6 connections and IPv4 connections
+                            using address mapping (where supported)
+        NOTE: you also need to set these values in jvmArgs= to over-ride the  
+              default behavior of the JVM for IPv6 connection -->
+    jvmArgs=-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true
+        
+    jvmArgs=
+        Allows setting of JVM arguments.  Examples: -xms32m -xmx64m
+        
+    keyAlias=
+        The alias name of the SSL Private Key / Digital Certificate key
+        store entry to use.
+            Default: default_server
+            
+    keyAliasPasswd=
+        SSL Key alias password (stored in encrypted form) to access the
+        server Private Key / Digital Certificate key store entry.
+            Default: 20333c34252a2137
+        
+    keyStorePasswd=
+        SSL Store password (stored in encrypted form).
+        
+    keyStorePath=
+        Location and name of Key Store file.
+        
+    maxAdptrThreads=30
+        Maximum number of threads allowed to be started.
+        
+    maxClientInstance=25
+        Maximum number of concurrent clients connected to broker.
+        
+    minAdptrThreads=10
+        Minimum number of Adapter threads.  Do not set this to a value 
+        less than 5.
+        
+    noSessionCache=0
+        0 - enable SSL session caching (stores SSL information)
+        1 - disable SSL session caching (no SSL information persisted)
+        
+    password=
+        Used with userName.  The encrypted password for the userName starting 
+            the process.  (Used only on Windows).
+        This property is automatically encrypted by the Progress Explorer. If 
+        you manually add broker definitions you can generate an encrypted 
+        password using the following command:
+            [Install-dir]\bin\genpassword -password users_password
+                where: "users_password" is the clear text password for the 
+                    userName account.
+                You can then cut and paste the value into password=
+                
+    portNumber=3620
+        Port number the broker starts and listens on.
+        
+    registerNameServer=1
+        0 - do not register with NameServer (clients must connect directly to
+                the broker).
+        1 - register with NameServer (clients connect to NameServer and get
+                directed to the broker).
+                
+    registrationMode=Register-IP
+        The mode that the broker registers with the NameServer.  This 
+        hostname information is passed onto a client application when it is
+        trying to connect to the broker.
+            Register-IP  
+                   Specify the hostname as the IP address of the machine where
+                   the broker is located. The broker will determine its IP
+                   address and pass that to the NameServer when it registers.
+                   Clients will be connected using the IP address.
+            Register-LocalHost 
+                   Specify the hostname as the hostname of the machine where the 
+                   the broker is located. The broker will determine its hostname 
+                   and pass that to the NameServer when it registers. Clients
+                   will be connected using the hostname.
+            Register-HostName
+                   Specify the hostname using the value specified in the
+                   hostName property. The broker will pass the value of the
+                   hostname property to the NameServer as its location when it 
+                   registers.Clients will be connected using the hostname as 
+                   specified.
+         Register-IP is the most efficient mechanism, and can be used in
+         most cases. 
+         
+         If the broker is running on a multi-homed machine (a machine with a 
+         single hostname and more than one IP address) then 
+         Register-LocalHost should be used so that clients can connected to 
+         the broker regardless of which IP address they have access to. 
+        
+         If Register-LocalHost results in the broker being register with a
+        hostname which is not valid for all clients then Register-HostName
+        should be used and the hostName property must be set to the
+        hostname value with which you wish the broker to register.  An
+        example, where Register-LocalHost name might be used is if the
+        client needs a fully qualified host name to connect to the broker
+        because it is in a different DNS domain, but the broker using 
+        Register-LocalHost registers with only a simple hostname (e.g. 
+        carkoon vs. carkoon.progress.com).
+        
+         Note: a register mode of Register-LocalHost or Register-HostName
+             should not be used if the unified broker is registering with a
+             NameServer earlier than version 9.1.
+                  
+    registrationRetry=30
+         Time interval, in seconds, at which the NameServer expects to receive
+         a message from the broker indicating that it is still alive. Once the 
+         NameServer receives a registration message from a broker, it must 
+         receive "keep alive" messages at the specified interval.  Otherwise, it
+         removes the broker from the list of application services.
+         
+    sessionTimeout=180
+        The SSL session cache timeout (in seconds) used with noSessionCache.
+        
+    serverASKActivityTimeout=60
+        Used only if appServerKeepaliveCapabilities=allowServerASK
+        Specifies the number of seconds with no activity that the
+        Appserver waits before sending the client a keepalive request.
+        Possible Values:  30 - 2147483647.
+        
+    serverASKResponseTimeout=60
+        Used only if appServerKeepaliveCapabilities=allowServerASK
+        Specifies the number of seconds with no activity after
+        the Appserver sends a keepalive request before the client is disconnected.
+        Possible Values:  30 - 2147483647.
+        
+    srvrLogAppend=1
+        0 - delete the current server log and start a new one at startup.
+        1 - append current log file at startup.
+        
+    srvrLogEntries=0
+        **Currently unused**
+           
+    srvrLogEntryTypes=
+        A single entry or comma delimited list of logging entry types.
+               
+    srvrLogFile=
+        Location and name of the server log file.
+        
+    srvrLoggingLevel=2
+        Logging level for messages into the server log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+        This property can be dynamically updated.             
+
+            
+    srvrLogThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the server creates a new log file with a sequence
+        number (1 to 999,999).
+        Possible Values:  500000 - 2147483647.
+
+    srvrNumLogFiles=3
+        Limit on how many broker log files will be kept on the system when 
+        there is a threshold limit. It represents the number of log files 
+        including the current one. Includes any rolled over log files that 
+        already exist when process started
+        
+    srvrStartupParam=
+        Miscellaneous startup parameters for the adapter - TBD.
+        
+    sslAlgorithms=
+        The SSL algorithm list to use in arbitrating an SSL session with an
+        SSL client.
+            Default: RC4-MD5:RC4-SHA
+        
+    sslEnable=0
+        0 - for clear text (non-encrypted) communication.
+        1 - for encrypted communication.
+        
+    userName=
+        A valid user account you want the broker to run on.  By default a broker
+            will run using the user account that started the AdminServer, 
+            usually the System Account (also known as LocalSystem). 
+        To be able to use as a different user account, the user must
+            have administrator privileses AND 'Logon as batch' enabled.
+            See the User Manager->User Rights options. The value of userName
+                has 3 formats:
+            1.  user_name    =  defines an Administrator on the local machine.
+            2.  .\user_name  =  same as option 1, with explicit reference to the
+                local machine.
+            3. domain\user   =  A user on a specified domain.
+            
+    uuid=
+        Specifies a universally unique identifier for this broker.  
+        This value is used by the NameServer referred to by the 
+            controllingNameServer property to uniquely identify this broker from
+            all other brokers registered with that NameServer.
+        This property is automatically set by the Progress Explorer. If you 
+            manually add broker definitions you can generate a uuid using the 
+            following command:
+                [Install-dir]\bin\genuuid
+            You can then cut and paste the value into uuid=
+            
+    workDir=
+        Path to the Progress working directory.                        
+
+##########################################################################
+##                                                                      ##
+## Default properties for the Admin Role of the Web Services Adapter.   ##
+## Subsequent instances for managing WSAs inherit the definitions you   ##
+##    provide here.                                                       ##
+##                                                                      ##
+##########################################################################
+        
+[AdminRole]
+
+    apps_defaults=
+        Governs which operations the administrator role may perform on the 
+        default Web service properties that are used to initialize a newly 
+        deployed Web service.  The operations are a comma separated list (no 
+        embedded spaces) of the possible values.
+            <blank> no operations are permitted
+            read - may list default Web service properties 
+            write - may change default Web service properties
+
+    apps_enable=
+        Governs which operations the administrator role may perform on the 
+        enable state of Web service applications.  The operations are a comma 
+        separated list (no embedded spaces) of the possible values.
+            <blank> no operations are permitted
+            read - may obtain the enable state of Web services
+            write - may enable and disable Web services
+
+    apps_props=
+        Governs which operations the administrator role may perform on a Web 
+        service's properties.  The operations are a comma separated list 
+        (no embedded spaces) of the possible values.
+            <blank> no operations are permitted
+            read - may list Web service properties 
+            write - may change Web service properties
+    
+    apps_stats=
+        Governs which operations the administrator role may perform on a Web 
+        service's statistical counters.  The operations are a comma separated 
+        list (no embedded spaces) of the possible values.
+            <blank> no operations are permitted
+            read - may list statistical counters
+            write - may reset statistical counters to zero
+            
+    servlet_props=
+        Governs which operations the administrator role may perform on the WSA's
+        run-time changeable properties.  The operations performed are a comma 
+        separated list (no embedded spaces) of the possible values.
+            <blank> no operations are permitted
+            read - may list run-time changeable properties 
+            write - may change run-time changeable properties
+            
+    servlet_services=read
+        Governs which operations the administrator role may perform on the 
+        registry of deployed Web service applications.  The operations are a 
+        comma separated list (no embedded spaces) of the possible values.
+            <blank> no operations are permitted
+            read - may list, query and export Web service applications
+            write - may deploy or import Web service applications
+            delete - may undeploy Web service applications
+            
+    servlet_stats=
+        Governs which operations the administator role may perform on the WSA's 
+        statistical counters.  The operations are a comma separated list (no 
+        embedded spaces) of the possible values.
+            <blank> no operations are permitted
+            read - may list statistical counters
+            write - may reset statistical counters to zero
+
+##########################################################################
+##                                                                      ##
+##   Default properties for the AppServer Internet Adapter (AIA)        ##
+##                                                                      ##
+##########################################################################
+
+[AIA]
+
+    actionalEnabled=0
+	0 - (defaut) do not gather network information and forward to an 
+		Actional agent running on the same machine
+	1 - enable process to gather network information and forward to an 
+		Actional agent running on the same machine
+
+    actionalGroup=OpenEdge
+	Used when actionalEnabled=1 sets the group name which is displayed in 
+		Actional Management Server console
+	Default is "OpenEdge"
+
+    adminIPList=
+        A comma separated list of IP addresses allowed to access the Aia 
+        adapter's internal administrative commands.  The property allowAiaCmds 
+        must be set to 1 allowing access to the internal commands to use this 
+        option.
+            <blank> - allow any IP address to access Aia adapter's internal
+                    commands - default
+                
+    allowAiaCmds=0
+        Allows access to the Aia adapter's internal administrative commands. 
+            0 - Do not allow the commands to run. (Default)
+            1 - Allow the commands to run. 
+        
+    appServerKeepalive=denyClientASK,allowServerASK
+        A comma separated list of keepalive capabilities the AIA client
+        requests when connecting to an Appserver.  Both client and server
+        must specify "allow" to enable the feature. 
+            denyServerASK  - disables server initiated keepalive 
+            allowServerASK - requests server initiated keepalive
+            denyClientASK  - currently unused - for future development 
+            allowClientASK - currently unused - for future development
+
+    certStorePath=
+         The path to the trusted certificate store.  The root certificate for 
+         the certificate authority that was used to sign the server certificate 
+         should be specified by this path.
+        
+    clientASKActivityTimeout=60
+        **Currently unused - for future development**
+        
+    clientASKResponseTimeout=60
+        **Currently unused - for future development**
+        
+    controllingNameServer=
+        NameServer process will register with.
+
+    Host=localhost
+        Required if AIA will be directly connected to an AppServer client, 
+        i.e. registerNameServer=0, to specify the host location of the AppServer
+        client. If AIA is controlled by a NameServer, i.e. registerNameServer=1,
+        this property is ignored
+        
+    httpsEnabled=1
+        Indicates whether the connections from AppServer clients should be
+        restricted to those that connect using HTTPS tunneling.  If this 
+        property is set to 1, but the license indicates that AIA without 
+        encryption was installed, this property is ignored.  Connections to AIA
+        at the HTTP port will be redirected to the HTTPS automatically.
+            0 - HTTPS tunneling off (no encryption)
+            1 - HTTPS tunneling on (AIA with encryption installed)
+        
+    idleConnectionTimeout=3600
+        Timeout vale in seconds between an AppServer client and an AIA instance.
+        If a connection is idle for more than the specified timeout value, then 
+        the AIA instnace will terminate the connection by automaitcally 
+        disconnecting the connection from the AppServer.
+        
+    logAppend=0
+        0 - to start a new log each time the web server is restarted
+        1 - to append to existing log file when the web server is restarted
+
+    logEntries=0
+        **Currently unused**
+    
+    logEntryTypes=AiaDefault
+        Specifies the type of information recorded when performing diagnostic 
+        logging. The value is a comma-separated list of valid entry types.  It 
+        is also possible to specify a different logging level for each entry 
+        type. For example: "ENTRY:2", where the number following the colon is 
+        the level. Levels for types must be greater than 1.
+        
+    logFile=
+        Specifies the name of the log file the Appserver internet adapter uses
+        
+    loggingLevel=2
+         Specifies the amount of information to be written to the broker log.
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended 
+
+    logThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the broker creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647.
+        
+    maxNSClientPort=0
+    minNSClientPort=0
+        minNSClientPort and maxNSClientPort limit the range of ports of an
+        AIA communicating with the NameServer via UPD.  This is important 
+        when the AIA and NameServer are separated by a firewall.
+
+        The value for these two properties must be a number between 1024 and
+        65535 inclusive (or 0), and minNSClientPort must be less than or equal
+        to maxNSClientPort.
+
+        If the minimum and maximum values are both set to zero, then a random 
+        port number within the implicit fixed range will be dynamically assigned 
+        (this was the implicit behavior in versions of Progress prior to 9.1B).  
+        
+        If both minimum and maximum values are set to the same port number, then 
+        this UDP port number will be used when communicating with the NameServer 
+
+    noHostVerify=0
+        Enable or disable host verification of the server certificate
+            0 - verify that the hostname of certificate matches URL
+            1 - do NOT verify that the hostname of certificate matches URL
+            
+    noSessionReuse=0
+            0 - enable SSL session reuse
+            1 - disable SSL session reuse
+            
+    nsClientPortRetry=4
+        Specifies the number of attempts that the AIA instance should make when 
+        requesting a valid local UDP port number within a specified range.
+            Maximum: 500
+        
+    nsClientPortRetryInterval=250
+        Specifies the interval, in ms, that the AIA instance will wait between 
+        retry attempts to get a valid UDP port within the specified range. 
+            Maximum: 10,000
+        
+    numLogFiles=3
+        Limit on how many log files will be kept on the system when there is a 
+        threshold limit. It represents the number of log files including the 
+        current one. Includes any rolled over log files that already exist when 
+        process started.
+        
+    Port=3090
+        AppServer port when using DirectConnect
+    
+    registerNameServer=1
+        0 - do not register with NameServer (clients must connect directly to
+            the broker).
+        1 - register with NameServer (clients connect to NameServer and get
+            directed to the broker).        
+    
+    securePort=443
+        This property is only relevent if httpsEnabled is true.  The value of 
+        this property must be set to the port the WebServer is listening for 
+        requests, that specify the HTTPS protocol.  If not set and httpsEnabled 
+        is set to true, then this property defaults to 443.
+    
+    soReadTimeout=240
+        Specifies the amount of time, in seconds, the Aia adapter will wait for 
+        a response from an appserver before sending a "keepalive"  message to 
+        the client.  The value of 0 specifies that the "keepalive" message is 
+        not used.  If the property is not specified, the default value (240) 
+        will be assumed.
+    
+    sslEnable=0
+        0 - no SSL encryption from AIA to AppServer
+        1 - SSL encryption enabled between AIA and AppServer
+
+##########################################################################
+##                                                                      ##
+##               Default properties for NameServer)                      ##
+##                                                                      ##
+##########################################################################
+
+[NameServer]
+
+    allowRuntimeUpdates=0
+        0 - to not allow certain properties to be dynamically updated
+        1 - to allow certain properties to be dynamically updated
+
+    autoStart=0
+        0 to not start when AdminServer starts
+        1 to start when AdminServer starts
+    
+    brokerKeepAliveTimeout=30
+        How often (in seconds) the NameServer checks its list of registered 
+        brokers to see which ones have timed out. For best performance, this 
+        value should be larger than the brokers' registrationRetry value.
+        This property can be dynamically updated.
+       
+    classMain=com.progress.nameserver.NameServer
+        Name of class used to start the process.  DO NOT MODIFY.
+
+    collectStatsData=0
+        0 - do not collect data for retrieval by Fathom Management
+        1 - do collect date for Fathom Management 
+            
+    environment=
+        Sets location where environment values are set.  
+            Example: [Nameserver.NS1] 
+    
+    hostName=localhost
+        Host where the NameServer is running.  Used only is location=remote.
+        
+    infoVersion=9010
+         Internal use.  DO NOT MODIFY
+
+    ipver=
+        Internet Protocol to use for network communication.
+            Default: IPv4 - will only accept IPv4 connections
+                     IPv6 - will allow IPv6 connections and IPv4 connections
+                            using address mapping (where supported)
+        NOTE: you also need to set these values in jvmArgs= to over-ride the   
+              default behavior of the JVM for IPv6 connection -->
+    jvmArgs=-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true
+   
+    jvmArgs=
+        Allows setting of JVM arguments.  Examples: -xms32m -xmx64m
+    
+    location=local
+        Location of NameServer to AdminServer.
+            local - NameServer runs on same machine as AdminServer and is
+                managed by this AdminServer
+            remote - NameServer runs on a different machine and is managed by
+                the AdminServer on that machine 
+    
+    logAppend=1
+        0 - to start a new log each time the web server is restarted
+        1 - to append to existing log file when the web server is restarted
+    
+    logEntries=0
+        **Currently unused**
+    
+    logEntryTypes=NSPlumbing
+        Specifies the type of information recorded when performing diagnostic 
+        logging. The value is a comma-separated list of valid entry types.  It 
+        is also possible to specify a different logging level for each entry 
+        type. For example: "ENTRY:2", where the number following the colon is 
+        the level. Levels for types must be greater than 1.
+        This property can be dynamically updated.
+   
+    loggingLevel=2
+         Specifies the amount of information to be written to the broker log.
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended 
+        This property can be dynamically updated.
+    
+    logThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the broker creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647.
+
+    multiCastGroup=
+        Used for fault-tolerant NameServers in the same local network when using
+        IPv6 networking.  Please see your network Administrator for the value
+        appropriate to your network.
+            Example: multiCastGroup=FF02::0100
+    
+    neighborNameServers=
+        A list of NameServers that this NameServer will forward requests to when 
+        it receives a request for an Application Service unknown to this 
+        NameServer.  
+
+        This property is optional. If no value is specified, and the Application
+        Service requested is not one of the Application Services known to this 
+        NameServer, then the NameServer will send a message to the client
+        indicating that the Application Service is not registered. 
+
+        If a value is specified, then the value must contain a comma separated 
+        list of local or remote NameServers that are specified in this
+        properties file.
+    
+    numLogFiles=3
+        Limit on how many log files will be kept on the system when there is a 
+        threshold limit. It represents the number of log files including the 
+        current one. Includes any rolled over log files that already exist when 
+        process started.
+    
+    portNumber=5162
+        Port number the NameServer starts and listens on.
+    
+    srvrLogFile=
+        Location and name of the server log file.
+    
+    workDir=
+        Path to the Progress working directory.
+ 
+##########################################################################
+##                                                                      ##
+##     Links to parent group names for the plugin for Broker tools      ##
+##                                                                      ##
+##########################################################################       
+
+
+[ParentGroup]
+        This section provides linkage to the parent group name for the plugin 
+        for the Unified Broker tool. Currently for NT only.  All properties in 
+        this section are REQUIRED. Do not modify or override.
+
+    AppServer=UBroker.AS
+    AppServer Internet Adapter=AIA
+    Messengers=WebSpeed.Messengers
+    MSS DataServer=UBroker.MS
+    NameServer=NameServer
+    ODBC DataServer=UBroker.OD
+    Oracle DataServer=UBroker.OR
+    SonicMQ Adapter=Adapter
+    Web Services Adapter=WSA
+    WebSpeed=UBroker.WS
+ 
+##########################################################################
+##                                                                      ##
+##Preference settings for tool and service connect and shutdown controls##
+##                                                                      ##
+##########################################################################    
+    These default values are for tuning various aspects of the Tools 
+    (both command and GUI) used for starting/stopping and querying
+    Brokers and NameServers.
+
+    As a rule the various 'RetryInterval' values should not be 
+    modified. However, if you experience problems starting, stopping
+    or querying Brokers or NameServers - you may increase the values
+    of the various 'Retry' properties as follows:
+
+[PreferenceRoot]
+    admSrvrRegisteredRetry=6
+        retry count when autostarting a component with AdminServer
+        
+    admSrvrRegisteredRetryInterval=3000
+        time in milliseconds between retry attempts
+        
+    toolConnectSvcRetry=10
+        retry count for initial connection to a Broker/Nameserver
+        
+    toolConnectSvcRetryInterval=3000
+        time in milliseconds between retry attemps
+        
+    toolGetSvcStatusRetry=10
+        retry count for querying 
+        
+    toolPingSvcRetry=2
+        retry count when querying
+         
+    toolShutdownSvcConfirmRetry=10
+        retry count when shutting down 
+        
+    toolShutdownSvcConfirmRetryInterval=1000
+        time in milliseconds between retry attempts    
+ 
+##########################################################################
+##                                                                      ##
+##       Default properties for all unified broker instances            ##
+##       AppServers, WebSpeed, and DataServers                          ##
+##                                                                      ##
+##########################################################################          
+
+[UBroker]
+
+    4glSrcCompile=0
+        Is NOT enabled at this time.
+
+    actionalEnabled=0
+	0 - (defaut) do not gather network information and forward to an 
+		Actional agent running on the same machine
+	1 - enable process to gather network information and forward to an 
+		Actional agent running on the same machine
+
+    actionalGroup=OpenEdge
+	Used when actionalEnabled=1 sets the group name which is displayed in 
+		Actional Management Server console
+	Default is "OpenEdge"
+        
+    allowRuntimeUpdates=0
+        0 - to not allow certain properties to be dynamically updated
+        1 - to allow certain properties to be dynamically updated
+
+    appserviceNameList=
+        Specifies a list of servers that the broker supports.
+
+    autoStart=0
+        0 - to not start when AdminServer starts
+        1 - to start when AdminServer starts
+    
+    autoTrimTimeout=1800
+        0 - to never trim agents
+        Any number greater than 0 is seconds before trimming agents to
+            minimum value
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+            
+    brkrLogAppend=1
+        0 - to start a new log each time the broker is restarted
+        1 - to append to existing log file when broker is restarted
+    
+    brkrLogEntries=0
+        **Currently unused**
+
+    brkrLogEntryTypes=UBroker.Basic
+        A single entry or comma delimited list of logging entry types.  
+        UBroker.basic is default, another example is UBroker.SSL.
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+        
+    brkrLoggingLevel=2
+        Logging level for messages into the broker log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+
+    brkrLogThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the broker creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647.
+
+    brkrNumLogFiles=3
+        Limit on how many broker log files will be kept on the system when 
+        there is a threshold limit. It represents the number of log files 
+        including the current one. Includes any rolled over log files that 
+        already exist when process started.
+
+    brokerLogFile=
+        Location and name of broker log file.
+
+    certStorePath=
+        Location of SSL certificates.
+
+    collectStatsData=0
+        0 - do not collect data for retrieval by Fathom Management
+        1 - do collect date for Fathom Management 
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+    
+    connectingTimeout=60
+        time in seconds to wait during a connect state for the client to connect
+        to the AppServer agent
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+
+    controllingNameServer=
+        NameServer process will register with.
+        
+    defaultService=0
+        Specifies whether the broker supports the default application service. 
+        If a request for an AppService Name is received at the NameServer that 
+        does not match any registered with the NameServer, the request will be
+        forwarded to the "default" AppSerice Name (this broker if set to 1).
+        If you set this property to 0, you must set the appserviceNameList.
+            0 - do not support the default service 
+            1 - support the default service
+        
+    description=
+        Text description of the UBroker
+
+    environment=
+        Sets location where environment values are set.  
+            Example: [Adapter.SonicMQ1] 
+
+    flushStatsData=255
+        **Currently unused**
+        
+    groupName=
+        A user's group when using the userName starting a broker with user 
+        profile other than the user that started the AdminServer
+
+    hostName=
+        Specifies the hostname value to be used if the registrationMode property 
+        is set to Register-HostName.  In all other cases, this property is 
+        ignored.
+
+    infoVersion=9010
+        Internal use.  DO NOT MODIFY
+    
+    initialSrvrInstance=5
+        Number of servers/agents to start when broker is started.
+
+    ipver=
+        Internet Protocol to use for network communication.
+            Default: IPv4 - will only accept IPv4 connections
+                     IPv6 - will allow IPv6 connections and IPv4 connections
+                            using address mapping (where supported)
+        NOTE: you also need to set these values in jvmArgs= to over-ride the   
+              default behavior of the JVM for IPv6 connection -->
+    jvmArgs=-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true
+        
+    jvmArgs=
+        Allows setting of JVM arguments.  Examples: -xms32m -xmx64m
+
+    keyAlias=
+        The alias name of the SSL Private Key / Digital Certificate key
+        store entry to use.
+            Default: default_server
+            
+    keyAliasPasswd=
+        SSL Key alias password (stored in encrypted form) to access the
+        server Private Key / Digital Certificate key store entry.
+            Default: 20333c34252a2137
+        
+    keyStorePasswd=
+        SSL Store password.
+        
+    keyStorePath=
+        Location and name of Key Store file.
+
+    maxClientInstance=512
+        Maximum number of concurrent clients connected to broker.
+
+    maxSrvrInstance=10
+        Maximum number of concurrent servers/agents that can run on the broker.
+        
+    minSrvrInstance=1
+        Minimum number of servers/agents allowed on the broker.  Broker will not
+        autoTrim below this value.  If the number of servers/agents drops below
+        this number, a client request will cause the broker to start enough 
+        servers/agents to equal this number.
+        
+    noSessionCache=0
+        0 - enable SSL session caching (stores SSL information)
+        1 - disable SSL session caching (no SSL information persisted)
+
+    operatingMode=Stateless
+        AppServer processes can run in four operating modes.
+        Possible values are: Stateless, State-reset, State-aware, State-free.
+
+    password=
+        Used with userName.  The encrypted password for the userName starting 
+        the process.  (Used only on Windows). This property is automatically 
+        encrypted by the Progress Explorer. If you manually add broker 
+        definitions you can generate an encrypted password using the following 
+        command:
+            [Install-dir]\bin\genpassword -password users_password
+                where: "users_password" is the clear text password for the 
+                    userName account.
+                You can then cut and paste the value into password=
+        
+    portNumber=3001
+        Port number the broker starts and listens on.
+ 
+    priorityWeight=0
+        Defines a load-balancing priority for this broker relative to other
+        brokers that have an application service equal to one of the 
+        application service listed by the appserviceNameList property and that
+        are registered with the NameServer specified by the 
+        controllingNameServer property.
+
+        A higher value gives more priority to this broker relative to other
+        brokers registered with the same application service. This property
+        allows you to balance the load across multiple brokers on different
+        machines which have the ability to handle different request loads.
+        For example, a high-end UNIX server would have a higher weight 
+        value that a single CPU PC. 
+
+        Setting all brokers to the same value will evenly distribute the load.
+        Setting the value to 0 will exclude this broker from selection unless
+        all brokers for the application service have a value of 0. That is,
+        if all brokers have a priorityWeight value of 0, the load is evenly
+        distributed.
+            Possible values: The range is from 0-100, where 100 is the highest 
+                priority
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and the NameServer it is registered with.
+
+    PROPATH=
+        servers/agents PROPATH
+        
+    registerNameServer=1
+        0 - do not register with controllingNameServer
+        1 - do register with controllingNameServer
+        
+    registrationMode=Register-IP
+        Specifies when the broker registers with its controlling NameServer 
+        how it should specify its hostname.  This hostname information is
+        passed onto a client application when it attempts to connect to an
+        Application Service that this broker supports.
+ 
+        Possible Values:
+        Register-IP  
+            Specify the hostname as the IP address of the machine where
+            the broker is located. The broker will determine its IP
+            address and pass that to the NameServer when it registers.
+            Clients will be connected using the IP address.
+
+        Register-LocalHost 
+            Specify the hostname as the hostname of the machine where the 
+            the broker is located. The broker will determine its hostname 
+            and pass that to the NameServer when it registers. Clients
+            will be connected using the hostname.
+            
+        Register-HostName
+            Specify the hostname using the value specified in the
+            hostName property. The broker will pass the value of the
+            hostname property to the NameServer as its location when it 
+            registers.Clients will be connected using the hostname as 
+            specified.
+
+        Register-IP is the most efficient mechanism, and can be used in
+        most cases. 
+
+        If the broker is running on a multi-homed machine (a 
+        machine with a single hostname and more than one IP address) then
+        Register-LocalHost should be used so that clients can connected to the
+        broker regardless of which IP address they have access to. 
+         
+        If Register-LocalHost results in the broker being register with a
+        hostname which is not valid for all clients then Register-HostName
+        should be used and the hostName property must be set to the
+        hostname value with which you wish the broker to register.  An
+        example, where Register-LocalHost name might be used is if the
+        client needs a fully qualified host name to connect to the broker
+        because it is in a different DNS domain, but the broker using 
+         Register-LocalHost registers with only a simple hostname 
+        (e.g. carkoon vs. carkoon.progress.com).
+
+    registrationRetry=30
+         Time interval, in seconds, at which the NameServer expects to receive
+         a message from the broker indicating that it is still alive. Once the 
+         NameServer receives a registration message from a broker, it must 
+         receive "keep alive" messages at the specified interval.  Otherwise, it
+         removes the broker from the list of application services.
+         
+    requestTimeout=15
+        Specifies the amount of time, in seconds, the broker will wait for a 
+        server/agent to become available for processing a request.  After this 
+        timeout has expired the client will receive a "no servers available" 
+        error message.
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+
+------------------------------------------------------------------------------
+----------------------------------CAUTION-------------------------------------
+------------------------------------------------------------------------------
+The lifespan functionality is primarily intended as a troubleshooting feature.
+While it can aid you and your Technical Support representative when debugging 
+a resource problem, it may also have unplanned effects on your production 
+AppServer.  The automatic lifespan feature should be carefully tested before 
+using it on a production environment.
+------------------------------------------------------------------------------
+
+    serverLifespan=0
+        Value in minutes when the server/agent will trim (shutdown).  Agents
+        will not automatically restart, instead will be started by a client 
+        request.  (Used to free up resources on long lived processes.)
+               0 - no lifespan termination
+               
+    serverLifespanPadding=5
+        Value for random padding of the serverLifespan parameter.  A random 
+        number between 0 (zero) and the value you set that will stagger 
+        server/agent shutdowns, so all your agents don't shutdown at the same 
+        time.
+        
+    sessionTimeout=180
+        The SSL session cache timeout (in seconds).
+
+    srvrExecFile=
+        Specifies the PROGRESS executable used for the Agents. Set at 
+        install time.  Do not modify. 
+
+    srvrLogAppend=1
+        0 - delete the current server log and start a new one at startup.
+        1 - append current log file at startup.
+    
+    srvrLogEntries=0
+        **Currently unused**
+
+    srvrLogEntryTypes=
+        A single entry or comma delimited list of logging entry types.  
+        UBroker.basic is default, another example is UBroker.SSL.
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+
+    srvrLogFile=
+        Location and name of the server log file.
+
+    srvrLoggingLevel=2
+        Logging level for messages into the server log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+        This property can be dynamically updated.  Dynamic changes affect
+        both current and new brokers and/or agents.
+
+    srvrLogThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the server creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647.
+
+    srvrLogWatchdogInterval=60
+        Specifies the interval (in seconds) for the server log file watchdog 
+        thread.  If the srvrLogThreshold property is specified, the broker will 
+        roll over the server log file when its size is bigger than the 
+        logthreshold value.  
+
+    srvrMaxPort=3502
+    srvrMinPort=3202
+        Specifies the minimum and maximum port numbers available to the server.
+        Generally, if you set srvrMinPort, set srvrMaxPort so that you specify a 
+        well-defined range.
+            Possible Values:  1024 - 65535.
+        This property can be dynamically updated.  Dynamic changes affect
+        only new agents that are started after this value is changed.
+  
+    srvrNumLogFiles=3
+        Limit on how many broker log files will be kept on the system when 
+        there is a threshold limit. It represents the number of log files 
+        including the current one. Includes any rolled over log files that 
+        already exist when process started
+        
+    srvrSelectionScheme=0
+        **Currently unused**
+        
+    srvrStartupParam=
+        Specifies server/agent startup parameters that each process uses when 
+        the broker starts it. For example, you might want to specify the 
+        Database (-db) parameter to connect to the application database.
+        This property can be dynamically updated.  Dynamic changes affect
+        only new agents that are started after this value is changed.
+
+    srvrStartupTimeout=3
+        Specifies the amount of time, in seconds, the broker waits for a 
+        server/agent to become available before starting a new agent.
+        This property can be dynamically updated.  Dynamic changes affect
+        only new agents that are started after this value is changed.
+        
+    sslAlgorithms=
+        The SSL algorithm list to use in arbitrating an SSL session with an
+        SSL client.
+            Default: RC4-MD5:RC4-SHA
+        
+    sslEnable=0
+        0 - for clear text (non-encrypted) communication.
+        1 - for encrypted communication.
+
+    userName=
+        Defines a valid user account.  It is possible to run a broker under a 
+        different user account.  By default a broker will run under the same 
+        account as the AdminServer is running. 
+            Examples for use on Windows platforms:
+                user_name    =  defines an Administrator on the local machine.
+                .\user_name  =  same as option 1, with explicit reference to the
+                                local machine.
+                3. domain\user   =  A user on a specified domain.
+
+    uuid=
+        Specifies a universally unique identifier for this broker.  
+        This value is used by the NameServer referred to by the 
+            controllingNameServer property to uniquely identify this broker from
+            all other brokers registered with that NameServer.
+        This property is automatically set by the Progress Explorer. If you 
+            manually add broker definitions you can generate a uuid using the 
+            following command:
+                [Install-dir]\bin\genuuid
+            You can then cut and paste the value into uuid=
+            
+    workDir=
+        Path to the Progress working directory.    
+ 
+##########################################################################
+##                                                                      ##
+##       Default properties for all AppServer Brokers                   ##
+##       only those which differ from the [UBroker} section             ##
+##                                                                      ##
+##########################################################################        
+
+[UBroker.AS]
+
+    appServerKeepaliveCapabilities=denyClientASK,denyServerASK
+        A comma separated list of keepalive capabilities the Appserver
+        responds with when a client connects to the Appserver and requests the
+        keepalive feature.  Both client and server must specify "allow" to 
+        enable the feature. 
+            denyServerASK  - disables server initiated keepalive 
+            allowServerASK - enables server initiated keepalive
+            denyClientASK  - currently unused - for future development 
+            allowClientASK - currently unused - for future development
+
+    compressionEnable=0
+        0 - network data compression between client and AppServer not enabled
+        1 - network data compression between client and AppServer is enabled
+         
+    debuggerEnabled=0
+        0 - remote debugging is not enabled
+        1 - a remote debugger can step into the AppServer procedures
+
+    mqBrkrLogAppend=1
+        Used only if mqEnabled=1
+        0 - to start a new log each time the broker is restarted
+        1 - to append to existing log file when broker is restarted
+        
+    mqBrkrLogEntries=0
+        Used only if mqEnabled=1
+        **Currently unused**
+        
+    mqBrkrLogEntryTypes=UBroker.Basic
+        Used only if mqEnabled=1
+        A single entry or comma delimited list of logging entry types.  
+        UBroker.basic is default, another example is UBroker.SSL.
+
+    mqBrkrLoggingLevel=2
+        Used only if mqEnabled=1
+        Logging level for messages into the broker log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+
+    mqBrkrLogThreshold=0
+        Used only if mqEnabled=1
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the server creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647.
+
+    mqBrkrNumLogFiles=3
+        Used only if mqEnabled=1
+        Limit on how many broker log files will be kept on the system when 
+        there is a threshold limit. It represents the number of log files 
+        including the current one. Includes any rolled over log files that 
+        already exist when process started
+
+    mqBrokerLogFile=
+        Used only if mqEnabled=1
+           Location and name of broker log file.
+
+    mqEnabled=0
+        0 - do not enable the Server-Connect SonicMQ Adapter
+        1 - enable the Server-Connect SonicMQ Adapter
+    
+    mqServerLogFile=@{WorkPath}\mqserver.log
+        Used only if mqEnabled=1
+           Location and name of server log file.
+           
+    mqSrvrLogAppend=1
+        Used only if mqEnabled=1
+        0 - to start a new log each time the server is restarted
+        1 - to append to existing log file when server is restarted
+
+    mqSrvrLogEntries=0
+        Used only if mqEnabled=1
+        **Currently unused**
+           
+    mqSrvrLogEntryTypes=UBroker.Basic
+        Used only if mqEnabled=1
+        A single entry or comma delimited list of logging entry types.  
+        UBroker.basic is default, another example is UBroker.SSL.
+
+    mqSrvrLoggingLevel=2
+        Used only if mqEnabled=1
+        Logging level for messages into the broker log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+
+    mqSrvrLogThreshold=0
+        Used only if mqEnabled=1
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the server creates a new log file with a sequence
+        number (1 to 999,999).
+        Possible Values:  500000 - 2147483647.
+
+    mqSrvrNumLogFiles=3
+        Used only if mqEnabled=1
+        Limit on how many broker log files will be kept on the system when 
+        there is a threshold limit. It represents the number of log files 
+        including the current one. Includes any rolled over log files that 
+        already exist when process started
+ 
+    serverASKActivityTimeout=60
+        Used only if appServerKeepaliveCapabilities=allowServerASK
+        Specifies the number of seconds with no activity that the
+        Appserver waits before sending the client a keepalive request.
+        Possible Values:  30 - 2147483647.
+        
+    serverASKResponseTimeout=60
+        Used only if appServerKeepaliveCapabilities=allowServerASK
+        Specifies the number of seconds with no activity after
+        the Appserver sends a keepalive request before the client is disconnected.
+        Possible Values:  30 - 2147483647.
+        
+    srvrActivateProc=
+        Specify activate procedures for AppServers. The procedures must be valid 
+        PROGRESS procedures on the application service PROPATH.
+        This property can be dynamically updated.  Dynamic changes affect
+        all current and new agents.
+         
+    srvrConnectProc=
+        Specify connect procedures for AppServers. The procedures must be valid 
+        PROGRESS procedures on the application service PROPATH.
+        This property can be dynamically updated.  Dynamic changes affect
+        all current and new agents.
+
+    srvrDeactivateProc=
+        Specify deactivate procedures for AppServers. The procedures must be
+        valid PROGRESS procedures on the application service PROPATH.
+        This property can be dynamically updated.  Dynamic changes affect
+        all current and new agents.
+
+    srvrDisconnProc=
+        Specify disconnect procedures for AppServers. The procedures must be
+        valid PROGRESS procedures on the application service PROPATH.
+        This property can be dynamically updated.  Dynamic changes affect
+        all current and new agents.
+
+    srvrShutdownProc=
+        Specifies a shutdown procedure for the server.  The procedure must be a
+        valid PROGRESS procedures on the application service PROPATH.
+        This property can be dynamically updated.  Dynamic changes affect
+        all current and new agents.
+
+    srvrStartupProc=
+        Specifies a shutdown procedure for the server.  The procedure must be a
+        valid PROGRESS procedures on the application service PROPATH.
+        This property can be dynamically updated.  Dynamic changes affect
+        only new agents that are started after this value is changed.
+        
+    srvrStartupProcParam=
+        **Currently unused**
+ 
+##########################################################################
+##                                                                      ##
+##       Default properties for all WebSpeed Brokers                    ##
+##       only those which differ from the [UBroker} section             ##
+##                                                                      ##
+##########################################################################         
+[UBroker.WS]
+
+    applicationURL=
+        A server relative URL (starting with a "\") to the path of the
+        application.  If the web server redirects an incoming URL such that the
+        SCRIPT_NAME and PATH_INFO variables don't refer to the application,
+        setting this will allow an application to create self-referencing URLs
+        when SCRIPT_NAME and/or PATH_INFO aren't correct.  If this option is 
+        set, the value of the applicationURL global variable available to 
+        applications is set to this value instead of a combination of 
+        SCRIPT_NAME and PATH_INFO.    
+
+    binaryUploadMaxSize=0
+        Specifies the maximum size (in bytes) of binary files that WebSpeed will 
+        handle.  The application will be able to access the contents of the 
+        binary files through the 4GL language. Note that this property is not 
+        related to the "fileUploadDirectory" property, therefore WebSpeed will 
+        not upload the file to a directory.
+             0 - binary up load is disabled
+            -1 - no maximum size of a binary upload, binary upload enabled
+            any non-zero value greater then 0 - maximum size of binary upload
+            
+
+    defaultCookieDomain=
+        Domain to send Cookies.  Default is blank causing the web browser to
+        set Cookies only for the current host.  If Cookies need to be available
+        to multiple hosts in the same domain by default, set that domain name 
+        here; for instance: .progress.com.  Unless a value is specified for the 
+        domain option for set-cookie() and delete-cookie() functions, this value 
+        will be used.
+
+    defaultCookiePath=
+        A server relative URL (starting with a "\") to use for all Cookies if 
+        not explicitly specified in the set-cookie() or delete-cookie() 
+        functions.  The default is the value of the AppURL global variable. 
+
+    fileUploadDirectory=
+        Specifies a directory where WebSpeed servers can upload files to.
+        The follow HTML snippet shows how to use this feature:
+            <HTML>
+                  <BODY>
+                    <FORM ENCTYPE="multipart/form-data"
+                          ACTION="http://<yourhost>/<msngr path>/<msngr>/ping" 
+                          METHOD="POST">
+                      <INPUT type="file" name="filename"> <INPUT type="submit">
+                    </FORM>
+                   </BODY>
+            </HTML>
+ 
+        By default this capability is disabled. To enable it specify an
+        upload directory.  Only text file upload is supported, not binary.
+
+    mqBrkrLogAppend=1                    {same as [UBroker.AS] section above}
+    mqBrkrLogEntries=0                   {same as [UBroker.AS] section above}
+    mqBrkrLogEntryTypes=UBroker.Basic    {same as [UBroker.AS] section above}
+    mqBrkrLoggingLevel=2                 {same as [UBroker.AS] section above}
+    mqBrkrLogThreshold=0                 {same as [UBroker.AS] section above}
+    mqBrkrNumLogFiles=3                  {same as [UBroker.AS] section above}
+    mqBrokerLogFile=                     {same as [UBroker.AS] section above}
+    mqEnabled=0                          {same as [UBroker.AS] section above}
+    mqServerLogFile=                     {same as [UBroker.AS] section above}
+    mqSrvrLogAppend=1                    {same as [UBroker.AS] section above}
+    mqSrvrLogEntries=0                   {same as [UBroker.AS] section above}
+    mqSrvrLogEntryTypes=UBroker.Basic    {same as [UBroker.AS] section above}
+    mqSrvrLoggingLevel=2                 {same as [UBroker.AS] section above}
+    mqSrvrLogThreshold=0                 {same as [UBroker.AS] section above}
+    mqSrvrNumLogFiles=3                  {same as [UBroker.AS] section above}
+
+    srvrAppMode=Development
+        Production - the following items are disabled: 
+            - Debugging via the URL (?debug=xxx) is ignored (unless the 
+              Debugging option below explicitly enables it).
+            - Utility commands debug, reset and web-utility are disabled.
+            - The ping option only indicates the Agent is available and does not 
+              display any information on the Agent's environment.
+            - Web objects specified in the URL with the path "src\web\" cannot 
+            be run.
+
+        Development - the following items are enabled:
+            - Debugging via the URL (?debug=xxx) is allowed (unless the 
+              Debugging option below explicitly disables it).
+            - Utility commands ping, debug, reset and web-utility work.
+            - No limitations on running Web objects with the path "src\web\".
+            - Requires a development license installed (examples: 4GL 
+              development or WebSpeed Workshop) 
+
+    srvrDebug=Enabled
+        Disabled - specifies ?debug=on in the URL has no effect.
+        Enabled - allows debug information if ?debug=on in the URL.
+        <Blank> - defers behavior to srvrAppMode above (Disabled in Production,
+            Enabled in Development) 
+
+    wsRoot=
+        The location of the WebSpeed Workshop static files such as .html
+        .gif. This location must be visible to the Webserver.
+
+##########################################################################
+##                                                                      ##
+##       Default properties for all DataServer Brokers                  ##
+##  Different default values only from WebSpeed and AppServer Brokers   ##
+##                                                                      ##
+##########################################################################
+
+    srvrDSLogFile=
+        The file name for the DataServer server log file. The default value
+        for the property is an empty string, which means that the file name
+        defaults to "dataserv.lg". You can override the default value by
+        specifiying a name for the DataServer server log file, which can be
+        fully qualified.
+ 
+ #
+ #  Default properties for broker instances serving MSS DataServers
+ #
+[UBroker.MS]
+    brkrLoggingLevel=3
+    initialSrvrInstance=0
+    maxSrvrInstance=256
+    minSrvrInstance=0
+    operatingMode=State-aware
+    srvrExecFile="@{Startup\DLC}\bin\_msssrv.exe"
+    srvrStartupParam=-svub -S X -N TCP -U X -P X -hs 0 -s 40
+
+ #
+ #  Default properties for broker instances serving ODBC DataServers
+ #
+[UBroker.OD]
+    brkrLoggingLevel=3
+    initialSrvrInstance=0
+    maxSrvrInstance=256
+    minSrvrInstance=0
+    operatingMode=State-aware
+    srvrExecFile="@{Startup\DLC}\bin\_odbsrv.exe"
+    srvrStartupParam=-svub -S X -N TCP -U X -P X -hs 0 -s 40
+
+ #
+ #  Default properties for broker instances serving Oracle DataServers
+ #
+[UBroker.OR]
+    brkrLoggingLevel=3
+    initialSrvrInstance=0
+    maxSrvrInstance=256
+    minSrvrInstance=0
+    operatingMode=State-aware
+    srvrExecFile="@{Startup\DLC}\bin\_orasrv.exe"
+    srvrStartupParam=-svub -S X -N TCP -U X -P X -hs 0 -s 40
+
+##########################################################################
+##                                                                      ##
+##       Default properties for WebSpeed Messengers                     ##
+##                                                                      ##
+##########################################################################   
+
+[WebSpeed]
+
+    Components=1111110
+        Internal use.  DO NOT MODIFY
+        
+    infoVersion=9010
+        Internal use.  DO NOT MODIFY
+        
+    RootPath=
+        Specifies the Web server's document root directory.
+        This value is set during install. Change it only if your
+        Web server's document root directory changes. Do not override.
+        
+    ScriptPath=
+        Defines the Web server's scripts directory for executable programs.
+        This value is set during install. Change it only if your
+        Web server's scripts directory changes. Do not override.
+
+[WebSpeed.Messengers]
+    AllowMsngrCmds=0
+        0 - disallow messenger command ?WSMAdmin in the URL
+        1 - allow messenger command ?WSMAdmin in the URL (see note below)
+        
+        NOTE:    This must be changed in the specific messenger properties (i.e.
+                [WebSpeed.Messengers.CGIIP]) to take effect.  Changes in the 
+                [WebSpeed.Messengers] will not affect the behavior.
+        
+    certStorePath=
+        Location of SSL certificates.
+
+    controllingNameServer=
+        NameServer process will register with (defined in this 
+        ubroker.properties file).
+
+    Host=localhost
+        Required if the Messenger will be directly connected to a WebSpeed 
+        Transaction Server, i.e. registerNameServer=0, to specify the host 
+        location of the WebSpeed Transaction Server. If the Messenger is 
+        controlled by a NameServer, i.e. registerNameServer=1, this property is 
+        ignored
+
+    ipver=
+        Internet Protocol to use for network communication.
+            Default: IPv4 - will only accept IPv4 connections
+                     IPv6 - will allow IPv6 connections and IPv4 connections
+                            using address mapping (where supported)
+        NOTE: you also need to set these values in jvmArgs= to over-ride the   
+              default behavior of the JVM for IPv6 connection -->
+    jvmArgs=-Djava.net.preferIPv4Stack=false -Djava.net.preferIPv6Addresses=true
+
+    logAppend=1
+        0 - to start a new log each time the broker is restarted
+        1 - to append to existing log file when broker is restarted
+        
+    logEntries=1
+        **Currently unused**
+
+    logEntryTypes=
+        A single entry or comma delimited list of logging entry types.  
+        
+    logFile=
+        Location and name of the log file.
+
+    loggingLevel=1
+        Logging level for messages into the log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+
+    logThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the broker creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647.
+
+    maxNSClientPort=0
+    minNSClientPort=0
+        Specifies the range of UDP ports the messenger opens to communicate with 
+        the NameServer.  This is helpful when the web server/messenger and 
+        NameServer are separated by a firewall. 
+        
+        The value for these two properties must be a number between 1024 and 
+        65535 inclusive (or 0), and minNSClientPort must be less than or equal 
+        to maxNSClientPort.       
+            both set to 0 - dynamically get port number in range from 1024 to 
+                65535
+            
+    msngrExecFile=
+        Specifies the location of the file needed to run the messenger. 
+        This value is configured by the installation process and should not 
+        need changing.
+ 
+    msngrScriptFile=
+        Specifies the location of the shell script that runs the CGIIP messenger 
+        This value is configured by the installation process and should not 
+        need changing.
+ 
+    noHostVerify=0
+        Enable or disable host verification of the server certificate
+            0 - verify that the hostname of certificate matches URL
+            1 - do NOT verify that the hostname of certificate matches URL
+            
+    noSessionReuse=0
+        Enable or disable SSL session reuse
+            0 - disable SSL session reuse
+            1 - enable SSL session reuse
+            
+    nsClientPortRetry=4
+        Specifies the number of attempts that the AIA instance should make when 
+        attempting to get a valid local UDP port number in the specified range.
+        
+    nsClientPortRetryInterval=250
+        Specifies the interval, in ms, that the AIA instance will wait between 
+        retry attempts to get a valid UDP port within the specified range. 
+            Default: 250
+            Maximum: 10,000
+
+    numLogFiles=3
+        Limit on how many messenger log files will be kept on the system when 
+        there is a threshold limit. It represents the number of log files 
+        including the current one. Includes any rolled over log files that 
+        already exist when process started
+        
+    Port=3055
+        Required if the Messenger will be directly connected to a WebSpeed 
+        Transaction Server, i.e. registerNameServer=0, to specify the port 
+        of the WebSpeed Transaction Server. If the Messenger is controlled by a 
+        NameServer, i.e. registerNameServer=1, this property is ignored
+        
+    registerNameServer=1
+        0 - do not register with NameServer (clients must connect directly to
+                the broker).
+        1 - register with NameServer (clients connect to NameServer and get
+                directed to the broker).
+
+    sslEnable=0
+        0 - for clear text (non-encrypted) communication.
+        1 - for encrypted communication.
+
+    useConnID=0
+        0 - do not use connection id support
+        1 - uses connection id support for serving web requests. 
+
+    workDir=
+        Path to the Progress working directory.                        
+
+    wsmAdmIPList=
+        This option is a comma separated list of IP addresses allowed to access 
+        the messenger's internal administrative commands.  The AllowMsngrCmds 
+        must be set to 1 allowing access to the internal commands to use this 
+        option.
+        
+        NOTE:    This must be changed in the specific messenger properties (i.e.
+                [WebSpeed.Messengers.CGIIP]) to take effect.  Changes in the 
+                [WebSpeed.Messengers] will not affect the behavior.
+
+            <blank> -  (allow any IP address to access messenger's internal
+                        commands)
+
+[WebSpeed.Messengers.CGIIP]
+    msngrExecFile=@{Startup\DLC}\bin\cgiip.exe
+    msngrScriptFile=
+
+[WebSpeed.Messengers.WSASP]
+    msngrExecFile=@{Startup\DLC}\bin\wsasp.dll
+
+[WebSpeed.Messengers.WSISA]
+    msngrExecFile=@{Startup\DLC}\bin\wsisa.dll
+
+[WebSpeed.Messengers.WSNSA]
+    msngrExecFile=@{Startup\DLC}\bin\wsnsa.dll
+
+##########################################################################
+##                                                                      ##
+##       Default properties for Web Services Adapter                    ##
+##                                                                      ##
+########################################################################## 
+    
+    
+[WSA]
+
+    actionalEnabled=0
+	0 - (defaut) do not gather network information and forward to an 
+		Actional agent running on the same machine
+	1 - enable process to gather network information and forward to an 
+		Actional agent running on the same machine
+
+    actionalGroup=OpenEdge
+	Used when actionalEnabled=1 sets the group name which is displayed in 
+		Actional Management Server console
+	Default is "OpenEdge"
+
+    adminAuth=0
+        The adminAuth property is used by the WSA to control its requirement 
+        that the JSE provide it with a username that the JSE has authenticated 
+        and authorized to have access to the WSA's administration URL.
+            0 - The JSE does not have to supply an authenticated and 
+                authorized username
+            1 - The JSE does have to supply an authenticated and authorized 
+                username
+    adminEnabled=1
+        The adminEnabled property controls the WSA's ability to accept and 
+        process WSA administration SOAP requests.
+            0 - do not accept or process any administration SOAP requests
+            1 - accept and process administration SOAP requests
+    
+    adminRoles=PSCAdmin,PSCOper
+        The WSA can perform additional user authorization to individual 
+        administration operations.  The adminRoles property is a comma separated 
+        list of administration roles (no embedded spaces) it recognizes.  Any 
+        role name listed here must have a specific AdminRole.role-name 
+        definition in the ubroker.properties file.  Any JSE authenticated 
+        administrator who is not in one of these roles, gets the privileges of 
+        the default administrator role that is defined in the AdminRole group.
+            <blank> -  indicates that every JSE authenticated administrator has 
+                    full administrative privileges.
+            <comma separated list> -  of role names that have corresponding 
+            AdminRole.role-name definitions.
+            
+    adminSoapAction=urn:services-progress-com:wsa-admin:01
+        When the AdminServer sends administrative messages to a WSA, it must 
+         traverse a Web Server and possibly a proxy Web server or firewall.  In 
+        doing so, the SOAPAction HTTP header may be tested to see if the message 
+        will be allowed.  To accommodate these security checks, the SOAP Action 
+        HTTP header value may be set here to the required value.
+            value - any valid HTTP header character string
+            
+    appAuth=0
+        The appAuth property is used by the WSA to control its requirement that 
+        the JSE provide it with a username that the JSE has authenticated and 
+        authorized to have access to the WSA's Web service application URL.
+            0 - The JSE does not have to supply an authenticated 
+                and authorized username
+            1 - The JSE does have to supply an authenticated and
+                authorized username
+                
+    appProtocol=0
+        The appProtocol property controls the protocol (HTTP or HTTPS) of the 
+        URL that the WSA places in the WSDL documents it generates for deployed 
+        Web Service applications.  This URL will be derived from the property 
+        wsaURL, which describes the WSA's administration URL.  When the 
+        http/https protocol differs between the administration URL and the URL 
+        used to execute Web Service applications, this property can be used to 
+        control the difference in protocol.  
+            0 - the Web service URL uses the same protocol as the 
+                administration URL in wsaURL
+            1 - the Web service URL will always use http
+            2 - the Web service URL will always use https
+            
+    debugClients=
+        The debugClients property controls the WSA's ability to dump http and 
+        SOAP protocol message information to the WSA log file.  When this 
+        property is non-blank and the loggingLevel property is set to 4 
+        (Diagnostic), http mesage information received by the WSA servlet and 
+        the exact contents of the incomming and outgoing SOAP messages are 
+        dumped to the log.  This property is a comma separated list of 
+        dot-formatted IP addresses. 
+            blank - do not dump http and SOAP messages for any 
+                    client
+            * -     dump http and SOAP messages for all WSA 
+                    clients
+            x.x.x.x - dump http and SOAP messages for this client
+                    IP address
+                    
+    enableWsdl=1
+        The enableWsdl property controls the WSA's ability to respond to 
+        inquiries for WSDL documents for any of the Web service applications it 
+        hosts.
+            0 - Reject WSDL document requests
+            1 - Allow WSDL document requests
+            
+    enableWsdlListings=1
+        The enableWsdlListings property controls the WSA's ability to respond to 
+        a request for a list of WSDL documents it has available.  The response 
+        list is in the form of a HTML page.
+            0 - Respond with an HTTP error response
+            1 - Return a HTML page with the list of WSDL documents
+
+    httpErrorPage=httperror.html
+        The httpErrorPage points to a HTML page that may be customized to the 
+        customers needs when the WSA must return a HTTP related error to its 
+        client
+            <value> - any valid file path to a HTML page
+    
+    location=local
+        Specifies whether the WSA adapter instance is local to the system where 
+        the AdminServer is running or remote on a different system.
+            local - located on the same system
+            remote - located on a different system
+
+    logAppend=1
+        0 - to start a new log each time the web server is restarted
+        1 - to append to existing log file when web server is restarted
+
+    logEntries=
+        **Currently unused**
+
+    logEntryTypes=WSADefault
+        A single entry or comma delimited list of logging entry types.  
+
+    logFile=C:\OpenEdge\WRK\wsa.log
+        Location and name of the log file.
+
+    loggingLevel=2
+        Logging level for messages into the log file.  
+            0 - No log file written
+            1 - Error only
+            2 - Basic
+            3 - Verbose 
+            4 - Extended
+            
+    logMsgThreshold=-1
+        The logMsgThreshold property controls the amount of SOAP message 
+        information that can be written to the WSA log file.  When using the 
+        debugClients property, very large SOAP messages may cause a problem in 
+        writing to the WSA's log file.  You may use this property to set a 
+        maximum limit on the number of characters written for each SOAP message.  
+        When the threshold is reached, the remainder of the message is truncated
+            -1 - do not limit the amount of SOAP message data that
+                gets written to the WSA log file
+            n - write up to this number of charaters from each 
+                SOAP message to the log file
+
+    logThreshold=0
+        Specifies a limit on how big the log file can get (in bytes).  When
+        the log is full the broker creates a new log file with a sequence
+        number (1 to 999,999).
+            Possible Values:  500000 - 2147483647
+            
+    noWsdlPage=
+        The noWsdlPage is a file path to the HTML page that will be returned 
+        when a request for a specific WSDL document cannot be met.  It allows 
+        the customer to customize the page to their own requirements.
+            <value> - any valid disk file path pointing to an HTML page. 
+            <blank> - a built-in default will be used
+
+    numLogFiles=3
+        Limit on how many log files will be kept on the system when there is a 
+        threshold limit. It represents the number of log files including the 
+        current one. Includes any rolled over log files that already exist when 
+        process started
+        
+    proxyHost=
+        The proxyHost property is used by the AdminServer when it send 
+        administrative messages to the WSA and a proxy Web Server is in the 
+        network path.  This property is paired with proxyPort and must be set as 
+        a pair.  When blank, the AdminServer does not expect to work with a 
+        proxy server.
+            <value> - any valid dot-format IP address or DNS host name
+            
+    proxyPassword=
+        The proxyPassword property is used by the AdminServer when it send 
+        administrative messages to the WSA and a proxy Web Server is in the 
+        network path and the server requires user authentication.  This property 
+        is paired with proxyUsername and must be set as a pair.  The value is 
+        ignored if the proxyHost and proxyUsername properties are blank.
+
+    proxyPort=0
+        The proxyPort property is used by the AdminServer when it send 
+        administrative messages to the WSA and a proxy Web Server is in the 
+        network path.  This property is paired with proxyHost and must be set as 
+        a pair.  The value is required if the proxyHost property is set and 
+        ignored if the proxyHost property is blank.
+        
+    proxyUsername=
+        The proxyUsername property is used by the AdminServer when it send 
+        administrative messages to the WSA and a proxy Web Server is in the 
+        network path and the server requires user authentication.  This property 
+        is paired with proxyPassword and must be set as a pair.  The value is 
+        ignored if the proxyHost property is blank.
+        
+    webAppEnabled=0
+        The webAppEnabled property controls the WSA's ability to accept and 
+        process SOAP requests to any of its hosted Web service applications.
+            0 - do not accept or process any SOAP request to 
+                hosted Web services
+            1 - accept and process SOAP requests for any hosted
+                Web service
+                
+    webServerAuth=0
+        The webServerAuth property indicates whether the AdminServer must supply 
+        a username and password to the WSA whenever it sends an administrative 
+        command.  
+            0 - No username and password required 
+            1 - Use the username and password supplied when 
+                accessing the AdminServer
+            2 - Always prompt the user for a username and password
+            
+    workDir=
+        Path to the Progress working directory.                        
+
+    wsaUrl=http://PCELLISXP1:8080/wsa/wsa1
+        The wsaURL property serves a dual purpose.  First it supplies the 
+        AdminServer with the URL of the WSA so that it may access its built-in 
+        administration Web service application.  Second, it supplies the WSA 
+        with the URL of the WSA, which it will place in the WSDL documents it 
+        generates and distributes.
+        
+    wsdlAuth=0
+        The wsdlAuth property is used by the WSA to control its requirement that 
+        the JSE provide it with a username that the JSE has authenticated and 
+        authorized to have access to the WSA's WSDL document URL.
+            0 - The JSE does not have to supply an authenticated 
+                and authorized username
+            1 - The JSE does have to supply an authenticated and
+                authorized username
+
+    wsdlListingPage=WSDLListing.html
+        The wsdlListingPage property indicates to the WSA where the location of 
+        the HTML page that will be used to return the list of available WSDL 
+        documents.
+            <value> - any valid disk file path to a HTML page.  
+            <blank> - a built-in default will be used

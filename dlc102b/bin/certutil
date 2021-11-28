@@ -1,0 +1,735 @@
+#!/bin/sh
+#
+# Determine the correct directory where the Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "$DLC" "/dlc/dlc102b"
+do
+    [ ! -d "${what_dlc}/java" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+# Set the user working directory - this is a tailored value
+for what_wrkdir in "$WRKDIR" "/dlc/wrk102b" "."
+do
+    [ ! -d "${what_wrkdir}" ] && continue
+    WRKDIR=$what_wrkdir
+    export WRKDIR
+    break
+done
+#
+# Setup the Perl environment
+#
+if [ $HOME ]
+then
+    _HOME=$HOME
+fi    
+if [ $PERLLIB ]
+then
+    _PERLLIB=$PERLLIB
+fi    
+if [ $PERL5LIB ]
+then
+    _PERL5LIB=$PERL5LIB
+fi    
+#
+HOME=$DLC
+PERLLIB=$DLC/perl/lib ; export PERLLIB
+PERL5LIB=$DLC/perl/lib ; export PERL5LIB
+#
+# The Perl interpreter must exist
+#
+if [ ! -f $DLC/perl/bin/perl ]
+then
+   echo
+   echo The Perl interpreter $DLC/perl/bin/perl does not exist.
+   echo Check the Progress installation and the DLC environment variable
+   echo.
+   echo Progress DLC setting: $DLC
+   echo   
+   exit 1   
+fi   
+#
+# Fixup OS specific environment settings
+#
+# Set up perl library path based on the media id: 
+# 38: Linux32
+# 43: Linux64
+# 45: LinuxPPC 
+
+PLATID=43
+case "$PLATID" in
+    38 | 43)
+      LD_LIBRARY_PATH=$DLC/perl/lib/5.6.1/i686-linux-thread-multi/CORE:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH ;;
+    45)
+      LD_LIBRARY_PATH=$DLC/perl/lib/5.6.1/ppc64-linux/CORE:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH ;;
+esac
+#
+# Execute this file as a Perl script
+#
+$DLC/perl/bin/perl -x $0 $*
+#
+# reset the original Perl environment
+#
+if [ $_HOME ]
+then
+    HOME=$_HOME
+    unset _HOME
+fi    
+if [ $_PERLLIB ]
+then
+    PERLLIB=$_PERLLIB
+    unset _PERLLIB
+fi    
+if [ $_PERL5LIB ]
+then
+    PERL5LIB=$_PERL5LIB
+    unset _PERL5LIB
+fi    
+#
+exit 0
+#
+# Start the embedded Perl script here
+#
+#!/bin/perl
+# Progress PKI Command Line Util
+#
+
+use File::Basename;
+
+#############################################################
+# Global symbols
+#############################################################
+# Command line information
+local $_op="";
+local $_cmd="";
+local $_in="";
+local $_verbose=1;
+local $_debug=0;
+local $_format="PEM";
+
+# The basic directory paths
+local $DLC;
+local $WRKDIR;
+local $CERTSTORE;
+local $CERTBACKUP;
+local $TEMPCERT;
+
+# The basic operation command formats
+local $BINARY;
+
+# State information
+local $_isWindowsOS=0;  # Default set to UNIX (0).
+
+#############################################################
+# Functions
+#############################################################
+
+sub usage {
+    print "usage: certutil [options] operation ...\n";
+    print "   operations:\n";
+    print "       -list [alias...]   list certificate store entries\n";
+    print "                          if 'name' is blank, list all entries\n";
+    print "       -remove alias...   remove the certificate store entry 'alias'\n";
+    print "       -import cert-file  import the trusted CA digital certificate \n";
+    print "                          file 'cert_file' \n";
+    print "       -display cert_file display the digial certificate file \n";
+    print "                          'cert_file' information\n";
+    print "       -help              print help information\n";
+    print "   options:\n";
+    print "       -format {DER|PEM}  The format of the digital certificate being\n";
+    print "                          imported is of this type.  The default is PEM\n";
+    print "       -brief             print less information\n";
+    print "       -verbose           print extra information\n";
+    print "\n";
+}
+
+#validate that a directory exists, create it if told to.
+# @_[0] is the directory to check
+# @_[1] is a 1 if create-if-missing or 0 error-exit if missing
+#
+sub checkRequiredDirectory {
+    my $_dir=@_[0];
+    my $_create=@_[1];
+    if ($_dir eq undef) {
+        print "Internal error: null required directory path\n";
+        exit 1;
+    }
+    if ($_create eq undef) {
+       $_create="0";    # default is error exit.
+    }
+    if (! -e "$_dir") {
+        if ($_create eq "1") {
+            if ($_debug == 1) {
+                print "Creating directory $_dir...\n";
+            }
+            mkdir ("$_dir");    
+        }
+        else {
+            print "Progress pkiutil Messages:\n";
+            print "\n";
+            print "The $_dir directory could not be found.\n";
+            print "The Progress environment is not configured correctly.\n";
+            print "\n";
+            exit 1;
+        }
+    }
+}
+
+#validate that a required file exists
+# @_[0] is the file to check
+#
+sub checkRequiredFile {
+    my $_fil=@_[0];
+    if ($_fil eq undef) {
+        print "Internal error: null required file path\n";
+        exit 1;
+    }
+    if (! -e "$_fil") {
+        print "Progress pkiutil Messages:\n";
+        print "\n";
+        print "The required $_fil file could not be found.\n";
+        print "The Progress environment may not be configured correctly.\n";
+        print "\n";
+        exit 1;
+    }
+}
+
+#validate that a certificate store alias name is 8 characters and is of the right
+#character set.
+#
+sub validate_alias {
+    # alias names have to be exactly 8 characters.  That is the sslc x509 hash
+    # command file name length.
+    $len=length @_[0];
+    if ($len != 8) {
+        print "CERTSTORE alias name must be 8 characters in length.\n";
+        # print "length: $len\n";
+        exit 1;
+    }
+    # alias names can only have a character set of hex numeric digits:
+    # [a-f0-9_-]
+    $_alias=@_[0];
+    if ( $_alias =~ /[^0-9a-f]+/) { 
+        print "Invalid CERTSTORE alias name $_alias. (valid characters [0-9a-f])\n"; 
+        exit 1;
+    }
+}
+
+# parse out a private-key/certificate file and record/return the private key
+# information.
+#
+sub parseKeyEntry {
+    $_found=0;
+    $_dump=0;
+    $_filepath=@_[0];
+    @_key;
+    # open the input PEM file and loop reading records.  Print everything from
+    # the RSA PRIVATE KEY beginning to ending.
+    open (FILENAME, $_filepath);
+    while ($_line = <FILENAME>) {
+        if ($_line =~ /\-\-BEGIN (RSA|DSA) PRIVATE KEY/) {
+            $_dump=1;
+            $_found=1;
+        }
+        if ($_dump) {
+            push @_key , $_line;
+        }
+        if ($_line =~ /\-\-END (RSA|DSA) PRIVATE KEY/) {
+            $_dump=0;
+        }
+    }
+    close (FILENAME);
+    return @_key;
+}
+
+# Get and print (if any) a file's private key informaiton.
+#
+sub printKeyEntry {
+    @_key = parseKeyEntry (@_[0]);
+    if (@_key == undef) {
+        print "No key found in file $_filepath\n";
+    }
+    else {
+        while (@_key[0]) {
+            print "@_key[0]";
+            shift @_key;
+        }
+    }
+}
+
+# parse out a certificate file and record/return the certificate
+# information.
+#
+sub parseCertEntry {
+    $_found=0;
+    $_dump=0;
+    $_filepath=@_[0];
+    @_cert;
+    # open the input PEM file and loop reading records.  Print everything from
+    # the CERTIFICATE beginning to ending.
+    open (FILENAME, $_filepath);
+    while ($_line = <FILENAME>) {
+        if ($_line =~ /\-\-BEGIN CERTIFICATE/ ) {
+            $_dump=1;
+            $_found=1;
+        }
+        if ($_dump) {
+            push @_cert , $_line;
+        }
+        if ($_line =~ /\-\-END CERTIFICATE/ ) {
+            $_dump=0;
+        }
+    }
+    close (FILENAME);
+    return @_cert;
+}
+
+# Get and print (if any) a file's certificate informaiton.
+#
+sub printCertEntry {
+    @_cert = parseCertEntry (@_[0]);
+    if (@_cert == undef) {
+        print "No Certificate found in $_filepath\n";
+    }
+    else {
+        while (@_cert[0]) {
+            print "@_cert[0]";
+            shift @_cert;
+        }
+    }
+}
+
+#
+# List a specific CERTSTORE's alias entry.
+#
+sub list_files_function {
+    # print ("Entering list_files_function: @_\n");
+    local $_alias=@_[0];
+    while ( $_alias ne undef ) {
+        validate_alias ($_alias);
+        if ( -e "$CERTSTORE/$_alias.0" ) {
+            print "Certificate store entry: $_alias\n";
+            if ( $_verbose == 0 )
+            {
+            }
+            elsif ( $_verbose > 0 ) {
+                if ( $_verbose > 1 ) {
+                    system("$BINARY x509 -in $CERTSTORE/$_alias.0 -noout -text");
+                    printKeyEntry ("$CERTSTORE/$_alias.0");    
+                }    
+                else {
+                    print "Certificate:\n";    
+                    system("$BINARY x509 -in $CERTSTORE/$_alias.0 -noout -subject -issuer -dates");
+                }    
+            }
+        }    
+        else {
+            print "The certificate store entry $_alias does not exist\n";
+            exit 1;
+        }
+        print "\n";
+        shift @_;
+        $_alias=@_[0];
+    }
+}
+
+# 
+# List the entire CERTSTORE's contents.
+#
+sub list_dir_function {
+    if ($_debug == 1 ) { print "Entering list_dir_function\n"; }
+    local $_file;
+    local $_entry;
+    if ($_debug == 1 ) { print "Processing directory: $CERTSTORE/*.0 \n"; }
+    local @_files=glob("$CERTSTORE/*.0");
+    
+    # Loop through the input file list and process them in sequence 
+    foreach $_file (@_files) {
+        if ($_debug == 1 ) { print "Processing file: $_file \n"; }
+        $_basename = basename($_file);
+        $_offset=rindex($_basename, ".");
+        $_entry=substr($_basename, 0, $_offset);
+        list_files_function ($_entry);
+    }
+}
+
+#
+# List either a full CERTSTORE or specific CERTSTORE entry aliases.
+#
+sub list_function {
+     if ($_debug == 1) { print "Entering list_function: @_\n"; }
+    # if a file list is not specified, list the entire directory. 
+    
+    if ( $_verbose > 1 ) {
+        print "Listing  certificate store: $CERTSTORE\n";
+    }
+    
+    if ( @_[0] eq undef ) {
+        list_dir_function();
+    }    
+    else {
+        list_files_function (@_);
+    }
+}
+
+#
+# Remove [make backup copies] of all keys, certificates, and certificate requests
+# for a given CERTSTORE alias.
+#
+sub remove_function {
+    # print "Entering remove_function: $*"
+    local $_alias;
+    if ( @_[0] eq undef ) {
+        print "No certificate entries specified to delete\n";
+        exit 1;
+    }    
+    else {
+        $_alias=@_[0];
+        validate_alias ($_alias);
+        while ( "$_alias" ne undef ) {
+            # Backup the private key/cert from the CERTSTORE
+            if ( -e "$CERTSTORE/$_alias.0" ) {
+                if ( $_verbose == 1 ) {
+                    print "Removing certificate store entry file $_alias.0\n";
+                }
+                rename ("$CERTSTORE/$_alias.0" , "$CERTSTORE/backup/$_alias.0");
+            }    
+            else {
+                print "The certificate store entry $_alias does not exist\n";
+                exit 1;
+            }     
+            shift @_;
+            $_alias=@_[0];
+        }
+    }
+}
+
+
+#
+# Merge a Private Key pem file and a CA issued Digital Certificate and put it
+# in the specified CERTSTORE alias name[.pem]
+#
+sub import_function {
+    # print "Entering import_function: $*"
+    local @_certs;
+    local $_alias;
+    local $_certfile=@_[0];
+    local $_tmpcert="$WRKDIR/_tmpcert.pem";
+    if ( @_[0] eq undef ) {
+        print "The certificate file to import was not on the command line\n";
+        exit 1;   
+    }    
+    else {
+        if ( ! -e "$_certfile" ) {
+            print "The certificate file to import $_certfile does not exist\n";
+            exit 1;   
+        }    
+        else {
+            if ($_format eq "DER"){
+                local @_cert = parseCertEntry ($_certfile);
+                if (@_cert != undef){
+                    print "The file $_certfile is not DER encoded.\n";
+                    exit 1;    
+                }    
+                #The DER input must be converted to PEM before we can deal with it.
+                if ( $_verbose > 1 ) {
+                    print "Converting DER input ($_certfile) to PEM ($_tmpcert)\n";
+                }
+                system ( "$BINARY x509 -inform DER -outform PEM -in $_certfile -out $_tmpcert" );
+                # override the original input file with the new PEM formatted version
+                $_certfile="$_tmpcert";
+            }
+            # Now get the certificates from the PEM encoded input file.            
+            @_certs=parseCertEntry ($_certfile);
+            if (@_certs == undef) {
+                print "The file $_certfile does not contain a Digital Certificate\n";
+                exit 1;   
+            }
+            # get the hash for the new trusted certificate and see if it already
+            # exists
+            $_alias=`$DLC/bin/sslc x509 -noout -hash -in $_certfile`;
+            chomp $_alias;
+            # Now make the backup of the CERTSTORE entry
+            if ( -e "$CERTSTORE/$_alias.0" ) {
+                if ( $_verbose > 1 ) {
+                    print "Backing up CERTSTORE entry file $_alias.0\n";
+                }
+                rename ("$CERTSTORE/$_alias.0" , "$CERTSTORE/backup/$_alias.0");
+            }
+        }        
+    }
+    # create/overwrite the CERTSTORE entry with the private key;
+    if ($_debug == 1) { print "Output: $CERTSTORE/$_alias.0\n"; }
+    open (OUT, ">$CERTSTORE/$_alias.0");
+    if ($_verbose > 0) {
+        print "Importing trusted certificate to alias name: $_alias\n";
+    }    
+    while (@_certs) {
+        if ($_verbose > 1) { print "@_certs[0]"; }
+        print OUT "@_certs[0]";
+        shift @_certs;    
+    }
+    print OUT "\n";
+    close(OUT);
+    # chmod(0444, $KEYSTORE/$_alias.pem);
+    # rename ("$CERTSTORE/$_out",  "$CERTSTORE/$_out.0");
+    print "\n";   
+}
+
+#
+# Display a digitial certificate file's characteristics.
+#
+sub display_function {
+    local $_target;
+    local $_doit=0;
+    # print "Entering display_function: $*"
+    if ( @_[0] eq undef ) {
+        print "No certificate files specified to display\n";
+        exit 1;    
+    }    
+    else {
+        $_target=@_[0];
+        while ( "@_[0]" ne undef ) {
+            $_doit=0;
+            if ( -f $_target ) {
+                @_cert = parseCertEntry ($_target);
+                if ($_format eq "DER"){
+                    if (@_cert == undef){
+                        $_doit=1;
+                    } else {
+                        print "The file $_target is not DER encoded.\n";
+                    }    
+                } else {
+                    if (@_cert != undef){
+                        $_doit=1;
+                    } else {
+                        print "The file $_target is not PEM encoded.\n";
+                    }        
+                }
+                if ($_doit){
+                    $_hash=`$BINARY x509 -inform $_format -noout -hash -in $_target`;
+                print "The certicate file $_target \n";
+                print "    certicate entry name would be $_hash\n";
+                if ( $_verbose == 0 ) {
+                }
+                elsif ( $_verbose == 1 ) {
+                    print "Certificate:\n";
+                        system("$BINARY x509 -inform $_format -in $_target -noout -subject -issuer -dates");
+                }    
+                elsif ( $_verbose == 2 ) {
+                        system("$BINARY x509 -inform $_format -in $_target -text");
+                    }
+                }
+            }        
+            else {
+                print "The certificate file $_target does not exist\n";
+                exit 1;    
+            }
+            print "\n";
+            shift;
+            $_target=@_[0];
+        }
+    }
+}
+
+
+#############################################################
+# main()
+#############################################################
+
+# The DLC environment must be available.
+$DLC=$ENV{"DLC"};
+if ($DLC eq undef || $DLC eq "") {
+    print "Progress pkiutil Messages:\n";
+    print "\n";
+    print "The DLC environment variable was not defined.\n";
+    print "The Progress environment is not configured correctly.\n";
+    print "\n";
+    exit 1;
+}
+
+# The DLC directory must exist, do not create it if not.
+checkRequiredDirectory("$DLC", "0");
+
+$WRKDIR=$ENV{"WRKDIR"};
+if ($WRKDIR eq undef || $WRKDIR eq "") {
+    print "Progress pkiutil Messages:\n";
+    print "\n";
+    print "The environment variable WRKDIR is not defined.\n";
+    print "The Progress environment is not configured correctly.\n";
+    print "\n";
+    exit 1;
+}
+
+# The WRKDIR directory must exist, do not create it if not.
+checkRequiredDirectory("$WRKDIR", "0");
+
+# Set any environment variables below required to start the AdminClient
+if ($^O =~ /.*Windows.*/ || $^O =~ /.*Win32.*/ ) {
+    #Windows platform
+    $BINARY="$DLC/bin/sslc.exe";
+    $_isWindows=1;          # running on a Windows OS.    
+}
+else {
+    #Unix platform
+    $BINARY="$DLC/bin/sslc"
+}
+
+# Location of where the trusted root digital certificates are stored.
+$CERTSTORE=$ENV{"CERTSTORE"};
+if ($CERTSTORE eq undef || $CERTSTORE eq "") {
+    $CERTSTORE="$DLC/certs";
+}
+
+$CERTBACKUP="$CERTSTORE/backup";
+$TEMPCERT="$CERTBACKUP/tempcert.pem";
+
+# check that the installation has created the required directory trees.  If
+# not there create them (if parameter == 1).
+checkRequiredDirectory("$WRKDIR", "0");
+checkRequiredDirectory("$CERTSTORE", "1");
+checkRequiredDirectory("$CERTBACKUP", "1");
+checkRequiredFile("$BINARY");
+
+
+#
+# parse the commands and options
+#
+local $_parm="";
+local $_option="";
+#
+# If nothing on the command line then print help and exit
+#
+if (0 == @ARGV) {
+    print "No operation specified on the command line.\n";
+    usage();
+    exit 1;
+}
+#
+# Run a loop through all of the input options until we get a help operation
+# or run into non-option parameters 
+#
+while ( 1 ) {
+    $_parm=substr(@ARGV[0], 0, 2);
+    $_option=substr($_parm, 0, 1);
+    if ( $_option ne "-" && $_parm ne "/?") {
+        # exit, @ARGV[0] now points to the first alias/file name
+        last;
+    }    
+    elsif ( $_parm eq "-" ) {
+        print "Invalid command line option -\n";
+        exit 1;
+    }    
+    elsif ( $_parm eq "-h" || $_parm eq "-?" || $_parm eq "/?") {
+        # print the help info and exit
+        usage();
+        exit 1;
+    }    
+    elsif ( $_parm eq "-b" ) {
+        # set the verbose certificate output
+        $_verbose=0;
+        shift @ARGV;    
+    }    
+    elsif ( $_parm eq "-v" ) {
+        # set the verbose output
+        $_verbose=2;
+        shift @ARGV;    
+    }    
+    elsif ( $_parm eq "-g" ) {
+        # set debug flag
+        $_debug=1;
+        shift @ARGV;
+    }    
+    elsif ( $_parm eq "-f" ) {
+        # set the import certificate type
+        shift @ARGV;
+        $_format=@ARGV[0];
+        if ($_format ne "DER" &&
+            $_format ne "PEM") {
+            print "The import certificate format type must be  either PEM or DER.\n";
+            exit 1;
+        }
+        shift @ARGV;
+    }    
+    elsif ( $_parm eq "-s" ) {
+        # set CERTSTORE
+        shift @ARGV;
+        $nargs--;
+        $CERTSTORE=@ARGV[0];
+        if ( ! -d "$CERTSTORE" ) {
+            print "Invalid certificate store directory path: $CERTSTORE\n";
+            exit 1;    
+        }    
+        shift @ARGV;
+        $nargs--;
+    }    
+    elsif ( $_parm eq "-l" || 
+           $_parm eq "-r" || 
+           $_parm eq "-i" || 
+           $_parm eq "-d") {
+        if ( $_cmd ne "" )
+        {
+            print "Too many operations specified on the command line.\n";
+            exit 1;
+        }    
+        else {
+            # set the list operation
+            $_cmd=@ARGV[0];
+            $_op=$_parm;
+            shift @ARGV;    
+        }
+    }    
+    else {
+        print "Unrecognized command @ARGV[0].\n";
+        exit 1;    
+    }
+}
+
+#
+# Now dispatch to the right function...
+#
+if ( $_op eq "" ) {
+    print "No operation specified on the command line.\n";
+    exit 1;
+}    
+else {
+    local $_argcnt=@ARGV;
+    local $_option;
+    if (0 < $_argcnt) {
+        foreach $_arg (@ARGV) {
+            $_option=substr($_arg, 0, 1);
+            if ($_option eq "-") {
+                print "Invalid option $_arg found after operation arguments\n";
+                exit 1;
+            }
+        }
+    }
+    if ($_op eq "-l") {
+        list_function(@ARGV);
+    }
+    elsif ($_op eq "-i") {
+        import_function(@ARGV);
+    }
+    elsif ($_op eq "-r") {
+        remove_function(@ARGV);
+    }
+    elsif ($_op eq "-d") {
+        display_function(@ARGV);
+    }
+    else {
+        print "Unrecognized command $_cmd.\n"; 
+        exit 1;  
+    }
+}
+
+# done
+print "\n";
+exit 0;
+#
+# End of the embedded Perl script
+#
+__END__
+#

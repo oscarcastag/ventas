@@ -1,0 +1,68 @@
+#!/bin/sh
+# Progress Shared Library setup
+
+# Setup the Progress shared library  environment.
+# This script expects the DLC environment variable to be set
+: ${DLC?"DLC variable must be set"}
+
+# If internal build environment - this is already setup just exit
+if [ -n "$RDLLSC" ]
+then
+  :
+else
+
+# set the shared library include path for Progress - system specific
+OSNAME=`uname`
+case "$OSNAME" in
+    "SunOS")    # Sun Solaris v2.5.1/v2.6 
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DLC/lib
+      export LD_LIBRARY_PATH
+    ;;
+
+    "HP-UX")   #  HP UNIX, v11.00, v10.20
+      SHLIB_PATH=$SHLIB_PATH:$DLC/lib
+      export SHLIB_PATH
+
+    ;;
+
+    "AIX")     #  IBM UNIX v4.2
+      LIBPATH=$LIBPATH:$DLC/lib
+      export LIBPATH
+      PROLIBPATH=$LIBPATH; export PROLIBPATH 
+
+    ;;
+
+    "OSF1")    #  Digital UNIX                  RN#: 091C-00257
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DLC/lib:/usr/lib/cmplrs/cxx
+      export LD_LIBRARY_PATH
+
+    ;;
+
+    "UnixWare")         # Unixware 7
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DLC/lib
+      export LD_LIBRARY_PATH
+    ;;
+
+    "OpenUNIX")         # Unixware 8
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DLC/lib
+      export LD_LIBRARY_PATH
+    ;;
+
+    "SCO_SV")         # SCO Open Server 5 (Unixware 7 cert platform)
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DLC/lib
+      export LD_LIBRARY_PATH
+    ;;
+
+    "Linux")
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$DLC/lib
+      export LD_LIBRARY_PATH
+      PROLIBPATH=$LD_LIBRARY_PATH; export PROLIBPATH 
+    ;;
+
+    *)         # Unrecognized uname 
+      echo "WARNING: not setting shared library include path"
+    ;;
+esac
+fi
+
+

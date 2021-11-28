@@ -1,0 +1,72 @@
+15151 "Encryption not yet supported for schema tables, except for auditing tables. (15151)" "" "" ""
+15152 "<function name>: Index <index-number> about to copy too much!()  Dumping block dbkey: <area>/<dbkey> (15152)" "Internal error message.  Displayed when index manager encounters a memory copy error.  Produced only when running with -MemCheck option.  If this error occurs, call tech support.  Be prepared to deliver the information printed to the .lg file." "D" ""
+15153 "The user is not authorized to access  tables. (15153)" "The message indicates that the user-id has been denied the ability to access certain types of table.  This may result from an internal     error, or because the  user-id did not have the right privileges or permissions.
+" "" ""
+15154 "Property  changed from """" to """" (15154)" "The indicated property has been dynamically updated to the specified value.
+
+
+
+
+
+
+
+
+" "" ""
+15155 "Updated properties from property file (15155)" "The property file has changed and the dynamic properties have been updated." "" ""
+15156 "Change to property  is deferred (15156)" "The update to the indicated property is being deferred until it is safe to change." "" ""
+15157 " failed since the object does not have the required type library information. 
+. (15157)" "Certain operations require the ActiveX object to support a type library.  If it does not supply one, the operation cannot be performed." "" ""
+15158 "Unable to look up  . (15158)" "An attempt to look up a table, index or LOB name for encryption policy management failed" "" ""
+15159 "The extracted after-image file  is incomplete due to the emergency shutdown so it is being deleted. (15159)" "The after-image archiver or the after-image extraction utility was in the middle of writing after-image blocks to an extracted file but it was interupted by an emergency shutdown.  The extracted has been deleted." "" ""
+15160 "WSA_StartUp: Web Services Adapter started up. Adapter: <name>. (15160)" "" "" ""
+15161 "Unable to memory map procedure library <library-name>.  Not enough memory. (15161)" "An attempt was made to memory map a procedure library.  The system did not have enough available memory. " "" ""
+15162 "Error updating property  (15162)" "An error occurred when updating the indicated property.
+
+
+
+
+
+
+
+
+" "" ""
+15163 "Memory allocation failure for property  (15163)" "An error occurred when allocating memory for the indicated property.
+" "" ""
+15164 "SYSTEM ERROR: Error creating record  to table . Record size , errno . (15164)" "Internal error." "" ""
+15165 " records loaded. (15165)" "Indicate how many records have been loaded by binary load." "" ""
+15166 "Bad record CRC record , expected  got . (15166)" "" "" ""
+15167 "Loaded  records. (15167)" "" "" ""
+15168 "SYSTEM ERROR: Bad header, record = , table = , reclen = . (15168)" "" "" ""
+15169 " object number  is a schema object (15169)" "" "" ""
+15170 "Unable to initialize cryptography service for UUID generation. (15170)" "The GENERATE-UUID and GUID functions, and the COMPILE XREF-XML option use the core cryptography service for UUID generation.  The cryptography service failed to initialize." "" ""
+15171 "SYSTEM ERROR: System user account lookup failed in  . errno =  . (15171)" "Lookup of information for the current user account unexpectedly failed returning an error." "" ""
+15172 "Unable to generate UUID value. (15172)" "The GENERATE-UUID and GUID() functions failed to generate a UUID." "" ""
+15173 "SYSTEM ERROR: Record size exceeds maximum size after updated table number for record . (15173)" "Possibly the table number of target database has a larger value that requires more space to store and as a result the record size exceeds maximun size after the update." "" ""
+15174 "Old table number , new table number , record size . (15174)" "" "" ""
+15175 "Invalid width specified for <browse-col>. It cannot be less than MIN-COLUMN-WIDTH for <browse>. (15175)" "You have specified a width for a browse column that is less than its browser's MIN-COLUMN-WIDTH attribute value. Either increase the widthof the browse column or decrease the MIN-COLUMN-WIDTH attribute for the browser." "" ""
+15176 "Abstract members can only be defined in an abstract class. (15176)" "A method or property marked as ABSTRACT can only be contained with a class designated as ABSTRACT." "c" ""
+15177 "Abstract members cannot be designated as FINAL. (15177)" "Since the purpose of an ABSTRACT method is to force its implementation in a sub-class (where the method definition must include OVERRIDE), specifying FINAL on that method, which means it cannot be overriden, does not make sense." "c" ""
+15178 "Abstract members cannot be PRIVATE. (15178)" "A method or property marked as ABSTRACT cannot have a PRIVATE access mode.  It makes no sense, since ABSTRACT members must be overridden in a sub-class." "c" ""
+15179 "An abstract property cannot include the INITIAL option. (15179)" "The compiler found an abstract property declaration that includes the INITIAL option. This option is invalid on an abstract property because there is no storage for it.  The INITIAL option would be put on the implementation of the property in a sub-class." "" ""
+15180 "SYSTEM ERROR: Could not get _file-num from _file row - retcode:  rowid:  (15180)" "This is a system error where the code to make sure that pre 10.2b networked clients can't access the system files pertaining to encryption is unable to perform that check.  When this error occurs the client connection that encountered this error is disconnected.
+" "" ""
+15181 "Posted EUbrokerLogFileNameChanged for  () (15181)" "Event EUbrokerLogFileNameChanged was posted for the specified log file " "" ""
+15182 "Property  changed from """" to """" (15182)" "The specified property value has changed" "" ""
+15183 "Error updating property  -  (15183)" "An error occurred when updating the specified property" "" ""
+15184 "Updated properties from property file  (15184)" "The properties have been updated from the specified property file" "" ""
+15185 "Property file  cannot be reloaded -  (15185)" "An error has occurred when reloading the specified property file" "" ""
+15186 "Unknown ipver () specified. (15186)" "An invalid IP version was specified" "" ""
+15187 "Error updating property  -  (15187)" "An error occurred when updating the specified property" "" ""
+15188 "Property  has been updated from  to  (15188)" "The value of the specified property has been updated" "" ""
+15189 "Updated properties from property file (15189)" "The properties have been updated from the property file" "" ""
+15190 "Property file  cannot be reloaded -  (15190)" "An error occurred when reloading the specified property file" "" ""
+15191 "The shutdown of the database may continue for up to 24 hours if required. (15191)" "The normal shutdown of this database will continue for up to 24 hours allowing transaction backout to occur.  If after the 24 hours there are live transaction, before-image activity or connected users, they will be forced out of the database when an immediate shutdown is performed." "" ""
+15192 "The database will complete shutdown within approximately 60 seconds. (15192)" "The database will perform an immediate shutdown within 60 seconds." "" ""
+15193 "The normal shutdown of the database will continue for <TIME> if required. (15193)" "Normal shutdown will wait for all transaction, before-image, and user activity to cease before continuing.  If the activity does not complete before -shutdownTimout expires, the database will perform an immediate shutdown." "" ""
+15194 "Database activity did not finish before the shutdown timeout expired so the database is performing an immediate shutdown. (15194)" "Database activity did not finish before the -shutdownTimeout expired so an immediate shutdown is being performed." "" ""
+15195 "Property  for  changed from  to  (15195)" "The property for the specified broker has been changed." "" ""
+15196 "SYSTEM ERROR: Unable to get shared table lock on _Db in <func-name>, errno . (15196)" "Internal error." "" ""
+15197 "SYSTEM ERROR: Error releasing shared table lock on _Db in <func-name>, errno . (15197)" "Internal error." "" ""
+15198 "SYSTEM ERROR: Unable to get encryption configuration of the database in <func-name>, errno . (15198)" "Internal error" "" ""
+15199 "Get-Current cannot compare LOB field <name>. Set ProBindingSource:NoLOBs property to true so LOBs are ignored. (15199)" "Currently, the Get-Current functionality cannot compare a LOB field when bound to a ProBindingSource. We need to be able to compare fields to determine if the underlying field's data has been changed by another user in order to determine if we can assign a new value (without overriding someone else's changes). Because of this limitation, the developer must set the ProBindingSource:NoLOBs property to True in order to use the Assign() method. " "" ""
+15200 "data lost from server during open file in ncofilck (15200)" "Try executing the same operation after re-connecting to Server" "" ""

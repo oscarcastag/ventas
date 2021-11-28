@@ -1,0 +1,317 @@
+#!/bin/sh
+
+# setup the Java environment for JDK/JRE and Progress,
+# this script expects the DLC environment variable to be set
+: ${DLC?"DLC variable must be set"}
+
+
+# If internal build environment - Java is already setup just exit
+if [ -n "$RDLLSC" ]
+then
+  :
+else
+
+# Set the virtual machine to java. This is available in
+# both the JDK and JRE environments - so we can default to it.
+JVMEXE=java;     export JVMEXE
+
+# set defaults for JDK, JRE home, bin, lib directories 
+# platform specific overrides are below
+
+# save the already set JDKHOME value for later use if
+# the jdk is neither shipped or given by the installer 
+if [ "x$JDKHOME" != "x" ]
+then
+   env_jdkhome=$JDKHOME
+else
+   env_jdkhome=
+fi
+
+JDKHOME=${JDKHOME-$DLC/jdk}
+JREHOME=${JREHOME-$DLC/jre}
+
+
+# if the REPLCP environment File exists, source the file.  This will set the 
+# REPLCP, the Replication Classpath, if Replication has been installed
+if [  -f $REPLTARG/bin/replcp_env ]
+then 
+. $REPLTARG/bin/replcp_env
+elif [  -f $DLC/bin/replcp_env ]
+then
+. $DLC/bin/replcp_env
+fi
+
+# Set the java runtime environment
+PLATID=43
+
+#full list of the platform ids:
+#       11)
+#          PortBit="Solaris-32bit"
+#         ;; 
+#       39)
+#           PortBit="Solaris-64bit"
+#          ;;
+#       17)
+#          PortBit="AIX-32bit"
+#          ;;
+#       37)
+#          PortBit="AIX-64bit"
+#          ;;
+#       27)
+#          PortBit="Tru64-64bit"
+#          ;;
+#       34)
+#          PortBit="HPUX-32bit"
+#          ;;
+#       36)
+#          PortBit="HPUX-64bit"
+#          ;;
+#       40)
+#          PortBit="HPUX-64bit-Itanium"
+#          ;;
+#       38)
+#          PortBit="Linux-32bit"
+#          ;;
+#       43)
+#          PortBit="Linux-64bit"
+#          ;;
+#       31)
+#          PortBit="Windows-32bit"
+#          ;;
+#       41)
+#          PortBit="Unixware-32bit"
+#          ;;
+#       45)
+#          PortBit="LinuxPowerPC-64bit"
+#          ;;
+
+OSNAME=`uname`
+case "$OSNAME" in
+    "SunOS")    # Sun Solaris v2.5.1/v2.6 we ship jdk,jre
+     ARCH=`uname -p`
+     case "$PLATID" in
+     11)  # Solaris32
+     VMTYPE=client
+      # set the shared library search path - snippet from the java script
+     LD_LIBRARY_PATH=$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH:$LD_LIBRARY_PATH
+     JVM=${JREHOME}/bin/$JVMEXE
+     ;;
+     39)  # Solaris64 
+     if [ "$ARCH" = "sparc" ] 
+     then
+        ARCH=sparcv9
+        VMTYPE=server
+        # set the shared library search path - snippet from the java script
+        LD_LIBRARY_PATH=$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH:$LD_LIBRARY_PATH	  
+        JVM=${JREHOME}/bin/$ARCH/$JVMEXE
+      fi 	
+      ;;
+      esac
+      export LD_LIBRARY_PATH
+      export JVM
+    ;;  
+
+    "HP-UX")   #  HP UNIX 11.00, No jdk but jre
+      THREADS_FLAG=native_threads
+      JDKHOME=/usr/java/jre1.5.0_22
+      if [ ! -f $JDKHOME/bin/javac ]
+      then
+	JDKHOME=$env_jdkhome
+      fi
+      case "$PLATID" in
+      34)  # HPUX-32bit
+      ARCH=PA_RISC2.0
+      VMTYPE=hotspot
+      SHLIB_PATH=$SHLIB_PATH:$JREHOME/lib/$ARCH/$THREADS_FLAG:$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH
+      JVM=${JREHOME}/bin/$JVMEXE
+      ;;
+      36 | 40) # HPUX-64bit or HPUX-64bit-Itanium 
+      if [ `uname -m` = "ia64" ]
+      then
+         ARCH=IA64W
+      else
+         ARCH=PA_RISC2.0W
+      fi
+      VMTYPE=hotspot
+      # set the shared library search path - snippet from the java script
+      SHLIB_PATH=$SHLIB_PATH:$JREHOME/lib/$ARCH/$THREADS_FLAG:$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH
+      LD_LIBRARY_PATH=$JREHOME/lib/$ARCH/$THREADS_FLAG:$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH:$LD_LIBRARY_PATH
+      JVM=${JREHOME}/bin/$ARCH/$JVMEXE
+      ;; 
+      esac
+      export SHLIB_PATH
+      export LD_LIBRARY_PATH
+      export JVM
+
+    ;;
+
+    "AIX")     #  IBM UNIX we ship No jdk, jre
+      THREADS_FLAG=native
+      JDKHOME=/usr/java/jre1.5.0_22
+      # the given java-home could be either for jdk or jre
+      if [ -d $JDKHOME/jre ]
+      then
+	JREHOME=$JDKHOME/jre
+      else
+        JREHOME=$JDKHOME
+        JDKHOME=$env_jdkhome
+      fi
+      VMTYPE=classic
+      ARCH=aix
+      LIBPATH=$JREHOME/bin:$JREHOME/bin/classic:${LIBPATH}
+      export LIBPATH
+      SQL_LIBPATH=$LIBPATH
+      export SQL_LIBPATH
+      PROLIBPATH=$LIBPATH
+      export PROLIBPATH
+      JVM=${JREHOME}/bin/$JVMEXE; export JVM
+
+    ;;
+
+    "OSF1")    #  Digital UNIX we ship No jdk, jre
+      JDKHOME=/usr/java/jre1.5.0_22
+      # the given java-home could be either for jdk or jre
+      if [ -d $JDKHOME/jre ]
+      then
+	JREHOME=$JDKHOME/jre
+      else
+        JREHOME=$JDKHOME
+	JDKHOME=$env_jdkhome
+      fi
+      VMTYPE=classic
+      ARCH=alpha
+      LD_LIBRARY_PATH=$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+    ;;
+
+    "OpenUNIX")  # Unixware V8 we ship No jdk, jre
+      THREADS_FLAG=native
+      JDKHOME=/usr/java/jre1.5.0_22
+      # the given java-home could be either for jdk or jre
+      if [ -d $JDKHOME/jre ]
+      then
+	JREHOME=$JDKHOME/jre
+      else
+        JREHOME=$JDKHOME
+	JDKHOME=$env_jdkhome
+      fi
+      VMTYPE=classic
+      ARCH=x86at
+      LD_LIBRARY_PATH=$JREHOME/lib/$ARCH/${THREADS_FLAG}_threads:$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+    ;;
+
+    "UnixWare")  # Unixware we ship No jdk, jre
+      THREADS_FLAG=native
+      JDKHOME=/usr/java/jre1.5.0_22
+      # the given java-home could be either for jdk or jre
+      if [ -d $JDKHOME/jre ]
+      then
+	JREHOME=$JDKHOME/jre
+      else
+        JREHOME=$JDKHOME
+	JDKHOME=$env_jdkhome
+      fi
+      VMTYPE=client
+      ARCH=x86at
+      LD_LIBRARY_PATH=$JREHOME/lib/$ARCH/${THREADS_FLAG}_threads:$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+      JVM=${JREHOME}/bin/$JVMEXE; export JVM
+
+    ;;
+
+    "SCO_SV")  # SCO Open Server 5 we ship No jdk, jre
+      THREADS_FLAG=green
+      JDKHOME=/usr/java/jre1.5.0_22
+      # the given java-home could be either for jdk or jre
+      if [ -d $JDKHOME/jre ]
+      then
+	JREHOME=$JDKHOME/jre
+      else
+        JREHOME=$JDKHOME
+	JDKHOME=$env_jdkhome
+      fi
+      VMTYPE=classic
+      ARCH=x86at
+      LD_LIBRARY_PATH=$JREHOME/lib/$ARCH/${THREADS_FLAG}_threads:$JREHOME/lib/$ARCH/$VMTYPE:$JREHOME/lib/$ARCH:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+      JVM=${JREHOME}/bin/$JVMEXE; export JVM
+      
+    ;;
+
+    "Linux")
+      if [ `uname -p` != "ppc64" ]
+      then
+         THREADS_FLAG=native
+      fi
+      JDKHOME=/usr/java/jre1.5.0_22
+      # the given java-home could be either for jdk or jre
+      if [ -d $JDKHOME/jre ]
+      then
+	JREHOME=$JDKHOME/jre
+      else
+        JREHOME=$JDKHOME
+	JDKHOME=$env_jdkhome
+      fi
+      JAVAHOME=$JDKHOME
+      export JAVAHOME
+      if [ `uname -p` = "ppc64" ]
+      then
+        VMTYPE=classic
+        LD_LIBRARY_PATH=$JREHOME/lib:$JREHOME/bin:$JREHOME/bin/$VMTYPE:$LD_LIBRARY_PATH
+        JVM=$JREHOME/bin/java
+      else
+        case "$PLATID" in
+        38)    # PortBit="Linux-32bit"
+        VMTYPE=client
+        ARCH=i386
+        JVM=${JREHOME}/bin/$JVMEXE
+        ;;
+        43)    # PortBit="Linux-64bit"
+        VMTYPE=server
+        ARCH=amd64
+        JVM=${JREHOME}/bin/$JVMEXE  
+        ;;
+        esac
+        LD_LIBRARY_PATH=$JREHOME/lib/$ARCH:$JREHOME/lib/$ARCH/${THREADS_FLAG}_threads:$JREHOME/bin:$JREHOME/lib/$ARCH/$VMTYPE:$LD_LIBRARY_PATH
+     fi
+     export LD_LIBRARY_PATH
+     PROLIBPATH=$LD_LIBRARY_PATH; export PROLIBPATH
+     export JVM
+
+    ;;
+
+    *)         # Unrecognized uname, we ship No jdk, jre
+      THREADS_FLAG=green
+      #JDKHOME=/usr/java/jre1.5.0_22
+      # the given java-home could be either for jdk or jre
+      if [ -d $JDKHOME/jre ]
+      then
+	JREHOME=$JDKHOME/jre
+      else
+        JREHOME=$JDKHOME
+	JDKHOME=$env_jdkhome
+      fi
+      echo "WARNING: not setting shared library include path"
+      JVM=${JREHOME}/bin/$JVMEXE; export JVM
+
+    ;;
+esac
+
+export THREADS_FLAG
+export JREHOME
+export JDKHOME
+export JVM
+
+#echo "ARCH= $ARCH"
+#echo "THREADS_FLAG= $THREADS_FLAG"
+#echo "JREHOME= $JREHOME"
+#echo "JDKHOME= $JDKHOME"
+#echo "LD_LIBRARY_PATH= $LD_LIBRARY_PATH"
+#echo "SHLIB_PATH= $SHLIB_PATH"
+#echo "LIBPATH= $LIBPATH"
+#echo "JVM=$JVM"
+fi 
+
+
+

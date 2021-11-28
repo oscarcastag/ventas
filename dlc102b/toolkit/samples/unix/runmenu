@@ -1,0 +1,45 @@
+# runmenu
+#
+# sample script to enter a single-user application's main menu 
+#
+# Usage:	runmenu
+#
+# Define the main application directory, APPLDIR. If
+# APPLDIR has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/acme is used.
+APPLDIR=${APPLDIR-/usr/acme}
+
+# Define the location of the PROGRESS software. If DLC
+# has been defined in the user's .profile, that
+# value is used here.  If not, the default value of
+# /usr/dlc is used.
+DLC=${DLC-/usr/dlc}; export DLC
+PROEXE=${PROEXE-$DLC/bin/_progres}; export PROEXE 
+
+# Define the search path to be used to find procedures,
+# using the directory named with the APPLDIR variable.
+PROPATH=$APPLDIR; export PROPATH
+
+# Define prompt to be used when escaping to UNIX shell.
+PS1='$$ '; export PS1
+
+# Display the welcome message.
+cat $APPLDIR/hello
+
+# Display the version message.
+cat $DLC/version
+
+# Assign a database name.  If the user supplied a database
+# name before starting this script, use that name.  If not
+# use acmedb as the default database name.
+DBNAME=${DBNAME-acmedb}
+
+# Start PROGRESS, and run application main menu, called
+# menupgm by default.
+if [ $# = 0 ]
+then
+    exec $PROEXE $DBNAME -1 -p menupgm
+else
+    exec $PROEXE $DBNAME -1 -p menupgm "$@"
+fi

@@ -1,0 +1,68 @@
+#
+# file: fathom.init.params
+# This is the default setup file for Progress Fathom.
+# This file has 2 sections: 
+# The first section, sets environment variables.
+# The second section lists JAVA properties.
+#
+# In this first section we set all the environment variables
+# needed for Fathom and then export them.
+#
+fathomEnabled=true
+fathomInstallDir=/dlc/oemgmt102b
+fathomConfigDir=/dlc/oemgmt102b/config
+fathomEtcDir=/dlc/oemgmt102b/etc
+fathomLogsDir=/dlc/wrk_oemgmt102b/logs
+fathomWorkDir=/dlc/wrk_oemgmt102b
+fathomReportDir=/dlc/wrk_oemgmt102b/reports
+fathomJSPDir=/dlc/oemgmt102b/jspwork
+fathomLicenseFile=/dlc/dlc102b/progress.cfg
+progressInstallDir=/dlc/dlc102b
+progressWorkDir=/dlc/wrk102b
+OEM_PERL5BIN=/dlc/dlc102b/perl/bin
+OEM_PERL5LIB=/dlc/dlc102b/perl/lib/5.6.1:/dlc/dlc102b/perl/lib/site_perl/5.6.1:/dlc/oemgmt102b/perl/scripts
+
+# export the environment variables
+
+export fathomInstallDir
+export fathomConfigDir
+export fathomLogsDir
+export fathomWorkDir
+export fathomReportDir
+export fathomJSPDir
+export fathomLicenseFile
+export progressInstallDir
+export OEM_PERL5BIN
+export OEM_PERL5LIB
+
+#
+# In this second section we are listing JAVA properties for Fathom.
+# The "name.java.params=value" portions are read directly from the file. 
+# We never want to execute the next portion in the UNIX shell script.
+# UNIX shells do not like environment variables with a dot "."
+# in them, so we use an if statement that can never be true to ensure 
+# this portion is not executed.
+# 
+
+if [ 0 = 1 ]
+then
+# list all the java parameters between here and the "fi" below
+org.mortbay.util.FileResource.checkAliases=false
+java.security.auth.policy=/dlc/oemgmt102b/etc/userauth.policy
+java.security.auth.login.config=/dlc/oemgmt102b/config/loginmodule.config
+java.protocol.handler.pkgs=com.sun.net.ssl.internal.www.protocol
+PD=:
+
+# The following Fathom setting, when set to a positive integer
+# value greater than zero, enables a log file cleaner for the Fathom
+# log directory.  The value set for this parameter is the number of days
+# since a file was modified before it can be deleted by the log file
+# cleaner.  This cleaner will operate on any file in the Fathom log file
+# directory that ends in ".log".  The setting of 0 disables the
+# log file cleaner.  We recommend a setting of at least 14 days when you
+# use this facility.
+#
+psc.clean.from.log.dir.after=14
+
+fi
+

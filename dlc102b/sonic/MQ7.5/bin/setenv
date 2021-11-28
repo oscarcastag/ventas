@@ -1,0 +1,64 @@
+#!/bin/sh
+
+#
+# Set up common environment variables for SonicMQ scripts
+# This script is sourced by calling scripts with:
+#   . "$SONICMQ_HOME/bin/setenv"
+#
+
+# Sonic root installation directory
+SONIC_HOME="/dlc/dlc102b/sonic"
+
+# SonicMQ installation directory
+SONICMQ_HOME="/dlc/dlc102b/sonic/MQ7.5"
+
+# Path to Java executables
+SONICMQ_JRE="/usr/java/jre1.5.0_22/bin/java"
+MGMTCONSOLE_JRE="/usr/java/jre1.5.0_22/bin/java"
+
+# Location of the lib directory containing jar files
+SONICMQ_LIB="$SONICMQ_HOME/lib"
+
+# JIT compiler optimization for AIX platform
+JITC_COMPILEOPT=
+
+# Default path separator.  Use ${ps} instead of literal ":" in classpaths.
+ps=':'
+# MKS Toolkit, Cygwin the path separator is ';'
+case "`uname`" in
+     #MKS Toolkit, Cygwin
+     Windows*|CYGWIN*) ps=';' ;;
+esac
+
+# JVM bootclasspath setting
+SONIC_BOOT_CLASSPATH="-Xbootclasspath/p:$SONICMQ_LIB/jmxri.jar${ps}$SONICMQ_LIB/xercesImpl.jar${ps}$SONICMQ_LIB/xmlParserAPIs.jar"
+
+# SSL client properties
+PROTOCOL_HANDLER_PKGS=-Djava.protocol.handler.pkgs=progress.message.net
+SONICMQ_SSL_CLIENT="-DSSL_CA_CERTIFICATES_DIR=$SONICMQ_HOME/certs/CA"
+
+# Uncomment and change the following to use SSL Client mutual authentication.
+# SSL client properties are used when mutual authentication 
+# is set on the broker. By default, it uses certificate client.p7c. 
+# The private key is clientKey.pkcs8. It has 'password' as password.
+# The certificate chain format is PKCS7.
+# If the installation directory contains any spaces and this variable is defined,
+# you must surround any references to this variable in shell scripts with double quotes.
+# SONICMQ_SSL_CLIENT_EXT="-DSSL_CERTIFICATE_CHAIN=$SONICMQ_HOME/certs/client.p7c -DSSL_PRIVATE_KEY=$SONICMQ_HOME/certs/clientKey.pkcs8 -DSSL_PRIVATE_KEY_PASSWORD=password -DSSL_CERTIFICATE_CHAIN_FORM=PKCS7"
+SONICMQ_SSL_CLIENT_EXT=
+
+# SSL jars to be added to the CLASSPATH
+SONICMQ_SSL_LIB="$SONICMQ_LIB/rsa_ssl.jar"
+
+# Environment Extensions
+if [ -f "$SONICMQ_HOME/bin/setenv_ext.sh" ]
+then
+      . "$SONICMQ_HOME/bin/setenv_ext.sh"
+fi
+
+if [ -z "$SONICMQ_JRE" ]
+then
+    echo "\nERROR: please set the <SONICMQ_JRE> environment variable in bin/setenv.";
+    echo
+    exit
+fi

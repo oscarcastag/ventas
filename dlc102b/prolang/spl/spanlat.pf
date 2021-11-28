@@ -1,0 +1,51 @@
+# /dlc/prolang/spl/spanlat.pf
+# Country: Latin-America
+# Language: Spanish
+# Set PROMSGS environment variable to: /dlc/prolang/spl/promsgs.spl
+
+-d dmy
+-lng "Spanish"
+-cpcase Basic
+-cpcoll Spanish9
+
+# -cpinternal (or -charset) - Specifies the code page for all internal
+#                             data processing.
+# ISO Standard Code Page
+# -cpinternal iso8859-1
+-cpinternal 1252
+
+# -cpstream (or -stream) - Specifies the code page for all stream files
+# DOS Code Page
+# -cpstream ibm850
+# ISO Standard Code Page
+# -cpstream iso8859-1
+-cpstream 1252
+
+#You may put any global startup parameters you desire
+#in this file.  They will be used by ALL Progress modules
+#including the client, server, utilities, etc.
+#
+#The file dlc/prolang/locale.pf provides examples of
+#settings for the different options that vary internationally.
+#
+#The directories under dlc/prolang contain examples of
+#startup.pf settings appropriate to each region.
+#For example, the file dlc/prolang/ger/german.pf shows
+#settings that might be used in Germany.
+#The file dlc/prolang/ger/geraus.pf gives example settings
+#for German-speaking Austrians.
+#
+#Copy the file that seems appropriate for your region or language
+#over this startup.pf. Edit the file to meet your needs.
+#
+# e.g. UNIX:            cp /dlc/prolang/ger/geraus.pf /dlc/startup.pf
+# e.g. DOS, WINDOWS:  copy \dlc\prolang\ger\geraus.pf \dlc\startup.pf
+#
+# You may want to include these same settings in /dlc/ade.pf.
+#
+#If the directory for your region or language does not exist in
+#dlc/prolang, please check that you have ordered AND installed the
+#International component. The International component provides
+#these directories and files.
+#
+

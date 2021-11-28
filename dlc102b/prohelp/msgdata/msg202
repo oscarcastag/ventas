@@ -1,0 +1,63 @@
+10051 "Cannot SET-PARAMETER before specifying NUM-PARAMETERS for the CALL object. (10051)" "You must first use the NUM-PARAMETERS attribute  to set the number of parameters before using the SET-PARAMETER method to specify a parameter, for the CALL object." "" ""
+10052 "SET-PARAMETER index must be 1 based and less than or equal to<num-parameters>. (10052)" "SET-PARAMETER index must be 1 based and less than or equal to the value designated by the NUM-PARAMETERS attribute of the call object." "" ""
+10053 "SET-PARAMETER datatype <typename> is not supported for CALL object. (10053)" "The SET-PARAMETER datatype must be a valid 4gl parameter type like integer, character, logical, rowid, decimal, memptr, raw, table-handle, handle etc. BUFFER and TABLE are not supported." "" ""
+10054 "Bad date value supplied. (10054)" "syserr " "d" ""
+10055 "Invalid operator supplied to test against the boolean datatype. (10055)" "syserr " "d" ""
+10056 "Incorrect number of parameters.  The correct syntax for binary dump specified is: 
+ _proutil ""database name"" -C dumpspecified ""table.column"" ""operator"" ""value to be compared against"" ""directory"". (10056)" "syserr " "d" ""
+10057 "SET-PARAMETER input-output mode must be one of INPUT, OUTPUT, INPUT-OUTPUT, OUTPUT-APPEND, enclosed in quotes or in an expression.. (10057)" "SET-PARAMETER takes a datatype and input-output mode, and the input-output mode must be a character expression evaluating to one of  INPUT, OUTPUT, INPUT-OUTPUT, OUTPUT-APPEND. " "" ""
+10058 "MEMPTR parameters may not be converted to any other type in dynamic invoke or SetParameter. (10058)" "MEMPTR parameters are indirect pointers to memory and cannot be converted to character or integer etc." "" ""
+10059 "Unable to convert SET-PARAMETER value to datatype passed. (10059)" "SET-PARAMETER takes a datatype and a parameter value.  The datatype must be such that the parameter value can be converted to it." "" ""
+10060 "SET-PARAMETER output parameter <number> must be a program variable or temp-table field (subscript expressions are ok). (10060)" "SET-PARAMETER can be used to specify OUTPUT parameters.  However, the parameter value passed to SET-PARAMETER is used to determine where to store the output value when the INVOKE is complete.  Since this occurs in the INVOKE, the capacity for re-indexing and running triggers is missing.  Therefore, the value passed must be a program variable or temp-table field.  It is ok for the value to have a subscript expression." "" ""
+10061 "Unable to evaluate array index for output parameter in SET-PARAMETER. (10061)" "The output parameter value you specified has a subscript expression that cannot be evaluated during SET-PARAMETER." "" ""
+10062 "Buffer for output parameter <number> not available during SET-PARAMETER. (10062)" "The output parameter you specified during SET-PARAMETER cannot be found, or is empty." "" ""
+10063 "Attempt to reference uninitialized or invalid CALL object. (10063)" "The call object handle you referenced is either the wrong type of object, or has not been set up properly.  Try re-creating it." "" ""
+10064 "Invalid character system handle expression <name> given to IN-HANDLE (must be a system handle name like SESSION, FILE-INFO, etc.). (10064)" "If the IN-HANDLE value you specified was a character expression, it must evaluate to one of the 4gl built-in system handles like SESSION, COMPILER, FILE-INFO etc." "" ""
+10065 "CALL object IN-HANDLE must be set to a HANDLE or CHARACTER expression. (10065)" "If the IN-HANDLE value you specified was a character expression, it must evaluate to one of the 4gl built-in system handles like SESSION, COMPILER, FILE-INFO etc.
+Otherwise, it must be a valid object handle." "" ""
+10066 "CALL object CALL-TYPE must be an integer between 1 and 5. (10066)" "CALL-TYPE for the CALL object must be one of: FUNCTION-CALL-TYPE, PROCEDURE-CALL-TYPE, GET-ATTR-CALL-TYPE,SET-ATTR-CALL-TYPE,  DLL-CALL-TYPE.  These constants (PROCEDURE-CALL-TYPE) evaluate to integers from 1 to 5." "" ""
+10067 "Unable to set CALL object RETURN-VALUE-DATA-TYPE to <datatype>. (10067)" "The CALL object RETURN-VALUE-DATA-TYPE must be one of the 4gl datatypes like CHARACTER, INTEGER, DATE, LOGICAL, DECIMAL etc.  MEMPTR and TABLE-HANDLE are not supported." "" ""
+10068 "Lead attributes in a chained-attribute expression (a:b:c) must be type HANDLE or a user-defined type and valid (not UNKNOWN). (10068)" "If you are using the chained attribute construct (a:b:c), then the leading attributes, (a and b) must be handles or user-defined types.  For example:
+  session:first-buffer:name
+both session and first-buffer are handles.
+Or:
+  myInvoiceObj:getCustomerObj():getName().
+where getCustomerObj() returns an instance of a ""Customer"" user-defined class that has a getName() method.
+  session:date-format:name     (wrong)
+does not work because date-format is not a handle.
+Also, no lead attribute may be the UNKNOWN value." "" ""
+10069 "ENABLE-CONNECTIONS method requires one argument. (10069)" "You have passed the wrong number of arguments to a SOCKET object method." "" ""
+10070 "Unable to read tl block, ret = <return-value> file = <file-name>.  (10070)" "An error occurred while trying to read tl block from a multi-volume  
+database. Check tl file read permissions, file names, ..." "M" ""
+10071 "SET-CONNECT-PROCEDURE method requires one or two arguments. (10071)" "You have passed the wrong number of arguments to a SOCKET object method." "" ""
+10072 "SET-READ-RESPONSE-PROCEDURE method requires one or two arguments. (10072)" "You have passed the wrong number of arguments to a SOCKET object method." "" ""
+10073 "READ method requires three or four arguments. (10073)" "You have passed the wrong number of arguments to a SOCKET object method." "" ""
+10074 "WRITE method requires three arguments. (10074)" "You have passed the wrong number of arguments to a SOCKET object method." "" ""
+10075 "GET-SOCKET-OPTION method requires one argument. (10075)" "You have passed the wrong number of arguments to a SOCKET object method." "" ""
+10076 "SET-SOCKET-OPTION method requires two arguments. (10076)" "You have passed the wrong number of arguments to a SOCKET object method." "" ""
+10077 "Invalid option name <name> provided in <method>. (10077)" "You have given an invalid option as an argument for the socket method." "" ""
+10078 "CREATE CALL may not specify IN WIDGET-POOL. (10078)" "The CALL object is not allocated within any pool, so you must specifically DELETE OBJECT on it to free it.  Because it is not allocated in a pool, you cannot specify the pool on the CREATE CALL." "" ""
+10079 "CREATE SOCKET and CREATE SERVER-SOCKET statements may not specify IN WIDGET-POOL. (10079)" "The SOCKET objects are not allocated within any pool, so you must specifically DELETE OBJECT on them to free them.  Because they are not allocated in a pool, you cannot specify the pool on the CREATE." "" ""
+10080 "FIND methods not allowed in WHERE, use temporary variable instead. (10080)" "The buffer-handle:FIND-FIRST/LAST etc. methods are not supported within a WHERE clause because they are too complex to be packaged for selection on a server.  Use a temporary variable to contain the return code from the FIND methods, in the WHERE clause instead." "" ""
+10081 "Attempting to copy MEMPTR larger than 32K to a RAW variable. (10081)" "RAW variables are limited to 32k.  You should try a memptr variable." "" ""
+10082 "Second argument of QUOTER must be a single or double quote character. (10082)" "Quoter only accepts a single or double quote, to be added around a data value." "" ""
+10083 "Not enough space to add quotes to item. (10083)" "The QUOTER function needs to add exterior quotes to a data item and also to double any interior ones.  This is taking too much space. Try increasing -s, and also check for unmatched quotes." "" ""
+10084 "New function format not supported for join-by-sqldb. (10084)" "Starting with version 91D, there is a new format for new functions.  This new format is not supported for expressions within WHERE clauses where join-by-sqldb is specified." "" ""
+10085 "NEW FORMAT object handle reference used inappropriately - try to simplify. (10085)" "A new format for functions was introduced for limited use in version 9.1D. You have used this in a way that is not supported.  Try using and older form of function (i.e. no chained attributes)." "" ""
+10086 "FIND METHOD syntax is: [WHERE [<expression>]] [USE-INDEX <name>]. (10086)" "You supplied invalid syntax for one of the FIND methods, FIND-FIRST, FIND-LAST or FIND-UNIQUE." "" ""
+10087 "Stale or missing output buffer for output parameter in dynamic INVOKE. (10087)" "The output parameter supplied in the CALL:SET-PARAMETER or ParameterList:SetParameter must still be in scope and valid after the INVOKE, in order to store the output value into it." "" ""
+10088 "Record <record-name> not available for dynamic output parameter. (10088)" "The output parameter supplied in the CALL:SET-PARAMETER must still be in scope and valid after the CALL:INVOKE, in order to store the output value into it." "" ""
+10089 "Unable to update output parameter for dynamic INVOKE. (10089)" "The output parameter supplied in the CALL:SET-PARAMETER or ParameterList:SetParameter must still be in scope and valid after the dynamic INVOKE, in  order to store the output value into it." "" ""
+10090 "Server  has outstanding async request. UDF rejected. (10090)" "You cannot run a user-defined-function when the server has an outstanding async request." "" ""
+10091 "CALL:INVOKE finds an invalid CALL:IN-HANDLE for GET/SET-ATTR-CALL-TYPE.  It must be a valid 4gl OBJECT HANDLE. (10091)" "The value set with CALL:IN-HANDLE for a CALL object when CALL-TYPE is GET-ATTR-CALL-TYPE ord SET-ATTR-CALL-TYPE must be a valid object handle." "" ""
+10092 "CALL:INVOKE finds an invalid CALL:CALL-NAME for GET/SET-ATTR-CALL-TYPE.  It must be a valid 4gl widget attribute or method. (10092)" "The CALL:CALL-NAME must be set to a valid attribute name or method." "" ""
+10093 "CALL:INVOKE may not be used to set BUFFER-VALUE attribute. (10093)" "There is no provision for re-indexing and firing triggers during CALL:INVOKE, so it may not be used to update field values." "" ""
+10094 "SET-ATTR-CALL-TYPE requires exactly 1 SET-PARAMETER which describes the value to be set. (10094)" "The SET-ATTR-CALL-TYPE is equivalent to saying widget:attribute = value.  So the value in question must be must be described by using CALL:SET-PARAMETER(1,datatype, ""input"", value)." "" ""
+10095 "Socket is still connected. Cannot DELETE. (10095)" "You cannot delete a socket or server-socket object while it is still connected." "" ""
+10096 "Server-Socket is still connected. Cannot DELETE. (10096)" "You cannot delete a socket or server-socket object while it is still connected." "" ""
+10097 "
+AREA """" :   BLOCK ANALYSIS" "This message is used as part of the analysis report " "d" ""
+10098 "-------------------------------------------------
+" "This message is used as part of the analysis report " "" ""
+10099 "After-image has already been turned off by some other user. (10099)" "RFUTIL requests to turn off after-image, but some other user got this request and turned it off. So RFUTIL can just exit." "" ""
+10100 "Error finding AI area when closing AI files online. (10100)" "During switching off after-image online, if the users asked us to close the AI files, however, we can not find any AI areas, then this error happens." "" ""

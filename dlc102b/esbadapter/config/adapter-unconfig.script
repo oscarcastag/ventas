@@ -1,0 +1,14 @@
+connect [[ds-domain]] [[ds-url]] [[ds-user]] [[ds-password]]
+delete serviceType OpenEdgeSrvType
+delete file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType.properties
+delete file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType.gif 
+delete serviceType OpenEdgeSrvType2
+delete file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType2.properties 
+delete file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType2.gif 
+delete file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged.esbpTemplate 
+delete file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged.gif 
+delete file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_connect.esboe 
+delete file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_disconnect.esboe 
+delete directory /System/OpenEdge/[[oe-version]]
+disconnect
+exit

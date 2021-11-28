@@ -1,0 +1,419 @@
+# locale.pf
+# rjl test - 4/9/96
+#
+# This is a template file that contains some examples of choices for
+# locale oriented parameters.
+#
+# Description of locale
+# Country:
+# Language:
+# Set PROMSGS environment variable to:
+#
+# -convmap - Specifies the location of the convmap.cp file to be used if it
+#            is different than the default
+#
+# For example for UNIX:
+# -convmap /usr/dlc/myconvmap.cp
+#
+# For example on DOS:
+# -convmap C:\MYDLC\MYCONVMAP.CP
+#
+# -E parameter - This parameter tells Progress to interpret commas as
+#                decimal points.
+# -E
+#
+# -d parameter - Date display format,  m = month, d = day, y = year
+# -d mdy
+# -d dmy
+# -d ymd
+# -d ydm
+#
+# -lng - Quoted string specifying which r-code segment to read character
+#        string constants from.  ? is the default value which tell Progress
+#        to read the character string constants for the default language.
+#        For more information see the "System Administration Reference" and
+#        the "Translation Management System" manuals.
+# -lng ?
+# -lng "Arabic"
+# -lng "Czech"
+# -lng "Danish"
+# -lng "Dutch"
+# -lng "English"
+# -lng "Finnish"
+# -lng "French"
+# -lng "German"
+# -lng "Greek"
+# -lng "Hebrew"
+# -lng "Hungarian"
+# -lng "Icelandic"
+# -lng "Italian"
+# -lng "Japanese"
+# -lng "Korean"
+# -lng "Macedonian"
+# -lng "Norwegian"
+# -lng "Persian"
+# -lng "Polish"
+# -lng "Portuguese"
+# -lng "Russian"
+# -lng "Serbian"
+# -lng "Simplified-Chinese"
+# -lng "Spanish"
+# -lng "Swedish"
+# -lng "Thai"
+# -lng "Trad-Chinese"
+# -lng "Turkish"
+#
+# -cpcase - Specifies the name of the upper and lower case rules
+#
+# -cpcase Basic
+# -cpcase French
+#
+# -cpcoll (or -xc) - Specifies the name of the collation table to use
+#                    for 4GL sorting
+#
+# -cpcoll 72-basic
+# -cpcoll Basic
+# -cpcoll CZECH
+# -cpcoll Danish
+# -cpcoll Finnish
+# -cpcoll German-Library
+# -cpcoll Greek
+# -cpcoll Hebrew
+# -cpcoll Hungarian
+# -cpcoll Icelandic
+# -cpcoll Norwegian
+# -cpcoll POLISH
+# -cpcoll ROMANIAN
+# -cpcoll Russian
+# -cpcoll Swedish
+# -cpcoll Thai
+# -cpcoll Turkish
+# -cpcoll v6-basic
+# -cpcoll v6-Danish
+# -cpcoll v6-Swedish
+#
+# -cpdb - Specifies the name of the code page of the data contained in a
+#         V6 database. This is used only if you want to connect to a v6
+#         database.
+#
+# -cpdb 1250
+# -cpdb 1251
+# -cpdb 1253
+# -cpdb 1254
+# -cpdb 1256
+# -cpdb 620-2533
+# -cpdb 708
+# -cpdb 709
+# -cpdb 710
+# -cpdb 711
+# -cpdb 714
+# -cpdb 720
+# -cpdb 721
+# -cpdb 786
+# -cpdb BIG-5
+# -cpdb GB2312
+# -cpdb ibm037
+# -cpdb ibm278
+# -cpdb ibm437
+# -cpdb ibm500
+# -cpdb ibm850
+# -cpdb ibm851
+# -cpdb ibm852
+# -cpdb ibm857
+# -cpdb IBM861
+# -cpdb ibm862
+# -cpdb ibm866
+# -cpdb iso8859-1
+# -cpdb iso8859-2
+# -cpdb iso8859-5
+# -cpdb iso8859-8
+# -cpdb koi8-r
+# -cpdb KSC5601
+# -cpdb MAZOVIA
+# -cpdb ROMAN-8
+# -cpdb SHIFT-JIS
+# -cpdb undefined
+#
+# -cpinternal (or -charset) - Specifies the code page for all internal
+#                            data processing.
+#
+# -cpinternal 1250
+# -cpinternal 1251
+# -cpinternal 1253
+# -cpinternal 1254
+# -cpinternal 1256
+# -cpinternal 620-2533
+# -cpinternal 708
+# -cpinternal 709
+# -cpinternal 710
+# -cpinternal 711
+# -cpinternal 714
+# -cpinternal 720
+# -cpinternal 721
+# -cpinternal 786
+# -cpinternal BIG-5
+# -cpinternal GB2312
+# -cpinternal ibm037
+# -cpinternal ibm278
+# -cpinternal ibm437
+# -cpinternal ibm500
+# -cpinternal ibm850
+# -cpinternal ibm851
+# -cpinternal ibm852
+# -cpinternal ibm857
+# -cpinternal IBM861
+# -cpinternal ibm862
+# -cpinternal ibm866
+# -cpinternal iso8859-1
+# -cpinternal iso8859-2
+# -cpinternal iso8859-5
+# -cpinternal iso8859-8
+# -cpinternal koi8-r
+# -cpinternal KSC5601
+# -cpinternal MAZOVIA
+# -cpinternal ROMAN-8
+# -cpinternal SHIFT-JIS
+# -cpinternal undefined
+#
+# -cplog - Designates the code page of the .lg file
+#
+# -cplog 1250
+# -cplog 1251
+# -cplog 1253
+# -cplog 1254
+# -cplog 1256
+# -cplog 620-2533
+# -cplog 708
+# -cplog 709
+# -cplog 710
+# -cplog 711
+# -cplog 714
+# -cplog 720
+# -cplog 721
+# -cplog 786
+# -cplog BIG-5
+# -cplog GB2312
+# -cplog ibm037
+# -cplog ibm278
+# -cplog ibm437
+# -cplog ibm500
+# -cplog ibm850
+# -cplog ibm851
+# -cplog ibm852
+# -cplog ibm857
+# -cplog IBM861
+# -cplog ibm862
+# -cplog ibm866
+# -cplog iso8859-1
+# -cplog iso8859-2
+# -cplog iso8859-5
+# -cplog iso8859-8
+# -cplog koi8-r
+# -cplog KSC5601
+# -cplog MAZOVIA
+# -cplog ROMAN-8
+# -cplog SHIFT-JIS
+# -cplog undefined
+#
+# -cpstream (or -stream) - Specifies the code page for all stream files
+#
+# -cpstream 1250
+# -cpstream 1251
+# -cpstream 1253
+# -cpstream 1254
+# -cpstream 1256
+# -cpstream 620-2533
+# -cpstream 708
+# -cpstream 709
+# -cpstream 710
+# -cpstream 711
+# -cpstream 714
+# -cpstream 720
+# -cpstream 721
+# -cpstream 786
+# -cpstream BIG-5
+# -cpstream GB2312
+# -cpstream ibm037
+# -cpstream ibm278
+# -cpstream ibm437
+# -cpstream ibm500
+# -cpstream ibm850
+# -cpstream ibm851
+# -cpstream ibm852
+# -cpstream ibm857
+# -cpstream IBM861
+# -cpstream ibm862
+# -cpstream ibm866
+# -cpstream iso8859-1
+# -cpstream iso8859-2
+# -cpstream iso8859-5
+# -cpstream iso8859-8
+# -cpstream koi8-r
+# -cpstream KSC5601
+# -cpstream MAZOVIA
+# -cpstream ROMAN-8
+# -cpstream SHIFT-JIS
+# -cpstream undefined
+#
+# -cpterm -  Specifies the code page for stdin and stdout
+#
+# -cpterm 1250
+# -cpterm 1251
+# -cpterm 1253
+# -cpterm 1254
+# -cpterm 1256
+# -cpterm 620-2533
+# -cpterm 708
+# -cpterm 709
+# -cpterm 710
+# -cpterm 711
+# -cpterm 714
+# -cpterm 720
+# -cpterm 721
+# -cpterm 786
+# -cpterm BIG-5
+# -cpterm GB2312
+# -cpterm ibm037
+# -cpterm ibm278
+# -cpterm ibm437
+# -cpterm ibm500
+# -cpterm ibm850
+# -cpterm ibm851
+# -cpterm ibm852
+# -cpterm ibm857
+# -cpterm IBM861
+# -cpterm ibm862
+# -cpterm ibm866
+# -cpterm iso8859-1
+# -cpterm iso8859-2
+# -cpterm iso8859-5
+# -cpterm iso8859-8
+# -cpterm koi8-r
+# -cpterm KSC5601
+# -cpterm MAZOVIA
+# -cpterm ROMAN-8
+# -cpterm SHIFT-JIS
+# -cpterm undefined
+# -cpterm swedish-7-bit
+# -cpterm german-7-bit
+#
+# -cpprint - Specifies the code page to be used with OUTPUT TO PRINTER.
+#
+# -cpprint 1250
+# -cpprint 1251
+# -cpprint 1253
+# -cpprint 1254
+# -cpprint 1256
+# -cpprint 620-2533
+# -cpprint 708
+# -cpprint 709
+# -cpprint 710
+# -cpprint 711
+# -cpprint 714
+# -cpprint 720
+# -cpprint 721
+# -cpprint 786
+# -cpprint BIG-5
+# -cpprint GB2312
+# -cpprint ibm037
+# -cpprint ibm278
+# -cpprint ibm437
+# -cpprint ibm500
+# -cpprint ibm850
+# -cpprint ibm851
+# -cpprint ibm852
+# -cpprint ibm857
+# -cpprint IBM861
+# -cpprint ibm862
+# -cpprint ibm866
+# -cpprint iso8859-1
+# -cpprint iso8859-2
+# -cpprint iso8859-5
+# -cpprint iso8859-8
+# -cpprint koi8-r
+# -cpprint KSC5601
+# -cpprint MAZOVIA
+# -cpprint ROMAN-8
+# -cpprint SHIFT-JIS
+# -cpprint undefined
+#
+# -cprcodein - This specifies the code page that the r-code segment will be
+#             marked with.
+#
+# -cprcodein 1250
+# -cprcodein 1251
+# -cprcodein 1253
+# -cprcodein 1254
+# -cprcodein 1256
+# -cprcodein 620-2533
+# -cprcodein 708
+# -cprcodein 709
+# -cprcodein 710
+# -cprcodein 711
+# -cprcodein 714
+# -cprcodein 720
+# -cprcodein 721
+# -cprcodein 786
+# -cprcodein BIG-5
+# -cprcodein GB2312
+# -cprcodein ibm037
+# -cprcodein ibm278
+# -cprcodein ibm437
+# -cprcodein ibm500
+# -cprcodein ibm850
+# -cprcodein ibm851
+# -cprcodein ibm852
+# -cprcodein ibm857
+# -cprcodein IBM861
+# -cprcodein ibm862
+# -cprcodein ibm866
+# -cprcodein iso8859-1
+# -cprcodein iso8859-2
+# -cprcodein iso8859-5
+# -cprcodein iso8859-8
+# -cprcodein koi8-r
+# -cprcodein KSC5601
+# -cprcodein MAZOVIA
+# -cprcodein ROMAN-8
+# -cprcodein SHIFT-JIS
+# -cprcodein undefined
+#
+# -cprcodeout - Specifies the code page of the source .p
+#
+# -cprcodeout 1250
+# -cprcodeout 1251
+# -cprcodeout 1253
+# -cprcodeout 1254
+# -cprcodeout 1256
+# -cprcodeout 620-2533
+# -cprcodeout 708
+# -cprcodeout 709
+# -cprcodeout 710
+# -cprcodeout 711
+# -cprcodeout 714
+# -cprcodeout 720
+# -cprcodeout 721
+# -cprcodeout 786
+# -cprcodeout BIG-5
+# -cprcodeout GB2312
+# -cprcodeout ibm037
+# -cprcodeout ibm278
+# -cprcodeout ibm437
+# -cprcodeout ibm500
+# -cprcodeout ibm850
+# -cprcodeout ibm851
+# -cprcodeout ibm852
+# -cprcodeout ibm857
+# -cprcodeout IBM861
+# -cprcodeout ibm862
+# -cprcodeout ibm866
+# -cprcodeout iso8859-1
+# -cprcodeout iso8859-2
+# -cprcodeout iso8859-5
+# -cprcodeout iso8859-8
+# -cprcodeout koi8-r
+# -cprcodeout KSC5601
+# -cprcodeout MAZOVIA
+# -cprcodeout ROMAN-8
+# -cprcodeout SHIFT-JIS
+# -cprcodeout undefined

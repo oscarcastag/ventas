@@ -1,0 +1,316 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<index version="1.0">
+ <indexitem text="ABL stack trace pane" target="dbgrhelp-1-3_html_wp476856" />
+ <indexitem text="Accelerator keys">
+  <indexitem text="described" target="dbgrhelp-1-5_html_wp443692" />
+ </indexitem>
+ <indexitem text="Add Watch dialog box" target="dbgrhelp-1-8_html_wp507151" />
+ <indexitem text="Attach to Process dialog box" target="dbgrhelp-1-8_html_wp460570" />
+ <indexitem text="Attachable mode">
+  <indexitem text="debug ready" target="dbgrhelp-1-8_html_wp497622" />
+ </indexitem>
+ <indexitem text="BLOB data type" target="dbgrhelp-1-3_html_wp477557" />
+ <indexitem text="Breakpoint indicator">
+  <indexitem text="defined" target="dbgrhelp-1-3_html_wp440987" />
+ </indexitem>
+ <indexitem text="Breakpoints" target="dbgrhelp-1-8_html_wp501468">
+  <indexitem text="adding to procedure">
+   <indexitem text="(1) Debugger dialog boxes" target="dbgrhelp-1-8_html_wp541016" />
+   <indexitem text="(2) Debugger dialog boxes" target="dbgrhelp-1-8_html_wp541020" />
+  </indexitem>
+  <indexitem text="adding watchpoint to watch" target="dbgrhelp-1-8_html_wp504987" />
+  <indexitem text="conditional" target="dbgrhelp-1-8_html_wp529549" />
+  <indexitem text="defined" target="dbgrhelp-1-8_html_wp512425" />
+  <indexitem text="edit" target="dbgrhelp-1-8_html_wp479299" />
+  <indexitem text="edit watchpoint" target="dbgrhelp-1-8_html_wp503593" />
+  <indexitem text="error-based" target="dbgrhelp-1-8_html_wp499578" />
+  <indexitem text="procedure names and line numbers" target="dbgrhelp-1-8_html_wp499527" />
+  <indexitem text="setting watchpoints" target="dbgrhelp-1-8_html_wp501026" />
+  <indexitem text="watchpoint conditions" target="dbgrhelp-1-8_html_wp502553" />
+  <indexitem text="watchpoint expressions" target="dbgrhelp-1-8_html_wp502513" />
+ </indexitem>
+ <indexitem text="Breakpoints dialog box" target="dbgrhelp-1-8_html_wp501468" />
+ <indexitem text="CLOB data type">
+  <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp477485" />
+  <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp477750" />
+ </indexitem>
+ <indexitem text="Command entry">
+  <indexitem text="menu options" target="dbgrhelp-1-5_html_wp454315" />
+ </indexitem>
+ <indexitem text="Conditional breakpoints" target="dbgrhelp-1-8_html_wp529549" />
+ <indexitem text="CRC. See Cyclic redundancy check" target="dbgrhelp-1-9_html_wp459159" />
+ <indexitem text="Cyclic redundancy check" target="dbgrhelp-1-9_html_wp459159" />
+ <indexitem text="Data menu" target="dbgrhelp-1-5_html_wp444876" />
+ <indexitem text="Data types">
+  <indexitem text="BLOB" target="dbgrhelp-1-3_html_wp477557" />
+  <indexitem text="CLOB">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp477485" />
+   <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp477750" />
+  </indexitem>
+  <indexitem text="DATETIME" target="dbgrhelp-1-3_html_wp477750" />
+  <indexitem text="LONGCHAR">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp477485" />
+   <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp477750" />
+  </indexitem>
+ </indexitem>
+ <indexitem text="Dataview dialog box" target="dbgrhelp-1-8_html_wp500912">
+  <indexitem text="Array tab" target="dbgrhelp-1-8_html_wp499145" />
+  <indexitem text="Attributes tab" target="dbgrhelp-1-8_html_wp499115" />
+  <indexitem text="Fields tab" target="dbgrhelp-1-8_html_wp514284" />
+  <indexitem text="Value tab" target="dbgrhelp-1-8_html_wp499161" />
+ </indexitem>
+ <indexitem text="DATETIME data type" target="dbgrhelp-1-3_html_wp477750" />
+ <indexitem text="Debug listing">
+  <indexitem text="defined" target="dbgrhelp-1-3_html_wp454218" />
+  <indexitem text="displaying" target="dbgrhelp-1-3_html_wp432749" />
+  <indexitem text="name" target="dbgrhelp-1-4_html_wp454231" />
+ </indexitem>
+ <indexitem text="Debug listing files" target="dbgrhelp-1-9_html_wp459095">
+  <indexitem text="creating" target="dbgrhelp-1-9_html_wp459098" />
+  <indexitem text="deleting" target="dbgrhelp-1-9_html_wp459120" />
+  <indexitem text="format" target="dbgrhelp-1-3_html_wp460062" />
+  <indexitem text="generating" target="dbgrhelp-1-9_html_wp459133">
+   <indexitem text="r-code" target="dbgrhelp-1-9_html_wp459159" />
+   <indexitem text="source code" target="dbgrhelp-1-9_html_wp459174" />
+  </indexitem>
+  <indexitem text="locating" target="dbgrhelp-1-9_html_wp506707" />
+ </indexitem>
+ <indexitem text="Debug menu" target="dbgrhelp-1-5_html_wp433080" />
+ <indexitem text="Debug ready">
+  <indexitem text="Attach to Process dialog box" target="dbgrhelp-1-8_html_wp497622" />
+  <indexitem text="Debugger window" target="dbgrhelp-1-8_html_wp497622" />
+ </indexitem>
+ <indexitem text="Debugger dialog boxes" target="dbgrhelp-1-8_html_wp513348">
+  <indexitem text="Add Watch" target="dbgrhelp-1-8_html_wp507151" />
+  <indexitem text="Attach to Process" target="dbgrhelp-1-8_html_wp460570" />
+  <indexitem text="Breakpoints" target="dbgrhelp-1-8_html_wp501468" />
+  <indexitem text="Dataview" target="dbgrhelp-1-8_html_wp500912">
+   <indexitem text="Array tab" target="dbgrhelp-1-8_html_wp499145" />
+   <indexitem text="Attributes tab" target="dbgrhelp-1-8_html_wp499115" />
+   <indexitem text="Field tab" target="dbgrhelp-1-8_html_wp514284" />
+   <indexitem text="Value tab" target="dbgrhelp-1-8_html_wp499161" />
+  </indexitem>
+  <indexitem text="Dynamic Object Tracking" target="dbgrhelp-1-8_html_wp499229">
+   <indexitem text="Control Monitoring tab" target="dbgrhelp-1-8_html_wp499254" />
+   <indexitem text="View Objects tab" target="dbgrhelp-1-8_html_wp499319" />
+  </indexitem>
+  <indexitem text="Edit Breakpoint" target="dbgrhelp-1-8_html_wp495340">
+   <indexitem text="At Line tab" target="dbgrhelp-1-8_html_wp495514" />
+   <indexitem text="On Error tab" target="dbgrhelp-1-8_html_wp495518" />
+   <indexitem text="Watchpoint tab" target="dbgrhelp-1-8_html_wp502048" />
+  </indexitem>
+  <indexitem text="Find" target="dbgrhelp-1-8_html_wp454904" />
+  <indexitem text="New Breakpoint" target="dbgrhelp-1-8_html_wp499485">
+   <indexitem text="At Line tab" target="dbgrhelp-1-8_html_wp499498" />
+   <indexitem text="On Error tab" target="dbgrhelp-1-8_html_wp499502" />
+   <indexitem text="Watchpoint tab" target="dbgrhelp-1-8_html_wp500606" />
+  </indexitem>
+  <indexitem text="Open" target="dbgrhelp-1-8_html_wp445231" />
+  <indexitem text="Preferences" target="dbgrhelp-1-8_html_wp444701">
+   <indexitem text="Attachable tab" target="dbgrhelp-1-8_html_wp496577" />
+   <indexitem text="Font tab" target="dbgrhelp-1-8_html_wp496356" />
+   <indexitem text="Settings tab" target="dbgrhelp-1-8_html_wp496441" />
+  </indexitem>
+  <indexitem text="Select Process" target="dbgrhelp-1-8_html_wp498625" />
+ </indexitem>
+ <indexitem text="Debugger files" target="dbgrhelp-1-9_html_wp446955">
+  <indexitem text="attachable mode location" target="dbgrhelp-1-9_html_wp506707" />
+  <indexitem text="listing files" target="dbgrhelp-1-9_html_wp459095" />
+  <indexitem text="listing generation" target="dbgrhelp-1-9_html_wp459133" />
+  <indexitem text="Procedure files" target="dbgrhelp-1-9_html_wp459133" />
+ </indexitem>
+ <indexitem text="Debugger window">
+  <indexitem text="ABL stack trace pane" target="dbgrhelp-1-3_html_wp476856" />
+  <indexitem text="accelerator keys" target="dbgrhelp-1-5_html_wp443692" />
+  <indexitem text="Data menu" target="dbgrhelp-1-5_html_wp444876" />
+  <indexitem text="debug listing" target="dbgrhelp-1-3_html_wp454218" />
+  <indexitem text="Debug menu" target="dbgrhelp-1-5_html_wp433080" />
+  <indexitem text="Diagnostics menu" target="dbgrhelp-1-5_html_wp444814" />
+  <indexitem text="dialog boxes. See Debugger dialog boxes" target="dbgrhelp-1-8_html_wp513348" />
+  <indexitem text="Edit menu" target="dbgrhelp-1-5_html_wp444237" />
+  <indexitem text="File menu" target="dbgrhelp-1-5_html_wp432964" />
+  <indexitem text="Help menu" target="dbgrhelp-1-5_html_wp433202" />
+  <indexitem text="layout" target="dbgrhelp-1-2_html_wp458957" />
+  <indexitem text="listing indicators" target="dbgrhelp-1-3_html_wp440987" />
+  <indexitem text="menu bar. See Menus" target="dbgrhelp-1-5_html_wp454315" />
+  <indexitem text="Menus" target="dbgrhelp-1-5_html_wp454315" />
+  <indexitem text="overview" target="dbgrhelp-1-1_html_wp497098" />
+  <indexitem text="panes" target="dbgrhelp-1-3_html_wp449933" />
+  <indexitem text="Run to Line command" target="dbgrhelp-1-3_html_wp475641" />
+  <indexitem text="Search menu" target="dbgrhelp-1-5_html_wp433007" />
+  <indexitem text="source code pane" target="dbgrhelp-1-3_html_wp444063" />
+  <indexitem text="status bar" target="dbgrhelp-1-7_html_wp446585" />
+  <indexitem text="text selection" target="dbgrhelp-1-3_html_wp432803" />
+  <indexitem text="title bar" target="dbgrhelp-1-4_html_wp454140" />
+  <indexitem text="tool bar" target="dbgrhelp-1-6_html_wp452312" />
+  <indexitem text="toolbar" target="dbgrhelp-1-6_html_wp452312" />
+  <indexitem text="variables pane" target="dbgrhelp-1-3_html_wp432821" />
+  <indexitem text="View menu" target="dbgrhelp-1-5_html_wp444389" />
+  <indexitem text="viewing arrays" target="dbgrhelp-1-3_html_wp526949" />
+  <indexitem text="viewing BLOB data type" target="dbgrhelp-1-3_html_wp477557" />
+  <indexitem text="viewing CLOB data type">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp477485" />
+   <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp477750" />
+  </indexitem>
+  <indexitem text="viewing DATETIME data type" target="dbgrhelp-1-3_html_wp477750" />
+  <indexitem text="viewing LONGCHAR data type">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp477485" />
+   <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp477750" />
+  </indexitem>
+  <indexitem text="viewing ProDataSet objects" target="dbgrhelp-1-3_html_wp477498" />
+  <indexitem text="viewing Progress.Languge.ProObject datatype" target="dbgrhelp-1-3_html_wp527416" />
+  <indexitem text="watches pane">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp497062" />
+   <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp497062" />
+  </indexitem>
+  <indexitem text="Window menu" target="dbgrhelp-1-5_html_wp444919" />
+ </indexitem>
+ <indexitem text="Diagnostics menu" target="dbgrhelp-1-5_html_wp444814" />
+ <indexitem text="Dynamic Object Tracking dialog box" target="dbgrhelp-1-8_html_wp499229">
+  <indexitem text="Control Monitoring tab" target="dbgrhelp-1-8_html_wp499254" />
+  <indexitem text="View Objects tab" target="dbgrhelp-1-8_html_wp499319" />
+ </indexitem>
+ <indexitem text="Edit Breakpoint dialog box" target="dbgrhelp-1-8_html_wp495340">
+  <indexitem text="At Line tab" target="dbgrhelp-1-8_html_wp495514" />
+  <indexitem text="On Error tab" target="dbgrhelp-1-8_html_wp495518" />
+  <indexitem text="Watchpoint tab" target="dbgrhelp-1-8_html_wp502048" />
+ </indexitem>
+ <indexitem text="Edit menu" target="dbgrhelp-1-5_html_wp444237" />
+ <indexitem text="Error-based breakpoints" target="dbgrhelp-1-8_html_wp499578" />
+ <indexitem text="File menu" target="dbgrhelp-1-5_html_wp432964" />
+ <indexitem text="Files">
+  <indexitem text="debug listing" target="dbgrhelp-1-9_html_wp459095" />
+  <indexitem text="procedure. See Procedure files" target="dbgrhelp-1-9_html_wp459133" />
+ </indexitem>
+ <indexitem text="Find dialog box" target="dbgrhelp-1-8_html_wp454904" />
+ <indexitem text="Garbage collection">
+  <indexitem text="and Step Into command">
+   <indexitem text="(1) Debugger menu bar options" target="dbgrhelp-1-5_html_wp549611" />
+   <indexitem text="(2) Debugger toolbar buttons" target="dbgrhelp-1-6_html_wp547627" />
+  </indexitem>
+ </indexitem>
+ <indexitem text="Help menu" target="dbgrhelp-1-5_html_wp433202" />
+ <indexitem text="Indicators">
+  <indexitem text="breakpoint" target="dbgrhelp-1-3_html_wp440987" />
+  <indexitem text="line pointer" target="dbgrhelp-1-3_html_wp440987" />
+ </indexitem>
+ <indexitem text="Line pointer indicator">
+  <indexitem text="defined" target="dbgrhelp-1-3_html_wp440987" />
+ </indexitem>
+ <indexitem text="Listing">
+  <indexitem text="indicators" target="dbgrhelp-1-3_html_wp432749" />
+ </indexitem>
+ <indexitem text="Listing generation" target="dbgrhelp-1-9_html_wp459133" />
+ <indexitem text="Listing name">
+  <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp505165" />
+  <indexitem text="(2) Debugger title bar" target="dbgrhelp-1-4_html_wp454231" />
+ </indexitem>
+ <indexitem text="LONGCHAR data type">
+  <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp477485" />
+  <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp477750" />
+ </indexitem>
+ <indexitem text="Menu accelerator keys" target="dbgrhelp-1-5_html_wp443692" />
+ <indexitem text="Menu bar. See Menus" target="dbgrhelp-1-5_html_wp454315" />
+ <indexitem text="Menus" target="dbgrhelp-1-5_html_wp454315">
+  <indexitem text="accelerator keys" target="dbgrhelp-1-5_html_wp443692" />
+  <indexitem text="data" target="dbgrhelp-1-5_html_wp444876" />
+  <indexitem text="debug" target="dbgrhelp-1-5_html_wp433080" />
+  <indexitem text="diagnostics" target="dbgrhelp-1-5_html_wp444814" />
+  <indexitem text="edit" target="dbgrhelp-1-5_html_wp444237" />
+  <indexitem text="file" target="dbgrhelp-1-5_html_wp432964" />
+  <indexitem text="help" target="dbgrhelp-1-5_html_wp433202" />
+  <indexitem text="search" target="dbgrhelp-1-5_html_wp433007" />
+  <indexitem text="view" target="dbgrhelp-1-5_html_wp444389" />
+  <indexitem text="window" target="dbgrhelp-1-5_html_wp444919" />
+ </indexitem>
+ <indexitem text="Mnemonics" target="dbgrhelp-1-5_html_wp443698" />
+ <indexitem text="New Breakpoint dialog box" target="dbgrhelp-1-8_html_wp499485">
+  <indexitem text="At Line tab" target="dbgrhelp-1-8_html_wp499498" />
+  <indexitem text="On Error tab" target="dbgrhelp-1-8_html_wp499502" />
+  <indexitem text="Watchpoint tab" target="dbgrhelp-1-8_html_wp500606" />
+ </indexitem>
+ <indexitem text="No Evaluation of Properties (-noevalprops) startup parameter">
+  <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp542580" />
+  <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp543171" />
+  <indexitem text="(3) Debugger window panes" target="dbgrhelp-1-3_html_wp543347" />
+ </indexitem>
+ <indexitem text="Objects">
+  <indexitem text="ProDataSet" target="dbgrhelp-1-3_html_wp477498" />
+  <indexitem text="Progress.Languge.ProObject" target="dbgrhelp-1-3_html_wp527416" />
+  <indexitem text="tracking" target="dbgrhelp-1-8_html_wp499230" />
+ </indexitem>
+ <indexitem text="Open dialog box" target="dbgrhelp-1-8_html_wp445231" />
+ <indexitem text="Panes" target="dbgrhelp-1-3_html_wp449933" />
+ <indexitem text="Preferences dialog box" target="dbgrhelp-1-8_html_wp444701">
+  <indexitem text="Attachable tab" target="dbgrhelp-1-8_html_wp496577" />
+  <indexitem text="Font tab" target="dbgrhelp-1-8_html_wp496356" />
+  <indexitem text="Settings tab" target="dbgrhelp-1-8_html_wp496441" />
+ </indexitem>
+ <indexitem text="Procedure files" target="dbgrhelp-1-9_html_wp459133">
+  <indexitem text="CRC values" target="dbgrhelp-1-9_html_wp459159" />
+  <indexitem text="generating source code listings" target="dbgrhelp-1-9_html_wp459174" />
+  <indexitem text="hidden" target="dbgrhelp-1-9_html_wp459184" />
+  <indexitem text="r-code listing generation" target="dbgrhelp-1-9_html_wp459159" />
+ </indexitem>
+ <indexitem text="ProDataSet object" target="dbgrhelp-1-3_html_wp477498" />
+ <indexitem text="Progress.Languge.ProObject datatype" target="dbgrhelp-1-3_html_wp527416" />
+ <indexitem text="Properties">
+  <indexitem text="disabling evaluation of">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp542580" />
+   <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp543171" />
+   <indexitem text="(3) Debugger window panes" target="dbgrhelp-1-3_html_wp543347" />
+  </indexitem>
+ </indexitem>
+ <indexitem text="Run to Line command" target="dbgrhelp-1-3_html_wp475641" />
+ <indexitem text="Search menu" target="dbgrhelp-1-5_html_wp433007" />
+ <indexitem text="Select Process dialog box" target="dbgrhelp-1-8_html_wp498625" />
+ <indexitem text="Source code pane" target="dbgrhelp-1-3_html_wp444063">
+  <indexitem text="displaying">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp432749" />
+   <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp432749" />
+  </indexitem>
+  <indexitem text="indicators" target="dbgrhelp-1-3_html_wp440987" />
+  <indexitem text="label">
+   <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp505165" />
+   <indexitem text="(2) Debugger title bar" target="dbgrhelp-1-4_html_wp454231" />
+  </indexitem>
+  <indexitem text="text selection" target="dbgrhelp-1-3_html_wp432803" />
+ </indexitem>
+ <indexitem text="Status bar" target="dbgrhelp-1-7_html_wp446585" />
+ <indexitem text="Text selection">
+  <indexitem text="source code pane" target="dbgrhelp-1-3_html_wp432803" />
+ </indexitem>
+ <indexitem text="Title bar" target="dbgrhelp-1-4_html_wp454140" />
+ <indexitem text="Toolbar" target="dbgrhelp-1-6_html_wp452312" />
+ <indexitem text="Variables pane">
+  <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp432821" />
+  <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp432821" />
+ </indexitem>
+ <indexitem text="View menu" target="dbgrhelp-1-5_html_wp444389" />
+ <indexitem text="Watch">
+  <indexitem text="Add Watch option" target="dbgrhelp-1-3_html_wp473865" />
+  <indexitem text="defined" target="dbgrhelp-1-3_html_wp520580" />
+  <indexitem text="drag and drop watches" target="dbgrhelp-1-3_html_wp474789" />
+  <indexitem text="supported ABL functions" target="dbgrhelp-1-3_html_wp504334" />
+  <indexitem text="valid formats" target="dbgrhelp-1-3_html_wp486287" />
+  <indexitem text="watching ABL functions" target="dbgrhelp-1-3_html_wp473940" />
+ </indexitem>
+ <indexitem text="Watches pane" target="dbgrhelp-1-3_html_wp497062" />
+ <indexitem text="Watchpoints">
+  <indexitem text="adding watchpoint to watch" target="dbgrhelp-1-8_html_wp504987" />
+  <indexitem text="conditions" target="dbgrhelp-1-8_html_wp502553" />
+  <indexitem text="defined" target="dbgrhelp-1-8_html_wp512475" />
+  <indexitem text="edit" target="dbgrhelp-1-8_html_wp503593" />
+  <indexitem text="expressions" target="dbgrhelp-1-8_html_wp502513" />
+  <indexitem text="setting" target="dbgrhelp-1-8_html_wp501026" />
+ </indexitem>
+ <indexitem text="Window layout" target="dbgrhelp-1-2_html_wp458957" />
+ <indexitem text="Window menu" target="dbgrhelp-1-5_html_wp444919" />
+ <indexitem text="_ (underscore) files" target="dbgrhelp-1-9_html_wp459184" />
+ <indexitem text="-noevalprops startup parameter">
+  <indexitem text="(1) Debugger window panes" target="dbgrhelp-1-3_html_wp542580" />
+  <indexitem text="(2) Debugger window panes" target="dbgrhelp-1-3_html_wp543171" />
+  <indexitem text="(3) Debugger window panes" target="dbgrhelp-1-3_html_wp543347" />
+ </indexitem>
+</index>

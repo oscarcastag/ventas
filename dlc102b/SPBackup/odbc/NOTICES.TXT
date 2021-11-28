@@ -1,0 +1,896 @@
+Progress DataDirect Connect for ODBC v7.1
+Progress DataDirect Connect64 for ODBC v7.1
+Progress DataDirect Connect XE for ODBC v7.1
+Progress DataDirect Connect64 XE for ODBC v7.1 
+
+The listing of the Third Party Components (as defined below) contained in this 
+notices.txt file is applicable for each of the above-identified products.
+
+Copyright (c) (1987-2012) Progress Software Corporation and/or its subsidiaries 
+or affiliates. All rights reserved.
+
+Portions of the Products include certain open source and commercial third party 
+components listed below ("Third Party Components"). The authors of the Third 
+Party Components require Progress Software Corporation ("PSC") to include the 
+following notices and additional licensing terms as a condition of PSC's use of 
+such Third Party Components.  The Third Party Components described below are 
+provided by PSC solely on an "AS IS" basis, without any warranty from PSC, 
+unless otherwise stated.  PSC disclaims all warranties and indemnities with 
+respect to the Third Party Components, express or implied, and assumes no 
+liability with respect to the Third Party Components.  You acknowledge that the 
+authors of the Third Party Components have no obligation to provide support to 
+you for the Third Party Components or the Product.  You hereby undertake to 
+comply with all licenses related to the applicable Third Party Components.
+
+The Progress DataDirect Connect for ODBC drivers for MySQL Enterprise(R) were 
+developed using the MySQL(R) Protocol Documentation whose copyright is owned 
+by, and licensed by Progress from, Oracle. If Progress DataDirect Connect for 
+ODBC is licensed for the MySQL database the following shall apply: You must 
+purchase commercially licensed MySQL database software or a MySQL Enterprise 
+subscription in order to use the Progress DataDirect Connect for ODBC driver 
+for MySQL Enterprise with MySQL software.
+
+1.	Special Notices Regarding Open Source Third Party Components 
+incorporated in the Products:
+
+(1) 	Apache License Version 2.0
+
+Progress DataDirect Connect for ODBC v7.1, Progress DataDirect Connect64 for 
+ODBC v7.1, Progress DataDirect Connect XE for ODBC v7.1, Progress DataDirect 
+Connect64 XE for ODBC v7.1 each incorporate Apache CXF v2.4.3, Commons 
+HttpClient v3.1, Commons Logging v1.1.1, Log4J v1.2.8, TagSoup HTML Parser for 
+JAVA v1.2, and Woodstox v4.0.5 from The Apache Software Foundation.  Such 
+technology is subject to the following terms and conditions: Apache License 
+Version 2.0, January 2004 http://www.apache.org/licenses/ TERMS AND CONDITIONS 
+FOR USE, REPRODUCTION, AND DISTRIBUTION 
+1. Definitions.
+"License" shall mean the terms and conditions for use, reproduction, and 
+distribution as defined by Sections 1 through 9 of this document. "Licensor" 
+shall mean the copyright owner or entity authorized by the copyright owner that 
+is granting the License. "Legal Entity" shall mean the union of the acting 
+entity and all other entities that control, are controlled by, or are under 
+common control with that entity. For the purposes of this definition, "control" 
+means (i) the power, direct or indirect, to cause the direction or management 
+of such entity, whether by contract or otherwise, or (ii) ownership of fifty 
+percent (50%) or more of the outstanding shares, or (iii) beneficial ownership 
+of such entity. "You" (or "Your") shall mean an individual or Legal Entity 
+exercising permissions granted by this License. "Source" form shall mean the 
+preferred form for making modifications, including but not limited to software 
+source code, documentation source, and configuration files. "Object" form shall 
+mean any form resulting from mechanical transformation or translation of a 
+Source form, including but not limited to compiled object code, generated 
+documentation, and conversions to other media types. "Work" shall mean the work 
+of authorship, whether in Source or Object form, made available under the 
+License, as indicated by a copyright notice that is included in or attached to 
+the work (an example is provided in the Appendix below). "Derivative Works" 
+shall mean any work, whether in Source or Object form, that is based on (or 
+derived from) the Work and for which the editorial revisions, annotations, 
+elaborations, or other modifications represent, as a whole, an original work of 
+authorship. For the purposes of this License, Derivative Works shall not 
+include works that remain separable from, or merely link (or bind by name) to 
+the interfaces of, the Work and Derivative Works thereof. "Contribution" shall 
+mean any work of authorship, including the original version of the Work and any 
+modifications or additions to that Work or Derivative Works thereof, that is 
+intentionally submitted to Licensor for inclusion in the Work by the copyright 
+owner or by an individual or Legal Entity authorized to submit on behalf of the 
+copyright owner. For the purposes of this definition, "submitted" means any 
+form of electronic, verbal, or written communication sent to the Licensor or 
+its representatives, including but not limited to communication on electronic 
+mailing lists, source code control systems, and issue tracking systems that are 
+managed by, or on behalf of, the Licensor for the purpose of discussing and 
+improving the Work, but excluding communication that is conspicuously marked or 
+otherwise designated in writing by the copyright owner as "Not a Contribution." 
+"Contributor" shall mean Licensor and any individual or Legal Entity on behalf 
+of whom a Contribution has been received by Licensor and subsequently 
+incorporated within the Work. 
+2. Grant of Copyright License. Subject to the terms and conditions of this 
+License, each Contributor hereby grants to You a perpetual, worldwide, 
+non-exclusive, no-charge, royalty-free, irrevocable copyright license to 
+reproduce, prepare Derivative Works of, publicly display, publicly perform, 
+sublicense, and distribute the Work and such Derivative Works in Source or 
+Object form.
+3. Grant of Patent License. Subject to the terms and conditions of this 
+License, each Contributor hereby grants to You a perpetual, worldwide, 
+non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this 
+section) patent license to make, have made, use, offer to sell, sell, import, 
+and otherwise transfer the Work, where such license applies only to those 
+patent claims licensable by such Contributor that are necessarily infringed by 
+their Contribution(s) alone or by combination of their Contribution(s) with the 
+Work to which such Contribution(s) was submitted. If You institute patent 
+litigation against any entity (including a cross-claim or counterclaim in a 
+lawsuit) alleging that the Work or a Contribution incorporated within the Work 
+constitutes direct or contributory patent infringement, then any patent 
+licenses granted to You under this License for that Work shall terminate as of 
+the date such litigation is filed. 
+4. Redistribution. You may reproduce and distribute copies of the Work or 
+Derivative Works thereof in any medium, with or without modifications, and in 
+Source or Object form, provided that You meet the following conditions:
+(a) You must give any other recipients of the Work or Derivative Works a copy 
+of this License; and
+(b) You must cause any modified files to carry prominent notices stating that 
+You changed the files; and
+(c) You must retain, in the Source form of any Derivative Works that You 
+distribute, all copyright, patent, trademark, and attribution notices from the 
+Source form of the Work, excluding those notices that do not pertain to any 
+part of the Derivative Works; and
+(d) If the Work includes a "NOTICE" text file as part of its distribution, then 
+any Derivative Works that You distribute must include a readable copy of the 
+attribution notices contained within such NOTICE file, excluding those notices 
+that do not pertain to any part of the Derivative Works, in at least one of the 
+following places: within a NOTICE text file distributed as part of the 
+Derivative Works; within the Source form or documentation, if provided along 
+with the Derivative Works; or, within a display generated by the Derivative 
+Works, if and wherever such third-party notices normally appear. The contents 
+of the NOTICE file are for informational purposes only and do not modify the 
+License. You may add Your own attribution notices within Derivative Works that 
+You distribute, alongside or as an addendum to the NOTICE text from the Work, 
+provided that such additional attribution notices cannot be construed as 
+modifying the License. You may add Your own copyright statement to Your 
+modifications and may provide additional or different license terms and 
+conditions for use, reproduction, or distribution of Your modifications, or for 
+any such Derivative Works as a whole, provided Your use, reproduction, and 
+distribution of the Work otherwise complies with the conditions stated in this 
+License. 
+5. Submission of Contributions. Unless You explicitly state otherwise, any 
+Contribution intentionally submitted for inclusion in the Work by You to the 
+Licensor shall be under the terms and conditions of this License, without any 
+additional terms or conditions. Notwithstanding the above, nothing herein shall 
+supersede or modify the terms of any separate license agreement you may have 
+executed with Licensor regarding such Contributions.
+6. Trademarks. This License does not grant permission to use the trade names, 
+trademarks, service marks, or product names of the Licensor, except as required 
+for reasonable and customary use in describing the origin of the Work and 
+reproducing the content of the NOTICE file.
+7. Disclaimer of Warranty. Unless required by applicable law or agreed to in 
+writing, Licensor provides the Work (and each Contributor provides its 
+Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY 
+KIND, either express or implied, including, without limitation, any warranties 
+or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A 
+PARTICULAR PURPOSE. You are solely responsible for determining the 
+appropriateness of using or redistributing the Work and assume any risks 
+associated with Your exercise of permissions under this License.
+8. Limitation of Liability. In no event and under no legal theory, whether in 
+tort (including negligence), contract, or otherwise, unless required by 
+applicable law (such as deliberate and grossly negligent acts) or agreed to in 
+writing, shall any Contributor be liable to You for damages, including any 
+direct, indirect, special, incidental, or consequential damages of any 
+character arising as a result of this License or out of the use or inability to 
+use the Work (including but not limited to damages for loss of goodwill, work 
+stoppage, computer failure or malfunction, or any and all other commercial 
+damages or losses), even if such Contributor has been advised of the 
+possibility of such damages.
+9. Accepting Warranty or Additional Liability. While redistributing the Work or 
+Derivative Works thereof, You may choose to offer, and charge a fee for, 
+acceptance of support, warranty, indemnity, or other liability obligations 
+and/or rights consistent with this License. However, in accepting such 
+obligations, You may act only on Your own behalf and on Your sole 
+responsibility, not on behalf of any other Contributor, and only if You agree 
+to indemnify, defend, and hold each Contributor harmless for any liability 
+incurred by, or claims asserted against, such Contributor by reason of your 
+accepting any such warranty or additional liability. END OF TERMS AND CONDITIONS
+APPENDIX: How to apply the Apache License to your work. To apply the Apache 
+License to your work, attach the following boilerplate notice, with the fields 
+enclosed by brackets "[]" replaced with your own identifying information. 
+(Don't include the brackets!)  The text should be enclosed in the appropriate 
+comment syntax for the file format. We also recommend that a file or class name 
+and description of purpose be included on the same "printed page" as the 
+copyright notice for easier identification within third-party archives. 
+Copyright [yyyy] [name of copyright owner] Licensed under the Apache License, 
+Version 2.0 (the "License"); you may not use this file except in compliance 
+with the License. You may obtain a copy of the License at 
+http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or 
+agreed to in writing, software distributed under the License is distributed on 
+an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express 
+or implied. See the License for the specific language governing permissions and 
+limitations under the License.
+
+-------------------------------------------------------------------------
+
+NOTICE text file for Apache CXF v2.4.3:
+Apache CXF
+Copyright 2006-2011 The Apache Software Foundation This product includes 
+software developed at The Apache Software Foundation (http://www.apache.org/).
+This product also includes schemas and specification developed by:
+      - the W3C consortium (http://www.w3c.org)
+      (http://www.w3.org/XML/1998/namespace)
+This product also includes WS-* schemas developed by International
+   Business Machines Corporation, Microsoft Corporation, BEA Systems, 
+   TIBCO Software, SAP AG, Sonic Software, and VeriSign
+   (http://schemas.xmlsoap.org/wsdl/2003-02-11.xsd)
+   (http://schemas.xmlsoap.org/ws/2004/08/addressing/)
+   (http://schemas.xmlsoap.org/wsdl/http)
+   (http://schemas.xmlsoap.org/ws/2005/02/rm/wsrm.xsd)
+   (http://www.w3.org/2005/08/addressing/ws-addr.xsd)
+The product contains code (StaxBuilder.java) that is
+  Copyright (C) 2000-2004 Jason Hunter & Brett McLaughlin.
+  All rights reserved.
+  See the NOTICE.jdom file for additional information
+Java classes (source and binary) under org.apache.cxf.jaxws.javaee
+are generated from schema available here:
+(http://java.sun.com/xml/ns/javaee/javaee_5.xsd)
+This Product also includes software developed by David Heinemeier Hansson.
+(http://dev.rubyonrails.org/browser/trunk/activesupport/lib/active_support/infle
+ctions.rb)
+This product includes software Copyright University of Southampton IT 
+Innovation Centre, 2009 
+(http://www.it-innovation.soton.ac.uk). 
+This product also includes MTOSI wsdl and schemas developed by the
+TeleManagement Forum (http://www.tmforum.org/browse.aspx). The original
+MTOSI wsdl and schemas can be download from
+(http://sourceforge.net/projects/mtosi-ri)
+Portions of the included XmlSchema library are Copyright 2006 International 
+Business Machines Corp.
+Portions of the included xml-apis library were originally based on the 
+following:
+   - software copyright (c) 1999, IBM Corporation., http://www.ibm.com.
+   - software copyright (c) 1999, Sun Microsystems., http://www.sun.com.
+   - software copyright (c) 2000 World Wide Web Consortium, http://www.w3.org
+Portions of the included xmlbeans library were originally based on the 
+following:
+   - software copyright (c) 2000-2003, BEA Systems, <http://www.bea.com/>.
+Portions of the file cxf-utils.js derives from code marked:
+This code was written by Tyler Akins and has been placed in the public domain.  
+It would be nice if you left this header intact.
+Base64 code from Tyler Akins -- http://rumkin.com
+Additional copyright notices and license terms applicable are present in the 
+licenses directory of this distribution.
+------------------------------------------------------------------------
+
+NOTICE text file for Commons HttpClient v3.1:
+Apache Jakarta HttpClient Copyright 1999-2007 The Apache Software Foundation 
+This product includes software developed by The Apache Software Foundation 
+(http://www.apache.org/).
+-------------------------------------------------------------------------
+
+NOTICE text file for Commons Logging v1.1.1:
+Apache Commons Logging Copyright 2003-2007 The Apache Software Foundation This 
+product includes software developed by The Apache Software Foundation 
+(http://www.apache.org/).
+-------------------------------------------------------------------------
+
+NOTICE text file for Log4J v1.2.8:
+Apache log4j Copyright 2007 The Apache Software Foundation This product 
+includes software developed at
+The Apache Software Foundation (http://www.apache.org/).
+-------------------------------------------------------------------------
+
+(2)	BSD-style Licenses:
+
+(a)	Progress DataDirect Connect for ODBC v7.1, Progress DataDirect 
+Connect64 for ODBC v7.1, Progress DataDirect Connect XE for ODBC v7.1, Progress 
+DataDirect Connect64 XE for ODBC v7.1 each incorporate ICU Library v4.2.1 from 
+International Business Machines Corporation.  Such technology is subject to the 
+following terms and conditions:  ICU License - ICU 1.8.1 and later ICU License 
+- ICU 1.8.1 and later COPYRIGHT AND PERMISSION NOTICE. Copyright (c) 1995-2010 
+International Business Machines Corporation and others. All rights reserved. 
+Permission is hereby granted, free of charge, to any person obtaining a copy of 
+this software and associated documentation files (the "Software"), to deal in 
+the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, and/or sell copies of the 
+Software, and to permit persons to whom the Software is furnished to do so, 
+provided that the above copyright notice(s) and this permission notice appear 
+in all copies of the Software and that both the above copyright notice(s) and 
+this permission notice appear in supporting documentation. THE SOFTWARE IS 
+PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING 
+BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE 
+COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR 
+ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER 
+RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, 
+NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE 
+USE OR PERFORMANCE OF THIS SOFTWARE. Except as contained in this notice, the 
+name of a copyright holder shall not be used in advertising or otherwise to 
+promote the sale, use or other dealings in this Software without prior written 
+authorization of the copyright holder.  All trademarks and registered 
+trademarks mentioned herein are the property of their respective owners.
+
+(b)	Progress DataDirect Connect for ODBC v7.1, Progress DataDirect 
+Connect64 for ODBC v7.1, Progress DataDirect Connect XE for ODBC v7.1, Progress 
+DataDirect Connect64 XE for ODBC v7.1 each incorporate HyperSQL  database 
+v1.8.0.10 from The HSQL Development Group.  Such technology is subject to the 
+following terms and conditions: Copyright (c) 2001-2005, The HSQL Development 
+Group All rights reserved. Redistribution and use in source and binary forms, 
+with or without modification, are permitted provided that the following 
+conditions are met: Redistributions of source code must retain the above 
+copyright notice, this list of conditions and the following disclaimer.  
+Redistributions in binary form must reproduce the above copyright notice, this 
+list of conditions and the following disclaimer in the documentation and/or 
+other materials provided with the distribution. Neither the name of the HSQL 
+Development Group nor the names of its contributors may be used to endorse or 
+promote products derived from this software without specific prior written 
+permission. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
+ARE DISCLAIMED. IN NO EVENT SHALL HSQL DEVELOPMENT GROUP, HSQLDB.ORG, OR 
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, 
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT 
+OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING 
+IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY 
+OF SUCH DAMAGE.
+
+(c)	Progress DataDirect Connect for ODBC v7.1, Progress DataDirect 
+Connect64 for ODBC v7.1, Progress DataDirect Connect XE for ODBC v7.1, Progress 
+DataDirect Connect64 XE for ODBC v7.1 each incorporate OpenSSL v1.0.0d from The 
+OpenSSL Project. Such technology is subject to the following terms and 
+conditions:  LICENSE ISSUES ============== The OpenSSL toolkit stays under a 
+dual license, i.e. both the conditions of the OpenSSL License and the original 
+SSLeay license apply to the toolkit. See below for the actual license texts. 
+Actually both licenses are BSD-style Open Source licenses. In case of any 
+license issues related to OpenSSL please contact openssl-core@openssl.org.
+OpenSSL License --------------- 
+Copyright (c) 1998-2011 The OpenSSL Project.  All rights reserved.
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the above copyright notice, this 
+list of conditions and the following disclaimer. 
+2. Redistributions in binary form must reproduce the above copyright notice, 
+this list of conditions and the following disclaimer in the documentation 
+and/or other materials provided with the distribution.
+3. All advertising materials mentioning features or use of this software must 
+display the following acknowledgment: "This product includes software developed 
+by the OpenSSL Project for use in the OpenSSL Toolkit. 
+(http://www.openssl.org/)"
+4. The names "OpenSSL Toolkit" and "OpenSSL Project" must not be used to 
+endorse or promote products derived from this software without prior written 
+permission. For written permission, please contact openssl-core@openssl.org.
+5. Products derived from this software may not be called "OpenSSL" nor may 
+"OpenSSL" appear in their names without prior written permission of the OpenSSL 
+Project.
+6. Redistributions of any form whatsoever must retain the following 
+acknowledgment: "This product includes software developed by the OpenSSL 
+Project for use in the OpenSSL Toolkit (http://www.openssl.org/)"
+THIS SOFTWARE IS PROVIDED BY THE OpenSSL PROJECT ``AS IS'' AND ANY EXPRESSED OR 
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO 
+EVENT SHALL THE OpenSSL PROJECT OR ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+====================================================================
+This product includes cryptographic software written by Eric Young 
+(eay@cryptsoft.com).  This product includes software written by Tim Hudson 
+(tjh@cryptsoft.com). 
+ Original SSLeay License  ----------------------- Copyright (C) 1995-1998 Eric 
+Young (eay@cryptsoft.com) All rights reserved.
+This package is an SSL implementation written by Eric Young 
+(eay@cryptsoft.com). The implementation was written so as to conform with 
+Netscapes SSL. This library is free for commercial and non-commercial use as 
+long as the following conditions are aheared to.  The following conditions 
+apply to all code found in this distribution, be it the RC4, RSA, lhash, DES, 
+etc., code; not just the SSL code.  The SSL documentation included with this 
+distribution is covered by the same copyright terms except that the holder is 
+Tim Hudson (tjh@cryptsoft.com). Copyright remains Eric Young's, and as such any 
+Copyright notices in the code are not to be removed. If this package is used in 
+a product, Eric Young should be given attribution as the author of the parts of 
+the library used. This can be in the form of a textual message at program 
+startup or in documentation (online or textual) provided with the package. 
+Redistribution and use in source and binary forms, with or without 
+modification, are permitted provided that the following conditions are met:
+1. Redistributions of source code must retain the copyright notice, this list 
+of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright notice, 
+this list of conditions and the following disclaimer in the documentation 
+and/or other materials provided with the distribution.
+3. All advertising materials mentioning features or use of this software must 
+display the following acknowledgement: "This product includes cryptographic 
+software written by Eric Young (eay@cryptsoft.com)" The word 'cryptographic' 
+can be left out if the rouines from the library being used are not 
+cryptographic related :-).
+4. If you include any Windows specific code (or a derivative thereof) from the 
+apps directory (application code) you must include an acknowledgement: "This 
+product includes software written by Tim Hudson (tjh@cryptsoft.com)"
+THIS SOFTWARE IS PROVIDED BY ERIC YOUNG ``AS IS'' AND ANY EXPRESS OR IMPLIED 
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO 
+EVENT SHALL THE AUTHOR OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, 
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT 
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR 
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+The licence and distribution terms for any publically available version or 
+derivative of this code cannot be changed.  i.e. this code cannot simply be 
+copied and put under another distribution licence [including the GNU Public 
+Licence.]
+
+(d)	Progress DataDirect Connect for ODBC v7.1, Progress DataDirect 
+Connect64 for ODBC v7.1, Progress DataDirect Connect XE for ODBC v7.1, Progress 
+DataDirect Connect64 XE for ODBC v7.1 each incorporate PostSQL Database 
+Management System v3.0.  Such technology is subject to the following terms and 
+conditions:  PostgreSQL is released under the BSD license. PostgreSQL Database 
+Management System (formerly known as Postgres, then as Postgres95) Portions 
+Copyright (c) 1996-2005, The PostgreSQL Global Development Group Portions 
+Copyright (c) 1994, The Regents of the University of California Permission to 
+use, copy, modify, and distribute this software and its documentation for any 
+purpose, without fee, and without a written agreement is hereby granted, 
+provided that the above copyright notice and this paragraph and the following 
+two paragraphs appear in all copies. IN NO EVENT SHALL THE UNIVERSITY OF 
+CALIFORNIA BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR 
+CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS, ARISING OUT OF THE USE OF THIS 
+SOFTWARE AND ITS DOCUMENTATION, EVEN IF THE UNIVERSITY OF CALIFORNIA HAS BEEN 
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. THE UNIVERSITY OF CALIFORNIA 
+SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE 
+SOFTWARE PROVIDED HEREUNDER IS ON AN "AS IS" BASIS, AND THE UNIVERSITY OF 
+CALIFORNIA HAS NO OBLIGATIONS TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, 
+ENHANCEMENTS, OR MODIFICATIONS. Why not the GNU General Public License? People 
+often ask why PostgreSQL is not released under the GNU General Public License. 
+The simple answer is because we like the BSD license and do not want to change 
+it. If you are keen to read more about this topic, then please take a look in 
+the Archives at any of the many threads on this subject, but please don't start 
+yet another debate on the subject! 
+
+2.	Special Notices Regarding Commercially Licensed Third Party Components 
+incorporated in the Products:
+
+(a) Progress DataDirect Connect for ODBC v7.1, Progress DataDirect Connect64 
+for ODBC v7.1, Progress DataDirect Connect XE for ODBC v7.1, Progress 
+DataDirect Connect64 XE for ODBC v7.1, XML driver only, each incorporate Visual 
+Parse ++ v3.0 from SandStone Technology Inc.  Such technology is subject to the 
+following terms and conditions: LICENSE AGREEMENT FOR SANDSTONE SOFTWARE. This 
+License Agreement (LA) is a legal agreement between you (either an individual 
+or a single entity) (User) and SandStone Technology Inc. (SandStone) for the 
+Visual Parse++ product (Product), which includes computer software and may 
+include associated media, printed materials, and online or electronic 
+documentation. By installing, copying, or otherwise using the Product, User 
+agrees to be bound by the terms of this LA. If User does not agree to the terms 
+of this LA, do not install or use the Product.  SOFTWARE PRODUCT LICENSE. The 
+Product is protected by copyright laws and international copyright treaties, as 
+well as other intellectual property laws and treaties. The Product is licensed, 
+not sold. GRANT OF LICENSE.  You may install and use one copy of the Product on 
+a single computer for a single user. If this is a trial version, it will be 
+good for 15 days from the date User first uses the Product. After this trial 
+period, you must purchase the Product before use.  COPYRIGHT. All title and 
+copyrights in and to the Product (including but not limited to any images, 
+photographs, animation's, video, audio, music, text, and applets incorporated 
+into the Product), the accompanying printed materials, and any copies of the 
+Product are owned by SandStone or its suppliers. The Product is protected by 
+copyright laws and international treaty provisions. Therefore, you must treat 
+the Product like any other copyrighted material except that you may either (a) 
+make one copy of the Product solely for backup or archival purposes or (b) 
+install the Product on a single computer provided you keep the original solely 
+for backup or archival purposes. You may not copy the printed materials 
+accompanying the Product. DESCRIPTION OF OTHER RIGHTS AND LIMITATIONS. 
+Limitations on Reverse Engineering, Decompilation, and Disassembly. You may not 
+reverse engineer, decompile, or disassemble the Product, except and only to the 
+extent that such activity is expressly permitted by applicable law 
+notwithstanding this limitation. No Separation of Components. The Product is 
+licensed as a single product and neither the software programs comprising the 
+Product, libraries, other files, or files produced by product, may be separated 
+for use on more than one computer, or used by more than one user. Rental. You 
+may not rent or lease the Product. Termination. Without prejudice to any other 
+rights, SandStone may terminate this LA if you fail to comply with the terms 
+and conditions of this LA. In such event, you must destroy all copies of the 
+Product. LIMITED WARRANTY. SandStone expressly disclaims any warranty for the 
+Product. The Product and any related documentation is provided as is without 
+warranty of any kind, either express or implied, including, without limitation, 
+the implied warranties or merchantability, fitness for a particular purpose, or 
+noninfringement. The entire risk arising out of use or performance of the 
+Product remains with User.  NATLANG. There is a feature of Product called 
+NatLang, which refers to the ability of Product to process natural languages, 
+among other things. You may use the NatLang visual capabilities for 
+experimenting with this feature provided that: 1. If you decide to integrate 
+NatLang features into your product, you use the Sandstone source code and 
+libraries that you can license from Sandstone. In other words, we are allowing 
+unrestricted use of this feature for experimental purposes, provided that if 
+you design something with NatLang that is to be integrated into your 
+application program, you must license the source code and other libraries from 
+Sandstone for doing so. There are royalties and other fees associated with 
+integrating the NatLang features into your application program, contact 
+Sandstone for details. COMPILED PROGRAMS. You may write and compile your own 
+application program using the Software in this package, including any 
+libraries, source code, and other files included for such purpose. You are 
+granted a non-exclusive, royalty free, license to distribute your application, 
+provided the following conditions are met: 1. Your application runs on Windows 
+3.x, Windows 95, or Windows NT operating system with an Intel x86 compatible 
+processor. 2. Each user who compiles or accesses any of the libraries,  
+generated files, or other files that area a part of Product must have a fully 
+paid and licensed version of Product. 3. You distribute your application in 
+executable form only in conjunction with and as a part of your software 
+application product which adds significant and primary functionality; 4. You do 
+not include any libraries, header files, or any other files included with 
+Product in your application distribution, except as provided for below under 
+REDISTRIBUTABLES; 5. You indemnify, hold harmless, and defend SandStone from 
+and against any claims or lawsuits, including attorney's fees, that arise or 
+result from the use or distribution of your software application product. This 
+section does NOT cover the feature of Product called NatLang. If you wish to 
+integrate the NatLang features into your product, see the section above, and 
+contact Sandstone for royalty and other information. REDISTRIBUTABLES.  Certain 
+files included with product are designated as Redistributable. The files are 
+SSVP210.OCX. You are granted a non-exclusive, royalty free license to copy, 
+reproduce, and distribute the Redistributables, provided the following 
+conditions are met: 1. Each user who compiles or accesses any of the 
+libraries,  generated files, or other files that area a part of Product must 
+have a fully paid and licensed version of Product. 2. You distribute your 
+application in executable form only in conjunction with and as a part of your 
+software application product which adds significant and primary functionality; 
+3. Your end-user cannot further redistribute Redistributables. 4. Your end-user 
+cannot have access to the programmable features of Redistributables, either 
+directly or indirectly. 5. You indemnify, hold harmless, and defend SandStone 
+from and against any claims or lawsuits, including attorney's fees, that arise 
+or result from the use or distribution of your software application product. 
+CUSTOMER REMEDIES. SandStone and its suppliers' entire liability and your 
+exclusive remedy shall be, at SandStone's option, either (a) return of the 
+price paid, or (b) repair or replacement of the Product that does not meet 
+SandStone's Limited Warranty and which is returned to SandStone with a copy of 
+your receipt. This Limited Warranty is void if failure of the Product has 
+resulted from accident, abuse, or misapplication. Any replacement Product will 
+be warranted for the remainder of the original warranty period or thirty (30) 
+days, whichever is longer. Outside the United States, neither these remedies 
+nor any product support services offered by SandStone are available without 
+proof of purchase from an authorized international source. U.S. GOVERNMENT 
+RESTRICTED RIGHTS. The Product and documentation are provided with RESTRICTED 
+RIGHTS. Use, duplication, or disclosure by the Government is subject to 
+restrictions as set forth in subparagraph (c)(1)(ii) of the Rights in Technical 
+Data and Computer Software clause at DFARS 252.227-7013 or subparagraphs (c)(1) 
+and (2) of the Commercial Computer Software-Restricted Rights at 48 CFR 
+52.227-19, as applicable. Manufacturer is SandStone Technology Inc., 939 Coast 
+Blvd., Suite 4C, La Jolla, CA 92037. NO LIABILITY FOR DAMAGES. In no event 
+shall SandStone or its suppliers be liable for any damages whatsoever 
+(including, without limitation, damages for loss of business profits, business 
+interruption, loss of business information, or any other pecuniary loss) 
+arising out of the use of or inability to use this SandStone product, even if 
+SandStone has been advised of the possibility of such damages. Because some 
+states/jurisdictions do not allow the exclusion or limitation of liability for 
+consequential or incidental damages, the above limitation may not apply to you. 
+MISCELLANEOUS. If User acquired this product in the United States, this LA is 
+governed by the laws of the State of California. If this product was acquired 
+outside the United States, then local laws may apply. Should you have any 
+questions concerning this LA, or if you desire to contact SandStone for any 
+reason, please write to SandStone Technology Inc., 939 Coast Blvd., Suite 4C, 
+La Jolla, CA 92037. NO OTHER WARRANTIES. TO THE MAXIMUM EXTENT PERMITTED BY 
+APPLICABLE LAW, SANDSTONE AND ITS SUPPLIERS DISCLAIM ALL OTHER WARRANTIES, 
+EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF 
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE, WITH REGARD TO THE 
+SOFTWARE PRODUCT, AND ANY ACCOMPANYING HARDWARE. THIS LIMITED WARRANTY GIVES 
+YOU SPECIFIC LEGAL RIGHTS. YOU MAY HAVE OTHERS, WHICH VARY FROM 
+STATE/JURISDICTION TO STATE/JURISDICTION. NO LIABILITY FOR CONSEQUENTIAL 
+DAMAGES. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL 
+SANDSTONE OR ITS SUPPLIERS BE LIABLE FOR ANY SPECIAL, INCIDENTAL, INDIRECT, OR 
+CONSEQUENTIAL DAMAGES WHATSOEVER (INCLUDING, WITHOUT LIMITATION, DAMAGES FOR 
+LOSS OF BUSINESS PROFITS, BUSINESS INTERRUPTION, LOSS OF BUSINESS INFORMATION, 
+OR ANY OTHER PECUNIARY LOSS) ARISING OUT OF THE USE OF OR INABILITY TO USE THE 
+SOFTWARE PRODUCT, EVEN IF SANDSTONE HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH 
+DAMAGES. BECAUSE SOME STATES AND JURISDICTIONS DO NOT ALLOW THE EXCLUSION OR 
+LIMITATION OF LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE 
+LIMITATION MAY NOT APPLY TO YOU.  
+
+(b) Progress DataDirect Connect for ODBC v7.1, Progress DataDirect Connect64 
+for ODBC v7.1, Progress DataDirect Connect XE for ODBC v7.1, Progress 
+DataDirect Connect64 XE for ODBC v7.1 each incorporate InstallAnywhere 
+Enterprise Edition 2011 SP4 from Flexera Software, Inc.  Such technology is 
+subject to the following terms and conditions: END-USER LICENSE AGREEMENT -- 
+InstallAnywhere(R)
+IMPORTANT-READ CAREFULLY: This End-User License Agreement ("Agreement") is a 
+legal contract between you (either (a) an individual user or (b) a business 
+organization ("you") and Licensor (as designated below) for the InstallAnywhere 
+software, including any associated media, printed materials and electronic 
+documentation (the "Software").
+By clicking on the "I ACCEPT" button, by opening the package that contains the 
+Software, or by copying, downloading, accessing or otherwise using the 
+Software, you agree to be bound by the terms of this Agreement and you 
+represent that you are authorized to enter into this Agreement on behalf of 
+your corporate entity (if applicable). If you do not wish to be bound by the 
+terms of this Agreement, click the "I DO NOT ACCEPT" button, and do not 
+install, access or use the Software. 
+As used herein, for users in Japan, "Licensor" means Flexera Software GK, a 
+Godo Kaisha organized under the laws of Japan; for users in Europe, Middle 
+East, or Africa, "Licensor" means Flexera Software Ltd., a private company 
+limited by shares and incorporated in England and Wales with company number 
+6524874; for users outside of the countries listed above, "Licensor" means 
+Flexera Software, Inc., a Delaware corporation. 
+EVALUATION SOFTWARE
+If you have received the Software for purposes of evaluation, regardless of how 
+labeled, the use of the Software is limited to a specified period of time, as 
+detailed in the email accompanying the download instructions (the "Evaluation 
+Period") and all use will be governed by the terms set forth below.
+1. Grant of License. Licensor grants you a limited, personal, internal use, 
+non-exclusive, non-transferable license to use the Software solely to evaluate 
+its suitability for your internal business requirements during the Evaluation 
+Period. Without limiting the foregoing, you may not use the Software during the 
+Evaluation Period to create publicly distributed computer software or for any 
+other commercial purpose. This license may be terminated by Licensor at any 
+time upon notice to you and will automatically terminate, without notice, upon 
+the first to occur of the following: (a) the completion of your evaluation of 
+the Software or (b) the expiration of the Evaluation Period.
+2. Limited Use Software. Portions of the full-use version of the Software may 
+be withheld or unusable and use of the Software may require accessing portions 
+of the Software remotely through the Internet. Full use of the Software may be 
+restricted by technological protections.
+3. Disclaimer of Warranty. THE SOFTWARE IS PROVIDED ONLY FOR EVALUATION 
+PURPOSES ON AN "AS IS"; BASIS. LICENSOR EXPRESSLY DISCLAIMS ALL WARRANTIES, 
+REPRESENTATIONS AND CONDITIONS INCLUDING THE IMPLIED WARRANTIES AND/OR 
+CONDITIONS OF MERCHANTABILITY, SATISFACTORY QUALITY FITNESS FOR A PARTICULAR 
+PURPOSE, AND NON-INFRINGEMENT.
+4. Limitation of Liability. IN NO EVENT WILL LICENSOR BE LIABLE FOR ANY 
+DAMAGES, INCLUDING LOST PROFITS OR DATA, OR OTHER INCIDENTAL OR CONSEQUENTIAL 
+DAMAGES, ARISING OUT OF THE USE OR INABILITY TO USE THE SOFTWARE OR ANY DATA 
+SUPPLIED THEREWITH, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF 
+SUCH DAMAGES, OR FOR ANY CLAIM BY ANY OTHER PARTY. In no case will Licensor's 
+liability for damages hereunder exceed fifty dollars (US $50). For Users 
+Outside of the United States, Canada or Mexico LICENSOR DOES NOT LIMIT OR 
+EXCLUDE ITS LIABILITY FOR DEATH OR PERSONAL INJURY CAUSED BY ITS NEGLIGENCE.
+SOFTWARE LICENSE
+1. Grant of License. Upon your payment of the fees shown on the invoice and 
+acceptance of this Agreement, Licensor grants you a limited, personal, 
+non-exclusive license to install and use the Software on the terms and 
+conditions set forth herein.
+a. Node-Locked Licenses: If you have licensed under the node-locked model, your 
+license grant is as follows. You may install and use one copy of the Software 
+on a single computer only for your internal business purposes. A node-locked 
+license is limited to use by a single individual on a single computer or 
+virtual image; sharing of node-locked licenses between individuals sharing a 
+computer is not allowed, unless each individual accessing or using the Software 
+has acquired a license for the Software. For the avoidance of doubt, a license 
+is required for each individual user of the Software on a computer, even if 
+such user is logging into a common or shared account. Copying a virtual image 
+for the purposes of using the image either simultaneously or as a replacement 
+on another machine is not allowed; however, you may make a reasonable number of 
+backup and/or archival copies. 
+
+Node Locked Licenses may be used by You in a virtualized environment, provided 
+that the number of virtualized images used does not exceed the total number of 
+Node-Locked Licenses You have acquired and provided that the Node-Locked 
+license is not used concurrently, in conjunction with or contemporaneously with 
+the virtualized image. 
+b. Concurrent Licenses: If you have licensed under the concurrent licensing 
+model, you may install the Software on any machine for your internal business 
+purposes only. The number of machines that may use the Software concurrently at 
+any time will be governed by the number of concurrent licenses specified on the 
+original invoice. All machines using the Software must have the ability to 
+communicate with a license server to be authorized to use the Software. Under 
+Concurrent Licensing model, the InstallAnywhere IDE shall not be used for 
+automated build processes on dedicated build machines. 
+c. Standalone Build Licenses: The copy of the Software on the "build server" is 
+used by automated processes, rather than by an individual user. 
+i. If you have licensed the InstallAnywhere Standalone Build Node-Lock 
+Software, You may install and use one copy of the Software on a single computer 
+residing on your premises only for your internal business purposes. 
+ii. If you have licensed InstallAnywhere Standalone Build Concurrent Licenses, 
+the Software may be installed and used on any machines residing on your 
+premises. The number of machines that may use the Software concurrently at any 
+time will be governed by the number of concurrent licenses specified on the 
+original invoice. All machines using the standalone build component of the 
+Software must have the ability to communicate with a license server to be 
+authorized to use the Software. 
+For the avoidance of doubt, if the Software is installed or accessed through a 
+network, in any form, You must purchase additional licenses for each user that 
+accesses the Software through the network. 
+You may make one back up and/or archival copy of the Software. 
+2. Restrictions on Use of Software. You may not (a) make the Software available 
+for use by others in any service bureau or similar arrangement; (b) distribute, 
+sublicense, transfer, or lend the Software to any third party; or (c) 
+disassemble or reverse engineer (except in European Union countries, to the 
+extent allowed by law) the Software or (d) copy or adapt the Software for the 
+purpose of error correction or making derivative works. You may copy the 
+Software solely for backup/archival purposes, provided that you include all 
+copyright and similar rights notices. Licensor (or its licensor) retains all 
+right, title, and interest in the Software (and in all copies). Unauthorized 
+copying and modification of the Software is not permitted.
+If you have a license to the InstallAnywhere Collaboration or InstallAnywhere 
+Enterprise, you may use the Software for the purposes of creating unit test 
+installations for your own exclusive use. You may use the software as a plug-in 
+to the Eclipse Open Source IDE. Licensor is not licensing to you any right, 
+title, and interest with respect to the Eclipse Open Source IDE; your use of 
+the Eclipse Open Source IDE is subject to your acceptance of the terms and 
+conditions of the end-user license agreement from Eclipse Foundation for that 
+product.
+You acknowledge that the Software does or will contain license management 
+functionality, including but not limited to node-locking, user counting, 
+expiring licenses, silent activations (with or without user intervention) and 
+the like. Licensor asserts that its use of such license management 
+functionality is generally limited to ensuring adherence to its license 
+agreements/models and not generally for purposes of "self-help." 
+3. Shared Use on a Single Computer. Subject to the exceptions set forth herein, 
+a copy of the Software installed on a single common machine may be shared for 
+internal use by your employees, provided that a license has been purchased for 
+each individual user.
+4. Redistributable Files. The Software component parts may not be separated for 
+use on more than one computer, except as set forth in this Agreement. You may 
+copy the files specifically identified in the documentation as 
+"redistributables" and redistribute such files to your end users of your 
+products, provided that: (a) all such distribution is done solely with the 
+redistributables as an integral part of your software installations; (b) all 
+copies of the redistributables must be exact and unmodified; and (c) you grant 
+your end users a limited, personal, non-exclusive and non-transferable license 
+to use the redistributables only to the extent required for the permitted 
+operation of your products and not to distribute them further. You will 
+reproduce with the redistributables all applicable trademark and copyright 
+notices that accompany the Software, but you may not use Licensor's name, logos 
+or trademarks to market your products.
+5. Limited Warranty and Disclaimer of Warranty. Licensor warrants that:
+a. it has the right and authority to grant the rights described in this 
+Agreement, and; 
+b. the Software, as provided, will substantially perform the functions 
+described in the documentation when operated in the intended environment for a 
+period of ninety (90) days from the date of delivery (the "Warranty Period"). 
+THE WARRANTIES ABOVE ARE EXCLUSIVE AND IN LIEU OF ALL OTHER WARRANTIES, 
+REPRESENTATIONS OR CONDITIONS EXPRESS OR IMPLIED. LICENSOR EXPRESSLY DISCLAIMS 
+ANY WARRANTIES AND/OR CONDITIONS OF NON-INFRINGEMENT, MERCHANTABILITY, 
+SATISFACTORY QUALITY AND FITNESS FOR A PARTICULAR PURPOSE. Licensor does not 
+warrant that the Software will (a) achieve specific results, (b) operate 
+without interruption, or (c) be error free.
+6. Ownership. This Agreement does not convey to you any rights of ownership in 
+the Software. All right, title, and interest in the Software and in any ideas, 
+know-how, and programs which are developed by Licensor in the course of 
+providing any technical services, including any enhancements or modifications 
+made to the Software, shall at all times remain the property of Licensor or its 
+licensor. You acknowledge and agree that the Software is licensed, not sold. 
+You shall not permit the Software to be accessed or used by anyone other than 
+your employees whose duties require such access or use.
+You will not remove, modify or alter any of Licensor's copyright, trademark or 
+proprietary rights notices from any part of the Software, including but not 
+limited to any such notices contained in the physical and/or electronic media 
+or documentation, in the Setup Wizard dialogue or 'about' boxes, in any of the 
+runtime resources and/or in any web-presence or web-enabled notices, code or 
+other embodiments originally contained in or otherwise created by the Software, 
+or in any archival or back-up copies, if applicable.
+7. Assignment/Transfer of Software. You may not, by operation of law or 
+otherwise, transfer any license rights or other interests in Evaluation 
+Software, or Software labeled "Not for Resale" or "NFR." You may transfer the 
+license granted hereunder, on a permanent basis, provided that such transfer is 
+the result of a merger, acquisition or other corporate action (such as a 
+divestiture), and (i) you permanently and wholly transfer all your rights under 
+this Agreement; (ii) you retain no copies (whole or partial); (iii) you 
+permanently and wholly transfer all of the Software (including component parts, 
+media, printed materials, upgrades, prior versions, and authenticity 
+certificates); and (iv) the transferee agrees to abide by all the terms of this 
+Agreement. You may not transfer this license or the Software directly or 
+indirectly for purposes of convenience such as consignment, without Licensor's 
+prior written consent. 
+For the avoidance of doubt, transfers which are the result of employee turnover 
+or reassignment are allowed, provided that such transfers do not occur more 
+than frequently than annually. 
+8. Limitation of Remedy and Liability. During the Warranty Period, in the event 
+of any breach of the warranty outlined in Section 5b above, Licensor's ( and 
+its suppliers), entire liability and your exclusive remedy will be, at 
+Licensor's option, to either, repair or replace the defective Software.
+NEITHER LICENSOR NOR ITS LICENSOR, IF ANY, SHALL BE LIABLE FOR INDIRECT, 
+SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, OR FOR DAMAGE TO SYSTEMS OR 
+DATA, EVEN IF LICENSOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. 
+LICENSOR'S LIABILITY FOR DAMAGES HEREUNDER SHALL IN NO EVENT EXCEED THE AMOUNT 
+OF LICENSE FEES THAT YOU HAVE PAID.
+For Users within Europe, the Middle East or Africa, No person who is not a 
+party to this Agreement shall be entitled to enforce any terms of the same 
+under the Contracts (Rights of Third Parties) Act 1999. 
+LICENSOR DOES NOT LIMIT OR EXCLUDE ITS LIABILITY FOR DEATH OR PERSONAL INJURY 
+CAUSED BY ITS NEGLIGENCE.
+9. Maintenance Services. If ordered by you and upon payment of the applicable 
+fee, you are entitled to receive technical support services, including 
+corrections, fixes and enhancements to the Software as such are made generally 
+available (the "maintenance services") from Licensor in accordance with 
+Licensor's then-current maintenance terms for the applicable maintenance level 
+purchased by you.
+Maintenance services will not include any releases of the Software which 
+Licensor determines to be a separate product or for which Licensor charges its 
+customers extra or separately.
+10. Upgrades. If the Software is an upgrade or update to a previous version of 
+the Software, You must possess a valid license to such previous version in 
+order to use such upgrade or update. After You install such update or upgrade, 
+You may continue to use any such previous version in (and the upgrade or 
+update) accordance with its end-user license agreement only if, (a) the 
+previous versions or copies thereof are not transferred to another party or 
+machine unless all copies of the update or upgrade are also transferred to such 
+party or machine and (b) You acknowledge that any obligation Licensor may have 
+to support the previous version(s) may be ended upon the availability of the 
+upgrade or update. Upgrades and updates may be licensed to you by Licensor with 
+additional or different terms.
+11. Unauthorized Use and Validation of Use. 
+IN ORDER TO PROTECT THE SOFTWARE FROM UNAUTHORIZED USE AND IN ORDER TO CONFIRM 
+YOUR COMPLIANCE WITH THE LICENSE GRANTS AND RESTRICTIONS SET FORTH IN THIS 
+AGREEMENT, THE SOFTWARE CONTAINS A VALIDATION PROCEDURE WHICH MAY TRANSMIT YOUR 
+IP ADDRESS AND/OR APPLICABLE LICENSE KEY RELATING TO THE SOFTWARE TO LICENSOR. 
+IF THE SOFTWARE DETECTS ANY VIOLATION OF THE TERMS OF THIS AGREEMENT, YOU MAY 
+BE CONTACTED BY LICENSOR REGARDING YOUR USE OF THE SOFTWARE AND/OR YOU MAY BE 
+UNABLE TO USE THE SOFTWARE AND/OR CREATE UNRESTRICTED INSTALLER PRODUCTS UNTIL 
+THE PROBLEM IS CORRECTED. IF YOU ARE UNABLE TO USE THE SOFTWARE AND/OR CREATE 
+UNRESTRICTED INSTALLER PRODUCTS, YOU SHOULD IMMEDIATELY CONTACT LICENSOR.
+12. Reports. Within thirty (30) days following Licensor's written request, and 
+no more frequently than twice in any twelve (12) month period, you shall 
+provide Licensor with a written statement certifying that you are not using 
+copies of the Software in violation of this Agreement.
+13. Verification/Audits. On Licensor's reasonable request, You will furnish 
+Licensor with a signed statement confirming whether the Software is being used 
+by You in accordance with this Agreement. Further during the term of this 
+Agreement and for one (1) year thereafter, Licensor may, upon five (5) business 
+days advance written notice to You, audit You for the purpose of verifying Your 
+compliance with this Agreement. You understand and agree that the audit may 
+take place in person or Licensor may use technological means to perform such 
+audit. You agree to provide Licensor will all reasonable assistance required 
+hereunder. 
+14. Usage Data. You understand that Licensor may utilize technology which 
+gathers information about Your computer system, however, such data is used 
+solely for the purpose of understanding machine types and other system-oriented 
+information and does not contain any personally identifiable information of 
+You. 
+15. Dual-Media Software. You may receive the Software in more than one medium 
+(electronic and on a CD, for example). Receipt of the Software in more than a 
+single manner (electronic or on a CD, for example) does not expand the license 
+rights granted to you hereunder. Your use of the Software is limited to the 
+number of licenses that you have acquired overall, regardless of number or type 
+of media on which it has been provided.
+16. U.S. Government Restricted Rights. The Software and Documentation are 
+provided as "Commercial Computer Software" or "restricted computer software". 
+Use, duplication, or disclosure by the U.S. Government or a U.S. Government 
+subcontractor is subject to the restrictions set forth in 48.C.F.R. Section 
+12.212 or 48 C.F.R 227.2702, as applicable or successor provisions. The 
+manufacturer is Flexera Software, Inc., 1000 East Woodfield Road, Suite 400, 
+Schaumburg, IL 60173 USA.
+17. U. S. Export Restrictions. You will fully comply with all relevant export 
+laws and regulations, including but not limited to the U.S. Export 
+Administration Regulations and Executive Orders ("Export Controls"). You 
+warrant that you are not a person, company or destination restricted or 
+prohibited by Export Controls ("Restricted Person"). You will not, directly or 
+indirectly, export, re-export, divert, or transfer the Software, any portion 
+thereof or any materials, items or technology relating to Licensor's business 
+or related technical data or any direct product thereof to any Restricted 
+Person.
+18. Termination. Your license may be terminated by Licensor if (a) you fail to 
+make payment and/or (b) you fail to comply with the terms of this Agreement 
+within ten (10) days after receipt of written notice of such failure. In the 
+event of termination, you must cease using the Software, destroy all copies of 
+the Software (including copies in storage media) and certify such destruction 
+to Licensor. This requirement applies to all copies in any form, partial or 
+complete. Upon the effective date of any termination, you relinquish all rights 
+granted under this Agreement.
+19. Relationship of Parties. You and Licensor are independent parties. Nothing 
+in this Agreement shall be construed as making you an employee, agent or legal 
+representative of Licensor.
+20. No Third-Party Beneficiaries. There are no third-party beneficiaries of 
+this Agreement.
+21. Controlling Law. For users in Japan, this Agreement will be governed by the 
+laws of Japan; for users in Europe, Middle East, or Africa, this Agreement will 
+be governed by the laws of England and Wales and you submit to the jurisdiction 
+of the courts of England and Wales; for users outside the countries listed 
+above, this Agreement will be governed by the laws of California, USA, 
+excluding conflicts of law. This Agreement is not subject to the United Nations 
+Convention on Contracts for the Sale of Goods.
+22. Company Name. Licensor may include your company name in a list of Licensor 
+customers.
+23. Payment Terms/Shipments. For users in Japan, all fees are in non-refundable 
+Japanese Yen. For users in Europe, Middle East or Africa, all fees are in the 
+currency outlined in the quote/invoice and are non-refundable. For users in any 
+region not outlined, all fees are in non-refundable US Dollars. Fees are due 
+within 30-days of the date of the invoice. 
+If you have ordered Maintenance services you may renew the applicable services 
+for the Software for the next annual period for the amount specified on the 
+original invoice for the Software. All shipments of any media will be FOB 
+Origin.
+24. Taxes. All fees do not include taxes. If Licensor is required to pay any 
+sales, use, GST, VAT, or other taxes in connection with your order, other than 
+taxes based on Licensor's income, such taxes will be billed to and paid by you. 
+You will make all payments of fees to Licensor free and clear of, and without 
+reduction for, any withholding taxes; any such taxes imposed on payments of 
+fees to Licensor will be your sole responsibility and consequently the amount 
+of such fees will be increased such that the net fee received by Licensor will 
+be the same as if such withholding taxes were not imposed, and you will provide 
+Licensor with official receipts issued by the appropriate taxing authority, or 
+such other evidence as the Licensor may reasonably request, to establish that 
+such taxes have been paid.
+25. Entire Agreement. This Agreement constitutes the complete and entire 
+understanding and agreement of all terms, conditions and representations 
+between you and Licensor with respect to the Software and may be modified only 
+in writing by both parties. No term or condition contained in your purchase 
+order will apply unless expressly accepted by Licensor in writing. Failure to 
+prosecute a party's rights will not constitute a waiver of any other breach.
+If any provision of this Agreement is found to be invalid, it will be enforced 
+to the extent permissible and the remainder of this Agreement will remain in 
+full effect. 
+This Agreement has been written in the English language and you waive any 
+rights you may have under the law of your country or province to have this 
+Agreement written in any other language.
+ 
+
+
+NOTICE FROM PROGRESS SOFTWARE CORPORATION: Additional notices may be included 
+in the release notes or other documentation that accompanies updates received 
+in connection with support of the Product. 
+
+Revised 10/10/2012
+

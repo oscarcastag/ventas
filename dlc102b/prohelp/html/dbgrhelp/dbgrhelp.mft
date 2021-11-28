@@ -1,0 +1,4 @@
+Class-Path: runjar.jar jh.jar hsviewer.jar
+Arguments: -helpset dbgrhelp.hs
+Run-Class: sunw.demo.jhdemo.JHLauncher
+Main-Class: com.webworks.runjar

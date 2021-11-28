@@ -1,0 +1,4 @@
+connect [[ds-url]] [[ds-user]] [[ds-password]] [[ds-domain]] 
+seed-ds "[[install-dir]]/config/wsmEditor.seed" 
+disconnect
+exit

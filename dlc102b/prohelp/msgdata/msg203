@@ -1,0 +1,64 @@
+10101 "Resources" "Label used for node in Fathom UI tree" "" ""
+10102 "Databases" "Label used for node in Fathom UI tree" "" ""
+10103 "Progress" "Label used for node in Fathom UI tree" "" ""
+10104 "Network" "Label used for node in Fathom UI tree" "" ""
+10105 "TCP" "Label used for node in Fathom UI tree" "" ""
+10106 "UDP" "Label used for node in Fathom UI tree" "" ""
+10107 "ICMP" "Label used for node in Fathom UI tree" "" ""
+10108 "HTTP" "Label used for node in Fathom UI tree" "" ""
+10109 "System" "Label used for node in Fathom UI tree" "" ""
+10110 "Memory" "Label used for node in Fathom UI tree" "" ""
+10111 "CPU" "Label used for node in Fathom UI tree" "" ""
+10112 "Disk" "Label used for node in Fathom UI tree" "" ""
+10113 "File System" "Label used for node in Fathom UI tree" "" ""
+10114 "File" "Label used for node in Fathom UI tree" "" ""
+10115 "File Size" "Label used for node in Fathom UI tree" "" ""
+10116 "Log File" "Label used for node in Fathom UI tree" "" ""
+10117 "Library" "Label used for node in Fathom UI tree" "" ""
+10118 "Actions" "Label used for node in Fathom UI tree" "" ""
+10119 "Email" "Label used for node in Fathom UI tree" "" ""
+10120 "Command" "Label used for node in Fathom UI tree" "" ""
+10121 "Log" "Label used for node in Fathom UI tree" "" ""
+10122 "Compound" "Label used for node in Fathom UI tree" "" ""
+10123 "Schedule" "Label used for node in Fathom UI tree" "" ""
+10124 "Templates" "Label used for node in Fathom UI tree" "" ""
+10125 "Jobs" "Label used for node in Fathom UI tree" "" ""
+10126 "Reports" "Label used for node in Fathom UI tree" "" ""
+10127 "Users" "Label used for node in Fathom UI tree" "" ""
+10128 "ProjectUpgraded: Fathom project file upgraded for compatibility with current Fathom version. Old version: <old project version>, New version:  <current Fathom version>   (10128)" "The Fathom project file was created with an earlier version of Fathom. It has been upgraded for use with the current version of Fathom. It will no longer be usable by earlier versions of Fathom. " "" ""
+10129 "Unable to Open the Messenger Log File (10129)" "A failure to open the messenger log file occured " "" ""
+10130 "<num> block(s) found in the area.
+" "syserr" "" ""
+10131 "Request to turn off after-imaging. (10131)" "RFUTIL sends request to the broker or other utilities to turn off after-imaging. " "" ""
+10132 "After-imaging files closed. (10132)" "When after-imaging was turned off online, all AI files were closed as
+the default behavior. However, the user can specify ""noclose"" option:
+    rfutil -C aimage aioff noclose
+to keep all the AI files open after AI was turned off online." "" ""
+10133 "A Report template must specify a Progress 4GL program. (10133)" "When creating a Report template, specify the Progress 4GL program to run in order to generate reports of that type.
+
+ " "" ""
+10134 "A Report template must specify a title for the Report. (10134)" "When defining a Report template, specify the title text to appear in the heading of the generated Report.
+
+ " "" ""
+10135 "A Job or Report template must specify a menu group. (10135)" "When defining a Job or Report template, specify or select the group title. A menu entry will be generated from the information provided when defining the template. The menu entry will be used to create a new Job or Report based on the information in the template. The menu consists of groups of entries and each group must have a title. The provided text will be used for the group title in the menu or to collect the entry into an existing group.
+
+ " "" ""
+10136 "A Job or Report template must specify a unique entry for the template menu. (10136)" "When defining a Job or Report template, provide the text for the menu entry. A menu entry to create a Job or Report will be generated from the information provided when defining the template. The menu entry will be used to create a new Job or Report based upon the information in the template. The text provided for the menu entry should be unique for each defined template.
+
+ " "" ""
+10137 "A Job or Report template must specify a description for its menu entry. (10137)" "When defining a Job or Report template, specify the text for the menu description. A menu entry will be generated using the text provided when defining the template. The menu entry will be used to create a new Job or Report based on the information in the template. 
+
+ " "" ""
+10138 "ProjectVersionLater: Fathom project file version is later than the current Fathom version. Project version: <version string>, Fathom version: <version string>. Project file renamed and new project created. Old project file: <filename>.  (10138)" "An attempt has been made to load a Fathom project file (fathom.xml) created with a newer version of Fathom. It cannot be loaded by this version of Fathom. To prevent corruption of the project file it has been renamed and a new project file created. " "" ""
+10139 "ProjectBackupFailed:  Attempt to backup the Fathom project file (fathom.xml) failed. Backup file name: <filename>. (10139)" "Fathom has failed attempting backup the project file. Fathom attmpts to backup the project file whenever it encounters a version incompatability or other error which prevents it from loading the project file. Once the backup occurs Fathom creates a new project file. If the backup has failed, the old project file, if still needed, may need to be recovered from the previous backup. " "" ""
+10140 "RFUTIL detected another conflict aioff request. (10140)" "This error happens when two or more AIOFF requests were sent out to turn off after-imaging online, while they have different options like keepaiw, noclose etc. In this case, the current request will yeild and let the previous one to finish the job." "" ""
+10141 "Starting Fathom project. (10141)" " " "" ""
+10142 "Starting Fathom probe. Version: <version string> (10142)" " " "" ""
+10143 "RFUTIL detected another aioff request. (10143)" "Two or more AIOFF requests might be sent out at same time, if the current request detected that there is another same request has already been set, then quit and let that guy finish the job." "" ""
+10144 "Starting Fathom WebServer. (10144)" " " "" ""
+10145 "Fathom WebServer started. (10145)" " " "" ""
+10146 "Fathom project started. (10146)" " " "" ""
+10147 "Fathom probe started. (10147)" " " "" ""
+10148 "Error starting Fathom probe: ""<message for failue>"" (10148)" " " "" ""
+10149 "Stopping Fathom probe. (10149)" " " "" ""
+10150 "Saving Fathom project. (10150)" " " "" ""

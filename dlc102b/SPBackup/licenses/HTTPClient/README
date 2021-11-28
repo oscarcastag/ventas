@@ -1,0 +1,84 @@
+
+
+Progress Software Corporation uses the Open Source HTTPClient package to perform
+its Java HTTP client operations.  Therefore, HTTPClient is redistributed via in
+Progress Java libraries.   The HTTPClient package is made available through the
+Lesser GNU Public License (LGPL), and may be obtained directly from the web site
+www.innovation.ch/java/HTTPClient.  
+
+To blend into Progress's software framework and provide some needed additional 
+features, some changes were made to selected HTTPClient modules. Due to these
+changes, Progress will comply with the HTTPClient's LGPL licence and make freely
+available the modified HTTPClient source modules as well as all Progress written
+source modules that are required to support those changes.
+
+Included with this README file are two compressed files: 
+    . The original HTTPClient version 0.3-3 distribution
+    . The modified HTTPClient (SSLJ) files and Progress source files 
+
+Two distributions are provided to support the major operating systems:
+    UNIX:
+        HTTPClient.tar.gz
+        PscExtensions.jar
+        
+    Microsoft Windows:
+        HTTPClient.zip
+        PscExtensions.jar
+    
+Included in the PscExtensions.jar file are:
+
+    #Modified HTTPClient sources and classes
+    #
+    HTTPClient/HttpConnection.java
+    AuthorizationModule.java
+    HTTPResponse.java
+        
+    #Extensions of original HTTPClient sources
+    #
+    HTTPClient/NonStaticCookieModule.java
+    
+    #Progress source files to support HTTPClient source changes
+    #
+    com/progress/ubroker/util/ISSLParams.java
+    com/progress/ubroker/util/ISSLSocketUtils.java
+
+To rebuild the HTTPClient package with the Progress changes and extensions, 
+you will have to obtain the RSAfollow these steps:
+
+1)  Expand the compressed HTTPClient.??? file onto your system's disk drive.  
+    The expansion operation will create the directory ./HTTPClient and populate 
+    it with the HTTPClient source files
+
+2)  Insure that the Java JDK version 3.0, or later, is in your PATH so that the
+    jar and javac compiler is available
+    
+3)  While in the same directory, use the jar utility to expand the Java sources 
+    files from the compressed PscExtensions.jar file.  You should now have two 
+    sub-directories named:
+    
+        HTTPClient
+        com
+    
+4)  Compile the Progress supplied files using the java compiler:
+
+    javac com/progress/ubroker/util/*.java
+    
+4)  Make the following modifications the makefile from the HTTPClient 
+    distribution:
+
+    . append ";." for Microsoft Windows, or ":." for UNIXs, to the CLASSP and
+      JDCLASSP macros in include the Progress class files into the compiler's
+      CLASSPATH
+      
+    . Add this line to the classes macro to build the NonStaticCookieModule.java
+      file:
+      
+        <TAB>NonStaticCookieModule.class
+        
+5)  Make any remaining adjustments to the Makefile as is required on your 
+    OS platform
+    
+6)  Run the "make" utility from the HTTPClient directory
+
+
+

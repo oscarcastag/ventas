@@ -1,0 +1,23 @@
+"NEW-FILE   " "agedar" "*" "*" "*" "*" "This contains transactions for the aged receivables system" ? "" 
+"NEW-FIELD  " "ar_inv" "integer" ? ">>>>>9" "0" "Invoice number" no 10 "*" "*" 0 "ar_inv > 0" "Invoice number cannot be zero" "" "" ? 
+"NEW-FIELD  " "ar_cust" "integer" ? ">>>>>9" "0" "Customer number" no 20 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "ar_invdat" "date" ? "99/99/9999" "" "Invoice date" no 30 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "ar_amt" "decimal" 2 "->>,>>9.99" "0" "Invoice amount" no 40 "*" "*" 0 ? "" "Enter total invoice amount including shipping and sales tax" "" ? 
+"NEW-FIELD  " "ar_pay" "decimal" 2 "->>,>>9.99" "0" "Total payments" no 50 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "ar_adj" "decimal" 2 "->>,>>9.99" "0" "Total adjustments" no 60 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "ar_lastpay" "date" ? "99/99/99" ? "Last payment date" no 70 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "ar_order" "integer" ? ">>>>9" "" "Order Number" no 80 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "ar_ship" "decimal" 2 "->>,>>9.99" "0" "Shipping Charge" no 120 "*" "*" 0 ? "" "" "" ? 
+.
+"NEW-INDEX  " "ar_cust" no 
+"INDEX-FIELD" 1 "ar_cust" yes no 
+.
+"NEW-INDEX  " "ar_inv" yes 
+"INDEX-FIELD" 1 "ar_inv" yes no 
+.
+"NEW-INDEX  " "ar_invdat" no 
+"INDEX-FIELD" 1 "ar_invdat" yes no 
+.
+.
+"PRIMARY    " "ar_inv" 
+.

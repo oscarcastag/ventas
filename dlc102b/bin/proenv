@@ -1,0 +1,41 @@
+#!/bin/sh
+# proenv
+
+    DLC="/dlc/dlc102b"
+    WRKDIR="/dlc/wrk102b"
+    OEM="/dlc/oemgmt102b"
+    OEMWRKDIR="/dlc/wrk_oemgmt102b"
+    PATH=$DLC/bin:$DLC/perl/bin:$PATH
+    PS1="proenv>"
+   export DLC WRKDIR PATH PS1 OEM OEMWRKDIR OEE OEEWRKDIR
+
+   #cd to the work directory
+   cd $WRKDIR
+
+   # echo the set
+   echo ""
+   echo "      DLC: $DLC"
+   echo "   WRKDIR: $WRKDIR"
+   if [ x"$OEM" != "x" ]
+   then
+       echo "      OEM: $OEM"
+       echo "OEMWRKDIR: $OEMWRKDIR"
+   fi
+   echo ""
+   echo "Inserting $DLC/bin to beginning of path and"
+   echo "setting the current directory to $WRKDIR."
+   echo ""
+   cat $DLC/version
+   echo ""
+
+   # start up a new shell
+   # Check to see if file is to be sourced - if you source a file then
+   # $0 is set to the value of SHELL and not the script 
+   if [ `basename "$0"` = proenv ]
+   then
+       # start up a new shell
+       exec ${SHELL:-/bin/sh}
+   fi
+
+
+

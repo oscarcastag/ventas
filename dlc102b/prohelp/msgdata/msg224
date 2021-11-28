@@ -1,0 +1,65 @@
+11151 "rmCreateRec: omIdToArea failure <returncode> (11151)" "When attempting to create a record, the routine rmCreateRec was unable to access object cache information about area." "d" ""
+11152 "<function-name>: Feature name <feature-name> is invalid. (11152)" "The feature name specified is invalid.  Correct the name and try the request again. " "d" ""
+11153 "<function-name>: Feature ID <feature-id> is invalid. (11153)" "The feature ID specified is invalid.  Correct the ID and try the request again. " "" ""
+11154 "<function-name>: The Feature <feature-name> is an internal feature and cannot be enabled. (11154)" "The feature specified is an internal feature.  It cannot be enabled in this way.  Specifiy the correct feature and attempt the request again. " "" ""
+11155 "Prior attempt to roll forward an ai file detected an incomplete ai file.   
+The complete extent must be located/recovered and rolled forward with    
+the 'retry' option before any subsequent ai files can be applied to      
+this database. (11155)" "The prior roll forward of an ai extent attempted to use an incomplete  ai file. The notes from that file were applied, but you will not be able to apply subsequent ai files until the complete extent is rolled forward with the 'retry' option:
+   rfutil <dbname> -C roll forward retry -a <complete ai file>" "d" ""
+11156 "The PROSTARTUP environment variable exceeds is maximum length of  bytes. (11156)" "Correct the PROSTARTUP environment variable and submit the request again. " "" ""
+11157 "Unable to read master block, file = <file-name>, errno = <errno>. (11157)" "An error occurred reading the database.  Check the permissions, file names, etc. " "" ""
+11158 "Internal error in <func-name>, errno . (11158)" "syserr " "" ""
+11159 "<function-name>: This code base does not support the feature <feature name>. (11159)" "The code base does not support the feature that is being enabled.  Please correct the feature name or ID and submist the request again." "" ""
+11160 "<function-name>: Feature Management must be enabled before this action can be performed. (11160)" "Feature Management must be enabled before this action can be performed.  " "" ""
+11161 "<function-name>: The feature <feature name> is already enabled. (11161)" "The name feature has already been anabled for the database. Correct the problem and attempt the request again.  " "" ""
+11162 "<function-name>: The feature(s) <feature names> must be enabled before the <feature name> can be enabled. (11162)" "This feature cannot be enabled until the feature(s) listed have been enabled." "" ""
+11163 "<function-name>: The feature(s) <feature names> must be activated before the <feature name> can be enabled. (11163)" "This feature cannot be enabled until the feature(s) listed have been activated." "" ""
+11164 "You are about to <enable,disable,activate,deactivate> feature <feature name>.  Are you sure you want to do this? " "The feature shown is about to be enabled, disabled, activated, or deactivated.  Enter Y if the indicated action should be performed for that feature." "" ""
+11165 "<function-name>: The feature <feature name> has been enabled.    (11165)" "The feature named has been enabled." "" ""
+11166 "WS_ProcedureDurationHigh : The average execution time of a procedure has exceeded the threshold. Threshold: <threshold> Current Value: <Current value>  Procedure: <Procedure name> (11166)" "The average time spent executing a procedure during the polling interval exceeded the threshold. This could indicate a bottleneck in the application or other unforeseen events inhibiting the offending procedure from executing as quickly as expected." "" ""
+11167 "WS_RejectedRequestPercentHigh: The percentage of rejected requests has exceeded the threshold. Current Value: <value> Threshold: <threshold>" "The percentage of client requests rejected during the polling interval exceeded the threshold. This could indicate bottlenecks or tuning problems preventing client requests from being serviced.
+
+
+
+ 
+
+
+  " "" ""
+11168 "WS_QueuedRequestPercentHigh: The percentage of queued requests has exceeded the threshold.  Current Value: <value>, Threshold:<threshold>,  Broker: <broker name>. " "Percentage of requests queued during the polling interval exceeded the threshold. This could indicate bottlenecks or other unforeseen events that are slowing down request processing. Recommended Action 
+Check Admin Server log for further information about Request Queue Depth High.  " "" ""
+11169 "<function-name>: The Feature <feature-name> can only be enabled if you have an enterprise database license. (11169)" "The feature specified can only be enabled if you are licensed to enterprise database.   " "" ""
+11170 "-ERO is not a supported startup argument at this time. (11170)" "The -ERO startup argument specified during broker startup is not supported for this release of the product.  Remove -ERO and submit the request again." "" ""
+11171 "<function-name>: Feature <feature-name> cannot be disabled because it is not enabled. (11171)" "The feature named is not enabled therefore it cannot be disabled." "" ""
+11172 "<function-name>: Feature <feature-name> cannot be disabled because it is currently in use by the database. (11172)" "If this feature can be deactivated it must be before it can be disabled.  " "" ""
+11173 "<function-name>: The feature <feature name> cannot be disabled because the feature(s) <feature names> depend on it being enabled. (11173)" "The named feature cannot be disabled while other features depend on it being enabled.  If this reature is disabled those dependant feature will cease to operate properly." "" ""
+11174 "<function-name>: The feature <feature name> cannot be disabled because the feature(s) <feature names> depend on it being active. (11174)" "The named feature cannot be disabled while other features depend on it being activated.  If this feature is disabled those dependant feature(s) will cease to operate properly." "" ""
+11175 "<function-name>: The feature <feature name> has been disabled.    (11175)" "The feature named has been disabled." "" ""
+11176 "Please specify a project file for ProxyGen. (11176)" "ProxyGen was not given a project file to open. Project files may be either a .pxg file (binary format) or an .xpxg file (XML format).
+" "" ""
+11177 "Please specify only one project file for ProxyGen. (11177)" "ProxyGen was given both a .pxg file and an .xpxg file to open. Please  remove the extra project file. Only one project file can be processed at a time.
+" "" ""
+11178 "The project file <name> suffix does not match the switch used.  Use -pxgfile for .pxg files and -xpxgfile for .xpxg files. (11178)" "ProxyGen requires a valid project file as a command line argument. You may specify either a .pxg file with -pxgfile or an .xpxg file with -xpxgfile.
+" "" ""
+11179 "AS_ClientAbnormalDisconnect: A client is disconnected abnormally. Message: <disconnectMsg>. (11179)" "Fathom alert that indicates that an AppServer client connection is abnormally dropped." "" ""
+11180 "WS_ClientAbnormalDisconnect: A client is disconnected abnormally. Message: <disconnectMsg>. (11180)" "Fathom alert that indicates that a WebSpeed client connection is abnormally dropped." "" ""
+11181 "<function-name>: Feature <feature-name> must be enabled before it can be activated. (11181)" "The feature named must be enabled before it can be activated.  Enable the feature then attempt activation again." "" ""
+11182 "<function-name>: Feature <feature-name> is already activated so it cannot be activated again. (11182)" "The feature named is already activated so it cannot be activated again." "" ""
+11183 "<function-name>: Feature <feature-name> cannot be activated because it does not affect database content. (11183)" "The feature named cannot be activated because it does not affect the contents of the database." "" ""
+11184 "<function-name>: The feature <feature name> has been activated.    (11184)" "The feature named has been activated." "" ""
+11185 "<function-name>: Feature <feature-name> must be activated before it can be deactivated. (11185)" "The feature named must be activated before it can be deactivated.  " "" ""
+11186 "<function-name>: The feature <feature name> has been deactivated.    (11186)" "The feature named has been deactivated." "" ""
+11187 "dbClobPut() put = characters, expected . (11187)" "User expected to insert a number of characters into a clob, but actually got different number." "" ""
+11188 "dbClobAppend: misidentified the end of clob. (11188)" "Found error in indentifying the end of a clob during append opertion." "" ""
+11189 "dbClobAppend: put = characters, expected . (11189)" "Expected to append a number of characters during clob append operation, but got different number." "" ""
+11190 "dbClobGetDirect: byteoffset=, expected: (11190)" "Got error when trying to locate a particular byteoffset from a charoffset within a clob segment." "" ""
+11191 "dbClobGetDirect: byteoffset() != 0. (11191)" "Got error when trying to locate a particular byteoffset from a charoffset within a clob segment.  Expected byteoffset be zero." "" ""
+11192 "dbClobGetDirect: charlen=, expected . (11192)" "Got error when trying to locate a particular charoffset from a byteoffset within a clob segment. " "" ""
+11193 "dbClobTruncate: newlen == 0. (11193)" "Can not truncate a clob to length zero." "" ""
+11194 "dbClobTruncate: newlen  exceeds original length . (11194)" "Can not truncate a clob to length exceeding the original one." "" ""
+11195 "Can't locate char offset  in dbkey:, clobBase:, endian:. (11195)" "Can not locate character offset within a clob segment. Might be caused by bad context or clob data." "" ""
+11196 "dbClobTruncIndirect: can not find nextseg. (11196)" "An error happened during the CLOB truncate operation. Expected more segment but could not find any. " "" ""
+11197 "The System Plugin for container <containerName> is unreachable. (11197)" "Could not access the System Plugin (osmetrics) on the remote machine named by ""containerName""." "" ""
+11198 "The license for the server has expired...(328) (11198)" "The evaluation date assigned to the OpenEdge server has passed. " "" ""
+11199 "Fathom remote monitoring properties. (11199)" "" "" ""
+11200 "Type:       (11200)" "This is the type of remote monitoring, either Fathom or remote adminserver. Reported to admserv.log file as an informational message on startup." "" ""

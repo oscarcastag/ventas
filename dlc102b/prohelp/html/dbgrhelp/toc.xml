@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+
+<toc version="1.0">
+ <tocitem target="dbgrhelp-1-1_html_wp432649" text="Debugger Window and Files">
+  <tocitem target="dbgrhelp-1-2_html_wp458957" text="Debugger window layout" />
+  <tocitem target="dbgrhelp-1-3_html_wp449933" text="Debugger window panes">
+   <tocitem target="dbgrhelp-1-3_html_wp444063" text="Source code pane" />
+   <tocitem target="dbgrhelp-1-3_html_wp476856" text="ABL stack trace pane" />
+   <tocitem target="dbgrhelp-1-3_html_wp432821" text="Variables pane" />
+   <tocitem target="dbgrhelp-1-3_html_wp497062" text="Watches pane" />
+  </tocitem>
+  <tocitem target="dbgrhelp-1-4_html_wp454140" text="Debugger title bar" />
+  <tocitem target="dbgrhelp-1-5_html_wp454315" text="Debugger menu bar options">
+   <tocitem target="dbgrhelp-1-5_html_wp443692" text="Accelerator keys and mnemonics" />
+   <tocitem target="dbgrhelp-1-5_html_wp432964" text="File menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp444237" text="Edit menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp433007" text="Search menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp444389" text="View menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp433080" text="Debug menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp444814" text="Diagnostics menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp444876" text="Data menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp444919" text="Window menu" />
+   <tocitem target="dbgrhelp-1-5_html_wp433202" text="Help menu" />
+  </tocitem>
+  <tocitem target="dbgrhelp-1-6_html_wp452312" text="Debugger toolbar buttons" />
+  <tocitem target="dbgrhelp-1-7_html_wp446585" text="Debugger status bar" />
+  <tocitem target="dbgrhelp-1-8_html_wp513348" text="Debugger dialog boxes">
+   <tocitem target="dbgrhelp-1-8_html_wp507151" text="Add Watch dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp460570" text="Attach to Process dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp501468" text="Breakpoints dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp500912" text="Dataview dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp499229" text="Dynamic Object Tracking dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp495340" text="Edit Breakpoint dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp454904" text="Find dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp499485" text="New Breakpoint dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp445231" text="Open dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp444701" text="Preferences dialog box" />
+   <tocitem target="dbgrhelp-1-8_html_wp498625" text="Select Process dialog box" />
+  </tocitem>
+  <tocitem target="dbgrhelp-1-9_html_wp446955" text="Debugger files">
+   <tocitem target="dbgrhelp-1-9_html_wp459095" text="Debug listing files" />
+   <tocitem target="dbgrhelp-1-9_html_wp506707" text="Locating debug listing files in attachable mode" />
+   <tocitem target="dbgrhelp-1-9_html_wp459133" text="Procedure files and listing generation" />
+  </tocitem>
+ </tocitem>
+</toc>

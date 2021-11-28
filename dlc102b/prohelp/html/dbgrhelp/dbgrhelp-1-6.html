@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+    <meta name="TEMPLATEBASE" content="Progress Debugger JavaHelp 10.1A">
+    <meta name="LASTUPDATED" content="11/16/09 00:07:44">
+    <link rel="StyleSheet" href="document.css" type="text/css" media="screen">
+    <title>Debugger toolbar buttons</title>
+  </head>
+
+  <body link="#3366CC" vlink="#9999CC" text="#000000" alink="#0000CC" bgcolor="#FFFFFF">
+
+    <hr align="left">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr> 
+        <td align="right" valign="top">
+<a href="dbgrhelp-1-5.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><a href="dbgrhelp-1-7.html"><img src="images/snext.gif" border="0" alt="Next"></a>
+        </td>
+      </tr>
+    </table>
+
+
+    <blockquote>
+<h3 >
+Debugger toolbar buttons
+<a name="wp452312"> </a></h3>
+<p >
+The Debugger toolbar contains shortcut buttons for frequently used menu options. <a href="dbgrhelp-1-6.html#wp509116">Table 3-10</a> describes the toolbar buttons.
+<a name="wp508769"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><b><p >
+Table 3-10:	 Toolbar buttons	
+<a name="wp509116"> </a></p></b>
+</caption>
+  <tr bgcolor="#CCCCCC">
+    <th><div >Button<a name="wp509120"> </a></div></th>
+    <th><div >Action<a name="wp509122"> </a></div></th>
+  </tr>
+  <tr>
+    <td><div ><img src="images/openbutn.gif" border="0" hspace="0" vspace="0"> <a name="wp509264"> </a></div><div >(Open)<a name="wp509265"> </a></div></td>
+    <td><div >Displays the <b>Open</b> dialog box, which lets you open a procedure file. For more information, see the <a href="dbgrhelp-1-8.html#wp445231">&quot;Open dialog box&quot; section</a>.<a name="wp509267"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><img src="images/stepinto.gif" border="0" hspace="0" vspace="0"> <a name="wp509275"> </a></div><div >(Step Into)<a name="wp509276"> </a></div></td>
+    <td><div >Executes the next statement in a procedure. If the statement calls a subprocedure or causes a trigger to execute, the Debugger steps into the subprocedure or trigger and stops at the first executable line of code. The trigger or subprocedure is now the current procedure, and you can continue execution from the current stopping point.<a name="wp549738"> </a></div><div >Note:	 The Debugger does not step into the destructor method of an object that has been automatically deleted by garbage collection, unless the destructor contains a breakpoint. In cases where the object is explicitly deleted by means of the <font >DELETE OBJECT </font>statement, the Debugger does step into the destructor.<a name="wp547627"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><img src="images/stepover.gif" border="0" hspace="0" vspace="0"> <a name="wp509283"> </a></div><div >(Step Over)<a name="wp509284"> </a></div></td>
+    <td><div >Executes the next statement in a procedure. If the statement calls a subprocedure or causes a trigger to execute, the Debugger executes the trigger or subprocedure without stepping into it and stops at the next executable line of code. If the Debugger encounters a breakpoint in a subprocedure or trigger, execution stops at the breakpoint, the executing subprocedure or trigger becomes the current procedure, and you can continue execution from the current breakpoint.<a name="wp549844"> </a></div><div >Note:	 After stepping over a statement, if the next statement is in a destructor method for an object that has been deleted, the Debugger does not stop in the destructor unless the destructor contains a breakpoint. This is true whether the object is deleted automatically by garbage collection or explicitly by means of the <code>DELETE OBJECT</code> statement.<a name="wp545065"> </a></div></td>
+  </tr>
+  <tr>
+    <td><p >
+<img src="images/stepout.gif" border="0" hspace="0" vspace="0">
+<a name="wp509307"> </a></p>
+<div >(Step Out)<a name="wp509308"> </a></div></td>
+    <td><div >Continues execution until the current procedure ends, returning control to the calling procedure. The execution pointer is at the next line of the calling procedure. If the Debugger encounters a breakpoint or interrupt before returning to the calling procedure, the Debugger cancels the command. The execution pointer is at the break or interrupt line. If issued from the top-level procedure on the ABL call stack and the Debugger encounters no breakpoints or interrupts before the procedure ends, the debugging session ends. The exception is if you start the Debugger with <code>-debug</code>, in which case the Debugger has control, waiting for you to launch a new ABL program.<a name="wp509310"> </a></div></td>
+  </tr>
+  <tr>
+    <td><p >
+<img src="images/continue.gif" border="0" hspace="0" vspace="0">
+<a name="wp509317"> </a></p>
+<div >(Continue)<a name="wp509318"> </a></div></td>
+    <td><div >Continues execution of the specified procedure until it encounters a breakpoint, an interrupt, or the end of the procedure.<a name="wp509320"> </a></div></td>
+  </tr>
+  <tr>
+    <td><p >
+<img src="images/stop.gif" border="0" hspace="0" vspace="0">
+<a name="wp509325"> </a></p>
+<div >(Stop)<a name="wp509326"> </a></div></td>
+    <td><div >Immediately terminates the executing application as if it invoked the ABL <code>STOP</code> statement at the current break or interrupt point, and rolls back uncommitted changes in the current transaction.<a name="wp509328"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div >(Stop Animation)<a name="wp509330"> </a></div></td>
+    <td><div >Turns off animated stepping. Appears only when animated stepping is in progress.<a name="wp509332"> </a></div></td>
+  </tr>
+  <tr>
+    <td><p >
+<img src="images/interrup.gif" border="0" hspace="0" vspace="0">
+<a name="wp509349"> </a></p>
+<div >(Interrupt)<a name="wp509350"> </a></div></td>
+    <td><div >Interrupts and halts an executing procedure and gives control to the Debugger without setting a breakpoint.<a name="wp509352"> </a></div></td>
+  </tr>
+  <tr>
+    <td><p >
+<img src="images/help.gif" border="0" hspace="0" vspace="0">
+<a name="wp509357"> </a></p>
+<div >(Help Topics)<a name="wp509358"> </a></div></td>
+    <td><div >Displays information about Debugger window components.<a name="wp509360"> </a></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp508770"> </a></p>
+    </blockquote>
+    <p></p>
+    <hr>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">
+<a href="dbgrhelp-1-5.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><a href="dbgrhelp-1-7.html"><img src="images/snext.gif" border="0" alt="Next"></a>
+        </td>
+        <td align="right">
+         OpenEdge Release 10.2B<br>
+         Copyright &#169; 2009 Progress Software Corporation<br>
+         </td>
+      </tr>
+    </table>
+  </body>
+</html>

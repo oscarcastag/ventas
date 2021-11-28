@@ -1,0 +1,11 @@
+Tailoring Fathom files...
+Install tailoring for Fathom 102B
+Progress version: 102B
+Progress directory: /dlc/dlc102b
+Fathom install dir: /dlc/oemgmt102b
+Java version: 1.5.0_22
+unzip file: /dlc/oemgmt102b/jars/100/jars.zip
+unzip file: /dlc/oemgmt102b/src/100/rcode.zip
+System character set not matched, prebuilt JSP files not used for: ISO-8859-1
+unzip file: /dlc/oemgmt102b/db/100/db.zip
+Fathom install tailoring complete

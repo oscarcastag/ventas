@@ -1,0 +1,913 @@
+<?xml version="1.0"?>
+
+<!-- (De)serialization framework -->
+<waspc-config xmlns:ser="urn:Serialization" xmlns:wasp="urn:WaspServer">
+    <!-- BEGIN: Progress -->
+    <!-- STL Support library -->
+<!--    
+    <wasp:import ref="stl-string.xml"/>
+    <wasp:import ref="stl-wstring.xml"/>
+-->
+    <!-- END: Progress -->
+
+    <!-- Module SerializationRepositoryStorage -->
+    <wasp:module wasp:class="WASP_SerializationRepositoryStorageImpl"/>
+
+    <!-- Common (de)serializers -->
+    <ser:serialization ser:name="CommonSerializationRepository">
+        <!-- BEGIN: Progress -->
+        <!-- STL (w)string serialization -->
+<!--        
+        <ser:import ser:ref="stl-string"/>
+        <ser:import ser:ref="stl-wstring"/>
+-->
+        <!-- END: Progress -->
+
+        <ser:resolver ser:class="WASP_EmptyResolver" ser:default="false">
+            <ser:cppType>WASP_XMLHolder *</ser:cppType>
+            <ser:cppType>WASP_XMLNodeHolder</ser:cppType>
+        </ser:resolver>
+        <ser:serializer ser:class="WASP_XMLHolderSerializer"/>
+        <ser:deserializer ser:class="WASP_XMLHolderDeserializer"/>
+
+        <ser:serializer ser:class="WASP_XMLNodeHolderSerializer"/>
+        <ser:deserializer ser:class="WASP_XMLNodeHolderDeserializer"/>
+        
+        <ser:serializer ser:class="WASP_XOPSerializer"/>
+        <ser:deserializer ser:class="WASP_XOPDeserializer"/>
+        <ser:resolver ser:class="WASP_XOPResolver"/>
+
+
+        <!-- WASP_MessageAttachmentResolver must be bound too (now defined extra in SOAP and literal encoding repositories -->
+        <ser:serializer ser:class="WASP_VMessageAttachmentSwaRefSerializer"/>
+        <ser:deserializer ser:class="WASP_VMessageAttachmentSwaRefDeserializer"/>
+
+        <ser:serializer ser:class="WASP_GeneratedFaultExceptionSerializer"/>
+        <ser:deserializer ser:class="WASP_GeneratedFaultExceptionDeserializer"/>
+
+        <ser:deserializer ser:class="WASP_ProcessingFaultExceptionDeserializer"/>
+
+        <!-- Primitive type caster, currently handles only WASP_String * -> WASP_VString -->
+        <ser:typeCaster ser:class="WASP_PrimitiveTypeCaster"/>
+
+        <!-- Mapping to WASP_VString, does not register mate since type caster is used -->
+		<!-- BEGIN: Progress -->
+<!--		        
+        <ser:serializer ser:class="WASP_SOAP11_PrimitiveTypeSerializer" ser:emitType="false" ser:emitHrefs="true" ser:registerMate="false">
+-->
+        <ser:serializer ser:class="WASP_SOAP11_PrimitiveTypeSerializer" ser:emitType="true" ser:emitHrefs="true" ser:registerMate="false">
+        <!-- END: Progress -->
+            <ser:schema ser:namespaceURI="http://www.w3.org/2001/XMLSchema">
+                <!-- WASP_VString -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="normalizedString"      ser:cppType="WASP_VString"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString"/>
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_VString"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="derivationControl"        ser:cppType="WASP_VString"/>
+                <ser:type ser:name="reducedDerivationControl" ser:cppType="WASP_VString"/>
+                <ser:type ser:name="formChoice"               ser:cppType="WASP_VString"/>
+                <ser:type ser:name="public"                   ser:cppType="WASP_VString"/>
+                <ser:type ser:name="blockSet"                 ser:cppType="WASP_VString"/>
+
+
+                <!-- WASP_VString * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="normalizedString"      ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_VString *"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="derivationControl"        ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="reducedDerivationControl" ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="formChoice"               ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="public"                   ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="blockSet"                 ser:cppType="WASP_VString *"/>
+            </ser:schema>
+            <ser:schema ser:namespaceURI="http://www.w3.org/2000/10/XMLSchema">
+                <!-- WASP_VString -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString"/>
+                <ser:type ser:name="CDATA"                 ser:cppType="WASP_VString"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="timeDuration"          ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="recurringDuration"     ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="timeInstant"           ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="timePeriod"            ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="time"                  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="date"                  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="recurringDay"          ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="recurringDate"         ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="century"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="year"                  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="month"                 ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString"/>
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_VString"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="derivationControl"        ser:cppType="WASP_VString"/>
+                <ser:type ser:name="reducedDerivationControl" ser:cppType="WASP_VString"/>
+                <ser:type ser:name="formChoice"               ser:cppType="WASP_VString"/>
+                <ser:type ser:name="public"                   ser:cppType="WASP_VString"/>
+                <ser:type ser:name="blockSet"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="XPathExprApprox"          ser:cppType="WASP_VString"/>
+
+
+                <!-- WASP_VString * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="CDATA"                 ser:cppType="WASP_VString *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="timeDuration"          ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="recurringDuration"     ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="timeInstant"           ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="timePeriod"            ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="time"                  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="date"                  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="recurringDay"          ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="recurringDate"         ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="century"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="year"                  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="month"                 ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_VString *"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="derivationControl"        ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="reducedDerivationControl" ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="formChoice"               ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="public"                   ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="blockSet"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="XPathExprApprox"          ser:cppType="WASP_VString *"/>
+            </ser:schema>
+            <ser:schema ser:namespaceURI="http://www.w3.org/1999/XMLSchema">
+                <!-- WASP_VString -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="non-positive-integer"  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="negative-integer"      ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="non-negative-integer"  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="positive-integer"      ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="timeDuration"          ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="recurringDuration"     ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="timeInstant"           ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="timePeriod"            ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="recurringInstant"      ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="time"                  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="date"                  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="recurringDay"          ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="recurringDate"         ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="century"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="year"                  ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="month"                 ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString"/>
+                <ser:type ser:name="uri"                   ser:cppType="WASP_VString"/>
+
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_VString"/>
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="namespaceList"         ser:cppType="WASP_VString"/>
+                <ser:type ser:name="derivationControls"    ser:cppType="WASP_VString"/>
+                <ser:type ser:name="derivationChoice"      ser:cppType="WASP_VString"/>
+                <ser:type ser:name="derivationChoiceOrAll" ser:cppType="WASP_VString"/>
+                <ser:type ser:name="derivationSet"         ser:cppType="WASP_VString"/>
+                <ser:type ser:name="formChoice"            ser:cppType="WASP_VString"/>
+                <ser:type ser:name="public"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="blockSet"              ser:cppType="WASP_VString"/>
+                <ser:type ser:name="XPathExprApprox"       ser:cppType="WASP_VString"/>
+
+
+                <!-- WASP_VString * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="non-positive-integer"  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="negative-integer"      ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="non-negative-integer"  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="positive-integer"      ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="timeDuration"          ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="recurringDuration"     ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="timeInstant"           ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="timePeriod"            ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="recurringInstant"      ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="time"                  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="date"                  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="recurringDay"          ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="recurringDate"         ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="century"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="year"                  ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="month"                 ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="uri"                   ser:cppType="WASP_VString *"/>
+
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="namespaceList"         ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="derivationControls"    ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="derivationChoice"      ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="derivationChoiceOrAll" ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="derivationSet"         ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="formChoice"            ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="public"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="blockSet"              ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="XPathExprApprox"       ser:cppType="WASP_VString *"/>
+            </ser:schema>
+            <ser:schema ser:namespaceURI="http://schemas.xmlsoap.org/soap/encoding/">
+                <!-- WASP_VString -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="normalizedString"      ser:cppType="WASP_VString"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString"/>
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_VString"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="arrayCoordinate"       ser:cppType="WASP_VString"/>
+
+                <!-- WASP_VString * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="normalizedString"      ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_VString *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_VString *"/><!-- !!! -->
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_VString *"/><!-- !!! -->
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_VString *"/>
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_VString *"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="arrayCoordinate"       ser:cppType="WASP_VString *"/>
+            </ser:schema>
+        </ser:serializer>
+		<!-- BEGIN: Progress -->
+<!--		        
+        <ser:serializer ser:class="WASP_SOAP11_PrimitiveTypeSerializer" ser:emitType="false" ser:emitHrefs="true" ser:registerMate="true">
+-->
+        <ser:serializer ser:class="WASP_SOAP11_PrimitiveTypeSerializer" ser:emitType="true" ser:emitHrefs="true" ser:registerMate="true">
+        <!-- END: Progress -->
+            <ser:schema ser:namespaceURI="http://www.w3.org/2001/XMLSchema">
+                <!-- Mapping to WASP_String * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="normalizedString"      ser:cppType="WASP_String *"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_String *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_String *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="base64Binary"          ser:cppType="WASP_BinaryArray *"/>
+                <ser:type ser:name="base64Binary"          ser:cppType="WASP_BinaryArray"/>
+                <ser:type ser:name="hexBinary"             ser:cppType="WASP_BinaryArray *"/>
+                <ser:type ser:name="hexBinary"             ser:cppType="WASP_BinaryArray"/>
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName"/>
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName *"/>
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="duration"              ser:cppType="WASP_Duration"/>
+                <ser:type ser:name="duration"              ser:cppType="WASP_Duration *"/>
+                <ser:type ser:name="dateTime"              ser:cppType="WASP_DateTime"/>
+                <ser:type ser:name="dateTime"              ser:cppType="WASP_DateTime *"/>
+                <ser:type ser:name="time"                  ser:cppType="WASP_Time"/>
+                <ser:type ser:name="time"                  ser:cppType="WASP_Time *"/>
+                <ser:type ser:name="date"                  ser:cppType="WASP_Date"/>
+                <ser:type ser:name="date"                  ser:cppType="WASP_Date *"/>
+                <ser:type ser:name="gYearMonth"            ser:cppType="WASP_GYearMonth"/>
+                <ser:type ser:name="gYearMonth"            ser:cppType="WASP_GYearMonth *"/>
+                <ser:type ser:name="gYear"                 ser:cppType="WASP_GYear"/>
+                <ser:type ser:name="gYear"                 ser:cppType="WASP_GYear *"/>
+                <ser:type ser:name="gMonthDay"             ser:cppType="WASP_GMonthDay"/>
+                <ser:type ser:name="gMonthDay"             ser:cppType="WASP_GMonthDay *"/>
+                <ser:type ser:name="gDay"                  ser:cppType="WASP_GDay"/>
+                <ser:type ser:name="gDay"                  ser:cppType="WASP_GDay *"/>
+                <ser:type ser:name="gMonth"                ser:cppType="WASP_GMonth"/>
+                <ser:type ser:name="gMonth"                ser:cppType="WASP_GMonth *"/>
+
+                <!-- Signed -->
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong *"/>
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong"/>
+                <ser:type ser:name="long"                  ser:cppType="long long *"          ser:asType="WASP_LongLong *"/>
+                <ser:type ser:name="long"                  ser:cppType="long long"            ser:asType="WASP_LongLong"/>
+                <ser:type ser:name="long"                  ser:cppType="int64_t *"            ser:asType="WASP_LongLong *"/>
+                <ser:type ser:name="long"                  ser:cppType="int64_t"              ser:asType="WASP_LongLong"/>
+                <ser:type ser:name="long"                  ser:cppType="__int64 *"            ser:asType="WASP_LongLong *"/>
+                <ser:type ser:name="long"                  ser:cppType="__int64"              ser:asType="WASP_LongLong"/>
+                <ser:type ser:name="int"                   ser:cppType="int *"/>
+                <ser:type ser:name="int"                   ser:cppType="int"/>
+                <ser:type ser:name="short"                 ser:cppType="short *"/>
+                <ser:type ser:name="short"                 ser:cppType="short"/>
+                <ser:type ser:name="byte"                  ser:cppType="char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="char"/>
+                <!-- Signed -->
+                <ser:type ser:name="byte"                  ser:cppType="signed char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="signed char"/>
+                <!-- Unsigned -->
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long *" ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long"   ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t *"           ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t"             ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64 *"   ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64"     ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int *"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short *"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char *"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char"/>
+                <!-- Others -->
+                <ser:type ser:name="boolean"               ser:cppType="bool *"/>
+                <ser:type ser:name="boolean"               ser:cppType="bool"/>
+                <ser:type ser:name="float"                 ser:cppType="float *"/>
+                <ser:type ser:name="float"                 ser:cppType="float"/>
+                <ser:type ser:name="double"                ser:cppType="double *"/>
+                <ser:type ser:name="double"                ser:cppType="double"/>
+
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_URI *"/>
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_String *"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="derivationControl"        ser:cppType="WASP_String *"/>
+                <ser:type ser:name="reducedDerivationControl" ser:cppType="WASP_String *"/>
+                <ser:type ser:name="formChoice"               ser:cppType="WASP_String *"/>
+                <ser:type ser:name="public"                   ser:cppType="WASP_String *"/>
+                <ser:type ser:name="blockSet"                 ser:cppType="WASP_String *"/>
+            </ser:schema>
+            <ser:schema ser:namespaceURI="http://www.w3.org/2000/10/XMLSchema">
+                <!-- Mapping to WASP_String * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_String *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_String *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_String *"/>
+                <ser:type ser:name="CDATA"                 ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="binary"                ser:cppType="WASP_BinaryArray *"/>
+                <ser:type ser:name="binary"                ser:cppType="WASP_BinaryArray"/>
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName"/>
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName *"/>
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="timeDuration"          ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="recurringDuration"     ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="timeInstant"           ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="timePeriod"            ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="time"                  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="date"                  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="recurringDay"          ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="recurringDate"         ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="century"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="year"                  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="month"                 ser:cppType="WASP_String *"/><!-- !!! -->
+                <!-- Signed -->
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong *"/>
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong"/>
+                <ser:type ser:name="int"                   ser:cppType="int *"/>
+                <ser:type ser:name="int"                   ser:cppType="int"/>
+                <ser:type ser:name="short"                 ser:cppType="short *"/>
+                <ser:type ser:name="short"                 ser:cppType="short"/>
+                <ser:type ser:name="byte"                  ser:cppType="char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="char"/>
+                <!-- Signed -->
+                <ser:type ser:name="byte"                  ser:cppType="signed char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="signed char"/>
+                <!-- Unsigned -->
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long *" ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long"   ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t *"           ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t"             ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64 *"   ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64"     ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int *"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short *"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char *"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char"/>
+                <!-- Others -->
+                <ser:type ser:name="boolean"               ser:cppType="bool *"/>
+                <ser:type ser:name="boolean"               ser:cppType="bool"/>
+                <ser:type ser:name="float"                 ser:cppType="float *"/>
+                <ser:type ser:name="float"                 ser:cppType="float"/>
+                <ser:type ser:name="double"                ser:cppType="double *"/>
+                <ser:type ser:name="double"                ser:cppType="double"/>
+
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_URI *"/>
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_String *"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="derivationControl"        ser:cppType="WASP_String *"/>
+                <ser:type ser:name="reducedDerivationControl" ser:cppType="WASP_String *"/>
+                <ser:type ser:name="formChoice"               ser:cppType="WASP_String *"/>
+                <ser:type ser:name="public"                   ser:cppType="WASP_String *"/>
+                <ser:type ser:name="blockSet"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="XPathExprApprox"          ser:cppType="WASP_String *"/>
+            </ser:schema>
+            <ser:schema ser:namespaceURI="http://www.w3.org/1999/XMLSchema">
+                <!-- Mapping to WASP_String * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_String *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_String *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="non-positive-integer"  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="negative-integer"      ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="non-negative-integer"  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="positive-integer"      ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="binary"                ser:cppType="WASP_BinaryArray *"/>
+                <ser:type ser:name="binary"                ser:cppType="WASP_BinaryArray"/>
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName"/>
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName *"/>
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="timeDuration"          ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="recurringDuration"     ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="timeInstant"           ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="timePeriod"            ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="recurringInstant"      ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="time"                  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="date"                  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="recurringDay"          ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="recurringDate"         ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="century"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="year"                  ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="month"                 ser:cppType="WASP_String *"/><!-- !!! -->
+                <!-- Signed -->
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong *"/>
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong"/>
+                <ser:type ser:name="int"                   ser:cppType="int *"/>
+                <ser:type ser:name="int"                   ser:cppType="int"/>
+                <ser:type ser:name="short"                 ser:cppType="short *"/>
+                <ser:type ser:name="short"                 ser:cppType="short"/>
+                <ser:type ser:name="byte"                  ser:cppType="char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="char"/>
+                <!-- Signed -->
+                <ser:type ser:name="byte"                  ser:cppType="signed char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="signed char"/>
+                <!-- Unsigned -->
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long *" ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long"   ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t *"           ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t"             ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64 *"   ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64"     ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int *"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short *"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char *"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char"/>
+                <!-- Others -->
+                <ser:type ser:name="boolean"               ser:cppType="bool *"/>
+                <ser:type ser:name="boolean"               ser:cppType="bool"/>
+                <ser:type ser:name="float"                 ser:cppType="float *"/>
+                <ser:type ser:name="float"                 ser:cppType="float"/>
+                <ser:type ser:name="double"                ser:cppType="double *"/>
+                <ser:type ser:name="double"                ser:cppType="double"/>
+
+                <ser:type ser:name="uri"                   ser:cppType="WASP_URI *"/>
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_URI *"/>
+                <ser:type ser:name="uri"                   ser:cppType="WASP_String *"/>
+                <ser:type ser:name="uriReference"          ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_String *"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="namespaceList"         ser:cppType="WASP_String *"/>
+                <ser:type ser:name="derivationControls"    ser:cppType="WASP_String *"/>
+                <ser:type ser:name="derivationChoice"      ser:cppType="WASP_String *"/>
+                <ser:type ser:name="derivationChoiceOrAll" ser:cppType="WASP_String *"/>
+                <ser:type ser:name="derivationSet"         ser:cppType="WASP_String *"/>
+                <ser:type ser:name="formChoice"            ser:cppType="WASP_String *"/>
+                <ser:type ser:name="public"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="blockSet"              ser:cppType="WASP_String *"/>
+                <ser:type ser:name="XPathExprApprox"       ser:cppType="WASP_String *"/>
+            </ser:schema>
+            <ser:schema ser:namespaceURI="http://schemas.xmlsoap.org/soap/encoding/">
+                <!-- Mapping to WASP_String * -->
+                <ser:type ser:name="string"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="normalizedString"      ser:cppType="WASP_String *"/>
+                <ser:type ser:name="token"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="language"              ser:cppType="WASP_String *"/>
+                <ser:type ser:name="Name"                  ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NCName"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ID"                    ser:cppType="WASP_String *"/>
+                <ser:type ser:name="IDREF"                 ser:cppType="WASP_String *"/>
+                <ser:type ser:name="ENTITY"                ser:cppType="WASP_String *"/>
+                <ser:type ser:name="NMTOKEN"               ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="IDREFS"                ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="ENTITIES"              ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="NMTOKENS"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="decimal"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="integer"               ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonPositiveInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="negativeInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="nonNegativeInteger"    ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="positiveInteger"       ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="base64Binary"          ser:cppType="WASP_BinaryArray *"/>
+                <ser:type ser:name="base64Binary"          ser:cppType="WASP_BinaryArray"/>
+                <ser:type ser:name="base64"                ser:cppType="WASP_BinaryArray *"/>
+                <ser:type ser:name="base64"                ser:cppType="WASP_BinaryArray"/>
+                <ser:type ser:name="hexBinary"             ser:cppType="WASP_BinaryArray *"/>
+                <ser:type ser:name="hexBinary"             ser:cppType="WASP_BinaryArray"/>
+
+                <ser:type ser:name="QName"                 ser:cppType="WASP_String *"/><!-- !!! -->
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName"/>
+                <ser:type ser:name="QName"                 ser:cppType="WASP_QName *"/>
+                <ser:type ser:name="NOTATION"              ser:cppType="WASP_String *"/><!-- !!! -->
+
+                <ser:type ser:name="duration"              ser:cppType="WASP_Duration"/>
+                <ser:type ser:name="dateTime"              ser:cppType="WASP_DateTime"/>
+                <ser:type ser:name="time"                  ser:cppType="WASP_Time"/>
+                <ser:type ser:name="date"                  ser:cppType="WASP_Date"/>
+                <ser:type ser:name="gYearMonth"            ser:cppType="WASP_GYearMonth"/>
+                <ser:type ser:name="gYear"                 ser:cppType="WASP_GYear"/>
+                <ser:type ser:name="gMonthDay"             ser:cppType="WASP_GMonthDay"/>
+                <ser:type ser:name="gDay"                  ser:cppType="WASP_GDay"/>
+                <ser:type ser:name="gMonth"                ser:cppType="WASP_GMonth"/>
+
+                <ser:type ser:name="duration"              ser:cppType="WASP_Duration *"/>
+                <ser:type ser:name="dateTime"              ser:cppType="WASP_DateTime *"/>
+                <ser:type ser:name="time"                  ser:cppType="WASP_Time *"/>
+                <ser:type ser:name="date"                  ser:cppType="WASP_Date *"/>
+                <ser:type ser:name="gYearMonth"            ser:cppType="WASP_GYearMonth *"/>
+                <ser:type ser:name="gYear"                 ser:cppType="WASP_GYear *"/>
+                <ser:type ser:name="gMonthDay"             ser:cppType="WASP_GMonthDay *"/>
+                <ser:type ser:name="gDay"                  ser:cppType="WASP_GDay *"/>
+                <ser:type ser:name="gMonth"                ser:cppType="WASP_GMonth *"/>
+                <!-- Signed -->
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong *"/>
+                <ser:type ser:name="long"                  ser:cppType="WASP_LongLong"/>
+                <ser:type ser:name="int"                   ser:cppType="int *"/>
+                <ser:type ser:name="int"                   ser:cppType="int"/>
+                <ser:type ser:name="short"                 ser:cppType="short *"/>
+                <ser:type ser:name="short"                 ser:cppType="short"/>
+                <ser:type ser:name="byte"                  ser:cppType="char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="char"/>
+                <!-- Signed -->
+                <ser:type ser:name="byte"                  ser:cppType="signed char *"/>
+                <ser:type ser:name="byte"                  ser:cppType="signed char"/>
+                <!-- Unsigned -->
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long *" ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned long long"   ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t *"           ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="uint64_t"             ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64 *"   ser:asType="WASP_UnsignedLongLong *"/>
+                <ser:type ser:name="unsignedLong"          ser:cppType="unsigned __int64"     ser:asType="WASP_UnsignedLongLong"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int *"/>
+                <ser:type ser:name="unsignedInt"           ser:cppType="unsigned int"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short *"/>
+                <ser:type ser:name="unsignedShort"         ser:cppType="unsigned short"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char *"/>
+                <ser:type ser:name="unsignedByte"          ser:cppType="unsigned char"/>
+                <!-- Others -->
+                <ser:type ser:name="boolean"               ser:cppType="bool *"/>
+                <ser:type ser:name="boolean"               ser:cppType="bool"/>
+                <ser:type ser:name="float"                 ser:cppType="float *"/>
+                <ser:type ser:name="float"                 ser:cppType="float"/>
+                <ser:type ser:name="double"                ser:cppType="double *"/>
+                <ser:type ser:name="double"                ser:cppType="double"/>
+
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_URI *"/>
+                <ser:type ser:name="anyURI"                ser:cppType="WASP_String *"/>
+
+                <ser:type ser:name="anySimpleType"         ser:cppType="WASP_String *"/>
+
+                <!-- XML Schema internal data type mapping -->
+                <ser:type ser:name="arrayCoordinate"       ser:cppType="WASP_String *"/>
+            </ser:schema>
+        </ser:serializer>
+    </ser:serialization>
+
+    <!-- SOAP 1.1 (de)serializers -->
+    <ser:serialization ser:name="http://schemas.xmlsoap.org/soap/encoding/">
+        <ser:import ser:ref="CommonSerializationRepository"/>
+        <!-- SOAP 1.1 encoding resolver -->
+        <ser:resolver ser:class="WASP_SOAP11_Resolver" ser:default="true"/>
+        <!-- Message attachments resolver -->
+        <ser:resolver ser:class="WASP_MessageAttachmentResolver" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/"/>
+        <!-- Message attachments - SOAP 1.1 MIME serializer -->
+        <ser:serializer ser:class="WASP_MessageAttachmentSerializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/" ser:useLocation="false">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - SOAP 1.1 DIME serializer -->
+        <ser:serializer ser:class="WASP_MessageAttachmentSerializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/" ser:useLocation="true">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - SOAP 1.1 MIME/DIME deserializer -->
+        <ser:deserializer ser:class="WASP_MessageAttachmentDeserializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:deserializer>
+
+        <ser:serializer ser:class="WASP_VMessageAttachmentSerializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/" ser:useLocation="false">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - SOAP 1.1 DIME serializer -->
+        <ser:serializer ser:class="WASP_VMessageAttachmentSerializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/" ser:useLocation="true">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - SOAP 1.1 MIME/DIME deserializer -->
+        <ser:deserializer ser:class="WASP_VMessageAttachmentDeserializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:deserializer>
+    </ser:serialization>
+
+    <!-- Literal (de)serializers -->
+    <ser:serialization ser:name="http://systinet.com/waspc/literal-encoding/">
+        <ser:import ser:ref="CommonSerializationRepository"/>
+        <!-- Literal resolver -->
+        <ser:resolver ser:class="WASP_LiteralResolver" ser:default="true"/>
+        <!-- Message attachments resolver -->
+        <ser:resolver ser:class="WASP_MessageAttachmentResolver" ser:encoding="http://systinet.com/waspc/literal-encoding/"/>
+        <!-- Message attachments - literal MIME serializer - same as SOAP 1.1 so encoding is SOAP 1.1 -->
+        <ser:serializer ser:class="WASP_MessageAttachmentSerializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/" ser:useLocation="false">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - literal DIME serializer -->
+        <ser:serializer ser:class="WASP_MessageAttachmentSerializer" ser:encoding="http://systinet.com/waspc/literal-encoding/" ser:useLocation="true">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - literal MIME/DIME deserializer -->
+        <ser:deserializer ser:class="WASP_MessageAttachmentDeserializer" ser:encoding="http://systinet.com/waspc/literal-encoding/">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:deserializer>
+
+        <ser:serializer ser:class="WASP_VMessageAttachmentSerializer" ser:encoding="http://schemas.xmlsoap.org/soap/encoding/" ser:useLocation="false">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - literal DIME serializer -->
+        <ser:serializer ser:class="WASP_VMessageAttachmentSerializer" ser:encoding="http://systinet.com/waspc/literal-encoding/" ser:useLocation="true">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:serializer>
+        <!-- Message attachments - literal MIME/DIME deserializer -->
+        <ser:deserializer ser:class="WASP_VMessageAttachmentDeserializer" ser:encoding="http://systinet.com/waspc/literal-encoding/">
+            <ser:schema ser:namespace="http://systinet.com/waspc/wsdlc/">
+                <ser:xmlType>attachmentMIME</ser:xmlType>
+                <ser:xmlType>attachmentDIME</ser:xmlType>
+            </ser:schema>
+        </ser:deserializer>
+    </ser:serialization>
+
+</waspc-config>

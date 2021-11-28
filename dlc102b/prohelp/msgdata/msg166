@@ -1,0 +1,115 @@
+8251 "Cannot load configuration of a remote  service process: . (8251)" " " "" ""
+8252 "Enumerate property group error: . (8252)" " " "" ""
+8253 "Cannot load property file: . (8253)" " " "" ""
+8254 "Cannot find property group . (8254)" " " "" ""
+8255 "Cannot get property collection for . (8255)" " " "" ""
+8256 "Cannot update property  to new value: . (8256)" " " "" ""
+8257 "Cannot get the value of property . (8257)" " " "" ""
+8258 "Cannot update the value of property  to . (8258)" " " "" ""
+8259 "Cannot update the property collection for  (8259)" " " "" ""
+8260 "Cannot save property group  to property file, . (8260)" " " "" ""
+8261 "Cannot save property group  for remote connection. (8261)" " " "" ""
+8262 "Cannot get parent groups. (8262)" " " "" ""
+8263 "Cannot save all properties: . (8263)" " " "" ""
+8264 "Cannot remove properties for group: . (8264)" " " "" ""
+8265 "Unable to copy source or target database, because we couldn't connect to it. (8265)" "This message indicates that either the source or target database could not be connected to.  This could happen for multiple reasons, either source or target database: was in use, was damaged, has one or more database components (extents) missing, has a different version number than the progress client, ..." "" ""
+8266 "This collation has been superceded. Upgrade to Collation-Translation-Version <collation-translation-version>. (8266)" "This collation may cause indexing problems and has been superceded by a collation with a newer Collation-Translation-Version. See the readme file in $DLC/prolang to see which collations are available. After loading the collation, you must run proutil with the idxbuild option (database offline) or the idxfix option (database may be online). If you do not choose to upgrade, indexing will continue in the old manner and will preserve existing indexes.  " "" ""
+8267 "Attempting to nest include files from <file>. (8267)" "An included file is attempting to include a file. Only one level of includes is allowed. " "" ""
+8268 "Including file <include-file>. (8268)" " " "m" ""
+8269 "Include file <include-file> has been read. (8269)" " " "m" ""
+8270 "Location of the Java compiler was not specified (8270)" " " "" ""
+8271 "option = unknown or invalid <option name> (8271)" "The option entered is unknown or invalid.  Run the command again with the -help option for usage.   " "" ""
+8272 "Invalid or missing -name (-i) parameter (8272)" "The -name parameter is required for this command.  Run the command again, specifying the name of the service after the -name option.
+   " "" ""
+8273 "Invalid or missing arguments (8273)" "The arguments to this command are either invalid or required parameters are missing.  Run the command with the -help option for usage.
+   " "" ""
+8274 "Function not valid for nsman command (8274)" "The function entered is not allowed for the NameServer command." "" ""
+8275 "Attempting to connect to <connection name> (8275)" "
+
+   " "" ""
+8276 "Connecting to  <connection name> (8276)" "
+
+   " "" ""
+8277 "Shut down  (8277)" "
+
+   " "" ""
+8278 "Error shutting down  (8278)" "Some error occured during shutdown of specified process.  Check associated error log file in the Progress work directory.
+
+   " "" ""
+8279 "Unable to shutdown   (8279)" "The command tool is unable to shut down the process.  Refer to the associated log file in the Progress work directory.
+
+   " "" ""
+8280 "Connecting to Progress AdminServer using  (8280)" "
+
+   " "" ""
+8281 "Unable to find  (8281)" "Unable to locate the specified process.  Check that the name, port number and host name are correct and run the command again.
+
+   " "" ""
+8282 "Error getting current host name:  (8282)" "
+
+   " "" ""
+8283 "Error getting local user name:  (8283)" "
+
+   " "" ""
+8284 "Enter user name: (8284)" "
+
+   " "" ""
+8285 "Error reading standard input  (8285)" "
+
+   " "" ""
+8286 "Enter password for user [] :   (8286)" "
+
+   " "" ""
+8287 "Unable to connect to Progress AdminServer at    (8287)" "Cannot connect to the Progress Adinserver.  Check that the host name and port number are correct, and run the command again.
+
+   " "" ""
+8288 "Searching for    (8288)" "
+
+   " "" ""
+8289 "Unable to connect to    (8289)" "An error has occured while trying to connect to the specified process. Check that the process is running and the specified name, host name and port number are correct.
+
+   " "" ""
+8290 "Exception shutting down    (8290)" "An unexpected exception has occured when attempting to shut down the specified process
+
+
+   " "" ""
+8291 "rmi host or rmi port has null information   (8291)" "UBCommandPlugin: error retrieving rmi host and port.
+
+
+   " "" ""
+8292 "Cannot proceed with UBCommandPlugin.init(): unable to fetch Property Manager plugin instance   (8292)" "
+
+
+   " "" ""
+8293 "Unable to create logfile    (8293)" "
+
+
+   " "" ""
+8294 "Using DEBUG level logging   (8294)" "
+
+
+   " "" ""
+8295 "AutoStarting    (8295)" "
+
+
+   " "" ""
+8296 "Starting <service name>.  Check status.   (8296)" "
+
+
+   " "" ""
+8297 "Unable to start <service name>   (8297)" "
+
+
+   " "" ""
+8298 "Unable to start    (8298)" "
+
+
+   " "" ""
+8299 "Personality:    (8299)" "
+
+
+   " "" ""
+8300 "No entries for personality    (8300)" "
+
+
+   " "" ""

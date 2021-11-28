@@ -1,0 +1,64 @@
+12501 "Set Blob Create Limit command failed for blob object ""<blob id>"", limit <limit value>. (12501)" "An internal error prevented setting the create limit for the named object. If the blob exists and is in a Type I area, some of the blobs and tables in that area may have been updated with the new value. If the blob is in a Type II area its create limit has not been changed." "" ""
+12502 "Unable to find area number for blob <blob id>. (12502)" "The indicated blob is not associated with any area in this database." "" ""
+12503 "Unable to find object descriptor for table object ""<table name>"". (12503)" "An object descriptor for the named table could not be found. The table may not exist in this database." "" ""
+12504 "Toss limit for table ""<table name>"" set to <limit value>. (12504)" "The toss limit for the named table has been updated by a Set Table Toss Limit command to the indicated value." "" ""
+12505 "Toss limits for all tables and blobs in this area will be changed." "A command to modify the toss limit of a table identified a table in a Type I area. All table and blob objects in a Type I area must have the same toss limit. If the operation is approved by the operator, all toss limits in the area will be updated." "" ""
+12506 "Set Table Toss Limit command failed for table ""<table name>"", limit <limit string>. (12506)" "The Set Table Toss Limit command failed to complete successfully. The named table is not affected." "" ""
+12507 "Error setting toss limit for object <object id>, type <object type>. (12507)" "An internal error was encountered while setting toss limits for a set of objects in an area. Some objects may have already been updated." "" ""
+12508 "Set Area Toss Limit command failed for area ""<area id>"", limit <limit string>. (12508)" "The command to set all table and blob object toss limits for a specified table failed. This command is only valid for data area with an area number greater that the schema area (area 6). It is not valid for AI areas." "" ""
+12509 "Set Area Create Limit command failed for area """", limit  (12509)" "The command to set all table and blob object create limits for a 
+specified table failed. This command is only valid for data areas with an area number greater than the schema area (area 6). It is not valid
+for AI areas.
+
+" "" ""
+12510 "Set Blob Toss Limit command failed for blob object ""<blob id>"", limit, <limit value>. (12510)" "An error prevented setting the toss limit for the named blob object. If the blob exists and is in a Type I area, some of the blobs and tables in that area may have been updated with the new value. If the blob is in a Type II area its toss limit has not been changed.
+" "" ""
+12511 "Toss limit for blob ""<blob id>"" set to <limit value>. (12511)" "The toss limit for the indicated blob has been set to the listed value." "" ""
+12512 "The create limit for table ""<table name>"" set to <limit value> (12512)" "The create limit for the named table has been updated by a Set Table Create Limit command to the indicated value." "" ""
+12513 "Error setting create limit for object <object id>, type <object type>. (12513)" "An internal error was encountered while setting create limits for a set of objects in an area. Some objects may have already been updated." "" ""
+12514 "Set Table Create Limit command failed for table object ""<table name>"", limit <limit value>. (12514)" "An error prevented setting the create limit for the named table object. If the table exists and is in a Type I area, some of the blobs and tables in that area may have been updated with the new value. If the table is in a Type II area its create limit has not been changed." "" ""
+12515 "Toss limit for object number <object number> in area <area number> set to <limit value>. (12515)" "This message is written for each table and blob object that is updated by a Set Area Toss Limit command. " "" ""
+12516 "Set Blob Create Limit command failed for blob object ""<blob id>"", limit <limit value>. (12516)" "An error prevented setting the create limit for the named blob object.
+If the blob exists and is in a Type I area, some of the blobs and 
+tables in that area may have been updated with the new value. If the
+blob is in a Type II area its toss limit has not been changed.
+" "" ""
+12517 "Create limit for object number <object number> in area <area number> set to <limit value>. (12517)" "This message is written for each table and blob object that is updated by a Set Area Create Limit command." "" ""
+12518 "The create limit for blob ""<blob id> set to <limit value> (12518)" "The create limit for the named blob has been updated by a Set Blob Create Limit command to the indicated value." "" ""
+12519 "Failed to start a transaction. (12519)" "Can not start a transaction." "" ""
+12520 "Failed to commit a transaction. (12520)" "Can not commit a transaction." "" ""
+12521 "Error allocating memory in <func-name>. (12521)" "The system is out of memory." "" ""
+12522 "Failed to create cursor in <func-name>, ret = . (12522)" "Unable to create cursor." "" ""
+12523 "Internal error occurred in <func-name>, errno . (12523)" "This message indicates that internal error occurred. Please contact your local Progress Technical Support Center for further information." "" ""
+12524 "Internal error occurred in <func-name>, errno , ret . (12524)" "This message indicates that internal error occurred. Please contact your local Progress Technical Support Center for further information." "" ""
+12525 "All active indexes." "" "" ""
+12526 "All inactive indexes." "" "" ""
+12527 "This platform can only support <num> open TCP/IP sockets per process.  (12527)" "Each platform has a maximum number of TCP/IP sockets that can be opened for any one process.  The maximum number of clients specified with argument -Ma must be less than or equal to this maximum." "" ""
+12528 "Trid: <number> code = <name> version = <note version number> (12528)" "Log recovery note by transaction index and name and version number." "d" ""
+12529 "Trid: <number> area = <area>   dbkey = <dbkey>   update counter = <number> (12529)" "When running proutil dbname -C roll forward verbose ... This message is printed once for each note in the after-image file. It displays the transaction number, area number, dbkey, and the update counter in that block." "d" ""
+12530 "Trid: <number> dbkey = <number>  update counter = <number> (12530)" "When running proutil dbname -C roll forward verbose ... This message is printed once for each note in the after-image file. " "d" ""
+12531 "Trid: <number> User Id: <name> (12531)" "This is the userid of the user that started the transaction noted in the message just previous to this one." "d" ""
+12532 "Unable to perform aimage empty at this time due to a conflicting operation being performed.  Please attempt the command at a later time. (12532)" "An aimage empty operation cannot be performed while an aimage extract operation is being performed.  Please attempt the operation at a later time. " "" ""
+12533 "You cannot pass a COM-HANDLE array as a parameter to a COM object method (12533)" "Using an array of COM-HANDLEs as a parameter to a COM object method is not supported by the Progress 4GL." "P" ""
+12534 "Failed to load auditing policies. (12534)" "Internal error or invalid auditing policies." "" ""
+12535 "Failed to copy auditing policies. (12535)" "Internal error." "" ""
+12536 "Failed to acquire requisite lock to read schema (12536)" "An attempt to acquire a table lock on the _Db table for the purpose of reading a portion of the database schema failed. This may be due to a lost network connection or user interruption (control-c). Check the database log if it is not clear why the lock could not be acquired." "" ""
+12537 "Error unlocking after schema read. (12537)" "An error occurred while trying to release the table lock on the _DB table after reading a portion of the database schema. It may be due to a network connection failure or other failure. Check the database log if it is not clear what has happened." "" ""
+12538 "SYSTEM ERROR: Internal inconsistency in screl_readlock() (12538)" "You should never encounter this error message. If you have, please report it to Progress Software technical support, including as much information about your database configuration and 4GL Client configuration." "" ""
+12539 "JTA transactions enabled for the database <dbname>  (12539)" "The JTA transaction feature support is active for this database." "d" ""
+12540 "Size of JTA transaction table (-maxxids): <maxxids>  (12540)" "The number of transactions available for JTA transactions in addition to the transaction table size." "d" ""
+12541 "**  Cannot open file <file-name>, errno = <number>. (12541)" "You do not have the required permissions to open the specified file. Errno is an operating system error number that indicates the specific cause.   Typical Unix or Dos error numbers are 2 (The file does not exist) and 13 (You do not have permission to open the file)." "P" ""
+12542 "
+WARNING: Attempt to change owner permissions failed. errno  (12542)" "A chown() operation has failed due to errno.  This commonly occurs because the caller does not have permissions to change the ownership of the file." "" ""
+12543 "ERROR: Cannot add new area online when ai enabled. (12543)" "" "" ""
+12544 "There exist connections to the database which will have
+problems opening newly added extents." "Informational message for adding extents online" "" ""
+12545 "Do you wish to recheck user permissions and continue adding extents online? (y/n)" "Informational message for adding extents online.  Displayed when existing connections do not have permission to open the newly added extent." "" ""
+12546 "A physical error creating the extent has occurred.
+Recovery is performed by running builddb. (12546)" "An error occurred while adding extents online which can only be recovered by rebuilding the .db file via running builddb" "" ""
+12547 "A logical error in shared memory has occurred while adding extents online.
+Recovery is performed by restarting the database. (12547)" "An error occurred while adding extents online which can only be recovered by restarting the .db." "" ""
+12548 "JTA is already enabled for database <db-name> . (12548)" "JTA is already enabled for this database." "d" ""
+12549 "You attached the temp-table to a data-source from a different schema. Cannot process ROWID field, result-set #<num> (12549)" "The DataServer cannot process the result-set of a send-sql or stored-procedure into a ROWID field in a temp-table if the schemas do not match." "" ""
+12550 "The RECID key pushed from your foreign data source is not compatible
+ with the RECID/ROWID definition in your schema holder (12550)" "The DataServer cannot process the result-set of a send-sql or stored-procedure into a ROWID field in a temp-table if the schema is incompatible - data types do not match." "" ""

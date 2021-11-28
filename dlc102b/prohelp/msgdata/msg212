@@ -1,0 +1,75 @@
+10551 "ActionNotRun: Error running alert action. Alert: <alertname>, Resource: <resource name>, Action: <action name>. (10551)" "An error occured running an action in response to an alert being generated or cleared. This is a serious error in that any recovery or notification which the action was to perform will not have been done. This error occurs if the thread pool and queue usedto run actions has overflowed or an error occured running the action. Contact Progress Technical Support for more information. " "" ""
+10552 "CpuNotFound: Cannot obtain information about the CPU resource <resource name>. (10552)" "The CPU monitor cannot locate the underlying CPU resource. The CPU monitor is unable to obtain information about the CPU activity. 
+This might be related to a problem with one or more CPUs on the machine or a problem with the machine specific library used to monitor the system resources. Check the admserv.log to see if the osmetrics shared library has logged errors while initializing or during operation." "" ""
+10553 "MemoryNotFound: Cannot obtain information about the memory resource <resource name>. (10553)" "The memory monitor cannot locate the underlying memory resource. The memory monitor is unable to obtain information about the memory usage. This might be related to a problem with one or more memory boards on the machine or a problem with the machine specific library used to monitor the system resources. Check the admserv.log to see if the osmetrics shared library has logged errors while initializing or during operation." "" ""
+10554 "DiskNotFound: Cannot obtain information about the disk resource <resource name>. (10554)" "The disk monitor cannot locate the underlying disk resource. The disk monitor is unable to obtain information about the disk usage. 
+This might be related to a problem with the disk itself or a problem with the machine specific library used to monitor the system resources. Check the admserv.log to see if the osmetrics shared library has logged errors while initializing or during operation." "" ""
+10555 "FileSystemNotFound: Cannot obtain information about the file system resource <resource name>. (10555)" "The file system monitor cannot locate the underlying file system resource. The file system monitor is unable to obtain information about the file system usage. This might be related to a problem with the file system itself or a problem with the machine specific library used to monitor the system resources. Check the admserv.log to see if the osmetrics shared library has logged errors while initializing or during operation." "" ""
+10556 "Search Text must be specified for each Log File Rule.  Please add text to the Search Text field. (10556)" "Each Log File Rule within the Log File Monitor of Fathom has a Search Text associated with it.  When saving the Rule, Fathom did not find any text in the Search Text field." "" ""
+10557 "No category was picked from the list.  Please choose a category from the 'Choose Criteria Category' menu. (10557)" "Each Log File Rule within the Log File Monitor of Fathom has a Search Criteria associated with it.  The rule needs a Search Criteria from the library, but Fathom did not find any category chosen from the menu." "" ""
+10558 "No criterion was picked from the list.  Please choose a criteria from the 'Choose Search Criteria' menu. (10558)" "Each Log File Rule within the Log File Monitor of Fathom has a Search Criteria associated with it.  The rule needs a Search Criteria from the library, but Fathom did not find any criterion chosen from the menu." "" ""
+10559 "Cannot enable/disable Fathom Replication for database <dbname>.  Fathom Replication has not been installed. (10559)" "An attempt was made to either enable or disable Fathom Replication on a database using the 
+  proutil <dbname> -C [enable|disable]sitereplication [source|target]
+command. This command failed because site replication has not been
+installed. You must first install the Fathom replication component of the Progress product in order to enable or disable site replication on a database." "" ""
+10560 "<func-name>: Error occurred in area <num>, block number: <num>, extent<name>: . (10560)" "This is companion message to some fatal messages to provide more information for investigation." "" ""
+10561 "Writing block <num>  to log file. Please save and send the log file to Progress Software Corp. for investigation. (10561)" "companion message to the fatal messages. " "" ""
+10562 "Error occurred in area <num> . (10562)" "Provide area number for thr fatal messages. " "" ""
+10563 "Dumping the buffer for investigation... (10563)" " " "" ""
+10564 "SYSTEM ERROR: Unable to get a lock on rowid <DBKEY> in area <area-num> with return code <Return Code> (10564)" "syserr " "" ""
+10565 "SYSTEM ERROR: Could not delete record in area  <area-num> with dbkey <DBKEY> in undo. (10565)" "syserr " "" ""
+10566 "SYSTEM ERROR: Undo failed to reproduce the record in area <area-num> with rowid <DBKEY> and return code  <Return Code>. (10566)" "syserr " "" ""
+10567 "SYSTEM ERROR: <func-name>: Wrong dbkey in area <area-num>. (10567)" "syserr " "" ""
+10568 "WARNING: Attempt to make on-line schema change failed. Acquiring exclusive schema lock. (10568)" "Your client process has SESSION:SCHEMA-CHANGE set indicating a desire to make schema changes without an exclusive lock on the schema. You got this warning message because you tried to delete or modify an existing database table (deleting or changing a field, adding an active index, or adding schema trigger information). The on-line schema change capability is not available in these situations.
+" "P" ""
+10569 "Unable to connect to database <database name>. (10569)" "The Fathom Replication DSRUTIL utility was unable to connect to the named database. " "" ""
+10570 "Unexpected exception creating <what data> for <resource key>: <exception message> (10570)" "An error occured while the DB Space View bean was trying to format the contents of the view.  Generally the context of the problem and the content of the message should be reported to Progress for evaluation." "" ""
+10571 "Failed to find VST <vst name> entry for <vst key> (10571)" "DB Space View Bean was unable to link the VST tables related to the reported vst key.  Reporting this problem along with copies of the output from the Raw VST table views for AreaExtent, FileList and ActIoFile VST tables would be helpful in dignosing this problem. " "" ""
+10572 "Could not add table <tablename> to database schema. (10572)" "Your client process failed in its attempt to add table <tablename> to the database schema on-line. It failed when Progress tried to add <tablename> to the _File's _File-name index. The problem may have occured because other clients were at the same time adding schema on-line. Try again and if it continues to fail, reset the attribute SESSION:SCHEMA-CHANGE to """" and make the change off-line (in effect, single user mode).
+" "D" ""
+10573 "DB_AutoStartFail: Database <database name> has failed to auto-start. (10573)" "The automatic startup of the database has failed. The database is configured to automatically start when the adminserver starts, but it is not running. " "" ""
+10574 "The Fathom Replication Agent is being terminated. (10574)" "An operator has commanded the Fathom Replication Agent to terminate." "" ""
+10575 "The Fathom Replication Server is being terminated. (10575)" "An operator has commanded the Fathom Replication Server to terminate." "" ""
+10576 "Changing latch statistics collection from <value> to <value>. (10576)" "A user has switched latch statistic collection to on or off.  " "" ""
+10577 "Rolling forward with the no-integrity (-i) option will require restarting from a backup in the event of a failure! (10577)" "The (-i) option will put the database into a non-integrity state.  If a failure happens during the roll forward process, the user will need to restart the roll forward process from a restored database." "" ""
+10578 "First" "button label (log file viewer)
+" "" ""
+10579 "Next" "button label (log file viewer)
+" "" ""
+10580 "Prior" "button label (log file viewer)
+" "" ""
+10581 "Last" "button label (log file viewer)
+" "" ""
+10582 "Go To" "button label (log file viewer)
+" "" ""
+10583 "Close" "button label (log file viewer)
+" "" ""
+10584 "Reload" "button label (log file viewer)
+" "" ""
+10585 "Ascending" "label in U/I (log file viewer)
+" "" ""
+10586 "Descending" "label in U/I (log file viewer)
+" "" ""
+10587 "Show" "label in U/I (log file viewer)
+" "" ""
+10588 "Overlap" "label in U/I (log file viewer)
+" "" ""
+10589 "Display" "label in U/I (log file viewer)
+" "" ""
+10590 "Size of log" "text in U/I (log file viewer)
+" "" ""
+10591 "Lines in log" "text in U/I (log file viewer)
+" "" ""
+10592 "Display start line" "text in U/I (log file viewer)
+" "" ""
+10593 "of log at start line" "text in U/I (log file viewer)
+" "" ""
+10594 "Log file status" "text in U/I (log file viewer)
+" "" ""
+10595 "log file summary" "text in U/I (log file viewer)
+" "" ""
+10596 "not found" "status message from log file viewer U/I" "" ""
+10597 "unchanged" "status message from log file viewer U/I" "" ""
+10598 "changed, reload needed" "status message from log file viewer U/I" "" ""
+10599 "flushed from memory, reload needed" "status message from log file viewer U/I" "" ""
+10600 "Latch causing problem: <latch-addr, id <latch-id>, type <latch-type>. (10600)" "This is a debug message printed prior to dumping the contents of all latches in shared memory. " "" ""

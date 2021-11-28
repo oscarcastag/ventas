@@ -1,0 +1,19 @@
+#!/bin/sh
+
+DLC="/dlc/dlc102b"
+tlrdir="${DLC}/install/tlr"
+antfile="${tlrdir}/LaunchTailoringClasses.xml"
+sonicesbpath="/dlc/OE102b_linux64/3party/sonicmq/lib/jmxri.jar:/dlc/OE102b_linux64/3party/sonicmq/lib/mgmt_client.jar:/dlc/OE102b_linux64/3party/sonicmq/lib/mgmt_config.jar:/dlc/OE102b_linux64/3party/sonicesb/lib/xq_config.jar:/dlc/OE102b_linux64/3party/sonicmq/lib/sonic_Client.jar:/dlc/OE102b_linux64/3party/sonicmq/lib/sonic_Crypto.jar:/dlc/OE102b_linux64/3party/sonicmq/lib/xercesImpl.jar:/dlc/OE102b_linux64/3party/sonicmq/lib/xmlParserAPIs.jar"
+
+echo \<project name=\"TailoringExtension\" default=\"launch\" basedir=\"${tlrdir}\"\> >${antfile}
+echo \<target name=\"launch\"\> >>${antfile}
+
+for file in `ls ${tlrdir}/*tlr.class`
+do
+	filenoext=`echo ${file} | sed 's/\.[^.]*$//'`
+	filename=`basename ${filenoext}`
+	echo \<java classname=\"${filename}\" classpath=\".:${DLC}/java:${sonicesbpath}\"\>\<\/java\> >>${antfile}
+done
+		
+echo \<\/target\> >>${antfile}
+echo \<\/project\> >>${antfile}

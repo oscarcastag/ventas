@@ -1,0 +1,924 @@
+Directory Contents
+==================
+
+Each subdirectory contains a promsgs file for the language that
+it represents, a .df file for each codepage, and an empty database
+that is marked with a codepage appropriate for the language.
+
+Some directories have more than one .pf file, because a language is
+used in more than one region. Although the language may be common to
+these regions, other customs, such as date or number format or collation,
+may be different and so other settings in the .pf file must be different.
+
+Install will now create a startup.pf for you in the $DLC directory
+with settings that you are prompted for. The .pf files in these directories
+are just example settings.
+
+Language             Directory Region                         File Name
+-------------------- --------- ------------------------------ ---------------
+Arabic               arb       Saudi Arabia                   arabic.pf
+Croatian             hrv       Croatia                        croatian.pf
+Czech                cze       Czech Republic                 czech.pf
+Danish               dan       Denmark                        danish.pf
+Dutch                dut       Netherlands                    dutch.pf
+Dutch                dut       Belgium                        dutbel.pf
+Dutch                dut       Netherlands                    startup.pf
+English-American     ame       Canada                         engcan.pf
+English-American     ame       United States                  engus.pf
+English-American     ame       United States                  startup.pf
+English-British      eng       Australia                      engaus.pf
+English-British      eng       Canada                         engcan.pf
+English-British      eng       United Kingdom                 enguk.pf
+English-British      eng       United Kingdom                 startup.pf
+Finnish              fin       Finland                        finnish.pf
+French               fre       Belgium                        frebel.pf
+French               fre       France                         french.pf
+French               fre       Quebec                         freque.pf
+French               fre       Switzerland                    freswit.pf
+French               fre       France                         startup.pf
+German               ger       Austria                        geraus.pf
+German               ger       Germany                        german.pf
+German               ger       Switzerland                    gerswit.pf
+German               ger       Germany                        startup.pf
+Greek                gre       Greece                         greek.pf
+Hebrew               hbr       Israel                         hebrew.pf
+Hungarian            hun       Hungary                        hungary.pf
+Icelandic            isl       Iceland                        iceland.pf
+Italian              ita       Italy                          italian.pf
+Italian              ita       Switzerland                    itaswit.pf
+Italian              ita       Italy                          startup.pf
+Japanese             jpn       Japan                          japanese.pf
+Japanese             jpn       Japan                          eucjis/eucjis.pf
+Korean               kor       Korea                          korean.pf
+Korean               kor       Korea                          cp949/cp949.pf
+Korean               kor       Korea                          cp1361/cp1361.pf
+Korean               kor       Korea                          ksc5601/ksc5601.pf
+Lithuanian           lit       Lithuania                      startup.pf
+Latin Spanish        spl       South America/Latin America    spanlat.pf
+Norwegian            nor       Norway                         norwegia.pf
+Persian              per       Iran                           persian.pf
+Polish               pol       Poland                         polish.pf
+Portuguese           brz       Brazil                         portbrz.pf
+Portuguese           por       Portugal                       portug.pf
+Romanian             rom       Romania                        roman.pf
+Russian              rus       Russia                         russian.pf
+Serbian              srb       Serbia                         serbian.pf
+Simplified Chinese   sch       PRC                            schprc.pf
+Simplified Chinese   sch       PRC                            cp936/cp936.pf
+Simplified Chinese   sch       PRC                            gb2312/gb2312.pf
+Slovak               svk       Slovakia                       slovak.pf     
+Slovenian            svn       Slovenian                      slovenia.pf       
+Spanish              mex       Mexico                         spanmex.pf
+Spanish              spa       Spain                          spanish.pf
+Swedish              swe       Sweden                         swedish.pf
+Thai                 tai       Thailand                       tai.pf
+Traditional Chinese  tch       Taiwan                         tchroc.pf
+Traditional Chinese  tch       Taiwan                         big-5/big-5.pf
+Traditional Chinese  tch       Taiwan                         cp950/cp950.pf
+Traditional Chinese  tch       Hong Kong                      hkscs/cp950-hkscs.pf
+Turkish              tur       Turkey                         turkish.pf
+
+convmap.dat Notes
+=================
+convmap.dat is now partitioned into several .dat files. convmap.dat
+uses the new INCLUDE syntax to include the smaller files and still
+build a comprehensive convmap.cp. The partioning makes the management
+of the many tables easier and simpler.
+
+convmap.dat and the other .dat files are now located in the
+$DLC/prolang/convmap directory. The convmap.cp file remains in
+$DLC.
+
+The convmap directory also contains some new files, used for defining
+word break rules. These files are named <codepage>bas.wbt. The "bas" is
+for "basic", meaning the default behavior. There is one table for each
+codepage family. The table can be used for the codepage that it is named for,
+or for any codepage that it is convertible to.
+
+The table $DLC/proword.def is the table provided with versions 7.x and 8.x of
+PROGRESS and is provided for compatibility. We recommend installing the
+new table that is appropriate for your database character set, and rebuilding
+indexes, to get improvements in word indexing, but it is not required.
+
+If you change any of the *.dat tables you can make a new convmap.cp with the
+command:
+
+proutil -C codepage-compiler $DLC/prolang/convmap/convmap.dat $DLC/convmap.cp
+
+If you do not put the new convmap.cp in the $DLC directory, you can
+instead point to this new file by using the -convmap startup parameter
+or by setting the PROCONV environment variable. This is useful for testing
+a modified convmap.cp, before installing on a deployed system.
+
+If you want to list the codepages and collations available in the
+current convmap.cp, you can use the procedure $DLC/prolang/list-cp.p.
+
+If you want to list the supported codepage conversions available in
+the current convmap.cp, you can use the procedure $DLC/prolang/listconv.p.
+
+The tables provided below are output from these procedures.
+
+
+Codepage Tables Available in the convmap.dat File
+=================================================
+
+                  Case Tables
+----------------------------------
+For every codepage, there is a table defining case rules
+(upper and lower case letter mappings) named BASIC.
+In addition, the following character sets provide case rules
+for French as used in France. (In France, the uppercase of
+version of a letter does not have an accent. In French Canada,
+the uppercase letter will retain its accent.)
+
+Codepage            Case
+Name                Name
+------------------- -------------------
+1252                French
+IBM850              French
+IBM858              French
+ISO8859-1           French
+ISO8859-15          French
+undefined           French
+
+               Collation Tables
+----------------------------------
+Following, is a list of the collations provided for each
+codepage.
+
+The collations whose names begin "ICU-" are linguistic collations 
+for Unicode data. The part of the name following "ICU-" is the 
+standard locale name, except for ICU-UCA, which is the default 
+Unicode Collation Algorithm.  ICU-ja__HQ distinguishes Hiragana 
+from Katakana at the CASE-SENSITIVE strength when used as a database 
+collation. All encodings of Unicode can use these collations.
+
+Codepage               Collation
+Name                   Name
+---------------------- --------------------
+1250                   CROATIAN
+1250                   CZECH
+1250                   HUNGARIAN
+1250                   POLISH
+1250                   ROMANIAN
+1250                   SLOVENIAN
+1251                   RUSSIAN
+1252                   BASIC
+1252                   BASIC9
+1252                   DANISH
+1252                   FINNISH
+1252                   GERMAN-LIBRARY
+1252                   GERMAN9
+1252                   ICELANDIC
+1252                   NORWEGIAN
+1252                   SPANISH9
+1252                   SWEDISH
+1253                   GREEK
+1254                   TURKISH
+1254                   TURKISH-COMP
+1256                   ARABIC9
+1256                   BASIC
+1257                   LATVIAN
+1257                   LITHUANIAN
+620-2533               BASIC
+620-2533               THAI-OLD
+708                    BASIC
+709                    BASIC
+710                    BASIC
+711                    BASIC
+714                    BASIC
+720                    BASIC
+721                    BASIC
+786                    BASIC
+BIG-5                  BASIC
+CP1361                 BASIC
+CP936                  BASIC
+CP949                  BASIC
+CP950                  BASIC
+CP950-HKSCS            BASIC
+EUCJIS                 BASIC
+GB2312                 BASIC
+IBM437                 BASIC
+IBM850                 BASIC
+IBM850                 DANISH
+IBM850                 FINNISH
+IBM850                 GERMAN-LIBRARY
+IBM850                 GERMAN9
+IBM850                 ICELANDIC
+IBM850                 NORWEGIAN
+IBM850                 SWEDISH
+IBM851                 GREEK
+IBM852                 CZECH
+IBM852                 HUNGARIAN
+IBM852                 POLISH
+IBM852                 ROMANIAN
+IBM857                 TURKISH
+IBM858                 BASIC
+IBM858                 DANISH
+IBM858                 FINNISH
+IBM858                 GERMAN9
+IBM858                 ICELANDIC
+IBM858                 NORWEGIAN
+IBM858                 SWEDISH
+IBM861                 ICELANDIC
+IBM862                 HEBREW
+IBM866                 RUSSIAN
+ISO8859-1              BASIC
+ISO8859-1              CZECH
+ISO8859-1              DANISH
+ISO8859-1              FINNISH
+ISO8859-1              GERMAN-LIBRARY
+ISO8859-1              GERMAN9
+ISO8859-1              ICELANDIC
+ISO8859-1              NORWEGIAN
+ISO8859-1              SPANISH9
+ISO8859-1              SWEDISH
+ISO8859-15             BASIC
+ISO8859-15             CZECH
+ISO8859-15             DANISH
+ISO8859-15             FINNISH
+ISO8859-15             GERMAN9
+ISO8859-15             ICELANDIC
+ISO8859-15             NORWEGIAN
+ISO8859-15             SWEDISH
+ISO8859-2              CZECH
+ISO8859-2              HUNGARIAN
+ISO8859-2              POLISH
+ISO8859-2              ROMANIAN
+ISO8859-5              RUSSIAN
+ISO8859-8              HEBREW
+KOI8-R                 RUSSIAN
+KSC5601                BASIC
+MAZOVIA                POLISH
+ROMAN-8                BASIC
+ROMAN-8                CZECH
+SHIFT-JIS              BASIC
+UNDEFINED              BASIC
+UNDEFINED              TRANMAN
+UTF-8                  BASIC
+UTF-8                  ICU-UCA              Default Unicode Collation Algorithm
+UTF-8                  ICU-ar               Arabic
+UTF-8                  ICU-be               Belarusian
+UTF-8                  ICU-bg               Bulgarian
+UTF-8                  ICU-ca               Catalan
+UTF-8                  ICU-cs               Czech
+UTF-8                  ICU-da               Danish
+UTF-8                  ICU-de__PHONEBOOK    German phonebook
+UTF-8                  ICU-el               Greek
+UTF-8                  ICU-en_BE            English_Belgium
+UTF-8                  ICU-eo               Esperanto
+UTF-8                  ICU-es               Spanish
+UTF-8                  ICU-es__TRADITIONAL  Spanish traditional
+UTF-8                  ICU-et               Estonian
+UTF-8                  ICU-fa               Persian
+UTF-8                  ICU-fi               Finnish
+UTF-8                  ICU-fr               French
+UTF-8                  ICU-gu               Gujarati
+UTF-8                  ICU-he               Hebrew
+UTF-8                  ICU-hi               Hindi
+UTF-8                  ICU-hi__DIRECT       Hindi direct
+UTF-8                  ICU-hr               Croatian
+UTF-8                  ICU-hu               Hungarian
+UTF-8                  ICU-is               Icelandic
+UTF-8                  ICU-ja               Japanese
+UTF-8                  ICU-ja__HQ           Japanese Hiragana Quaternary
+UTF-8                  ICU-kn               Kannada
+UTF-8                  ICU-ko               Korean
+UTF-8                  ICU-lt               Lithuanian
+UTF-8                  ICU-lv               Latvian
+UTF-8                  ICU-mk               Macedonian
+UTF-8                  ICU-mr               Marathi
+UTF-8                  ICU-mt               Maltese
+UTF-8                  ICU-nb               Norwegian Bokmål
+UTF-8                  ICU-nn               Norwegian Nynorsk
+UTF-8                  ICU-pl               Polish
+UTF-8                  ICU-ro               Romanian
+UTF-8                  ICU-ru               Russian
+UTF-8                  ICU-sh               Serbo-Croatian
+UTF-8                  ICU-sk               Slovak
+UTF-8                  ICU-sl               Slovenian
+UTF-8                  ICU-sq               Albanian
+UTF-8                  ICU-sr               Serbian
+UTF-8                  ICU-sv               Swedish
+UTF-8                  ICU-ta               Tamil
+UTF-8                  ICU-te               Telugu
+UTF-8                  ICU-th               Thai
+UTF-8                  ICU-tr               Turkish
+UTF-8                  ICU-uk               Ukrainian
+UTF-8                  ICU-vi               Vietnamese
+UTF-8                  ICU-zh               Chinese
+UTF-8                  ICU-zh__PINYIN       Chinese Pinyin
+UTF-8                  ICU-zh_HK            Chinese Hong Kong
+UTF-8                  ICU-zh_MO            Chinese Macau
+UTF-8                  ICU-zh_TW            Chinese Taiwan
+
+               Conversion Tables
+----------------------------------
+Following is a list of every codepage conversion provided in convmap.cp.
+
+Notes:
+1) BIG-5 to CP950, KSC5601 to CP949, and KSC5601 to CP1361, are one-way
+   conversions.
+2) SHIFT-JIS to EUCJIS and EUCJIS to SHIFT-JIS cannot be used between 
+   CPINTERNAL and CPSTREAM. These conversions are only for 
+   client-server-database conversions. See the Internationalization Guide for
+   more information.
+
+Source                 Target
+Name                   Name
+---------------------- --------------------
+1250                   IBM852
+1250                   ISO8859-2
+1250                   MAZOVIA
+1250                   UCS2
+1250                   UTF-16
+1250                   UTF-16BE
+1250                   UTF-16LE
+1250                   UTF-32
+1250                   UTF-32BE
+1250                   UTF-32LE
+1250                   UTF-8
+1251                   IBM866
+1251                   ISO8859-5
+1251                   KOI8-R
+1251                   UCS2
+1251                   UTF-16
+1251                   UTF-16BE
+1251                   UTF-16LE
+1251                   UTF-32
+1251                   UTF-32BE
+1251                   UTF-32LE
+1251                   UTF-8
+1252                   IBM437
+1252                   IBM850
+1252                   IBM858
+1252                   IBM861
+1252                   ISO8859-1
+1252                   UCS2
+1252                   UTF-16
+1252                   UTF-16BE
+1252                   UTF-16LE
+1252                   UTF-32
+1252                   UTF-32BE
+1252                   UTF-32LE
+1252                   UTF-8
+1253                   IBM851
+1253                   UCS2
+1253                   UTF-16
+1253                   UTF-16BE
+1253                   UTF-16LE
+1253                   UTF-32
+1253                   UTF-32BE
+1253                   UTF-32LE
+1253                   UTF-8
+1254                   IBM857
+1254                   UCS2
+1254                   UTF-16
+1254                   UTF-16BE
+1254                   UTF-16LE
+1254                   UTF-32
+1254                   UTF-32BE
+1254                   UTF-32LE
+1254                   UTF-8
+1256                   708
+1256                   709
+1256                   710
+1256                   711
+1256                   714
+1256                   720
+1256                   721
+1256                   786
+1256                   UCS2
+1256                   UTF-16
+1256                   UTF-16BE
+1256                   UTF-16LE
+1256                   UTF-32
+1256                   UTF-32BE
+1256                   UTF-32LE
+1256                   UTF-8
+1257                   UCS2
+1257                   UTF-16
+1257                   UTF-16BE
+1257                   UTF-16LE
+1257                   UTF-32
+1257                   UTF-32BE
+1257                   UTF-32LE
+1257                   UTF-8
+620-2533               UCS2
+620-2533               UTF-16
+620-2533               UTF-16BE
+620-2533               UTF-16LE
+620-2533               UTF-32
+620-2533               UTF-32BE
+620-2533               UTF-32LE
+620-2533               UTF-8
+708                    1256
+708                    UTF-8
+709                    1256
+709                    UTF-8
+710                    1256
+710                    UTF-8
+711                    1256
+711                    UTF-8
+714                    1256
+714                    UTF-8
+720                    1256
+720                    UTF-8
+721                    1256
+721                    UTF-8
+786                    1256
+786                    UTF-8
+BIG-5                  CP950
+BIG-5                  UCS2
+BIG-5                  UTF-16
+BIG-5                  UTF-16BE
+BIG-5                  UTF-16LE
+BIG-5                  UTF-32
+BIG-5                  UTF-32BE
+BIG-5                  UTF-32LE
+BIG-5                  UTF-8
+CP936                  UCS2
+CP936                  UTF-16
+CP936                  UTF-16BE
+CP936                  UTF-16LE
+CP936                  UTF-32
+CP936                  UTF-32BE
+CP936                  UTF-32LE
+CP936                  UTF-8
+CP949                  UCS2
+CP949                  UTF-16
+CP949                  UTF-16BE
+CP949                  UTF-16LE
+CP949                  UTF-32
+CP949                  UTF-32BE
+CP949                  UTF-32LE
+CP949                  UTF-8
+CP950                  CP950-HKSCS
+CP950                  UCS2
+CP950                  UTF-16
+CP950                  UTF-16BE
+CP950                  UTF-16LE
+CP950                  UTF-32
+CP950                  UTF-32BE
+CP950                  UTF-32LE
+CP950                  UTF-8
+CP950-HKSCS            UCS2
+CP950-HKSCS            UTF-16
+CP950-HKSCS            UTF-16BE
+CP950-HKSCS            UTF-16LE
+CP950-HKSCS            UTF-32
+CP950-HKSCS            UTF-32BE
+CP950-HKSCS            UTF-32LE
+CP950-HKSCS            UTF-8
+EUCJIS                 SHIFT-JIS
+EUCJIS                 UCS2
+EUCJIS                 UTF-16
+EUCJIS                 UTF-16BE
+EUCJIS                 UTF-16LE
+EUCJIS                 UTF-32
+EUCJIS                 UTF-32BE
+EUCJIS                 UTF-32LE
+EUCJIS                 UTF-8
+GB18030                UCS2
+GB18030                UTF-16
+GB18030                UTF-16BE
+GB18030                UTF-16LE
+GB18030                UTF-32
+GB18030                UTF-32BE
+GB18030                UTF-32LE
+GB18030                UTF-8
+GB2312                 CP936
+GB2312                 UCS2
+GB2312                 UTF-16
+GB2312                 UTF-16BE
+GB2312                 UTF-16LE
+GB2312                 UTF-32
+GB2312                 UTF-32BE
+GB2312                 UTF-32LE
+GB2312                 UTF-8
+IBM437                 1252
+IBM437                 IBM850
+IBM437                 IBM858
+IBM437                 ISO8859-1
+IBM437                 ISO8859-15
+IBM437                 UTF-8
+IBM850                 1252
+IBM850                 IBM437
+IBM850                 IBM858
+IBM850                 IBM861
+IBM850                 ISO8859-1
+IBM850                 ISO8859-15
+IBM850                 ROMAN-8
+IBM850                 UCS2
+IBM850                 UTF-16
+IBM850                 UTF-16BE
+IBM850                 UTF-16LE
+IBM850                 UTF-32
+IBM850                 UTF-32BE
+IBM850                 UTF-32LE
+IBM850                 UTF-8
+IBM851                 1253
+IBM851                 UTF-8
+IBM852                 1250
+IBM852                 ISO8859-2
+IBM852                 MAZOVIA
+IBM852                 UTF-8
+IBM857                 1254
+IBM857                 UTF-8
+IBM858                 1252
+IBM858                 IBM437
+IBM858                 IBM850
+IBM858                 IBM861
+IBM858                 ISO8859-15
+IBM858                 ROMAN-8
+IBM858                 UTF-8
+IBM861                 1252
+IBM861                 IBM850
+IBM861                 IBM858
+IBM861                 ISO8859-1
+IBM861                 ISO8859-15
+IBM861                 UTF-8
+IBM862                 ISO8859-8
+IBM862                 UTF-8
+IBM866                 1251
+IBM866                 ISO8859-5
+IBM866                 KOI8-R
+IBM866                 UTF-8
+ISO6937                UCS2
+ISO6937                UTF-16
+ISO6937                UTF-16BE
+ISO6937                UTF-16LE
+ISO6937                UTF-32
+ISO6937                UTF-32BE
+ISO6937                UTF-32LE
+ISO6937                UTF-8
+ISO8859-1              1252
+ISO8859-1              IBM437
+ISO8859-1              IBM850
+ISO8859-1              IBM861
+ISO8859-1              ISO8859-15
+ISO8859-1              ROMAN-8
+ISO8859-1              UCS2
+ISO8859-1              UTF-16
+ISO8859-1              UTF-16BE
+ISO8859-1              UTF-16LE
+ISO8859-1              UTF-32
+ISO8859-1              UTF-32BE
+ISO8859-1              UTF-32LE
+ISO8859-1              UTF-8
+ISO8859-15             IBM437
+ISO8859-15             IBM850
+ISO8859-15             IBM858
+ISO8859-15             IBM861
+ISO8859-15             ISO8859-1
+ISO8859-15             ROMAN-8
+ISO8859-15             UCS2
+ISO8859-15             UTF-16
+ISO8859-15             UTF-16BE
+ISO8859-15             UTF-16LE
+ISO8859-15             UTF-32
+ISO8859-15             UTF-32BE
+ISO8859-15             UTF-32LE
+ISO8859-15             UTF-8
+ISO8859-2              1250
+ISO8859-2              IBM852
+ISO8859-2              MAZOVIA
+ISO8859-2              UCS2
+ISO8859-2              UTF-16
+ISO8859-2              UTF-16BE
+ISO8859-2              UTF-16LE
+ISO8859-2              UTF-32
+ISO8859-2              UTF-32BE
+ISO8859-2              UTF-32LE
+ISO8859-2              UTF-8
+ISO8859-5              1251
+ISO8859-5              IBM866
+ISO8859-5              KOI8-R
+ISO8859-5              UCS2
+ISO8859-5              UTF-16
+ISO8859-5              UTF-16BE
+ISO8859-5              UTF-16LE
+ISO8859-5              UTF-32
+ISO8859-5              UTF-32BE
+ISO8859-5              UTF-32LE
+ISO8859-5              UTF-8
+ISO8859-8              IBM862
+ISO8859-8              UCS2
+ISO8859-8              UTF-16
+ISO8859-8              UTF-16BE
+ISO8859-8              UTF-16LE
+ISO8859-8              UTF-32
+ISO8859-8              UTF-32BE
+ISO8859-8              UTF-32LE
+ISO8859-8              UTF-8
+KOI8-R                 1251
+KOI8-R                 IBM866
+KOI8-R                 ISO8859-5
+KOI8-R                 UTF-8
+KSC5601                CP1361
+KSC5601                CP949
+KSC5601                UCS2
+KSC5601                UTF-16
+KSC5601                UTF-16BE
+KSC5601                UTF-16LE
+KSC5601                UTF-32
+KSC5601                UTF-32BE
+KSC5601                UTF-32LE
+KSC5601                UTF-8
+MAZOVIA                1250
+MAZOVIA                IBM852
+MAZOVIA                ISO8859-2
+MAZOVIA                UTF-8
+ROMAN-8                IBM850
+ROMAN-8                IBM858
+ROMAN-8                ISO8859-1
+ROMAN-8                ISO8859-15
+ROMAN-8                UTF-8
+SHIFT-JIS              EUCJIS
+SHIFT-JIS              UCS2
+SHIFT-JIS              UTF-16
+SHIFT-JIS              UTF-16BE
+SHIFT-JIS              UTF-16LE
+SHIFT-JIS              UTF-32
+SHIFT-JIS              UTF-32BE
+SHIFT-JIS              UTF-32LE
+SHIFT-JIS              UTF-8
+UCS2                   1250
+UCS2                   1251
+UCS2                   1252
+UCS2                   1253
+UCS2                   1254
+UCS2                   1256
+UCS2                   1257
+UCS2                   620-2533
+UCS2                   BIG-5
+UCS2                   CP936
+UCS2                   CP949
+UCS2                   CP950
+UCS2                   CP950-HKSCS
+UCS2                   EUCJIS
+UCS2                   GB18030
+UCS2                   GB2312
+UCS2                   IBM850
+UCS2                   ISO6937
+UCS2                   ISO8859-1
+UCS2                   ISO8859-15
+UCS2                   ISO8859-2
+UCS2                   ISO8859-5
+UCS2                   ISO8859-8
+UCS2                   KSC5601
+UCS2                   SHIFT-JIS
+UCS2                   UTF-16
+UCS2                   UTF-16BE
+UCS2                   UTF-16LE
+UCS2                   UTF-32
+UCS2                   UTF-32BE
+UCS2                   UTF-32LE
+UCS2                   UTF-8
+UTF-16                 1250
+UTF-16                 1251
+UTF-16                 1252
+UTF-16                 1253
+UTF-16                 1254
+UTF-16                 1256
+UTF-16                 1257
+UTF-16                 620-2533
+UTF-16                 BIG-5
+UTF-16                 CP1361
+UTF-16                 CP936
+UTF-16                 CP949
+UTF-16                 CP950
+UTF-16                 CP950-HKSCS
+UTF-16                 EUCJIS
+UTF-16                 GB18030
+UTF-16                 GB2312
+UTF-16                 IBM850
+UTF-16                 ISO6937
+UTF-16                 ISO8859-1
+UTF-16                 ISO8859-15
+UTF-16                 ISO8859-2
+UTF-16                 ISO8859-5
+UTF-16                 ISO8859-8
+UTF-16                 KSC5601
+UTF-16                 SHIFT-JIS
+UTF-16                 UCS2
+UTF-16                 UTF-16BE
+UTF-16                 UTF-16LE
+UTF-16                 UTF-32
+UTF-16                 UTF-32BE
+UTF-16                 UTF-32LE
+UTF-16                 UTF-8
+UTF-16BE               1250
+UTF-16BE               1251
+UTF-16BE               1252
+UTF-16BE               1253
+UTF-16BE               1254
+UTF-16BE               1256
+UTF-16BE               1257
+UTF-16BE               620-2533
+UTF-16BE               BIG-5
+UTF-16BE               CP1361
+UTF-16BE               CP936
+UTF-16BE               CP949
+UTF-16BE               CP950
+UTF-16BE               CP950-HKSCS
+UTF-16BE               EUCJIS
+UTF-16BE               GB18030
+UTF-16BE               GB2312
+UTF-16BE               IBM850
+UTF-16BE               ISO6937
+UTF-16BE               ISO8859-1
+UTF-16BE               ISO8859-15
+UTF-16BE               ISO8859-2
+UTF-16BE               ISO8859-5
+UTF-16BE               ISO8859-8
+UTF-16BE               KSC5601
+UTF-16BE               SHIFT-JIS
+UTF-16BE               UCS2
+UTF-16BE               UTF-16
+UTF-16BE               UTF-16LE
+UTF-16BE               UTF-32
+UTF-16BE               UTF-32BE
+UTF-16BE               UTF-32LE
+UTF-16BE               UTF-8
+UTF-16LE               1250
+UTF-16LE               1251
+UTF-16LE               1252
+UTF-16LE               1253
+UTF-16LE               1254
+UTF-16LE               1256
+UTF-16LE               1257
+UTF-16LE               620-2533
+UTF-16LE               BIG-5
+UTF-16LE               CP1361
+UTF-16LE               CP936
+UTF-16LE               CP949
+UTF-16LE               CP950
+UTF-16LE               CP950-HKSCS
+UTF-16LE               EUCJIS
+UTF-16LE               GB18030
+UTF-16LE               GB2312
+UTF-16LE               IBM850
+UTF-16LE               ISO6937
+UTF-16LE               ISO8859-1
+UTF-16LE               ISO8859-15
+UTF-16LE               ISO8859-2
+UTF-16LE               ISO8859-5
+UTF-16LE               ISO8859-8
+UTF-16LE               KSC5601
+UTF-16LE               SHIFT-JIS
+UTF-16LE               UCS2
+UTF-16LE               UTF-16
+UTF-16LE               UTF-16BE
+UTF-16LE               UTF-32
+UTF-16LE               UTF-32BE
+UTF-16LE               UTF-32LE
+UTF-16LE               UTF-8
+UTF-32                 1250
+UTF-32                 1251
+UTF-32                 1252
+UTF-32                 1253
+UTF-32                 1254
+UTF-32                 1256
+UTF-32                 1257
+UTF-32                 620-2533
+UTF-32                 BIG-5
+UTF-32                 CP936
+UTF-32                 CP949
+UTF-32                 CP950
+UTF-32                 CP950-HKSCS
+UTF-32                 EUCJIS
+UTF-32                 GB18030
+UTF-32                 GB2312
+UTF-32                 IBM850
+UTF-32                 ISO6937
+UTF-32                 ISO8859-1
+UTF-32                 ISO8859-15
+UTF-32                 ISO8859-2
+UTF-32                 ISO8859-5
+UTF-32                 ISO8859-8
+UTF-32                 KSC5601
+UTF-32                 SHIFT-JIS
+UTF-32                 UCS2
+UTF-32                 UTF-16
+UTF-32                 UTF-16BE
+UTF-32                 UTF-16LE
+UTF-32                 UTF-32BE
+UTF-32                 UTF-32LE
+UTF-32                 UTF-8
+UTF-32BE               1250
+UTF-32BE               1251
+UTF-32BE               1252
+UTF-32BE               1253
+UTF-32BE               1254
+UTF-32BE               1256
+UTF-32BE               1257
+UTF-32BE               620-2533
+UTF-32BE               BIG-5
+UTF-32BE               CP936
+UTF-32BE               CP949
+UTF-32BE               CP950
+UTF-32BE               CP950-HKSCS
+UTF-32BE               EUCJIS
+UTF-32BE               GB18030
+UTF-32BE               GB2312
+UTF-32BE               IBM850
+UTF-32BE               ISO6937
+UTF-32BE               ISO8859-1
+UTF-32BE               ISO8859-15
+UTF-32BE               ISO8859-2
+UTF-32BE               ISO8859-5
+UTF-32BE               ISO8859-8
+UTF-32BE               KSC5601
+UTF-32BE               SHIFT-JIS
+UTF-32BE               UCS2
+UTF-32BE               UTF-16
+UTF-32BE               UTF-16BE
+UTF-32BE               UTF-16LE
+UTF-32BE               UTF-32
+UTF-32BE               UTF-32LE
+UTF-32BE               UTF-8
+UTF-32LE               1250
+UTF-32LE               1251
+UTF-32LE               1252
+UTF-32LE               1253
+UTF-32LE               1254
+UTF-32LE               1256
+UTF-32LE               1257
+UTF-32LE               620-2533
+UTF-32LE               BIG-5
+UTF-32LE               CP936
+UTF-32LE               CP949
+UTF-32LE               CP950
+UTF-32LE               CP950-HKSCS
+UTF-32LE               EUCJIS
+UTF-32LE               GB18030
+UTF-32LE               GB2312
+UTF-32LE               IBM850
+UTF-32LE               ISO6937
+UTF-32LE               ISO8859-1
+UTF-32LE               ISO8859-15
+UTF-32LE               ISO8859-2
+UTF-32LE               ISO8859-5
+UTF-32LE               ISO8859-8
+UTF-32LE               KSC5601
+UTF-32LE               SHIFT-JIS
+UTF-32LE               UCS2
+UTF-32LE               UTF-16
+UTF-32LE               UTF-16BE
+UTF-32LE               UTF-16LE
+UTF-32LE               UTF-32
+UTF-32LE               UTF-32BE
+UTF-32LE               UTF-8
+UTF-8                  1250
+UTF-8                  1251
+UTF-8                  1252
+UTF-8                  1253
+UTF-8                  1254
+UTF-8                  1256
+UTF-8                  1257
+UTF-8                  620-2533
+UTF-8                  708
+UTF-8                  709
+UTF-8                  710
+UTF-8                  711
+UTF-8                  714
+UTF-8                  720
+UTF-8                  721
+UTF-8                  786
+UTF-8                  BIG-5
+UTF-8                  CP1361
+UTF-8                  CP936
+UTF-8                  CP949
+UTF-8                  CP950
+UTF-8                  CP950-HKSCS
+UTF-8                  EUCJIS
+UTF-8                  GB18030
+UTF-8                  GB2312
+UTF-8                  IBM437
+UTF-8                  IBM850
+UTF-8                  IBM851
+UTF-8                  IBM852
+UTF-8                  IBM857
+UTF-8                  IBM858
+UTF-8                  IBM861
+UTF-8                  IBM862
+UTF-8                  IBM866
+UTF-8                  ISO6937
+UTF-8                  ISO8859-1
+UTF-8                  ISO8859-15
+UTF-8                  ISO8859-2
+UTF-8                  ISO8859-5
+UTF-8                  ISO8859-8
+UTF-8                  KOI8-R
+UTF-8                  KSC5601
+UTF-8                  MAZOVIA
+UTF-8                  ROMAN-8
+UTF-8                  SHIFT-JIS
+UTF-8                  UCS2
+UTF-8                  UTF-16
+UTF-8                  UTF-16BE
+UTF-8                  UTF-16LE
+UTF-8                  UTF-32
+UTF-8                  UTF-32BE
+UTF-8                  UTF-32LE

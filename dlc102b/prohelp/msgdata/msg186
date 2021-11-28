@@ -1,0 +1,87 @@
+9251 "One or more property settings are invalid." "In the Progress Explorer Properties Dialog one or more property settings for the object being configured are incorrect. The invalid property values will appear greyed out. They must be corrected before continuing. The Reset button can be used to restore properties to their last known good set values. " "" ""
+9252 "Invalid SQL descriptor:: data type in SQLDA is invalid. (9252)" "During a SQL92 operation, a SQLDA was constructed and passed to the SQL engine that contained an invalid data type.  Review supported data types in sql_lib.h.
+
+
+
+
+
+ " "p" ""
+9253 "Invalid SQL descriptor::odbc flag in SQLDA is invalid. (9253)" "During a SQL92 operation, a SQLDA was constructed and passed to the SQL engine that contained an invalid odbc flag.  Review supported data types in sql_lib.h.
+
+
+
+
+
+ " "p" ""
+9254 "Invalid SQL descriptor::searchable flag in SQLDA is invalid. (9254)" "During a SQL92 operation, a SQLDA was constructed and passed to the SQL engine that contained an invalid searchable flag.  Review supported searchable types in sql_lib.h.
+
+
+
+
+
+ " "" ""
+9255 "Invalid SQL descriptor::updatable flag in SQLDA is invalid. (9255)" "During a SQL92 operation, a SQLDA was constructed and passed to the SQL engine that contained an invalid updatable flag.  Review supported updatable types in sql_lib.h.
+
+
+
+
+
+ " "p" ""
+9256 "Invalid SQL descriptor::parameter flag in SQLDA is invalid. (9256)" "During a SQL92 operation, a SQLDA was constructed and passed to the SQL engine that contained an invalid parameter flag.  Review supported parameter types in sql_lib.h.
+
+
+
+
+
+ " "p" ""
+9257 "Unexpected network error : invalid SOCKET (9257)" "A network operation was attempted using an invalid socket.  If the problem persists, contact Progress Technical Support. " "m" ""
+9258 "The word-rule file specified by the -ttwrdrul parameter is invalid. (9258)" "There was a failure attempting to open the word-rule file specified for temp tables by the -ttwrdrul parameter. Make sure that the file proword.nnn is in $DLC or is pointed to by the symbol PROWDnnn. " "" ""
+9259 "Invalid value for <method name>. (9259)" "A value used as an argument for the statement or function is not valid for the operation.  " "" ""
+9260 "Unable to update _Cache field within _File table for table number <table-number>. (9260)" "Message displayed by the auto-convert utility when PROGRESS is unable to update the BLOB indicator bit for the current table.  This indicator bit is contained within the _Cache field of the corresponding _File entry. In some cases this is not an error, especially when the associated table is actually a SQL view, or if table is not a user defined table." "D" ""
+9261 "Minor Version Upgrade started. (9261)" "Message only displayed within .lg file after PROGRESS has detected that the target v9.0 database or v9.1 database has not already been upgraded to latest Minor Version, and before PROGRESS has actually begun upgrading database. " "" ""
+9262 "An invalid SQL Descriptor provided. (328) (9262)" "An attempt to read or write to a SQL Descriptor was attempted and a SQL Descriptor was not provided. syserr " "D" ""
+9263 "Attempt to read/write to an invalid column number. (328) (9263)" "A request to read or write to an invalid column number described in a SQL Descriptor was attempted.   Please check that the column number requested is within the range of columns described in the SQL Descriptor. syserr " "D" ""
+9264 "An attempt to read or write an invalid data type to SQL Descriptor has occurred. (328) (9264)" "The data type for the data to be read or writtten is not compatible with the location in the SQL Descriptor requested.  Review the data type usage and the Get or Set method used. syserr " "D" ""
+9265 "Attemp to read/write to an invalid SQL Descriptor attribute(328) (9265)" "A read or write request was made that is not compatible with the SQL Descriptor attribute requested.  syserr " "D" ""
+9266 "An invalid value was requested for a SQL Descriptor attribute. (328) (9266)" "A request to set a value which is not valid was made for a SQL Descriptor attribute. The value and SQL Descriptor attribute should be reviewed for correct usage. syserr " "D" ""
+9267 "Attempt to modify a read only SQL Descriptor attribute is not permitted. (328) (9267)" "The attribute requested for modification in the SQL Descriptor is read only.  It is not possible to change this Descriptor attriburte.  syserr " "D" ""
+9268 "An invalid value was requested for a SQL Descriptor attribute. (328) (9268)" "A request to set a value which is too large was made for a SQL Descriptor attribute. syserr " "D" ""
+9269 "Invalid attempt to read or write to a SQL Descriptor Attribute(328) (9269)" "A request to read or write to a SQL Descriptor was attempted and the attribute is not valid.  It is possible an invalid value was provided to identify the attribute.  syserr " "D" ""
+9270 "A valid host name must be specified when registrationMode is set to register by the specified hostname.  (9270)" "The properties: registrationMode and hostName, are inter-related.  The registrationMode can be set to one of the options: Register-IP, Register-localhost or Register-hostName.  When registrationMode is set to Register-Hostname, then the property hostName must be empty, and should be set to a valid hostname." "" ""
+9271 "Warning: Unable to read the .d trailer.  Do you want to use <code-page> as the code page for conversion? [y/n]:    (9271)" "You are executing the following command:    _proutil <db-name> -C bulkload <bulkload-description-file> The utility was unable to read the code page name from the .d trailer. Upon an affirmative response, utility will be using the value of -stream (-cpstream) to read in the data from this file. " "" ""
+9272 "Bulkload Utility execution aborted.  (9272)" "The utility was unable to read the code page name from the .d trailer. Upon a negative response from the question ""Do you want to use <code-page> as the code page for conversion?"", Bulkload execution will abort. " "" ""
+9273 "VALIDATION MESSAGE: When the registrationMode property is set to Register-Hostname, the hostName property must have a value.  (9273)" "The hostName property must contain a host name if the registrationMode property is set to Register-Hostname.  Otherwise the nameserver will not be able to locate the broker being configured.  " "" ""
+9274 "A field name must be specified; Passing a null string is not valid. (9274)" "When setting metadata for a field, the name is required.
+" "" ""
+9275 "The extent for a field must be greater than or equal to zero. (9275)" "When setting metadata for a field, the extent should be set to 0 for non-array fields and should be 1 or greater for array fields.  Negative numbers are not appropriate.
+" "" ""
+9276 "The data type for the field must be one of the static types defined by com.progress.open4gl.Parameter. (9276)" "When setting metadata for a field, the data type must be a known type such as PRO_CHARACTER or PRO_INTEGER.  These types are defined by the class com.progress.open4gl.Parameter. 
+" "" ""
+9277 "The name specified for this field is a duplicate of another field in the result set; A unique name is required.  (9277)" "When setting metadata for a table, each field must be given a unique name.
+" "" ""
+9278 "For an INPUT TABLE-HANDLE or DATASET-HANDLE parameter, the input result set or ProDataGraph object must supply a non-null ResultSetMetaData or ProDataGraphMetaData object. (9278)" "Since TABLE-HANDLEs and DATASET-HANDLEs are dynamic, the proxy does not supply the metadata for these parameters the way it does for TEMP-TABLEs and DATASETs.  So for TABLE-HANDLE parameters, the metadata must be supplied by the client application either by passing a standard java.sql.ResultSet instance or by setting the ResultMetaData in the supplied ResultSet object. For DATASET-HANDLE parameters, the metadata must be supplied by setting the ProDataGraphMetaData in the supplied ProDataGraph object." "" ""
+9279 "<...(328) (9279)" "syserr " "" ""
+9280 "There is an unsupported data type (<data type>) in the standard input result set passed for a TABLE-HANDLE parameter. (9280)" "If a standard java.sql.ResultSet is passed for a TABLE-HANDLE parameter, its metadata is obtained before passing the request onto the AppServer.  The metadata must only contain fields that map to Progress 4GL data types. " "" ""
+9281 "Could not load any of the following drivers: <driverName> (9281)" " " "" ""
+9282 "The converted string is longer than 32k bytes. (9282)" "" "" ""
+9283 "Code page <codePageName> is unsupported.  Using default code page <defaultCodePageName>. (9283)" "The code page, codePageName, specified on the command line via the -codepage argument is not supported.  The system's default code page, defaultCodePageName, will be used instead." "" ""
+9284 "Wrote a total of <blocks> backup blocks using <size+identifier> of media. (9284)" "" "" ""
+9285 "Backup requires an estimated <size+identifier> of media. (9285)" "Specifies the total number of database blocks required to perform the backup operation" "D" ""
+9286 "Restore would require an estimated  db blocks using <size+identifier> of media. (9286)" "Specifies the total number of database blocks required to perform a restore operation." "D" ""
+9287 "Unable to assign file number to temp-table <name>.  Number of active temp-tables reached limit of 32767. (9287)" "Progress assigns a unique file number to each temp-table in a progress session.  This file number falls in the range of 1 to 32767. All of these numbers are currently in use. " "" ""
+9288 "Stream protocol version mismatch: The version of the client is <version>. The version of the server is <version>. (9288)" "The version of the 4GL executable does not match the version of 
+the server side adapter.  " "" ""
+9289 "XML messages are supported only with the SonicMQ JMS server. (9289)" "The XML message is not a standard JMS message, it is an extension of
+SonicMQ." "" ""
+9290 "Failed to create a JMS session. (9290)" "This message is typically coupled with other messages that explain the failure." "" ""
+9291 "A JMS session has been created.     (9291)" "" "" ""
+9292 "This JMS  server does not support an asynchronous delivery mode.     (9292)" "The SonicMQ server supports the NON_PERSISTENT_ASYNC delivery mode. Other JMS servers might not support that extension." "" ""
+9293 "<destination name> is not a valid destination name for the JMSReplyTo header field.     (9293)" "See the SonicMQ Adapter documentation for the details of valid JMSReplyTo header field values. " "" ""
+9294 "Client was disconnected without calling deleteSession()!     (9294)" "The 4GL application should be implemented in such way that the session is properly closed using the deleteSession session method.
+This message indicates that the connection between the client and the adapter was terminated without calling deleteSession, which indicates an abnormal session termination." "" ""
+9295 "The JMS session has been closed.    (9295)" "This log message indicates that the 4GL/JMS session is closed and its adapter side resources freed." "" ""
+9296 "JMS adapter version mismatch - client version is <version> server version is <version>.    (9296)" "The *.r files in the jms and jms/impl directories and the adapter compiled java files (residing in progress.zip) must be of compatible versions." "" ""
+9297 "This JMS server <JMS server name> is not supported.    (9297)" "The client used the session's setJmsServerName procedure or the adapter's jmsServerName parameter to specify a non supported JMS server. " "" ""
+9298 "The JMS server with this connection factory <Java class name> is not supported.   (9298)" "The jmsfrom4gl.AdminObjectFinder java class returned a JMS connection factory of a JMS server which is not supported." "" ""
+9299 "A public jmsfrom4gl.AdminObjectFinder class was not found. JMS administered objects will be created dynamically.   (9299)" "That is a normal message that appears in the adapter's server log whenever the user didn't implement and install a JNDI (or other admin. object storage) support." "" ""
+9300 "A  jmsfrom4gl.AdminObjectFinder object could not be created. JMS administered objects will be dynamically created.   (9300)" "The jmsfrom4gl.AdminObjectFinder class was found but an object could not be created. The most common reason is the lack of a default public constructor (a public constructor with no parameters).                                                          " "" ""

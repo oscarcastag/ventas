@@ -1,0 +1,22 @@
+# /dlc/prolang/ame/engus.pf
+# Country: United States
+# Language: English (American Dialect)
+# Set PROMSGS environment variable to: /dlc/prolang/ame/promsgs.ame
+
+-d mdy
+-lng "English"
+-cpcase Basic
+-cpcoll Basic
+
+# -cpinternal (or -charset) - Specifies the code page for all internal
+#                             data processing.
+# DOS Code Page
+# -cpinternal ibm850
+# ISO Standard Code Page
+# -cpinternal iso8859-1
+
+# -cpstream (or -stream) - Specifies the code page for all stream files
+# DOS Code Page
+# -cpstream ibm850
+# ISO Standard Code Page
+# -cpstream iso8859-1

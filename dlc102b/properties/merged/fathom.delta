@@ -1,0 +1,23 @@
+[PluginPolicy.Progress.AdminServer]
+ jvmargs=-Xmx256m -Djava.awt.headless=true -Xbootclasspath/a:/dlc/oemgmt102b/jars/pja.jar
+
+#
+# install=plugin,update,AdminServerPlugins.properties
+# uninstall=plugin,delete,AdminServerPlugins.properties
+#
+#
+# Fathom Policy (i.e. Classloader)
+#
+[PluginPolicy.Fathom]
+ classpath=/dlc/dlc102b/java/progress.jar,/dlc/oemgmt102b/jars/fmpatch.jar,/dlc/oemgmt102b/jars/fathom.jar,/dlc/dlc102b/java/ext/fmext.jar,/dlc/oemgmt102b/jars/javax.servlet.jar,/dlc/oemgmt102b/jars/org.apache.jasper.jar
+ pluginclasspath=!{value-of:classpath}
+
+#
+# Fathom Plugin
+#
+[Plugin.Fathom]
+ classname=com.progress.isq.ipqos.plugin.FathomPlugIn
+ pluginpolicy=PluginPolicy.Fathom
+ dependancy=Plugin.Database,Plugin.System
+ uniquetype=fathom
+

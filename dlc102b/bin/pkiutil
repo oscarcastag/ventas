@@ -1,0 +1,1049 @@
+#!/bin/sh
+#
+# Determine the correct directory where the Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "$DLC" "/dlc/dlc102b"
+do
+    [ ! -d "${what_dlc}/java" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+# Set the user working directory - this is a tailored value
+for what_wrkdir in "$WRKDIR" "/usr/wrk" "."
+do
+    [ ! -d "${what_wrkdir}" ] && continue
+    WRKDIR=$what_wrkdir
+    export WRKDIR
+    break
+done
+#
+# Setup the Perl environment
+#
+if [ $HOME ]
+then
+    _HOME=$HOME
+fi    
+if [ $PERLLIB ]
+then
+    _PERLLIB=$PERLLIB
+fi    
+if [ $PERL5LIB ]
+then
+    _PERL5LIB=$PERL5LIB
+fi    
+#
+HOME=$DLC
+PERLLIB=$DLC/perl/lib ; export PERLLIB
+PERL5LIB=$DLC/perl/lib ; export PERL5LIB
+#
+# The Perl interpreter must exist
+#
+if [ ! -f $DLC/perl/bin/perl ]
+then
+   echo
+   echo The Perl interpreter $DLC/perl/bin/perl does not exist.
+   echo Check the Progress installation and the DLC environment variable
+   echo.
+   echo Progress DLC setting: $DLC
+   echo   
+   exit 1   
+fi   
+#
+# Fixup OS specific environment settings
+#
+# Set up perl library path based on the media id: 
+# 38: Linux32
+# 43: Linux64
+# 45: LinuxPPC 
+
+PLATID=43
+case "$PLATID" in
+    38 | 43)
+      LD_LIBRARY_PATH=$DLC/perl/lib/5.6.1/i686-linux-thread-multi/CORE:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH ;;
+    45)
+      LD_LIBRARY_PATH=$DLC/perl/lib/5.6.1/ppc64-linux/CORE:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH ;;
+esac
+#
+# Execute this file as a Perl script
+#
+$DLC/perl/bin/perl -x $0 $*
+#
+# reset the original Perl environment
+#
+if [ $_HOME ]
+then
+    HOME=$_HOME
+    unset _HOME
+fi    
+if [ $_PERLLIB ]
+then
+    PERLLIB=$_PERLLIB
+    unset _PERLLIB
+fi    
+if [ $_PERL5LIB ]
+then
+    PERL5LIB=$_PERL5LIB
+    unset _PERL5LIB
+fi    
+#
+exit 0
+#
+# Start the embedded Perl script here
+#
+#!/bin/perl
+# Progress PKI Command Line Util
+
+use File::Basename;
+use File::Copy;
+
+$nargs=$#ARGV;
+
+#############################################################
+# Global symbols
+#############################################################
+# Command line information
+local $_op="";
+local $_cmd="";
+local $_in="";
+local $_verbose=1;
+local $_debug=0;
+local $_checkkeys=1;
+local $_format="PEM";
+
+# The basic directory paths
+local $DLC;
+local $KEYSTORE;
+local $KEYPOLICY;
+local $KEYPOLICYFILE;
+local $KEYBACKUP;
+local $KEYREQUESTS;
+local $CHECKKEY;
+
+# The basic operation command formats
+local $BINARY;
+local $REQ;
+local $DSAPARAM;
+
+# Some CA related configuration information
+#
+# Number of days to issue a regular server certificate for
+local $DAYS="-days 365";
+# The default certificate signature algorithm
+local $KEYALG="rsa";
+# The default certificate signature keysize
+local $KEYSIZE="1024";
+local $DSAPARMS="./";
+
+# Default alias entry names
+local $DSAFILE="dsaparms.pem";
+
+# State information
+local $_isWindowsOS=0;  # Default set to UNIX (0).
+
+#############################################################
+# Functions
+#############################################################
+
+sub usage {
+    print "usage: pkiutil [options] operation ...\n";
+    print "   operations:\n";
+    print "       -list [alias...]   list keystore entries\n";
+    print "                          if 'name' is blank, list all entries\n";
+    print "       -remove alias...   remove the keystore entry 'alias'\n";
+    print "       -newreq alias      generate new keys and certificate request \n";
+    print "                          for keystore entry 'alias'.  The default\n";
+    print "                          generates rsa keys with a 1024 bit key size\n";
+    print "       -print  alias      display the certificate request for \n";
+    print "                          keystore entry 'alias'\n";
+    print "       -import alias cert-file   import the CA issued digital \n";
+    print "                          certificate file 'cert_file' to keystore \n";
+    print "                          entry 'alias'\n";
+    print "       -display cert_file display the digial certificate file \n";
+    print "                          'cert_file' information\n";
+    print "       -help              print help information\n";
+    print "   options:\n";
+    print "       -keysize size      Generates keys of 'size' bits\n";
+    print "                          Applies to the -newreq operation only.\n";
+    print "       -brief             print less information\n";
+    print "       -verbose           print extra information\n";
+    print "       -format {DER|PEM}  The format of the digital certificate being\n";
+    print "                          imported is of this type.  The default is PEM\n";
+    print "\n";
+}
+
+#validate that a directory exists, create it if told to.
+# @_[0] is the directory to check
+# @_[1] is a 1 if create-if-missing or 0 error-exit if missing
+#
+sub checkRequiredDirectory {
+    my $_dir=@_[0];
+    my $_create=@_[1];
+    if ($_dir eq undef) {
+        print "Internal error: null required directory path\n";
+        exit 1;
+    }
+    if ($_create eq undef) {
+       $_create="0";    # default is error exit.
+    }
+    if (! -e "$_dir") {
+        if ($_create eq "1") {
+            if ($_debug == 1) {
+                print "Creating directory $_dir...\n";
+            }
+            mkdir ("$_dir");    
+        }
+        else {
+            print "Progress pkiutil Messages:\n";
+            print "\n";
+            print "The $_dir directory could not be found.\n";
+            print "The Progress environment is not configured correctly.\n";
+            print "\n";
+            exit 1;
+        }
+    }
+}
+
+#validate that a required file exists
+# @_[0] is the file to check
+#
+sub checkRequiredFile {
+    my $_fil=@_[0];
+    if ($_fil eq undef) {
+        print "Internal error: null required file path\n";
+        exit 1;
+    }
+    if (! -e "$_fil") {
+        print "Progress pkiutil Messages:\n";
+        print "\n";
+        print "The required $_fil file could not be found.\n";
+        print "The Progress environment may not be configured correctly.\n";
+        print "\n";
+        exit 1;
+    }
+}
+
+#validate that a keystore alias name is < 40 characters and is of the right
+#character set.
+#
+sub validate_alias {
+    # alias names have to be < 40 characters.
+    $len=length @_[0];
+    if ($len >= 40) {
+        print "Keystore alias name must be less than 40 characters in length.\n";
+        # print "length: $len\n";
+        exit 1;
+    }
+    # alias names can only have a character set of:
+    # [A-Za-z0-9_-]
+    $_alias=@_[0];
+    if ( $_alias =~ /[^A-Za-z0-9\-_]+/) { 
+        print "Invalid keystore alias name. (valid characters [A-Za-z0-1-_])\n"; 
+        exit 1;
+    }
+}
+
+# parse out a private-key/certificate file and record/return the private key
+# information.
+#
+sub parseKeyEntry {
+    $_found=0;
+    $_dump=0;
+    $_filepath=@_[0];
+    @_empty;
+    @_key;
+    open (FILENAME, $_filepath);
+    while ($_line = <FILENAME>) {
+        if ($_line =~ /\-\-BEGIN (ENCRYPTED) PRIVATE KEY/) {
+            if ($_debug) {
+                print "Unsupported private key PEM encoding: BEGIN ENCRYPTED PRIVATE KEY\n";
+            }    
+            $_found=0;
+            last;
+        }
+        if ($_line =~ /\-\-BEGIN (RSA) PRIVATE KEY/) {
+            $_dump=1;
+            $_found=1;
+        }
+        if ($_dump) {
+            push @_key , $_line;
+        }
+        if ($_line =~ /\-\-END (RSA) PRIVATE KEY/) {
+            $_dump=0;
+        }
+    }
+    close (FILENAME);
+    if ($_found) {
+    return @_key;
+    } else {
+        return @_empty;
+    }
+}
+
+# Get and print (if any) a file's private key informaiton.
+#
+sub printKeyEntry {
+    @_key = parseKeyEntry (@_[0]);
+    if (@_key == undef) {
+        print "No key found in file $_filepath\n";
+    }
+    else {
+        while (@_key[0]) {
+            print "@_key[0]";
+            shift @_key;
+        }
+    }
+}
+
+# parse out a certificate file and record/return the certificate
+# information.
+#
+sub parseCertEntry {
+    $_found=0;
+    $_dump=0;
+    $_filepath=@_[0];
+    @_cert;
+    open (FILENAME, $_filepath);
+    while ($_line = <FILENAME>) {
+        if ($_line =~ /\-\-BEGIN CERTIFICATE/ ) {
+            $_dump=1;
+            $_found=1;
+        }
+        if ($_dump) {
+            push @_cert , $_line;
+        }
+        if ($_line =~ /\-\-END CERTIFICATE/ ) {
+            $_dump=0;
+        }
+    }
+    close (FILENAME);
+    return @_cert;
+}
+
+# Get and print (if any) a file's certificate informaiton.
+#
+sub printCertEntry {
+    @_cert = parseCertEntry (@_[0]);
+    if (@_cert == undef) {
+        print "No Certificate found in $_filepath\n";
+    }
+    else {
+        while (@_cert[0]) {
+            print "@_cert[0]";
+            shift @_cert;
+        }
+    }
+}
+
+#
+# Generate a new Public/Private keypair.  Put the private key in the CA's 
+# key storage area for safe keeping.  Wrap the public key in a Digital Certificate
+# Request that is ready to send to a CA and put it into the CA's requests
+# area.
+#
+sub new_request_function {
+    local $_alias;
+    if ( @_[0] eq undef ) {
+        print "Missing keystore alias entry name\n";
+        exit 1;
+    }    
+    else {
+        # create new public/private keys and a digital certificate request
+        $_alias=@_[0];
+        validate_alias ($_alias);
+        if ( -e "$KEYSTORE/$_alias.pem" ) {
+            print "The keystore alias name $_alias already exists\n";
+        }    
+        else {
+            local $stat;
+            local $bitsize=$KEYSIZE;
+            if ($_debug == 1) {
+                print ("$REQ $KEYPOLICY -new -newkey $KEYALG:$KEYSIZE -keyout $KEYREQUESTS/$_alias.pk1 -out $KEYREQUESTS/$_alias.pk10 $DAYS\n");
+            }
+            $stat=system("$REQ $KEYPOLICY -new -newkey $KEYALG:$KEYSIZE -keyout $KEYREQUESTS/$_alias.pk1 -out $KEYREQUESTS/$_alias.pk10 $DAYS");
+            if ( $stat eq 0 ) {
+                # chmod( 0444, $KEYREQUESTS/$_alias.pem);
+                if ( $_verbose == 2 ) {
+                    print "The encrypted private key is stored in $KEYREQUESTS/$_alias.pem\n";
+                }
+                print "\nYou may now use the file $KEYREQUESTS/$_alias.pk10 to\n";
+                print "request a new Digital Certificate from a CA Certificate\n";
+                print "Authority.\n";
+                print "After you obtain the new Digital Certificate from the CA\n";
+                print "use the -import command to insert the certificate into\n";
+                print "the keystore.\n";
+            } else {
+                print "\nError while generating new public/private key pair\n";
+            }        
+        }        
+    }    
+}
+
+
+# Print the contents of a digital certificate request.
+#
+sub print_function {
+    local $_alias;
+    if ( @_[0] eq undef ) {
+        print "Missing keystore alias entry name\n";
+        exit 1;
+    }    
+    else {
+        # view a digital certificate request
+        $_alias=@_[0];
+        validate_alias ($_alias);
+        if ( ! -e "$KEYREQUESTS/$_alias.pk10" ) {
+            print "A Digital Certificate request for keystore alias $_alias does not exist\n";
+        }    
+        else {
+            local $stat;
+            $stat = system ("$REQ $KEYPOLICY -in $KEYREQUESTS/$_alias.pk10 -text -noout");
+        }        
+    }    
+}
+
+#
+# List a specific keystore's alias entry.
+#
+sub list_files_function {
+    # print ("Entering list_files_function: @_\n");
+    local $_alias=@_[0];
+    while ( $_alias ne undef ) {
+        validate_alias ($_alias);
+        if ( -e "$KEYSTORE/$_alias.pem" ) {
+            print "Keystore entry: $_alias\n";
+            if ( $_verbose == 0 ) {
+            }
+            elsif ( $_verbose > 0 ) {
+                if ( $_verbose > 1 ) {
+                    system("$BINARY x509 -in $KEYSTORE/$_alias.pem -noout -text");
+                    printKeyEntry ("$KEYSTORE/$_alias.pem");    
+                }    
+                else {
+                    print "Certificate:\n";    
+                    system("$BINARY x509 -in $KEYSTORE/$_alias.pem -noout -subject -issuer -dates");
+                }    
+            }
+        }    
+        else {
+            print "The keystore entry $_alias does not exist\n";
+            exit 1;
+        }
+        print "\n";
+        shift @_;
+        $_alias=@_[0];
+    }
+}
+
+# 
+# List the entire keystore's contents.
+#
+sub list_dir_function {
+    # print ("Entering list_dir_function\n");
+    local $_file;
+    local $_entry;
+    local @_files=glob("$KEYSTORE/*.pem");
+    
+    foreach $_file (@_files) {
+        $_basename = basename($_file);
+        $_offset=rindex($_basename, ".");
+        $_entry=substr($_basename, 0, $_offset);
+        list_files_function ($_entry);
+    }
+}
+
+#
+# List either a full keystore or specific keystore entry aliases.
+#
+sub list_function {
+     # print ("Entering list_function: @_\n");
+     
+    if ( $_verbose > 1 ) {
+        print "Listing  keystore: $KEYSTORE\n";
+    }
+    
+    if ( @_[0] eq undef ) {
+        list_dir_function();
+    }    
+    else {
+        list_files_function (@_);
+    }
+}
+
+#
+# Remove [make backup copies] of all keys, certificates, and certificate requests
+# for a given keystore alias.
+#
+sub remove_function {
+    # print "Entering remove_function: $*"
+    local $_alias;
+    if ( @_[0] eq undef ) {
+        print "No certificate entries specified to delete\n";
+        exit 1;
+    }    
+    else {
+        $_alias=@_[0];
+        validate_alias ($_alias);
+        while ( "$_alias" ne undef ) {
+            # Backup the private key/cert from the keystore
+            if ( -e "$KEYSTORE/$_alias.pem" ) {
+                if ( $_verbose == 1 ) {
+                    print "Removing keystore entry file $_alias.pem\n";
+                }
+                rename ("$KEYSTORE/$_alias.pem" , "$KEYBACKUP/$_alias.pem");
+            }    
+            else {
+                print "The keystore entry $_alias does not exist\n";
+                exit 1;
+            }     
+            # Backup the CA copy of the private key
+            if ( -e "$KEYREQUESTS/$_alias.pk1" ) {
+                if ( $_verbose == 1 ) {
+                    print "Removing CA private key file $_alias.pk1\n";
+                }
+                # Backup the private key from the CA store
+                rename ("$KEYREQUESTS/$_alias.pk1" , "$KEYBACKUP/$_alias.pk1");
+            }
+            #
+            # Remove any outstanding requests
+            if ( -e "$KEYREQUESTS/$_alias.pk10" ) {
+                if ( $_verbose == 1 ) {
+                    print "Removing CA digical certificate request file $_alias.pk10\n";
+                }
+                rename ("$KEYREQUESTS/$_alias.pk10" , "$KEYBACKUP/$_alias.pk10");
+            }
+            shift @_;
+            $_alias=@_[0];
+        }
+    }
+}
+
+sub checkKeys { 
+    local   $_alias=@_[0];
+    local   $_aliasPwd="";
+    local   $_encPwd="";
+    local   @_key;
+    local   @_certs;
+    local   $_rc = 1;
+    local   $_dbgOpt="-S";
+    if ($_isWindows) {
+        my $module = "Term::ReadKey";
+        eval "use $module";
+    }
+    if ($_checkkeys) {
+        validate_alias ($_alias);
+        if ( -e "$KEYSTORE/$_alias.pem" ) {
+            # If a keystore entry already exists, use it.
+            @_key = parseKeyEntry ("$KEYSTORE/$_alias.pem");    
+            if (@_key == undef) {
+                print "The keystore entry $_alias does not contain a valid private-key.\n";
+                return 0;
+            }
+        } else {
+            print "The keystore alias entry $_alias does not exist.\n";
+            return 0;
+        }
+        @_certs=parseCertEntry ("$KEYSTORE/$_alias.pem");
+        if (@_certs == undef) {
+            print "The keystore alias $_alias does not contain a Digital Certificate\n";
+            return 0;   
+        }
+        # prompt for the password to use
+        if ( $_isWindows ) {
+            # Windows way to hide password input
+            ReadMode('noecho');
+        } else {
+            # UNIX way to hide password input
+            system "stty -echo";
+        }
+        print "\nEnter keystore password to alias $_alias: ";
+        $_aliasPwd = <STDIN>;
+        chomp($_aliasPwd);
+        print "\n";
+        if ( $_isWindows ) {
+            # Windows way to reset input
+            ReadMode('normal');
+        } else {
+            # UNIX way to reset input
+            system "stty echo";
+        }
+        print "\n";
+        # get the encrypted version of the password.
+        system("$CMDSHELL $DLC/bin/genpassword -password $_aliasPwd > $WRKDIR/pkiutil.tmp");
+        if (! -e "$WRKDIR/pkiutil.tmp") {
+            print "Error generating key alias password.";
+            return 0;
+        }
+        open(ENC, "$WRKDIR/pkiutil.tmp");
+        $_encPwd=<ENC>;
+		if (!$_isWindows) {
+			$_encPwd=<ENC>;
+		}
+        chomp($_encPwd);
+        close(ENC);
+        unlink ("$WRKDIR/pkiutil.tmp");
+        if ($_verbose > 1) {
+            $_dbgOpt="";
+        }    
+        if ($_debug) {
+            # debug overrides verbose option.
+            $_dbgOpt="-g";
+            print ("$CHECKKEY $_dbgOpt -s $KEYSTORE -a $_alias -p $_encPwd\n");
+        }
+        $stat=system("$CHECKKEY $_dbgOpt -S -s $KEYSTORE -a $_alias -p $_encPwd");
+        if ($stat != 0) {
+            # failure
+            $_rc = 0;
+            if ($_debug) { print "\n" };    
+        }
+    } else {
+        if ($_verbose) {
+            printf("The private key and certificate could not be checked.\n");
+        }
+    }
+    
+    return $_rc;
+}
+
+sub checkKeys_function { 
+    if (checkKeys($_[0])) {
+        print "The private key and certificate match.\n"
+    } else {
+        print "The private key and certificate do not match\n";
+    }
+}
+
+#
+# Merge a Private Key pem file and a CA issued Digital Certificate and put it
+# in the specified keystore alias name[.pem]
+#
+sub import_function {
+    # print "Entering import_function: $*"
+    local @_rc;
+    local @_key;
+    local @_certs;
+    local @_certKey;
+    local @_madeBackup=0;
+    local $_alias=@_[0];
+    local $_certfile=@_[1];
+    local $_tmpcert="$KEYREQUESTS/_$_alias.pem";
+    if ( @_[0] eq undef ) {
+        print "No keystore entry specified on the command line\n";
+        exit 1;
+    }    
+    else {
+        validate_alias ($_alias);
+        if ( -e "$KEYSTORE/$_alias.pem" ) {
+            # If a keystore entry already exists, use it.
+            @_key = parseKeyEntry ("$KEYSTORE/$_alias.pem");    
+            if (@_key == undef) {
+                print "The keystore entry $_alias does not contain a valid private-key.\n";
+                exit 1;
+            }
+        }
+        elsif ( -e "$KEYREQUESTS/$_alias.pk1" ) {
+            # If the keystore entry does not exist, check for a CA backup
+            # copy and use it.
+            @_key = parseKeyEntry ("$KEYREQUESTS/$_alias.pk1");    
+            if (@_key == undef) {
+                print "The CA keys entry $_alias does not contain a valid private-key.\n";
+                exit 1;
+            }
+        }
+        else {
+            # Neither private key storage location yielded a key, error.
+            print "A private key for keystore entry $_alias does not exist\n";
+            exit 1;
+        }        
+    }
+    if ( $_certfile eq undef ) {
+        print "The certificate file to import was not on the command line\n";
+        exit 1;   
+    }    
+    else {
+        chomp $_certfile;
+        if ( ! -e "$_certfile" ) {
+            print "The certificate file to import $_certfile does not exist\n";
+            exit 1;   
+        }    
+        else {
+            if ($_format eq "DER"){
+                local @_cert = parseCertEntry ($_certfile);
+                if (@_cert != undef){
+                    print "The file $_certfile is not DER encoded.\n";
+                    exit 1;    
+                }    
+                #The DER input must be converted to PEM before we can deal with it.
+                if ( $_verbose > 1 ) {
+                    print "Converting DER input ($_certfile) to PEM ($_tmpcert)\n";
+                }
+                system ( "$BINARY x509 -inform DER -outform PEM -in $_certfile -out $_tmpcert" );
+                # override the original input file with the new PEM formatted version
+                $_certfile="$_tmpcert";
+            }
+            @_certs=parseCertEntry ($_certfile);
+            if (@_certs == undef) {
+                print "The file $_certfile does not contain a Digital Certificate\n";
+                exit 1;   
+            }
+            @_certKey = parseKeyEntry ("$_certfile");    
+            if (@_certKey != undef) {
+                print "Cannot import a certificate from a file that contains a private key\n ";
+                exit 1;   
+            }
+            # Now make the backup of the keystore entry
+            if ( -e "$KEYSTORE/$_alias.pem" ) {
+                if ( $_verbose > 1 ) {
+                    print "Backing up keystore entry file $_alias.pem\n";
+                }
+                rename ("$KEYSTORE/$_alias.pem" , "$KEYBACKUP/$_alias.pem");
+                $_madeBackup=1;    
+            }
+        }        
+    }
+    # create/overwrite the keystore entry with the private key;
+    open (OUT, ">$KEYSTORE/$_alias.pem");
+    if ($_verbose > 0) {
+        print "Importing private key alias $_alias:\n";
+    }    
+    while (@_key) {
+        print OUT "@_key[0]";
+        shift @_key;    
+    }
+    print OUT "\n";
+    # append the certificate (chain)
+    # system("cat $_certfile >> $KEYSTORE/$_alias.pem");
+    if ($_verbose > 0) {
+        print "Importing certificate file $_certfile \n";
+    }    
+    while (@_certs) {
+        print OUT "@_certs[0]";
+        shift @_certs;    
+    }
+    close(OUT);
+    # validate the key and certificate usage.
+    if (checkKeys("$_alias")) {
+        if ( $_verbose > 1 ) {
+            print "The certificate test was successful for $_alias\n";
+        }
+    } else {
+        print "Incorrect digital certificate imported for $_alias\n";
+        # restore the backup copy
+        if ($_madeBackup) {
+            if ( $_verbose > 1 ) {
+                print "Restoring backup keystore entry $_alias\n";
+            }
+            copy("$KEYBACKUP/$_alias.pem", "$KEYSTORE/$_alias.pem");
+        } else {
+            # No backup was made, so remove what was just made.
+            unlink ("$KEYSTORE/$_alias.pem");
+        }        
+    }    
+    # chmod(0444, $KEYSTORE/$_alias.pem);
+    print "\n";   
+}
+
+#
+# Display a digitial certificate file's characteristics.
+#
+sub display_function {
+    local $_target;
+    local $_doit=0;
+    # print "Entering display_function: $*"
+    if ( @_[0] eq undef ) {
+        print "No certificate files specified to display\n";
+        exit 1;    
+    }    
+    else {
+        $_target=@_[0];
+        while ( "@_[0]" ne undef ) {
+            $_doit=0;
+            if ( -f $_target ) {
+                @_cert = parseCertEntry ($_target);
+                if ($_format eq "DER"){
+                    if (@_cert == undef){
+                        $_doit=1;
+                    } else {
+                        print "The file $_target is not DER encoded.\n";
+                    }    
+                } else {
+                    if (@_cert != undef){
+                        $_doit=1;
+                    } else {
+                        print "The file $_target is not PEM encoded.\n";
+                    }        
+                }
+                if ($_doit){
+                    $_hash=`$BINARY x509 -inform $_format -noout -hash -in $_target`;
+                print "The certicate file $_target \n";
+                print "    certicate entry name would be $_hash\n";
+                if ( $_verbose == 0 ) {
+                }
+                elsif ( $_verbose == 1 ) {
+                    print "Certificate:\n";
+                        system("$BINARY x509 -inform $_format -in $_target -noout -subject -issuer -dates");
+                }    
+                elsif ( $_verbose == 2 ) {
+                        system("$BINARY x509 -inform $_format -in $_target -text");
+                    }
+                }
+            }        
+            else {
+                print "The certificate file $_target does not exist\n";
+                exit 1;    
+            }
+            print "\n";
+            shift;
+            $_target=@_[0];
+        }
+    }
+}
+
+
+#############################################################
+# main()
+#############################################################
+
+# The basic directory paths
+$DLC=$ENV{"DLC"};
+if ($DLC eq undef || $DLC eq "") {
+    print "Progress pkiutil Messages:\n";
+    print "\n";
+    print "The DLC environment variable was not defined.\n";
+    print "The Progress environment is not configured correctly.\n";
+    print "\n";
+    exit 1;
+}
+
+# The DLC directory must exist, do not create it if not.
+checkRequiredDirectory("$DLC", "0");
+
+$WRKDIR=$ENV{"WRKDIR"};
+if ($WRKDIR eq undef || $WRKDIR eq "") {
+    print "Progress pkiutil Messages:\n";
+    print "\n";
+    print "The environment variable WRKDIR is not defined.\n";
+    print "The Progress environment is not configured correctly.\n";
+    print "\n";
+    exit 1;
+}
+
+# The WRKDIR directory must exist, do not create it if not.
+checkRequiredDirectory("$DLC", "0");
+
+# The location of where all the PKI identities, like SSL server keys and 
+# certificates, are located.
+$KEYSTORE=$ENV{"KEYSTORE"};
+if ($KEYSTORE eq undef || $KEYSTORE eq "") {
+    $KEYSTORE="$DLC/keys";
+}
+
+# Setup some common stirngs
+$KEYREQUESTS="$KEYSTORE/requests";
+$KEYPOLICYFILE="$KEYSTORE/policy/pscpki.cnf";
+$KEYPOLICY="-config $KEYPOLICYFILE";
+$KEYBACKUP="$KEYSTORE/backup";
+
+# Set any environment variables below required to start the AdminClient
+if ($^O =~ /.*Windows.*/ || $^O =~ /.*Win32.*/ ) {
+    #Windows platform
+    $CHECKKEY="$DLC/bin/checkkey.exe";
+    $BINARY="$DLC/bin/sslc.exe";
+    $CMDSHELL="cmd.exe /c";
+    $_isWindows=1;          # running on a Windows OS.    
+}
+else {
+    #Unix platform
+    $BINARY="$DLC/bin/sslc";
+    $CHECKKEY="$DLC/bin/checkkey";
+    $CMDSHELL="";
+}
+
+# check that the installation has created the required directory trees
+checkRequiredDirectory("$KEYSTORE", "1");
+checkRequiredDirectory("$KEYSTORE/policy", "1");
+checkRequiredDirectory("$KEYBACKUP", "1");
+checkRequiredDirectory("$KEYREQUESTS", "1");
+checkRequiredFile("$BINARY");
+checkRequiredFile("$KEYPOLICYFILE");
+
+# check to see if we validate imported certificatess against the private key.
+if (! -e "$CHECKKEY" ) {
+    $_checkkeys=0;
+}
+
+# The basic operation command formats
+$REQ="$BINARY req";
+
+#
+# parse the commands and options
+#
+local $_parm="";
+local $_option="";
+#
+# If nothing on the command line then print help and exit
+#
+if (0 == @ARGV) {
+    print "No operation specified on the command line.\n";
+    usage();
+    exit 1;
+}
+#
+# Run a loop through all of the input options until we get a help operation
+# or run into non-option parameters 
+#
+while ( 1 ) {
+    $_parm=substr(@ARGV[0], 0, 2);
+    $_option=substr($_parm, 0, 1);
+    if ( $_option ne "-" && $_parm ne "/?") {
+        # exit, @ARGV[0] now points to the first alias/file name
+        # Without this, the parsing will silently ignore all command line
+        # arguments that appear after the alias.
+        if ($_op eq "-n" && $nargs != 0) {
+           print "Error: command line arguments out of order.\n";
+           print "This may be because the alias is not at end of the command line.\n";
+           exit 1;
+        }
+        last;
+    }    
+    elsif ( $_parm eq "-" ) {
+        print "Invalid command line option -\n";
+        exit 1;
+    }    
+    elsif ( $_parm eq "-h" || $_parm eq "-?" || $_parm eq "/?") {
+        # print the help info and exit
+        usage();
+        exit 1;
+    }    
+    elsif ( $_parm eq "-b" ) {
+        # set the verbose certificate output
+        $_verbose=0;
+        shift @ARGV;    
+        $nargs--;
+    }    
+    elsif ( $_parm eq "-v" ) {
+        # set the verbose output
+        $_verbose=2;
+        shift @ARGV;    
+        $nargs--;
+    }    
+    elsif ( $_parm eq "-k" ) {
+        # set the -newreq keysize value
+        shift @ARGV;
+        $nargs--;
+        $_size=@ARGV[0];
+        # size has to be 512, 1024, or 2048
+        if ($_size == 512 || $_size == 1024 || $_size == 2048) {
+            $KEYSIZE=$_size;
+        }
+        else {
+            print "The key size must be 512, 1024, or 2048\n";
+            exit 1;
+        }
+        shift @ARGV;    
+        $nargs--;
+    }    
+    elsif ( $_parm eq "-f" ) {
+        # set the import certificate type
+        shift @ARGV;
+        $_format=@ARGV[0];
+        if ($_format ne "DER" &&
+            $_format ne "PEM") {
+            print "The import certificate format type must be  either PEM or DER.\n";
+            exit 1;
+        }
+        shift @ARGV;
+    }    
+    elsif ( $_parm eq "-g" ) {
+        # set debug flag
+        $_debug=1;
+        shift @ARGV;
+        $nargs--;
+    }    
+    elsif ( $_parm eq "-s" ) {
+        # set KEYSTORE
+        shift @ARGV;
+        $nargs--;
+        $KEYSTORE=@ARGV[0];
+        if ( ! -d "$KEYSTORE" ) {
+            print "Invalid keystore directory path: $KEYSTORE\n";
+            exit 1;    
+        }    
+        shift @ARGV;
+        $nargs--;
+    }    
+    elsif ( $_parm eq "-l" || $_parm eq "-r" || $_parm eq "-i" || $_parm eq "-n" || $_parm eq "-d" || $_parm eq "-p" || $_parm eq "-t") {
+        if ( $_cmd ne "" ) {
+            print "Too many operations specified on the command line.\n";
+            exit 1;
+        }    
+        else {
+            # set the list operation
+            $_cmd=@ARGV[0];
+            $_op=$_parm;
+            shift @ARGV;    
+            $nargs--;
+        }
+    }    
+    else {
+        print "Unrecognized command @ARGV[0].\n";
+        exit 1;    
+    }
+}
+
+#
+# Now dispatch to the right function...
+#
+if ( $_op eq "" ) {
+    print "No operation specified on the command line.\n";
+    exit 1;
+}    
+else {
+    local $_argcnt=@ARGV;
+    local $_option;
+    if (0 < $_argcnt) {
+        foreach $_arg (@ARGV) {
+            $_option=substr($_arg, 0, 1);
+            if ($_option eq "-") {
+                print "Invalid option $_arg found after operation arguments\n";
+                exit 1;
+            }
+        }
+    }
+    if ($_op eq "-l") {
+        list_function(@ARGV);
+    }
+    elsif ($_op eq "-i") {
+        import_function(@ARGV);
+    }
+    elsif ($_op eq "-r") {
+        remove_function(@ARGV);
+    }
+    elsif ($_op eq "-d") {
+        display_function(@ARGV);
+    }
+    elsif ($_op eq "-n") {
+        new_request_function(@ARGV);
+    }
+    elsif ($_op eq "-p") {
+        print_function(@ARGV);
+    }
+    elsif ($_op eq "-t") {
+        checkKeys_function(@ARGV);
+    }
+    else {
+        print "Unrecognized command $_cmd.\n"; 
+        exit 1;  
+    }
+}
+
+# done
+print "\n";
+exit 0;
+#
+# End of the embedded Perl script
+#
+__END__
+#

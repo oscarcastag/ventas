@@ -1,0 +1,63 @@
+9151 "Admin Server is shutting down, connection terminated. (9151)" "The Admin Server has sent notification that it is shutting down so the Progress BROKER has closed the connection.  When the Admin Server restarts, the connection will automatically be restored." "d" ""
+9152 "Port <port> is invalid, ports can not be greater than 65535. (9152)" "" "d" ""
+9153 "Could not tokenize <name> validation expression <val-exp>. (9153)" "When attempting to compile a dynamic browse column's validation expression at runtime, encountered an error when trying to tokenize the expression. " "" ""
+9154 "Error occurred when compiling validation expression for dynamic <name>: <val-exp>. (9154)" "Only unabbreviated and unambiguous buffer or buffer field references for buffers known to the associated query are allowed in the validation expression for dynamic browse columns. The CAN-FIND() function is also not allowed." "" ""
+9155 "Failed to find to find dbkey representing a blob. (9155)" "SQL92 received a failure return from system call to storage engine manager. Possible reasons include blob was removed by another process or an internal sql engine error.
+
+
+
+
+ " "" ""
+9156 "Buffer supplied for blob is too small. (9156)" "SQL92 received a failure return from call to storage engine manager. Possible reason for the error is the calling application supplied an output buffer too small to receive the blob requested.
+
+
+
+
+ " "" ""
+9157 "Unable to do <attr> because the QUERY is not set. (9157)" "In order to add a dynamic browse column to a browser, the QUERY must be set for the browser." "" ""
+9158 "<field name> in ADD-LIKE-COLUMN must have a table qualifier. (9158)" "Must specify the table name as well as the field name. Eg. customer.cust-num, not cust-num." "" ""
+9159 "Table <table-name> specified in <attrid> not found in browser's QUERY. (9159)" "When using the ADD-COLUMNS-FROM or ADD-LIKE-COLUMN method, the table specified must be found in the query that is attached to the browser." "" ""
+9160 "In ADD-LIKE-COLUMN, invalid array index specified for <name>. (9160)" "" "" ""
+9161 "In ADD-LIKE-COLUMN, could not find source field <name>. (9161)" "" "" ""
+9162 "ADD-LIKE-COLUMN requires valid buffer-field object. (9162)" "When specifying a buffer-field handle, it must be associated with one of the buffers in the query attached to the browser." "" ""
+9163 "In ADD-LIKE-COLUMN, Cannot find field in browser's query. (9163)" "syserr " "" ""
+9164 "In ADD-COLUMNS-FROM: Could not find table from handle in browser's query. (9164)" "syserr " "" ""
+9165 "Invalid datatype <data-type> given in ADD-CALC-COLUMN. (9165)" "Valid datatypes are ""CHAR"", ""DATE"", ""INTEGER"", ""DECIMAL"" and ""LOGICAL""." "" ""
+9166 "Invalid format <format> given in ADD-CALC-COLUMN (9166)" "syserr " "" ""
+9167 "QUERY and <attr> cannot both be specified for same browser. (9167)" "Cannot specify UIB specific column specification while the QUERY attribute is set." "" ""
+9168 "You do not have write permission on RAW-TRANSFER target <table-name>. (9168)" "Since you are writing to a table record in the RAW-TRANSFER method, you need write permission for that table. " "" ""
+9169 "XML LOAD/SAVE could not find open stream <stream-name>. (9169)" "The stream name given in LOAD/SAVE must match some stream which is opened for output for SAVE and input for LOAD." "" ""
+9170 "Argument for LOAD/SAVE must be 'file', 'stream', 'stream-handle' or 'memptr'. (9170)" "Argument for LOAD/SAVE mode must be one of FILE, STREAM, STREAM-HANDLE or MEMPTR surrounded by quotes.  The next argument must be a character expression with the name of the file or stream, an unquoted expression that evaluates to a stream handle or the unquoted name of a MEMPTR variable." "" ""
+9171 "Unsupported XML SUB-TYPE <sub-type>. (9171)" "CREATE-NODE method does not support all DOM types - -only those listed in the Language Reference for the X-DOCUMENT object." "" ""
+9172 "Lost connection to Admin Server on . Please verify it is running.  (9172)" "The connection to the Admin Server has been lost. The Admin Server may have been shutdown of failed abnormally. One possible cause of abnormal termination is a network failure. If the Admin Server was not explicitly shutdown and there was no network failure, examine the Admin Server log file, admserv.log, for more information. " "" ""
+9173 "Invalid username and/or password specification.  (9173)" "   " "" ""
+9174 "Cannot execute command - restart in process.  Retry later. (9174)" "The property file has been changed externally, therefore the AdminServer is in the process of refreshing and restarting.  Try command in a few moments.  " "" ""
+9175 "<time> Flushing Buffer Pool (9175)" "0 Processors are connected and the Buffer Pool is being flushed." "" ""
+9176 "
+Enter ! to indicate input is complete. (9176)" "! will indicate that input is complete." "d" ""
+9177 "MEMPTR parameter and ON [SERVER] phrase cannot both be specified on a RUN statement. (9177)" "You cannot pass a MEMPTR parameter to a remote procedure.  The ON [SERVER] phrase on a run statement indicates that the procedure will be run remotely. " "" ""
+9178 "Invalid <parameter name> used in <method name> method. (9178)" "The specified argument is not correct.  It is either not set or set to an incorrect value." "" ""
+9179 "This is an ill-behaved multi-threaded control.  It cannot be used with the Progress 4GL. (9179)" "The ActiveX control you are using is multi-threaded and is not following the correct protocol for posting events to the application. The control must only send events to the application on the same thread that it was created from.  This control is sending an event to the application on a different thread.  " "" ""
+9180 "Invalid data passed to <method name> method. (9180)" "The specified method was passed data which is not appropriate for this method." "" ""
+9181 "Invalid option name <option name> provided to <mehtod name>. (9181)" "An invalid TCP option name was provided.  Check the Language Reference to determine the TCP option supported." "" ""
+9182 "Invalid argument used with <method name>. (9182)" "Check the arguments used when setting a TCP socket option.  Please refer to a TCP socket reference to determine the appropriate arguments used when setting this socket option." "" ""
+9183 "No arguments used with <method name>. (9183)" "Check the arguments used when setting a TCP socket option.  Please refer to a TCP socket reference to determine the appropriate arguments used when setting this socket option." "" ""
+9184 "No linger time provided in call to <method name>. (9184)" "Check the arguments used when setting a TCP socket option.  Please refer to a TCP socket reference to determine the appropriate arguments used when setting this socket option." "" ""
+9185 "Only one ENABLE-CONNECTIONS can be active at any one time. (9185)" "PROGRESS only allows one server-socket to be listening for connections (ENABLE-CONNECTIONS) at a time.  All subsequent calls to this method will fail, until the first server-socket object calls DISABLE-CONNECTIONS." "" ""
+9186 "ENABLE-CONNECTIONS can not be called from <application name>. (9186)" "A server-socket object can not listen for connections (ENABLE-CONNECTIONS) from either a Web Agent nor from a AppServer." "" ""
+9187 " is still connected.  Cannot DELETE. (9187)" "Before a socket object (or server-socket object) can be deleted, the application must first disconnect it via the DISCONNECT method (or DISABLE-CONNECTIONS method for server-socket)." "" ""
+9188 "SERVER <name> has outstanding asynchronous requests.  Cannot invoke User Defined Function. (9188)" "The server specified by the User Defined Function has outstanding asynchronous requests.  WAIT-FOR PROCEDURE-COMPLETE of all asynchronous requests before running a synchronous function on the server." "" ""
+9189 "Position plus Length in a PUT- statement was too large for target. (9189)" "The target of a PUT- operation (PUT-BYTE, PUT-STRING, PUT-BYTES, PUT-BITS, PUT-LONG, etc.) was not large enough to allow Progress to place all the data specified by the length argument (or implied by the length of the source) at the location specified by the Position argument. The target may have been a MEMPTR, a RAW, or, in the case of PUT-BITS, an INTEGER. (Note: Although Progress attempts to increase the size of a RAW variable in this situation, the size of a RAW cannot exceed approximately 32000.) " "" ""
+9190 "Attempt to exceed maximum size of a RAW variable. (9190)" "There was an operation that would have resulted in a RAW variable greater than the maximum size of a RAW. (One possibility would be an assignment of a MEMPTR to a RAW where the MEMPTR is too large. " "" ""
+9191 "ERROR: The number of <lob-type> fields in the binary dump file, <num-fields> does not
+ match the number in the target database table, <num-fields>. (9191)" "" "d" ""
+9192 "ERROR: The relative field position of the <lob-type> field in the binary dump file, <rpos-num> does not match the target database, <rpos-num>. (9192)" "" "d" ""
+9193 "ERROR: The area the <lob-type> was dumped from, <area-num> does not match the area
+ in the target database, <area-num>. (9193)" "" "d" ""
+9194 "SYSTEM ERROR: Binary Dump/Load failed in upBlobSearchTable. (9194)" "upBlobSearchTable() examines each  Field record of a given table's _File record to determine which, if any fields are of BLOB data type. The information gathered is stored in the blobfields_t structure where it's used to compare source and target BLOB information prior to loading." "d" ""
+9195 "SYSTEM ERROR: Binary Load failed in upHeaderRead, returnCode = <returnCode>. (9195)" "upHeaderRead() opens the Binadry Dump file and reads the header to verify the version and display information regarding the dump." "d" ""
+9196 "SYSTEM ERROR: Binary Load failed in upRecordLoad. (9196)" "upRecordLoad() loads records from the specified dump file into the specified database." "d" ""
+9197 "SYSTEM ERROR: Binary Dump/Load failed in upBlobHandleParse, returnCode = <returnCode>. (9197)" "upBlobHandleParse() parses the BLOB object number and dbKey from the BLOB Handle. The BLOB Handle is stored in the _field._fld_stlen field" "d" ""
+9198 "SYSTEM ERROR: Binary Dump failed in dsmlobEnd, lobType = <lobTyep>, dsmRet = <dsmRet>. (9198)" "" "d" ""
+9199 "SYSTEM ERROR: Binary Dump failed in dsmLobGet, lobType = , bytes read = <num>, expected <num>. (9199)" "" "d" ""
+9200 "SYSTEM ERROR: Binary Dump failed in dsmLobGet, lobType = <lobType>, dsmRet = <dsmRet>. (9200)" "" "d" ""

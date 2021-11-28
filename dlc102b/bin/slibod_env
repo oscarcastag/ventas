@@ -1,0 +1,60 @@
+#!/bin/sh
+# Progress ODBC Shared Library setup
+
+# Setup the Progress shared library  environment.
+# This script expects the DLC environment variable to be set
+: ${DLC?"DLC variable must be set"}
+# If internal build environment - this is already setup just exit
+if [ -n "$RDL" ]
+then
+  :
+else
+
+if [ -z "$ODBC" ]
+then
+ODBC=$DLC/odbc
+ODBCINI=$DLC/odbc/odbc.ini
+export ODBCINI
+fi
+
+# set the shared library include path for Progress - system specific
+OSNAME=`uname`
+case "$OSNAME" in
+    "SunOS")    # Sun Solaris v2.5.1/v2.6 
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ODBC/lib
+      export LD_LIBRARY_PATH
+    ;;
+
+    "HP-UX")   #  HP UNIX, v11.00, v10.20
+      SHLIB_PATH=$SHLIB_PATH:$ODBC/lib
+      export SHLIB_PATH
+
+    ;;
+
+    "AIX")     #  IBM UNIX v4.2/v4.3
+      LIBPATH=$LIBPATH:$ODBC/lib
+      export LIBPATH
+
+    ;;
+
+    "OSF1")    #  Digital UNIX 
+      echo "WARNING: not setting shared library include path"
+    ;;
+
+    "UnixWare")         # Unixware 7
+      echo "WARNING: not setting shared library include path"
+    ;;
+
+    "Linux")
+      LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ODBC/lib
+      export LD_LIBRARY_PATH
+      PROLIBPATH=$LD_LIBRARY_PATH; export PROLIBPATH
+    ;;
+
+    *)         # SCO OpenServer/etc.
+      echo "WARNING: not setting shared library include path"
+    ;;
+esac
+fi
+
+

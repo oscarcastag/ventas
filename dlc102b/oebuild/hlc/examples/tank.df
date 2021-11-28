@@ -1,0 +1,58 @@
+
+CREATE FILE "tank" TYPE PROGRESS
+  CAN-CREATE "*"
+  CAN-READ   "*"
+  CAN-WRITE  "*"
+  CAN-DELETE "*"
+  DESCRIPTION "Flat file containing oil tank information"
+  DUMP-NAME ?
+
+ADD FIELD "tank-id" OF "tank" AS character
+  FORMAT "x(8)"
+  INITIAL ""
+  CAN-READ  "*"
+  CAN-WRITE "*"
+  HELP "Tank identification number"
+  ORDER 10
+
+ADD FIELD "radius" OF "tank" AS decimal
+  FORMAT "->>,>>9.99"
+  INITIAL "0"
+  CAN-READ  "*"
+  CAN-WRITE "*"
+  HELP "Radius of oil tank"
+  DECIMALS 2
+  ORDER 20
+
+ADD FIELD "tlength" OF "tank" AS decimal
+  FORMAT "->>,>>9.99"
+  INITIAL "0"
+  CAN-READ  "*"
+  CAN-WRITE "*"
+  HELP "Length of Oil Tank"
+  DECIMALS 2
+  ORDER 30
+
+ADD FIELD "depth" OF "tank" AS decimal
+  FORMAT "->>,>>9.99"
+  INITIAL "0"
+  CAN-READ  "*"
+  CAN-WRITE "*"
+  VALEXP "depth le 2 * (input radius)"
+  VALMSG "Depth cannot exceed diameter of tank"
+  HELP "Depth of oil in tank."
+  DECIMALS 2
+  ORDER 40
+
+ADD FIELD "tavail" OF "tank" AS decimal
+  FORMAT "->>,>>9.99"
+  INITIAL ?
+  CAN-READ  "*"
+  CAN-WRITE "*"
+  HELP "Available Volume In Tank"
+  DECIMALS 2
+  ORDER 50
+
+CREATE UNIQUE PRIMARY INDEX "tank" ON "tank"
+  INDEX-FIELD "tank-id" ASCENDING ABBREVIATED
+

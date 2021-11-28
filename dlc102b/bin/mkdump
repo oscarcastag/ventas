@@ -1,0 +1,16 @@
+#!/bin/sh
+# mkdump
+# script to create a filedump.p and fileload.p program and compile them.
+# DLCTK Usage mkdump <dbname>
+# It creates filedump.p, filedump.r fileload.p, and fileload.r in the
+# current working directory
+#
+# Note: _procomp is executed with the -b option because this is
+# essentially a non-interactive job.  The -p startup program mkdmpld.p
+# must therefore begin with an OUTPUT TO statement, in case any output
+# is generated.
+#
+DLC=${DLC-/dlc/dlc102b};export DLC
+DLCTK=${DLCTK-$DLC/toolkit};export DLCTK
+PROEXE=${PROEXE-$DLC/bin/_progres};export PROEXE
+exec $DLC/bin/procomp -p $DLCTK/mkdmpld.p -b "$@"

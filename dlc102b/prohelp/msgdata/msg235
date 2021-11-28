@@ -1,0 +1,63 @@
+11701 "A failure has occurred but the Agent has been instructed not to perform TRANSITION.  This Agent is ending. (11701)" "The Agent is ending as is was instructed to do," "" ""
+11702 "Database logins were not enabled because a error <error-code> occurred. (11702)" "Database logins were not enabled.  The Replication Agent is ending." "" ""
+11703 "It appears the Target Database <database-name> has been restored since the last time Replication was run.  Replication to this Agent <agent-name> cannot continue. (11703)" "The target database indicated appears to have been restored since the last time Replication was run.  The Replication Sever cannot continue Replication to the indicated Agent." "" ""
+11704 "The Recovery Control Information for this database has been updated for Replication Version 2.  Do not attempt to use prior version(s) of Replication with this database. (11704)" "The Recovery Control Information has been updated for use the Replication Version 2.  This database cannot be used any prior version of Fathom Replication." "" ""
+11705 "The Agent <agent-name> is not configured for this Replication Server.  (11705)" "An invalid Agent name was specified when an attempt was made to start an Agent.  Correct the Agent name and attempt the command again. " "" ""
+11706 "There are no disconnected Agents for this Replication Server. (11706)" "An attempt was made to start an Agent but there are no disconnected Agents. " "" ""
+11707 "The request to start the Fathom Replication Agent <agent-name> has been processed.    (11707)" "The request to start the Agent indicated has been processed and the request has been sent to the Replication Server." "" ""
+11708 "The Fathom Replication Server is not running for database <databse-name>.    (11708)" "The is no Fathom Replication Server running for the indicated database." "" ""
+11709 "The Fathom Replication <server-or-agent> is being terminated. (11709)" "The Fathom Replication Server or Agent is being terminated." "" ""
+11710 "The Fathom Replication <server-or-agent> has been terminated. (11710)" "The Fathom Replication Server or Agent has been terminated." "" ""
+11711 "Message file <message-file-name> is incompatible with this version of Fathom Replication. (11711)" "The PROMSGS file being opened does not contain the messages required to support Fathom Replication.  PROMSGS may be set incorrectly or the  PROMSGS file indicated is from a former version of Progress." "" ""
+11712 "TCP/IP communications are being terminated as instructed. (11712)" "The TCP/IP communications is being terminated for testing as instructed by a user." "" ""
+11713 "A communications error <error-number> in <function-name>. (11713)" "A communications error has occurred in the indicated function." "" ""
+11714 "Received shutdown request.  Shutdown will will begin now. (11714)" "The Replication Server or Agent received a shutdown request and will begin shutdown immdiately." "" ""
+11715 "Minimum Polling Delay (minumum-polling-delay): <value>. (11715)" "" "" ""
+11716 "Maximum Polling Delay (maximum-polling-delay): <value>. (11716)" "" "" ""
+11717 "Defer Agent Startup (defer-agent-startup): <num>. (11717)" "" "" ""
+11718 "Defer Agent Startup (defer-agent-startup): Not Active. (11718)" "" "" ""
+11719 "Property <property-name> must be between <num> and <num> <unit-of-measure>. (11719)" "" "" ""
+11720 "The Fathom Replication Recovery Control Information is in the incorrect format for this version of Fathom Replication. (11720)" "The recovery control information cannot be read by this version of Fathom Replication.  You may have tried to use a prior version of Replication with a later version of the recovery control information.  Please use the cirrect version of Fathom Replication to access this database." "" ""
+11721 "A Recovery Control Information mismatch has occurred. (11721)" "A recovery control information mismatch has occurred.  This usually indicated the the Fathom Replication Server or Agent failed while the  recovery control information was being updated." "" ""
+11722 "Agent <agent-name> appears to have been removed from the Source database Fathom Replication property file. (11722)" "The agent indicate has been removed from the property file.  It should not be added into the property file unless the target database is re-sourced from a current version of the source database." "" ""
+11723 "The Fathom Replication Product on host <hostname> is newer than this code is.  This Server and the Agent <agentname> cannot communicate. (11723)" "The Fathom Replication Server is an older version than the Fathom Replication product running on the indicated host. " "" ""
+11724 "The Progress 4GL is not enabled for debugging.  Run proDebugEnable from within a proenv session on Windows or from a UNIX shell to enable debugging and set the debuggerEnabled property to 1 for any services that you want to debug. (11724)" "You must enable the product for debugging by running the proDebugEnable tool.  You can find this tool in <Progress install dir>/bin. You must have administrator/root privileges to run this tool.  Each AppService that you want to debug should have the debuggerEnabled property set to 1." "" ""
+11725 "Use port <port #> for the Debugger to connect to. (11725)" "If you want to connect the Attachable Debugger to this Progress interpreter, you must specify the port number shown." "" ""
+11726 "This Fathom Replication <server|agent> cannot comunicate with the Fathom Replication <server|agent> attempting connection due to a protocol version mismatch.  This version <num>, peer version <num>.  (11726)" "There is a protocol version mismatch between both ends of the Fathom Replication configuration.  The Fathom Replication Server and the Agent cannot communicate." "" ""
+11727 "An invalid feature <num> has been encountered in the database's Enabled feature list. (11727)" "A invalid feature has been encountered in the database's enabled-features bit-mask.  The bit-mask could be corrupt or is has been aletered since the last time the database was started.  For integrity reasons this database cannot be opened.  Please contact Progress Technical Support for additional information.  " "" ""
+11728 "An invalid feature <num> has been encountered in the database's Content feature list. (11728)" "A invalid feature has been encountered in the database's content-features bit-mask.  The bit-mask could be corrupt or is has been aletered since the last time the database was started.  For integrity reasons this database cannot be opened.  Please contact Progress Technical Support for additional information.  " "" ""
+11729 "Fathom Replication has been disabled for <database-name>. (11729)" "As instructed Fathom Replication has been disabled for the named database.  In order to use Replication on this database in the future is must be enabled for Replication." "" ""
+11730 "Note version number not allowed to operate on this Progress version. (11730)" "Informational message indicating that the version of Progress currently running does not support the note version number that was read.  This potentially means you need to upgrade the Progress release and restart your process." "d" ""
+11731 "SYSTEM ERROR: <function>: Note Version No. : <code> <version> Max No. : <code> <version>. (11731)" "The current note code and version exceed the maximun note code and version for this release of Progress.  Upgrade or return to the version of Progress that supports this note code and version." "d" ""
+11732 "Cannot start SOAP library without the DLC environment variable (11732)" "The DLC environment variable must be defined and point to a valid Progress installation directory." "" ""
+11733 "Error initializing SOAP Processor:  (11733)" "An error was detected when starting the internal SOAP processor.  The details of the error condition are supplied." "" ""
+11734 "SOAP Transport creation error:  (11734)" "An error occured when attempting to create a SOAP message transport.  The specific reason for the failure is appended to the message." "" ""
+11735 "No Services located in the WSDL document. (11735)" "The WSDL document did not contain any Service definitions.  At least one Service definition is required.
+" "" ""
+11736 "The Service name  is not in the WSDL document. (11736)" "The Web Service Service name specified with the -Service option could not be located in the loaded WSDL document.  Verify the CONNECT option with the WSDL document contents.
+" "" ""
+11737 "A specific Service name must be specified from the WSDL document. (11737)" "The loaded WSDL document contained more than one Service definition and the CONNECT options did not specify which one to use.  Supply the right Service name with a -Service CONNECT option.
+" "" ""
+11738 "Error obtaining WSDL Services   (11738)" "An error was detected while attempting to find the specifiec Web Service service name in the loaded WSDL document.  The details of the failure is appended to the message." "" ""
+11739 "Internal error locating Service and Port for Binding  (11739)" "An error ocurred when searching the WSDL document for the Service and Port definitions of a specific passed in the CONNECT option -Binding.  The fully qualified name of the Binding and the error details are appended to the message.
+" "" ""
+11740 "The  Binding name cannot be found in the WSDL document. (11740)" "The Binding name specified in the CONNECT -Binding option could not be located in the WSDL document.  Verify the Binding name with the contents of the WSDL document.
+" "" ""
+11741 "No Ports located in the WSDL document. (11741)" "The loaded WSDL document did not include any Port definitions.  The WSDL document requires a minimum of one Port definition.
+" "" ""
+11742 "The Port name  is not in the WSDL document. (11742)" "The Port name specified with the CONNECT -Port option could not be found in the WSDL document.  Manually verify the CONNECT option Port name with the contents of the WSDL document." "" ""
+11743 "A specific Port name must be specified from the WSDL document. (11743)" "The WSDL document had more than one available Port defined and the CONNECT statement did not include a -Port option.  Add the appropriate -Port option to the CONNECT statement." "" ""
+11744 "Error obtaining WSDL Ports   (11744)" "An error occured while attempting to find Web Service Port information in the WSDL document.  The name of any specific Port and the details of the error are appended.
+" "" ""
+11745 "Unsupported transport scheme found in the SOAP EndPoint  (11745)" "The transport scheme in the Web Servicess SOAP EndPoint, specified either in the WSDL document or the CONNECT statements -Soapendpoint option, is not supported.  Choose another transport if available.
+" "" ""
+11746 "Error in the specified SOAP EndPoint URL scheme:  (11746)" "An error occured in detecting whether the transport scheme of the SOAP EndPoint is supported.  The name of the EndPoint and the details of the error are appended.
+" "" ""
+11747 "An invalid combination of Service, Port, Binding, and SOAP Endpoint was used. (11747)" "The CONNECT statement contained an invalid combination of -Service, -Port, -Binding, and -Soapendpoint options.  Refer to the documentation for the correct combinations.
+" "" ""
+11748 "Error loading WSDL document  (11748)" "An error occured while loading a WSDL document.  The name of the WSDL document and the detailed error information is appended.  Correct the error condition and reload the WSDL document.
+" "" ""
+11749 "Invalid blank WSDL URL (11749)" "A blank -WSDL URL option was specified in the CONNECT statement options.  Insure that the -WSDL URL specification is present.
+" "" ""
+11750 "The TargetNamespace option  does not match the WSDL's target namespace (11750)" "The CONNECT statement -TargetNamespace option value could not be located in the WSDL document.  Manually verify that the open value is correct and occurs in the WSDL document.
+" "" ""

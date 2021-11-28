@@ -1,0 +1,9 @@
+connect [[ds-domain]] [[ds-url]] [[ds-user]] [[ds-password]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/activation.jar [[install-dir]]/esbadapter/lib/activation.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/esbadptr.jar [[install-dir]]/esbadapter/lib/esbadptr.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/mail.jar [[install-dir]]/esbadapter/lib/mail.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/regexp.jar [[install-dir]]/esbadapter/lib/regexp.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/servlet.jar [[install-dir]]/esbadapter/lib/servlet.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/soap.jar [[install-dir]]/esbadapter/lib/soap.jar [[ds-override]]
+disconnect
+exit

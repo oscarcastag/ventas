@@ -1,0 +1,56 @@
+# This is a template for a unix-script which automatically upgrades
+# an installed PROGRESS application.
+# See the Toolkit manual for more details
+#
+# Step 1:  Unfreeze db-files, make new db-definitions and freeze files
+#
+#          Programs/files involved:
+#
+#          upgrade.p  : Progress start-up procedure.
+#          loginupg.p : Special version of login.p to provide userid and 
+#                       password for security-administrator.
+#                       (Security-administrator must have read/write access to
+#                        all files/fields in the database you want to access).
+#          unfreeze.p : Progress procedure unfreezing db-files.
+#          upgrade.df : ASCII-file with all db-changes (produced by
+#                       dictionary option Dump Incremental Data Definitions
+#          upgrade.inp: ASCII-file with the name of the  input .df-file
+#          upgrade.log: ASCII-file with all output from the upgrade-run
+#          freeze.p   : Progress procedure freezing db-files.
+#
+#      NOTE:  upgrade.p loginupg.p unfreeze.p freeze.p and compile.p
+#             must be encrypted before running upgrade on a runtime-system.
+DLC=${DLC-/usr/dlc}; export DLC
+PROEXE=${PROEXE-$DLC/bin/_progres}; export PROEXE
+
+echo Load new db-definitions
+$PROEXE -rx $1 -1 -p upgrade.p
+echo Loading completed
+
+
+# Step 2:  Rebuild indexes (if you have dectivated)
+#
+#          Programs/files involved:
+#
+#          rebuild.inp: ASCII-file with input to idxbuild
+#          rebuild.log: ASCII-file with all output from the rebuild-run
+
+_proutil $1 -C idxbuild < rebuild.inp > rebuild.log
+
+echo Index-rebuild completed
+
+
+
+# Step 3:  Recompile Progress-procedures affected by the upgrade
+#
+#          Programs/files involved:
+#
+#          compile.p  : Progress-procedure with your compile-statements
+#          compile.inp: ASCII-file with all procedures to be compiled
+#          compile.log: ASCII-file with all output from the compile-run
+
+echo Compile Progress-procedures
+
+$PROEXE -rx  $1 -1 -p compile.p
+
+echo Compilation completed

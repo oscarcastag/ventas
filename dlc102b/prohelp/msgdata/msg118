@@ -1,0 +1,72 @@
+5851 "Start Client" "shell integration context menu option for .PF files " "" ""
+5852 "Start PROGRESS client using parameter file" "help text for context menu option for .pf files. " "" ""
+5853 "Start Server" "shell integration context menu option used for .DB and .PF files " "" ""
+5854 "Start a Database Server with this database" "help text for Start Server option on .DB File context menu " "" ""
+5855 "Start a Database Server with this parameter file" "help text for Start Server option on .PF File context menu. " "" ""
+5856 "Shut Down Server" "shell integration context menu option for .db files. " "" ""
+5857 "Shut Down this Database Server" "help text for .DB file context menu option. " "" ""
+5858 "Edit in the Data Dictionary (single-user)" "shell integration context menu option for .DB files. " "" ""
+5859 "Open the database in the Data Dictionary" "help text for .db file context menu option. " "" ""
+5860 "Edit in the Data Dictionary (multi-user)" "shell integration context menu option for .db files. " "" ""
+5861 "Write to file failed during dbunlok, errno = <number>."" (5861)" "A write error occurred while trying to create a consistant database structure file.  The error occurred while performing a prostrct unlock " "D" ""
+5862 "Unable to get a valid file descriptor for the database <name>. (5862)" "An attempt to open a database has failed.  Please ensure the correct database name and path have been provided to the prostrct utility. " "D" ""
+5863 "PROGRESS Database File" "shell integration property sheet for .db files (icon text) " "" ""
+5864 "PROGRESS File" "shell integration property sheet for .r files (icon text) " "" ""
+5865 "This version of PROGRESS does not support the Quiet Points (-C quiet). (5865)" "You may not use the Quiet Point functionality in this version of PROGRESS.  You are running a version of PROGRESS does not support Quiet Points (-C quiet). " "D" ""
+5866 "This version of PROGRESS does not support variable sizes for database blocks (-blocksize). (5866)" "You may not use the variable database block size functionality in this version of PROGRESS.  You are running a version of PROGRESS that does not support variable block sizes for databases (-blocksize). " "D" ""
+5867 "WebSpeed TailoringSetup: Cannot set path information = <errorcode>. (5867)" "" "m" ""
+5868 "WebSpeed TailoringSetup : Cannot install ... WebSpeed is already installed. (5868)" "" "m" ""
+5869 "WebSpeed TailoringSetup : Cannot update installation ... WebSpeed not installed. (5869)" "" "m" ""
+5870 "WebSpeed TailoringSetup : Cannot update component list = <errorcode>. (5870)" "" "m" ""
+5871 "WebSpeed TailoringSetup : cannot get component list = <errorcode>. (5871)" "" "m" ""
+5872 "This version of PROGRESS does not support setting a minimum network service port (-minport). (5872)" "You may not use a Minimum Network Port setting in this version of PROGRESS.  You are running a version of PROGRESS that does not support Minimum Network Port Setting (-minport). " "D" ""
+5873 "This version of PROGRESS does not support setting a maximum network service port (-maxport). (5873)" "You may not use a Maximum Network Port setting in this version of PROGRESS.  You are running a version of PROGRESS that does not support Maximum Network Port Setting (-maxport). " "d" ""
+5874 "APPEND is invalid for an INPUT TEMP-TABLE parameter. (5874)" "the APPEND qualifier may not be used with an INPUT TEMP-TABLE parameter (is is permitted on OUTPUT or INPUT-OUTPUT). " "C" ""
+5875 "<name> is not a TEMP-TABLE and cannot be used as a TEMP-TABLE parameter. (5875)" "The table name supplied for a temp table parameter is not a temp-table. " "C" ""
+5876 "<method name> is not implemented. Ignoring. (5876)" "The App Server method named is not implemented and will be ignored. " "P" ""
+5877 "DELETE ASYNC-REQUEST is not a valid statement. (5877)" "" "C" ""
+5878 "WTB: Ensure agent executable is on a device that is visible while running under this user id. (5878)" "" "m" ""
+5879 "Raw disk devices are not supported with this license. (5879)" "You may not use raw disk devices for storing database extents in this version of PROGRESS.   You are running a version of PROGRESS that does not support specifying raw disk devices in a PROGRESS database structure file. " "D" ""
+5880 " Msngr: cannot disconnect the specified service, because the service is currently active. Please try later. (5880)" "The user has requested the messenger to disconnect a service that may have session connect in progress. Until the session connection is completed, the connection to the service must be maintained.  The user can wait for a while and try this operation again. " "m" ""
+5881 "WebSpeed UninstallDispatch : Cannot delete WebSpeed version key = <errorcode>. (5881)" "" "m" ""
+5882 "Invalid wakeup, semcnt =  <number>. (5882)" "syserr " "d" ""
+5883 "Invalid wakeup, wake indicator =  <number>. (5883)" "syserr " "d" ""
+5884 "Invalid component-handle referenced while processing method/statement: <method or statement name>.
+<COM message>
+<program name> (5884)" "You have referenced a com-handle that is either, 0, the unknown value (?), or that points to an object that has become unavailable through a RELEASE statement, or through some user interaction on the object. <COM message> will sometimes contain more specific information. " "" ""
+5885 "Out of memory while processing method/statement: <method or statement name>.
+<COM-message>
+<Program name> (5885)" "You did not have enough memory to complete a COM operation.  That is you failed to complete a com-handle expression evaluation. COM-message may have more information. " "" ""
+5886 "Connecting to an automation object requires an automation object or file name.
+<COM message>
+<Program name> (5886)" "Both the automation object name and the file name were omitted in the CREATE statement to connect to an automation object.  In other words, a null string was given in the CREATE statement, as in CREATE """" CONNECT TO """".  COM message may have more details. " "" ""
+5887 "Invalid component-handle was passed as a parameter to method: <method name>.
+<COM message>
+<Program name> (5887)" "You have passed a com-handle to a method that is either, 0, the unknown value (?), or that points to an object that has become unavailable through a RELEASE statement, or through some user interaction on the object.  <COM message> will sometimes contain more specific information. " "" ""
+5888 "Wrong number of parameters.  Component method <method name> called with  parameters.
+<program name>. (5888)" "You used an expression of the type <com-handle>:method(x,y,...)... where the wrong number of parameters was passed.  If the message indicates that you passed ""<5 parameters"" it would mean that there are 5 required parameters.  If it says that you passed "">2 parameters"" it means that there are 2 arguments at most.  The <COM message> may contain more information regarding the nature of the error. " "" ""
+5889 "Unexpected error occurred while processing method/statement <method or statement name>.
+<COM message>
+<Program name> (5889)" "An unexpected error occurred.  This is indicative of a bug in the software.  Please contact your Tech Support representative. " "" ""
+5890 "Error occurred while accessing component property/method: <property or method name>.
+<COM message>
+Error code:  <Program name> (5890)" "An error occurred while trying to get or set a property via a com-handle or while calling a method via a com-handle.  The error code may be looked up in the documentation.  COM message should also give more information. " "" ""
+5891 "Error occurred while creating/connecting to automation server: <automation object name>. A required interface (probably IDispatch) is not supported by this server.   (5891)" "In trying to create the specified COM object, Progress encountered the error E_NOINTERFACE (0x80004002).  The object must support the IDispatch and IPersistFile interfaces in order for Progress to support it.  If it does not, the CREATE will fail with this error. " "" ""
+5892 "Error creating/connecting to automation server for: <server name>.
+Could not find or open file: <file name>. (5892)" "An attempt was made to connect to a server with the CONNECT TO option which specifies the file to load automatically (e.g., CREATE ""Excel.Application CONNECT TO ""c:\work\mysheet"""".  The specified file was not found or could not be opened due to an access conflict or some other problem. " "" ""
+5893 "The automation server for <automation object name> is not registered properly.
+Please reinstall this server or try registering it again. (5893)" "Progress could not find information on this automation object in the system registry.  This generally means that the server software was not installed properly.  Note: The object PROX.PROIDE is an automation object supported by Progress itself and is used by the User Interface Builder.  If this is the automation object name specified, it means that Progress should be reinstalled or that prox.dll (which ships with Progress) should be registered. " "" ""
+5894 "Error occurred while creating/connecting to automation server for: <automation object name>.
+<COM message>
+Error code:  <Program name> (5894)" "An error occurred in the CREATE statement for an OLE automation object.  The error code may be looked up in the documentation.  COM message should also give more information. " "" ""
+5895 "A CONTROL-FRAME must be deleted through its WIDGET-HANDLE, not released through its COMPONENT-HANDLE. (5895)" "In general, if you obtain a component-handle for an object, it must be released with the RELEASE OBJECT statement to ensure that it goes away at some point.  However, because of the special relationship of a control container to the control-frame widget, the control container should not be ""released"".  Instead do DELETE OBJECT <widget-handle> using the control-frame widget handle. " "" ""
+5896 "Error occurred while releasing component-handle.
+Error code:  <Program name> (5896)" "An error occurred in the RELEASE OBJECT statement. The error code may be looked up in the documentation. " "" ""
+5897 "Input blocking statement is invalid in event handler: . (5897)" "This error occurs when the trigger fires from an ActiveX object that is executing a method or property body called from the ABL.  In other words, normally, ActiveX triggers fire while the application is waiting for UI.  The current statement in the ABL is already an I/O blocking statement (e.g., WAIT-FOR).   If that is the case, we allow I/O blocking statements in the trigger code.  But sometimes, the ABL can call a method on an ActiveX object and during execution of that method, the COM object fires an event.  This is the scenario when we do not allow I/O blocking.  Also be aware that if the event procedure has an INPUT-OUTPUT or OUTPUT parameter no value will be returned for this parameter if there is an I/O blocking statement in the event procedure.  So the application should avoid doing this." "" ""
+5898 "Error occurred while creating CONTROL-FRAME: <frame name>.
+<COM message>
+Error code:  (5898)" "An error occurred in the CREATE CONTROL-FRAME statement.  The error code may be looked up in the documentation.  COM message should also give more information. " "" ""
+5899 "Invalid procedure handle specified for ADD/REMOVE-EVENTS-PROCEDURE. (5899)" "The procedure-handle specified for the ADD-EVENTS-PROCEDURE/REMOVE-EVENTS-PROCEDURE method on a control-frame must be a valid procedure handle and it must reference a procedure that is active at the time this method is called - in other words the procedure must either be on the RUN stack or it must be running persistently. " "" ""
+5900 "Wrong input/output parameter mode defined for parameter <parameter #>.
+Event/method: <event or method name>
+<Program name> (5900)" "The input, input-output or output modifier for a parameter did not match the component's definition for this method or event. " "" ""

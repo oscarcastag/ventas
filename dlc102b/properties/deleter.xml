@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+
+<!-- Type instance deleters -->
+<waspc-config xmlns:del="urn:DeleterRepository" xmlns:wasp="urn:WaspServer">
+
+    <!-- Module DeleterRepository -->
+    <wasp:module wasp:class="WASP_DeleterRepositoryImpl"/>
+
+    <!-- Basic deleters -->
+    <del:deleter del:class="WASP_PrimitiveTypeDeleter">
+        <!-- Signed -->
+        <del:type del:cppType="bool"/>
+        <del:type del:cppType="bool *"/>
+        <del:type del:cppType="char"/>
+        <del:type del:cppType="char *"/>
+        <del:type del:cppType="short"/>
+        <del:type del:cppType="short *"/>
+        <del:type del:cppType="int"/>
+        <del:type del:cppType="int *"/>
+        <del:type del:cppType="long"/>
+        <del:type del:cppType="long *"/>
+        <del:type del:cppType="WASP_LongLong"/>
+        <del:type del:cppType="WASP_LongLong *"/>
+        <del:type del:cppType="long long"            del:asType="WASP_LongLong"/>
+        <del:type del:cppType="long long *"          del:asType="WASP_LongLong *"/>
+        <del:type del:cppType="int64_t"              del:asType="WASP_LongLong"/>
+        <del:type del:cppType="int64_t *"            del:asType="WASP_LongLong *"/>
+        <del:type del:cppType="__int64"              del:asType="WASP_LongLong"/>
+        <del:type del:cppType="__int64 *"            del:asType="WASP_LongLong *"/>
+        <!-- Signed -->
+        <del:type del:cppType="signed char"/>
+        <del:type del:cppType="signed char *"/>
+        <!-- Unsigned -->
+        <del:type del:cppType="unsigned char"/>
+        <del:type del:cppType="unsigned char *"/>
+        <del:type del:cppType="unsigned short"/>
+        <del:type del:cppType="unsigned short *"/>
+        <del:type del:cppType="unsigned int"/>
+        <del:type del:cppType="unsigned int *"/>
+        <del:type del:cppType="unsigned long"/>
+        <del:type del:cppType="unsigned long *"/>
+        <del:type del:cppType="WASP_UnsignedLongLong"/>
+        <del:type del:cppType="WASP_UnsignedLongLong *"/>
+        <del:type del:cppType="unsigned long long"   del:asType="WASP_UnsignedLongLong"/>
+        <del:type del:cppType="unsigned long long *" del:asType="WASP_UnsignedLongLong *"/>
+        <del:type del:cppType="uint64_t"             del:asType="WASP_UnsignedLongLong"/>
+        <del:type del:cppType="uint64_t *"           del:asType="WASP_UnsignedLongLong *"/>
+        <del:type del:cppType="unsigned __int64"     del:asType="WASP_UnsignedLongLong"/>
+        <del:type del:cppType="unsigned __int64 *"   del:asType="WASP_UnsignedLongLong *"/>
+        <!-- Floats -->
+        <del:type del:cppType="float"/>
+        <del:type del:cppType="float *"/>
+        <del:type del:cppType="double"/>
+        <del:type del:cppType="double *"/>
+        <del:type del:cppType="long double"/>
+        <del:type del:cppType="long double *"/>
+        <!-- Others -->
+        <!-- datetime -->
+        <del:type del:cppType="WASP_Duration"/>
+        <del:type del:cppType="WASP_Duration *"/>
+        <del:type del:cppType="WASP_DateTime"/>
+        <del:type del:cppType="WASP_DateTime *"/>
+        <del:type del:cppType="WASP_Time"/>
+        <del:type del:cppType="WASP_Time *"/>
+        <del:type del:cppType="WASP_Date"/>
+        <del:type del:cppType="WASP_Date *"/>
+        <del:type del:cppType="WASP_GYearMonth"/>
+        <del:type del:cppType="WASP_GYearMonth *"/>
+        <del:type del:cppType="WASP_GYear"/>
+        <del:type del:cppType="WASP_GYear *"/>
+        <del:type del:cppType="WASP_GMonthDay"/>
+        <del:type del:cppType="WASP_GMonthDay *"/>
+        <del:type del:cppType="WASP_GDay"/>
+        <del:type del:cppType="WASP_GDay *"/>
+        <del:type del:cppType="WASP_GMonth"/>
+        <del:type del:cppType="WASP_GMonth *"/>
+        
+        <del:type del:cppType="WASP_String *"/>
+        <del:type del:cppType="WASP_VString"/>
+        <del:type del:cppType="WASP_VString *"/>
+        <del:type del:cppType="WASP_BinaryArray"/>
+        <del:type del:cppType="WASP_BinaryArray *"/>
+        <del:type del:cppType="WASP_URI *"/>
+        <del:type del:cppType="WASP_QName"/>
+        <del:type del:cppType="WASP_QName *"/>
+    </del:deleter>
+
+    <del:deleter del:class="WASP_AbstractStructureDeleter">
+        <del:type del:cppType="WASP_AbstractArray *"/>
+        <del:type del:cppType="WASP_AbstractStructure *"/>
+    </del:deleter>
+
+    <del:deleter del:class="WASP_XMLHolderDeleter"/>
+    <del:deleter del:class="WASP_XMLNodeHolderDeleter"/>
+    <del:deleter del:class="WASP_MessageAttachmentDeleter"/>
+    <del:deleter del:class="WASP_VMessageAttachmentDeleter"/>
+    <del:deleter del:class="WASP_BinaryDataDeleter"/>
+
+</waspc-config>

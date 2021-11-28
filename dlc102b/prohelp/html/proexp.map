@@ -1,0 +1,276 @@
+#
+# LINKS MUST BE ON ONE SINGLE LINE, AND ARE SEPERATED BY AN 
+# EQUAL SIGN WITH THE LEFT HAND SIDE THE SYMBOLIC NAMES USED
+# IN JAVA SOURCE CODE, AND RIGHT HAND SIDE TOPIC NAMES IN 
+# PROEXP.CHM FILE. 
+#
+# DIRECTORY SEPERATOR IS DOUBLE BACK SLASHES "\\" IN TOPIC NAMES.
+#
+# COMMENTS CAN BE EXPENDED ON SEVERAL LINES, BUT CAN'T CONTAIN 
+# ANY EQUAL SIGNS. 
+#
+
+# Default Help topic:
+PE_WELCOME=Welcome_to_Progress_Explorer\\Introduction.htm
+
+
+#
+# Dialog boxes in MMC Progress Explorer
+#
+
+# Database property box
+PE_DATABASE=Dialog_Boxes\\Database_Properties_Dialog_Box.htm
+
+# Database Configuration property box
+PE_CONFIGURATION=Dialog_Boxes\\Database_Configuration_Properties_Dialog_Box.htm
+
+# Database ServerGroup property box
+PE_SERVERGROUP=Dialog_Boxes\\Database_Server_Group_Configuration_Dialog_Box.htm
+
+# WebSpeed property box
+PE_UBROKER.WS=Dialog_Boxes\\WebSpeed_Transaction_Server_Properties_Dialog_Box.htm
+
+# AppServer property box
+PE_UBROKER.AS=Dialog_Boxes\\AppServer_Properties_Dialog_Box.htm
+
+# Oracle DataServer property box
+PE_UBROKER.OR=Dialog_Boxes\\DataServer_for_Oracle_Properties_Dialog_Box.htm
+
+# ODBC DataServer property box
+PE_UBROKER.OD=Dialog_Boxes\\DataServer_for_ODBC_Properties_Dialog_Box.htm
+
+# MSS DataServer property box
+PE_UBROKER.MS=Dialog_Boxes\\DataServer_for_Sql_Server_Properties_Dialog_Box.htm
+
+# SonicMQ Adapter property box
+PE_ADAPTER=Dialog_Boxes\\SonicMQ_Adapter_Broker_Properties_Dialog_Box.htm
+
+# AppServer Internet Adapter property box
+PE_AIA=Dialog_Boxes\\AppServer_Internet_Adapter_Properties_Dialog_Box.htm
+
+# NameServer property box
+PE_NAMESERVER=Dialog_Boxes\\NameServer_Properties_Dialog_Box.htm
+
+# Messenger property box
+PE_WEBSPEED.MESSENGERS=Dialog_Boxes\\WebSpeed_Messenger_Properties_Dialog_Box.htm
+
+# Web Services Adapter property box
+PE_WSA=Dialog_Boxes\\Web_Services_Adapter_Properties_Dialog_Box.htm
+
+# Progress Server property box
+PE_SERVERPROPERTIESDIALOG=Dialog_Boxes\\Add_Progress_Server_Dialog_Box.htm
+
+# Ubroke Preference dialog box
+PE_PREFERENCES=Dialog_Boxes\\Adjusting_Global_Preferences_for_Progress_Explorer.htm
+
+# Fathom Replication Agent Properties dialog box
+PE_AGENT=Dialog_Boxes\\Agent_Properties_dialog_box.htm
+
+# Fathom Replication Control Agent Properties dialog box
+PE_CONTROL-AGENT=Dialog_Boxes\\Control_Agent_Properties_dialog_box.htm
+
+# Fathom Replication Transition Properties dialog box
+PE_TRANSITION=Dialog_Boxes\\Transition_Properties_dialog_box.htm
+
+# Fathom Replication Server Properties dialog box
+PE_SERVER=Dialog_Boxes\\Server_properties_dialog_box.htm
+
+
+#
+# Tree Nodes in MMC Progress Explorer
+#
+
+# Individual AdminServer host name node: e.g., "localhost"
+
+PE_com.progress.vj.explorer.ProgressServer=Getting_Started_with_the_Progress_Explorer\\Accessing_the_Progress_Servers.htm
+
+
+# Folder node "Databases":
+
+PE_com.progress.vj.juniper.JuniperMMCPlugInClient=Database_Configuration_and_Administration\\Database_Overview.htm
+
+# Individual Database name node: e.g., "Database-1"
+
+PE_com.progress.vj.juniper.JuniperMMCDatabaseClient=Database_Configuration_and_Administration\\Database_Overview.htm
+
+
+# Folder node "Configurations":
+
+PE_com.progress.vj.juniper.JuniperMMCConfigsCategoryClient=Database_Configuration_and_Administration\\Database_Overview.htm
+
+# Individual Database Configuration name node: e.g., "defaultConfiguration"
+
+PE_com.progress.vj.juniper.JuniperMMCConfigurationClient=Database_Configuration_and_Administration\\Using_the_Database_Default_Configuration.htm
+
+# Individual Database ServerGroup name node: e.g., "defaultServerGroup"
+
+PE_com.progress.vj.juniper.JuniperMMCServerGroupClient=Database_Configuration_and_Administration\\Using_the_Database_Server_Group_Default_Configuration.htm
+
+
+# Folder node "WebSpeed"
+
+PE_com.progress.vj.ubroker.UBMMCClient_UBroker.WS=WebSpeed_Transaction_Server\\WebSpeed_Transaction_Server_Overview.htm
+
+# Individual WebSpeed name node: e.g., "wsbroker1"
+
+PE_com.progress.vj.ubroker.UBTMMCClient_UBroker.WS=WebSpeed_Transaction_Server\\WebSpeed_Transaction_Server_Overview.htm
+
+
+# Folder node "AppServer"
+
+PE_com.progress.vj.ubroker.UBMMCClient_UBroker.AS=AppServer_Configuration_and_Administration\\AppServer_Overview.htm
+
+# Individual AppServer name node: e.g., "asbroker1"
+
+PE_com.progress.vj.ubroker.UBTMMCClient_UBroker.AS=AppServer_Configuration_and_Administration\\AppServer_Overview.htm
+
+
+# Folder node "Oracle DataServer"
+
+PE_com.progress.vj.ubroker.UBMMCClient_UBroker.OR=DataServer_for_Oracle_Configuration_and_Administration\\DataServer_for_Oracle_Configuration_Overview.htm
+
+# Individual Oracle DataServer name node: e.g., "orbroker1"
+
+PE_com.progress.vj.ubroker.UBTMMCClient_UBroker.OR=DataServer_for_Oracle_Configuration_and_Administration\\DataServer_for_Oracle_Configuration_Overview.htm
+
+
+# Folder node "ODBC DataServer"
+
+PE_com.progress.vj.ubroker.UBMMCClient_UBroker.OD=DataServer_for_ODBC_Configuration_and_Administration\\DataServer_for_ODBC_Overview.htm
+
+#Individual ODBC DataServer name node: e.g., "odbroker1"
+
+PE_com.progress.vj.ubroker.UBTMMCClient_UBroker.OD=DataServer_for_ODBC_Configuration_and_Administration\\DataServer_for_ODBC_Overview.htm
+
+
+# Folder node "MSS DataServer"
+
+PE_com.progress.vj.ubroker.UBMMCClient_UBroker.MS=DataServer_for_SQL_Server_Configuration_and_Administration\\DataServer_for_SQL_Configuration_Overview.htm
+
+#Individual MSS DataServer name node: e.g., "mssbroker1"
+
+PE_com.progress.vj.ubroker.UBTMMCClient_UBroker.MS=DataServer_for_SQL_Server_Configuration_and_Administration\\DataServer_for_SQL_Configuration_Overview.htm
+
+
+# Folder node "SonicMQ Adapter"
+
+PE_com.progress.vj.ubroker.adapter.AdapterMMCClient_Adapter=SonicMQ_Adapter_Broker_Configuration_and_Administration\\SonicMQ_Adapter_Overview.htm
+
+#Individual SonicMQ Adapter name node: e.g., "sonicMQ1"
+
+PE_com.progress.vj.ubroker.adapter.AdapterTMMCClient_Adapter=SonicMQ_Adapter_Broker_Configuration_and_Administration\\SonicMQ_Adapter_Overview.htm
+
+
+# Folder node "AppServer Internet Adapter"
+
+PE_com.progress.vj.ubroker.aia.AiaMMCClient_AIA=AppServer_Internet_Adapter_Configuration_and_Administration\\AppServer_Internet_Adapter_Overview.htm
+
+#Individual ODBC DataServer name node: e.g., "Aia1"
+
+PE_com.progress.vj.ubroker.aia.AiaTMMCClient_AIA=AppServer_Internet_Adapter_Configuration_and_Administration\\AppServer_Internet_Adapter_Overview.htm
+
+
+# Folder node "NameServer"
+
+PE_com.progress.vj.ubroker.NSMMCClient=NameServer_Configuration_and_Administration\\ProexpNameServerOverview.html
+
+# Individual NameServer node: e.g., "NS1"
+
+PE_com.progress.vj.ubroker.NSTMMCClient=NameServer_Configuration_and_Administration\\ProexpNameServerOverview.html
+
+
+# Folder node "Messengers"
+
+PE_com.progress.vj.ubroker.MSMMCClient=WebSpeed_Messenger\\WebSpeed_Messenger_Overview.htm
+
+# Individual Messenger node
+
+PE_com.progress.vj.ubroker.MSTMMCClient=WebSpeed_Messenger\\WebSpeed_Messenger_Overview.htm
+
+
+# Folder node "Web Services Adapter"
+
+PE_com.progress.vj.ubroker.wsa.wsaMMCClient=Web_Services_Adapter_Configuration_and_Administration\\Web_Services_Adapter_Overview.htm
+
+# Individual Web Services Adapter node
+
+PE_com.progress.vj.ubroker.wsa.wsatMMCClient=Web_Services_Adapter_Configuration_and_Administration\\Web_Services_Adapter_Overview.htm
+
+# Individual Web Service node
+
+PE_com.progress.vj.ubroker.wsa.wsvcMMCClient=Web_Services_Adapter_Configuration_and_Administration\\Web_Services_Adapter_Overview.htm
+
+
+# Folder node "Fathom Replication"
+PE_com.progress.vj.replication.ReplMMCCategoryClient=Fathom_Replication_Configuration\\Overview.htm
+
+# Folder node "Server"
+PE_com.progress.vj.replication.ReplMMCServerClient=Dialog_Boxes\\Server_properties_dialog_box.htm
+
+# Folder node "Control Agents" 
+PE_com.progress.vj.replication.ReplMMCCtlAgentCategoryClient=Dialog_Boxes\\Control_Agent_Properties_dialog_box.htm
+
+
+# Folder node "Agent"
+PE_com.progress.vj.replication.ReplMMCAgentClient=Dialog_Boxes\\Agent_Properties_dialog_box.htm
+
+# Folder node "Transition"
+PE_com.progress.vj.replication.ReplMMCTransitionClient=Dialog_Boxes\\Transition_Properties_dialog_box.htm
+
+
+
+#
+# Log File nodes
+#
+
+# "Log File" under an AdminServer host name:
+
+PE_ProgressServerLog=Getting_Started_with_the_Progress_Explorer\\Viewing_Progress_Server_Log_Files.htm
+
+# "Log File" under a Database name:
+PE_DatabaseLog=Database_Configuration_and_Administration\\Viewing_the_Database_Log_File.htm
+
+# "Broker Log" under a WebSpeed
+
+PE_UBroker.WS_BrokerLog=WebSpeed_Transaction_Server\\Viewing_the_WebSpeed_Transaction_Server_Log_Files.htm
+
+# "Server Log" under a WebSpeed
+
+PE_UBroker.WS_ServerLog=WebSpeed_Transaction_Server\\Viewing_the_WebSpeed_Transaction_Server_Log_Files.htm
+
+# "Broker Log" under an AppServer
+
+PE_UBroker.AS_BrokerLog=AppServer_Configuration_and_Administration\\Viewing_the_AppServer_Log_Files.htm
+
+# "Server Log" under an AppServer
+
+PE_UBroker.AS_ServerLog=AppServer_Configuration_and_Administration\\Viewing_the_AppServer_Log_Files.htm
+
+# "Broker Log" under an Oracle DataServer
+
+PE_UBroker.OR_BrokerLog=DataServer_for_Oracle_Configuration_and_Administration\\Viewing_the_DataServer_for_Oracle_Log_File.htm
+
+# "Broker Log" under an ODBC DataServer
+
+PE_UBroker.OD_BrokerLog=DataServer_for_ODBC_Configuration_and_Administration\\Viewing_the_DataServer_for_ODBC_Log_File.htm
+
+# "Broker Log" under an MSS DataServer
+
+PE_UBroker.MS_BrokerLog=DataServer_for_SQL_Server_Configuration_and_Administration\\Viewing_the_DataServer_for_SQL_Log_File.htm
+
+# "Broker Log" under a SonicMQ Adapter
+
+PE_Adapter_BrokerLog=SonicMQ_Adapter_Broker_Configuration_and_Administration\\Viewing_the_SonicMQ_Adapter_Broker_Log_Files.htm
+
+# "Server Log" under a SonicMQ Adapter
+
+PE_Adapter_ServerLog=SonicMQ_Adapter_Broker_Configuration_and_Administration\\Viewing_the_SonicMQ_Adapter_Broker_Log_Files.htm
+
+# "Log File" under a AppServer Internet Adapter
+
+PE_AiaLog=AppServer_Internet_Adapter_Configuration_and_Administration\\Viewing_the_AppServer_Internet_Adapter_Log_File.htm
+
+# "Server Log" under a NameServer
+
+PE_NameServerLog=NameServer_Configuration_and_Administration\\Viewing_the_NameServer_Log_File.htm
+

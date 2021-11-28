@@ -1,0 +1,448 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+    <meta name="TEMPLATEBASE" content="Progress Debugger JavaHelp 10.1A">
+    <meta name="LASTUPDATED" content="11/16/09 00:07:44">
+    <link rel="StyleSheet" href="document.css" type="text/css" media="screen">
+    <title>Debugger window panes</title>
+  </head>
+
+  <body link="#3366CC" vlink="#9999CC" text="#000000" alink="#0000CC" bgcolor="#FFFFFF">
+
+    <hr align="left">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr> 
+        <td align="right" valign="top">
+<a href="dbgrhelp-1-2.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><a href="dbgrhelp-1-4.html"><img src="images/snext.gif" border="0" alt="Next"></a>
+        </td>
+      </tr>
+    </table>
+
+
+    <blockquote>
+<h3 >
+Debugger window panes 
+<a name="wp449933"> </a></h3>
+<p >
+The following sections describe the Debugger window panes and how to use them: 
+<a name="wp445290"> </a></p>
+<ul> <li   );><a href="dbgrhelp-1-3.html#wp444063">Source code pane</a><a name="wp444021"> </a>
+ <li   );><a href="dbgrhelp-1-3.html#wp476856">ABL stack trace pane</a><a name="wp444042"> </a>
+ <li   );><a href="dbgrhelp-1-3.html#wp432821">Variables pane</a><a name="wp444043"> </a>
+ <li   );><a href="dbgrhelp-1-3.html#wp497062">Watches pane</a><a name="wp469913"> </a>
+</ul><h4 >
+Source code pane
+<a name="wp444063"> </a></h4>
+<p >
+The <em>source code pane</em> displays a read-only debug listing including breakpoints and the current line of execution. It can contain the executing procedure or any other procedure whose listing you want to see. The name of the procedure whose listing the Debugger displays appears in the Debugger title bar. For more information, see the <a href="dbgrhelp-1-4.html#wp454140">&quot;Debugger title bar&quot; section</a>.
+<a name="wp505165"> </a></p>
+<p >
+The source code pane has a context (right-click) menu containing the following options: <b>Copy</b>, <b>Find</b>, <b>Find Next</b>, <b>Find Previous</b>, <b>Add Breakpoint</b>, <b>Remove Breakpoint</b>, <b>Enable Breakpoint</b>, <b>Disable Breakpoint</b>, <b>Run to Line</b>, and <b>Add Watch </b>(adds the selected item to the watches pane).
+<a name="wp454216"> </a></p>
+<h5 >
+Debug listing 
+<a name="wp454218"> </a></h5>
+<p >
+The<em> debug listing</em> is a specially prepared source code listing that lets you set breakpoints and follow the course of procedure execution in an application. It is an expanded listing file that the ABL compiler creates during procedure compilation.
+<a name="wp448726"> </a></p>
+<p >
+The format of a debug listing is similar to the standard ABL compiler listing. Like compiler listings, debug listings expand all preprocessor, include file, and parameter references. The main difference is that the text in debug listings contains only numbered source code lines without headings, page formatting, or any of the other internal data information (such as buffer and frame use) usually provided by compiler listings.
+<a name="wp460062"> </a></p>
+<p >
+Line numbers appear in the source code pane if you select the <b>Include Source Line Numbers</b> option in the <b>Preferences</b> dialog box. For more information, see the <a href="dbgrhelp-1-8.html#wp444701">&quot;Preferences dialog box&quot; section</a>. The Debugger displays line numbers by default.
+<a name="wp459036"> </a></p>
+<p >
+The Debugger displays the listing for the executing procedure each time it receives control (for example, at a breakpoint). If the Debugger cannot find the debug listing for the procedure, it tries to generate it from the procedure source code. If the Debugger can find only the r-code for the procedure, it displays the procedure name and line number in the status bar as you step through the procedure.
+<a name="wp432749"> </a></p>
+<p >
+For more information on procedure source files and debug listing files derived from procedure files, see the <a href="dbgrhelp-1-9.html#wp446955">&quot;Debugger files&quot; section</a>.
+<a name="wp459286"> </a></p>
+<h5 >
+Listing indicators
+<a name="wp440987"> </a></h5>
+<p >
+When the source code pane displays the listing for the executing procedure or any procedure on the call stack, it also displays two listing indicators: a <em>line pointer</em> that shows the next line to execute and a <em>breakpoint indicator</em> that shows each line where a breakpoint is set. <a href="dbgrhelp-1-3.html#wp537688">Table 3-1</a> lists the Debugger listing indicators.
+<a name="wp432769"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><b><p >
+Table 3-1:	 Listing indicators&nbsp;
+<a name="wp537688"> </a></p></b>
+</caption>
+  <tr bgcolor="#CCCCCC">
+    <th><div >Icon<a name="wp537692"> </a></div></th>
+    <th><div >Description<a name="wp537694"> </a></div></th>
+  </tr>
+  <tr>
+    <td><p >
+<img src="images/indicat1.gif" border="0" hspace="0" vspace="0">
+<a name="wp537699"> </a></p>
+</td>
+    <td><div >The line pointer indicator for the executing procedure appears in green to the left of the next executable line. When you are viewing a procedure on the call stack other than the active procedure, the line pointer appears in yellow.<a name="wp537701"> </a></div></td>
+  </tr>
+  <tr>
+    <td><p >
+<img src="images/indicat2.gif" border="0" hspace="0" vspace="0">
+<a name="wp537706"> </a></p>
+</td>
+    <td><div >The breakpoint indicator appears in red to the left of each line where a breakpoint is set. Disabled breakpoints appear as red outlines. For information on maintaining breakpoints in a procedure, see the <a href="dbgrhelp-1-8.html#wp501468">&quot;Breakpoints dialog box&quot; section</a>.<a name="wp537708"> </a></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp455133"> </a></p>
+<h5 >
+Text selection
+<a name="wp432803"> </a></h5>
+<p >
+You can select one full or partial line of source code to set watches or copy to the clipboard.
+<a name="wp448711"> </a></p>
+<h5 >
+Run to Line command
+<a name="wp475641"> </a></h5>
+<p >
+The <b>Run to Line</b> command continues program execution until it reaches a selected line of ABL code. Execution resumes with the selected line. If the Debugger encounters a breakpoint or interrupt before reaching the selected line, execution stops, and the Debugger cancels the command. The execution pointer is at the break or interrupt line.
+<a name="wp475678"> </a></p>
+<p >
+If the selected line is not an executable line of code, the Debugger stops execution on the first executable line after the selected line. If there are no executable lines of code on or after the selected line, the Debugger stops execution on the last executable line of code in the procedure file.
+<a name="wp475683"> </a></p>
+<p >
+If program execution ends before the Debugger reaches the selected line, the Debugger cancels <b>Run to Line</b>, and the debugging session ends.
+<a name="wp475684"> </a></p>
+<b><p >
+To  issue <b>Run to Line</b>, right-click on the chosen line in the source code pane and choose <b>Run to Line</b> from the context (right-click) menu.
+<a name="wp476896"> </a></p></b>
+<p >
+You can select a line in any procedure file open in the Debugger. The selected line does not have to be in the current procedure.
+<a name="wp476903"> </a></p>
+<h4 >
+ABL stack trace pane
+<a name="wp476856"> </a></h4>
+<p >
+The <em>ABL stack trace pane</em> displays the ABL stack trace for the executing procedure. This pane indicates what procedure you are in and what procedure you came from. The top of the pane shows the top of the stack. You can investigate the code associated with a line of the stack trace by clicking on the stack trace line. The Debugger automatically updates the source code pane, variables pane, and watches pane to reflect the code and data associated with the selected stack trace line.
+<a name="wp496938"> </a></p>
+<h4 >
+Variables pane
+<a name="wp432821"> </a></h4>
+<p >
+The <em>variables pane</em> provides access to the variables associated with the current procedure. The Debugger organizes and displays variable data on tabs named for the following categories:
+<a name="wp432825"> </a></p>
+<ul> <li   );>Variables<a name="wp448951"> </a>
+ <li   );>Buffers<a name="wp449093"> </a>
+ <li   );>Parameters<a name="wp448965"> </a>
+ <li   );>Temp Tables<a name="wp448974"> </a>
+ <li   );>Dataset<a name="wp473715"> </a>
+</ul><p >
+Choose a tab to display all variables in that category. Each tab in the variables pane has a context (right-click) menu containing the following options: <b>Copy</b>, <b>Cut</b>, <b>Paste</b>, <b>Dataview</b> (displays attribute or field information for the selected variable in the <b>Dataview</b> dialog box), and <b>Add&nbsp;Watch</b> (adds the selected variable to the watches pane). For more information, see the <a href="dbgrhelp-1-8.html#wp500912">&quot;Dataview dialog box&quot; section</a> and the <a href="dbgrhelp-1-8.html#wp507151">&quot;Add Watch dialog box&quot; section</a>. 
+<a name="wp448978"> </a></p>
+<p >
+Double-clicking on a cell containing the value of a variable makes the value editable. You can modify the value by entering a different value and pressing the <b>ENTER</b> key or clicking out of the cell. Pressing the <b>ESC</b> key when editing a value restores the current value and cancels the editing operation.
+<a name="wp448932"> </a></p>
+<p >
+The Debugger displays raw (unformatted) variable data. For example, a decimal value of 1,234.56 appears as 1234.56; 1.00 appears as 1. Do not use formatting characters when entering variable values. Dynamic temp-table and dataset-related objects appear in the variables tab as handle variables. 
+<a name="wp526946"> </a></p>
+<h5 >
+Accessing array variables and parameters
+<a name="wp526949"> </a></h5>
+<p >
+Array variables and parameters appear on their respective tabs in the variables pane. The Debugger displays the name of the array, the number of elements in the array (in brackets), and the data type of the array (for example, <code>DaysInMonth</code> <code>[12]</code> <code>INTEGER</code>). You can examine the value of a single array element as a watch (<code>DaysInMonth[3]</code>), or examine the value of all elements in an array in the <b>Array</b> tab of the <b>Dataview</b> dialog box.
+<a name="wp526950"> </a></p>
+<p >
+If an array has an indeterminate extent (that is, it was declared as <code>EXTENT</code> with no limiting expression), the Debugger displays the current value of the <code>EXTENT</code> function for the array. Before the array's size is determined, the extent of the array is unknown, so the Debugger displays <code>[?]</code> in the <b>Value</b> column for the variable or parameter. When the array is populated or received as a parameter from an array with a known size, the extent is set. For example, if a calling procedure declares the array as <code>EXTENT</code> <code>5</code> and passes it to a procedure where the array was declared to have an indeterminate extent, the receiving array is set to an extent of 5, once the procedure is called. At this point, the Debugger displays <code>[5]</code> as the value, and there is no indication the array originally was declared as having an indeterminate extent.
+<a name="wp527001"> </a></p>
+<h5 >
+Accessing BLOB fields
+<a name="wp477557"> </a></h5>
+<p >
+You use <code>BLOB</code> (Binary Large OBject) fields to store large amounts of arbitrary binary data. A <code>BLOB</code> is similar to a <code>MEMPTR</code>, and the Debugger handles <code>BLOB</code>s in much the same way as <code>MEMPTR</code>s. Specifically, the Debugger displays the total length of a <code>BLOB</code> (in parentheses) followed by the first 256 bytes of data in the <code>BLOB</code> (as a hexadecimal string). If a <code>BLOB</code> contains more than 256 bytes of data, the Debugger displays an ellipsis indicating there is more data than shown. For example:
+<a name="wp477567"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>(133496) 64 42 74 65 0A 69 20 6D 20 64 75 65 2C 65 21 0D ...<a name="wp523886"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp523876"> </a></p>
+<p >
+You cannot edit <code>BLOB</code> values; the <b>Value</b> cell is read-only.
+<a name="wp477569"> </a></p>
+<p >
+Due to its small size, the <b>Value</b> cell shows only a small part of the <code>BLOB</code> data. To see the full 256 bytes of <code>BLOB</code> data, examine the <code>BLOB</code> in the <b>Value</b> tab of the <b>Dataview</b> dialog box.
+<a name="wp477570"> </a></p>
+<h5 >
+Accessing CLOB fields and LONGCHAR variables
+<a name="wp477485"> </a></h5>
+<p >
+You use <code>CLOB</code> (Character Large OBject) fields and <code>LONGCHAR</code> variables to store large amounts of character data. The Debugger displays the total length of a <code>CLOB</code> or <code>LONGCHAR</code> (in parentheses) followed by the first 256 characters in the <code>CLOB</code> or <code>LONGCHAR</code> (as a quoted string). If a <code>CLOB</code> or <code>LONGCHAR</code> contains more than 256 characters, the Debugger displays an ellipsis indicating there is more data than shown. 
+<a name="wp477622"> </a></p>
+<p >
+You cannot edit <code>CLOB</code> and <code>LONGCHAR</code> values; the <b>Value</b> cell is read-only.
+<a name="wp477624"> </a></p>
+<p >
+Due to its small size, the <b>Value</b> cell shows only a small part of <code>CLOB</code> and <code>LONGCHAR</code> data. To see the full 256 characters of data, examine the <code>CLOB</code> or <code>LONGCHAR</code> in the <b>Value</b> tab of the <b>Dataview</b> dialog box.
+<a name="wp477723"> </a></p>
+<h5 >
+Accessing DATETIME and DATETIME-TZ variables
+<a name="wp477750"> </a></h5>
+<p >
+You use a <code>DATETIME</code> variable to store an ABL date and time, and a <code>DATETIME-TZ</code> variable to store an ABL date and time, as well as a time zone value. The Debugger displays <code>DATETIME</code> and <code>DATETIME</code>-<code>TZ</code> variables based on the current date format specified by the <code>DATE-FORMAT</code> attribute for the session (typically <b>mdy</b> or <b>dmy</b>). The Debugger also interprets <code>DATETIME</code> and <code>DATETIME-TZ</code> variable assignments in this way. 
+<a name="wp527300"> </a></p>
+<p >
+You can assign a new value to a <code>DATETIME</code> or <code>DATETIME-TZ</code> variable by editing its value. 
+<a name="wp527235"> </a></p>
+<h5 >
+Accessing class object instances
+<a name="wp527416"> </a></h5>
+<p >
+You can access instances of user-defined classes, as well as the following types of elements that make up a class:
+<a name="wp527417"> </a></p>
+<ul> <li   );>Data members, which define instance data of a class<a name="wp527539"> </a>
+ <li   );>Properties, which are similar to data members, and also provide <code>GET</code> and/or <code>SET</code> accessors containing ABL code that executes implicitly when a property is read or written<a name="wp527540"> </a>
+ <li   );>Methods, which define the behavior of a class<a name="wp544185"> </a>
+</ul><p >
+The data members, properties, and methods that a class comprises are statically defined in a class and scoped to an instance of that class, and they are available inside or outside of the class hierarchy depending on their access mode (PUBLIC, PRIVATE, or PROTECTED). When accessing data members and properties, or stepping through methods, the Debugger honors their access mode.
+<a name="wp544186"> </a></p>
+<p >
+Note:	 <code>PRIVATE</code> members only appear when the class is the current execution frame on the ABL stack. <code>PUBLIC</code> and <code>PROTECTED</code> members appear from any execution frame that references them. 
+<a name="wp528982"> </a></p>
+<p >
+For more information about user-defined classes, and their data members, properties, and methods, see <i>OpenEdge Development: Object-oriented Programming</i>.
+<a name="wp528104"> </a></p>
+<p >
+The Debugger displays the object reference for an instance of a user-defined class as an <code>INTEGER</code> value followed by the name of the instance (in parentheses). For example &quot;<code>1101 (Class MyClass)</code>&quot;.
+<a name="wp527421"> </a></p>
+<p >
+You can examine and edit the value of data members and properties for an instance of a user-defined class in the variables pane, the watches pane, or the <b>Dataview</b> dialog box. 
+<a name="wp528237"> </a></p>
+<h5 >
+Accessing object properties
+<a name="wp542454"> </a></h5>
+<p >
+A property typically defines and implements a <code>GET</code> and/or <code>SET</code> accessor, which provides a class object instance with read and write access to the property's data value, respectively. However, a property can define a <code>GET</code> and/or <code>SET</code> accessor without an implementation. In this case, the accessor reads the value from or writes the value to the property's default memory (that is, a default storage area that holds the property's current value). At the very least, a property must define either a <code>GET</code> accessor or a <code>SET</code> accessor in order to read or write the property's value.
+<a name="wp542489"> </a></p>
+<p >
+If the property defines and implements a <code>GET</code> or <code>SET</code> accessor, the accessor implementation executes implicitly. When you step into code that reads or writes a property's value, the Debugger steps into the ABL code of that accessor implementation. 
+<a name="wp542546"> </a></p>
+<p >
+In certain cases, the code structure is such that errors occur when the <code>GET </code>accessor implementation executes. This happens, for example, if the implementation uses a buffer handle, and the Debugger executes the accessor before the handle is assigned. To prevent this problem, you can disable the evaluation by the Debugger of properties that have non-empty accessor methods. To do so, start the OpenEdge Client session with the <code>-noevalprops</code> startup parameter. For more information, see <i>OpenEdge Deployment: Startup Command and Parameter Reference</i>.
+<a name="wp542580"> </a></p>
+<p >
+Consider the following Debugger behavior when examining and editing property values:
+<a name="wp542536"> </a></p>
+<ul> <li   );>If the property only defines a <code>GET</code> or <code>SET</code> accessor, and does not provide an implementation for the accessor, the Debugger reads the value from or writes the value to the property's default memory. <a name="wp542537"> </a>
+ <li   );>If the property does not define a <code>GET</code> accessor, the Debugger cannot read the property's value and displays &quot;<code>** Unavailable **</code>&quot; in the property's <b>Value</b> cell. <a name="wp529260"> </a>
+ <li   );>If the property does not define a <code>SET</code> accessor, the Debugger cannot write the property's value (the <b>Value</b> cell is read-only). <a name="wp529261"> </a>
+ <li   );>If the property defines only a <code>SET</code> accessor, and no <code>GET</code> accessor, the Debugger can write the property's value but will immediately display &quot;<code>** Unavailable **</code>&quot; in the property's <b>Value</b> cell.<a name="wp529262"> </a>
+ <li   );>If you started the OpenEdge session with the <code>-noevalprops</code> startup parameter, the <b>Value</b> cell displays &quot;<code>**&nbsp;Property evaluation disabled **</code>&quot; for those properties that have a <code>GET</code> method with an implementation. In this case, you can inspect the value of a property in the <b>Dataview</b> dialog box (see the <a href="dbgrhelp-1-8.html#wp500912">&quot;Dataview dialog box&quot; section</a>.) Note that ABL properties with empty <code>GET</code> methods are always evaluated.<a name="wp543171"> </a>
+</ul><p >
+Note:	 If a property defines and implements a <code>GET</code> or <code>SET</code> accessor, the value of the property can change each time the Debugger reads or writes the property because the accessor implementation will execute each time, and its logic might change the property's value. For example, a property's <code>GET</code> accessor might calculate the property's value based on the current time.
+<a name="wp529264"> </a></p>
+<h5 >
+Accessing ProDataSet objects 
+<a name="wp477498"> </a></h5>
+<p >
+The ProDataSet object is a collection of temp-table buffer objects and relations among the temp-table objects. A ProDataSet consists of three object types-<code>DATASET</code>, <code>DATA-RELATION</code>, and <code>DATA-SOURCE</code>-each with several attributes and methods. The <b>Dataset</b> tab contains the names of all static ProDataSet-related objects declared in the current procedure context. You can right-click on any listed object and choose <b>Dataview</b> from the pop-up menu, to see the object's attributes.
+<a name="wp486151"> </a></p>
+<h4 >
+Watches pane
+<a name="wp497062"> </a></h4>
+<p >
+The <em>watches pane</em> keeps track of variables, buffer fields, attributes, data, and built-in ABL functions on which a watch is set. For more information on functions as watches, see the <a href="dbgrhelp-1-3.html#wp473940">&quot;Watches for built-in functions&quot; section</a>.
+<a name="wp520580"> </a></p>
+<p >
+The watches pane has a context (right-click) menu containing the following options: <b>Copy</b>, <b>Cut</b>, <b>Paste</b>, <b>Add Watch</b> (adds a new variable to the watches pane), <b>Remove Watch</b>, and <b>Dataview</b> (displays attribute or field information for the selected variable in the <b>Dataview</b> dialog box).
+<a name="wp449554"> </a></p>
+<p >
+You can add a watch by doing any of the following:
+<a name="wp449212"> </a></p>
+<ul> <li   );>Entering the watch into the last line of the watches pane directly.<a name="wp449409"> </a>
+ <li   );>Entering the watch in the <b>Add Watch</b> dialog box. For more information, see the <a href="dbgrhelp-1-8.html#wp507151">&quot;Add Watch dialog box&quot; section</a>.<a name="wp449401"> </a>
+ <li   );>Selecting text in the source code pane, or selecting a variable or parameter in the variables pane, and then choosing the <b>Add Watch</b> option on the context (right-click) menu.<a name="wp473865"> </a>
+ <li   );>Selecting text in the source code pane and dragging it to the watches pane. For more information, see the <a href="dbgrhelp-1-3.html#wp474789">&quot;Drag-and-drop watches&quot; section</a>.<a name="wp473776"> </a>
+ <li   );>Selecting an entity in the <b>Dataview</b> dialog box and choosing the <b>Add Watch</b> button.<a name="wp486169"> </a>
+</ul><p >
+Note the following with respect to validity checking of the selected text:
+<a name="wp486284"> </a></p>
+<ul> <li   );>Selected text that is improperly formatted displays &quot;<code>** Error **</code>&quot; in its <b>Value</b> cell.<a name="wp486285"> </a>
+ <li   );>Selected text that is properly formatted but that refers to an out-of-scope or nonexistent variable displays &quot;<code>** Unavailable **</code>&quot; in its <b>Value</b> cell.<a name="wp486286"> </a>
+</ul><p >
+Valid watch formats are any of the following:
+<a name="wp486287"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code><b>[</b> VARIABLE <b>|</b> FIELD <b>|</b> PARAMETER <b>]</b> <i><code>name</code></i> <a name="wp543915"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code><i><code>handle</code></i>:<i><code>attribute</code></i> <a name="wp543917"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code><i><code>object-reference</code></i><b>[</b><i><code>[</code></i><i><code>array-index</code></i><i><code>]</code></i><b>][</b>:<i><code>data-member</code></i><b>[</b><i><code>[</code></i><i><code>array-index</code></i><i><code>]</code></i><b>]</b> <b>|</b> <i><code>property</code></i> <b>]</b><a name="wp543940"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code><b>[</b><i><code>data-member</code></i><b>[</b><i><code>[</code></i><i><code>array-index</code></i><i><code>]</code></i><b>]</b> <b>|</b> <i><code>property</code></i> <b>]</b><a name="wp544125"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code><i><code>widget-name</code></i><b>[</b><i><code>[</code></i><i><code>array-index</code></i><i><code>]</code></i><b>]</b>:<i><code>attribute</code></i> <b>[</b>IN FRAME <i><code>frame-name</code></i> <b>]</b><a name="wp543962"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code><b>{</b> FRAME <b>|</b> MENU <b>}</b> <i><code>widget-name</code></i>:<i><code>attribute</code></i> <a name="wp543973"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code><b>{</b> SUB-MENU <b>|</b> MENU-ITEM <b>}</b> <i><code>widget-name</code></i>:<i><code>attribute</code></i> <br>&nbsp;&nbsp;&nbsp;<b>[</b> IN <b>{</b> MENU <b>|</b> SUB-MENU <b>}</b> <i><code>menu-name</code></i> <b>]</b><a name="wp543984"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp486350"> </a></p>
+<p >
+You can chain attribute and property references. For example, the following attribute reference displays the value of the <code>TITLE</code> attribute for a window containing a fill-in (assuming the fill-in is three levels from the window):
+<a name="wp486171"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>FILL-IN-1:PARENT:PARENT:PARENT:TITLE<a name="wp541915"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp541916"> </a></p>
+<p >
+If a variable is currently out of scope, or you add a watch for an unknown variable name, the following message appears in the <b>Value</b> cell:
+<a name="wp541917"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>** Unavailable **<a name="wp541909"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp541910"> </a></p>
+<p >
+If evaluation of properties is disabled (by means of the <code>-noevalprops</code> startup parameter), the following message appears in the <b>Value</b> cell for properties that have a non-empty accessor method (ABL properties that have an empty <code>GET</code> method are always evaluated):
+<a name="wp543347"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>** Property evaluation disabled**<a name="wp543350"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp543351"> </a></p>
+<p >
+Note:	 You can use the <b>Value</b> tab of the Dataview dialog box to inspect the value of a property, whether or not evaluation of properties is disabled. See the <a href="dbgrhelp-1-8.html#wp500912">&quot;Dataview dialog box&quot; section</a> for more information.
+<a name="wp543318"> </a></p>
+<p >
+Double-clicking on a cell containing the value of a variable makes the value editable. You can modify the value by entering a different value and pressing the <b>ENTER</b> key or clicking out of the cell. Pressing the <b>ESC</b> key when editing a value restores the current value and cancels the editing operation.
+<a name="wp544281"> </a></p>
+<p >
+You can remove a watch for a variable by selecting the watch in the watches pane and then:
+<a name="wp449461"> </a></p>
+<ul> <li   );>Pressing the <b>DELETE</b> key<a name="wp449462"> </a>
+ <li   );>Choosing the <b>Remove Watch</b> option on the context (right-click) menu or <b>Debug</b> menu<a name="wp454130"> </a>
+</ul><h5 >
+Watches for built-in functions
+<a name="wp473940"> </a></h5>
+<p >
+You can add a watch to a built-in ABL function to track the status of the function. 
+<a name="wp503874"> </a></p>
+<b><p >
+To  add a new watch, type the complete function name directly in the watches pane or choose <b>Debug</b>--> <b>Add Watch</b>. The Debugger displays the function and its value in the Watches pane.
+<a name="wp503887"> </a></p></b>
+<p >
+<a href="dbgrhelp-1-3.html#wp504334">Table 3-2</a> lists the ABL functions supported by the Debugger.
+<a name="wp504327"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption><b><p >
+Table 3-2:	 ABL functions supported by the Debugger&nbsp;
+<a name="wp504334"> </a></p></b>
+</caption>
+  <tr bgcolor="#CCCCCC">
+    <th><div >Functions that can accept assignment of a new value<a name="wp504338"> </a></div></th>
+    <th><div >Functions that cannot accept assignment of a new value<a name="wp504340"> </a></div></th>
+  </tr>
+  <tr>
+    <td><div ><code>CURRENT-LANGUAGE<a name="wp504342"> </a></code></div><div ><code>PROMSGS<a name="wp504343"> </a></code></div><div ><code>PROPATH<a name="wp504344"> </a></code></div></td>
+    <td><div ><code>_PCONTROL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUM-ALIASES<a name="wp504346"> </a></code></div><div ><code>_SERIAL-NUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NUM-DBS<a name="wp504347"> </a></code></div><div ><code>COM SELF&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OPSYS<a name="wp504348"> </a></code></div><div ><code>DATASERVERS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OS-DRIVES<a name="wp504349"> </a></code></div><div ><code>DBNAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;OS-ERROR<a name="wp504350"> </a></code></div><div ><code>ETIME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROGRESS<a name="wp504351"> </a></code></div><div ><code>FRAME-DB&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROVERSION<a name="wp504352"> </a></code></div><div ><code>FRAME-FIELD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETRY<a name="wp504353"> </a></code></div><div ><code>FRAME-INDEX&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RETURN-VALUE<a name="wp504354"> </a></code></div><div ><code>FRAME-NAME&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SCREEN-LINES<a name="wp504355"> </a></code></div><div ><code>FRAME-VALUE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>TERMINAL</code><a name="wp504356"> </a></code></div><div ><code>GO-PENDING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TIME<a name="wp504357"> </a></code></div><div ><code>LASTKEY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TODAY<a name="wp504358"> </a></code></div><div ><code>MACHINE-CLASS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRANSACTION<a name="wp504359"> </a></code></div><div ><code>MESSAGE-LINES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name="wp504360"> </a></code></div><div >Note:	 <code>TERMINAL</code> is settable only on UNIX character interfaces.<br><br>The values of <code>TIME</code> and <code>TODAY</code> change independently of program execution, so the values displayed in the watches pane might not agree with the last values displayed in the ABL program.<a name="wp504361"> </a></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp504363"> </a></p>
+<p >
+You can modify a function's value by editing the <b>Value</b> cell in the Watches pane. If the function does not accept an assignment, the function retains its value. In this case, the Debugger does not generate an error message.
+<a name="wp503865"> </a></p>
+<p >
+Note:	 You cannot watch a function that requires arguments. 
+<a name="wp504941"> </a></p>
+<h5 >
+Drag-and-drop watches
+<a name="wp474789"> </a></h5>
+<p >
+You can add a watch by dragging an entity to the watches pane.
+<a name="wp490288"> </a></p>
+<b><p >
+To  add a watch by dragging and dropping:
+<a name="wp475222"> </a></p></b>
+<ol type="1"> <li  value="1"  );>Select the text that you want to add a watch for in the source code pane (by clicking and dragging with the mouse to select the text).<a name="wp475226"> </a>
+ <li  value="2"  );>Drag the selected text to the watches pane.<a name="wp475227"> </a>
+ <li  value="3"  );>Release the mouse button to add the object as a watch to the last (empty) row in the watches pane. If you release the mouse over any other pane or outside the Debugger window, the watch is not added.<a name="wp475228"> </a>
+</ol>
+    </blockquote>
+    <p></p>
+    <hr>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">
+<a href="dbgrhelp-1-2.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><a href="dbgrhelp-1-4.html"><img src="images/snext.gif" border="0" alt="Next"></a>
+        </td>
+        <td align="right">
+         OpenEdge Release 10.2B<br>
+         Copyright &#169; 2009 Progress Software Corporation<br>
+         </td>
+      </tr>
+    </table>
+  </body>
+</html>

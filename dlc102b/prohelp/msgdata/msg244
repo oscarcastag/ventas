@@ -1,0 +1,67 @@
+12151 "SSL error <num> - <error-text> occurred. (12151)" "The indicated SSL error occurred while performing an SSL function.  " "" ""
+12152 "Error creating the SSL Server instance. (12152)" "The SSL server instance could not be created.  This server must end.  " "" ""
+12153 "Error while validating the server's SSL parameter set. (12153)" "The SSL server arguments specified when the broker was started appear to be invalid.  Please correct the problem then restart the database broker.
+  " "" ""
+12154 "Error while attempting to create the SSL Client instance.   (12154)" "The SSL server could not create the required SSL client instance.  Please correct the problem if possible then restart  the database broker.
+  " "" ""
+12155 "Error while initializing SSL encryption services. (12155)" "SSL services could not be initialized.
+  " "" ""
+12156 "Aimage extract cannot be performed because after-imaging is not enabled. (12156)" "The RFUTIL command aimage extract can only be performed if after-imaging is enabled for the database.  " "" ""
+12157 "An output filename must be specified using the -o command line argument. (12157)" "RFUTIL -C aimage extract requires that an output filename be specified with the -o command line argument as follows:  RFUTIL db -C aimage extract -a db.a1 -o output_file_name." "" ""
+12158 "After-image extent <extent_name> is not associated with this database. (12158)" "The after-image extent name specified using the -a command line argument is not associated with this database.  Please correct the name ba perform the aimage extract operation again." "" ""
+12159 "An error <num> occurred while attempting to open the after-image extent <extent_name>.  The operation cannot continue. (12159)" "The after-image extent for the indicated reason cannot be opened.  The aimage extract operation cannot continue." "" ""
+12160 "Unable to perform an aimage extract operation at this time due to a conflicting operation being performed.  Please attempt the command at a later time. (12160)" "Only one aimage extract operation can be performed on a database at a time.  In addition, aimage extract cannot be performed while an aimage empty is being performed.  Please attempt the operation at a later time. " "" ""
+12161 "The after-image extent <extent_name> must be FULL before its contents can be extracted. (12161)" "The after-image extent specified does not have a status of FULL.  In order to an extract an after-image extent, it must be ""marked"" by switching to the next after-image extent using RFUTIL -C aimage new or by allowing the current after-image extent to be filled by the RDBMS. " "" ""
+12162 "An error <num> occurred while reading the after-image extent <extent_name>.  the aimage extract operation cannot continue. (12162)" "An I/O error occurred while reading the indicated after-image extent.  The aimage extract operation cannot continue." "" ""
+12163 "The output filename <filename> already exists and will not be over written by the aimage extract operation.  Please specify another filename. (12163)" "The aimage extract operation will not overwrite an existing file.  Please specifiy a filename that does not exist and it will be created.  Specify another output filename and attempt the operation again. " "" ""
+12164 "An error <num> occurred while attempting to open the (-o) output file <filename>.  The operation cannot continue. (12164)" "The after-image extract operation cannot continue because an error occurred.  Correct the problem and attempt the operation again." "" ""
+12165 "An I/O error <num> occurred while attempting to write to the output file <filename>.  The operation cannot continue. (12165)" "An input/output error occurred while attempting to write to the output file.  The operation cannot continue." "" ""
+12166 "SYSTEM ERROR: Unable to release the aimage extract/aimage empty lock. (12166)" "" "" ""
+12167 "Error starting SSL handshake with the OpenEdge database server. (12167)" "The SSL handshake could not be completed.  " "" ""
+12168 "SSL error <num> - <error-text> occurred. (12168)" "The indicated SSL error occurred while performing an SSL function.  " "" ""
+12169 "Error while initializing SSL encryption services. (12169)" "SSL services could not be initialized.
+  " "" ""
+12170 "Error while attempting to create the SSL Client instance.   (12170)" "Could not create the required SSL client instance.  Please correct the problem if possible then reconnect to the OpenEdge database.
+  " "" ""
+12171 "Cert Store path not provided.  Unable to initialize SSL. (12171)" "We were unable to get the cert store path.  It was not specified in ubroker.properties under the CGIIP section and we were unable to get DLC and set the cert store path to DLC/certs." "" ""
+12172 "Open in WebClient Deployment Packager" "shell integration context menu option for .wcd files. " "" ""
+12173 "Report stylesheet cache successfully loaded file . (12173)" "The report engine has a cache to store stylesheets for better performance.  This message indicates one of the default stylesheets shipped with Fathom loaded into the cache at startup." "" ""
+12174 "Report stylesheet cache failed to load file .  Stylesheet will be loaded at report run time. (12174)" "The report engine has a cache to store stylesheets for better performance.  This message indicates one of the default stylesheets shipped with Fathom failed to load into the cache.  Another attempt to load the file into the cache will be made each time a report is run that uses this stylesheet." "" ""
+12175 "Server certificate to enable SSL communications is from an untrusted CA (12175)" "The certificate provided by the server was signed by an untrusted Certificate Authority. You will need to add the root CA's certificate to the Windows certificate store.
+" "" ""
+12176 "Server certificate to enable SSL communications is expired (12176)" "The certificate provided by the server to enable SSL communications has expired. You will need to install a new certificate.
+" "" ""
+12177 "Server requesting a client certificate for SSL communications (12177)" "The server is attempting to perform client side validation. This feature is currently unsupported and the server should disable it.
+" "" ""
+12178 "Unable to initialize SSL security context:  (12178)" "The Windows SSPI was not able to be initialized. The error code may provide more information.
+" "" ""
+12179 "Prostrct reorder ai finished with error  in renaming AI files. (12179)" "prostrct reorder ai utility found an error when it tries to rename some after image extent files." "" ""
+12180 "Prostrct reorder ai found error  in updating _AreaExtent records. (12180)" "prostrct reorder ai utility found an error when it tried to update the _AreaExtent record for re-organized After Image extent." "" ""
+12181 "Prostrct reorder ai found error  in restoring _AreaExtent records. (12181)" "prostrct reorder ai utility found an error when it tried to restore all modified _AreaExtent records for After Image extents." "" ""
+12182 "Please use prostrct builddb to reestablish the original AI states. (12182)" "prostrct reorder ai found an error in restoring the modified _AreaExtent records.  Use the prostrct builddb utility and the original .st file to restore the database to a valid state." "" ""
+12183 "Prostrct reorder ai restored the updated _AreaExtent records successfully. (12183)" "prostrct reorder ai utility found an error during updating the _AreaExtent records, but it successfully backed out all the changes it has made." "" ""
+12184 "Prostrct reorder ai finished successfully. (12184)" "prostrct reorder ai utility finished successfully." "" ""
+12185 "Schema owner <owner-name> was not found. (12185)" "" "" ""
+12186 "Please update your .st file with prostrct list and 
+get the latest AI extents' states with rfutil utilities. (12186)" "prostrct reorder ai utility has finished successfully. The user needs to use prostrct list to get the new .st file, and use rfutil utilities to get the current status of all AI extents." "" ""
+12187 "Prostrct reorder ai found error  in restoring the renamed AI files. (12187)" "prostrct reorder ai utility has found an error when it tried to restore the renamed After Image extent files.
+
+" "" ""
+12188 "Please undo all the renamed files manually according to the .lg file. (12188)" "prostrct reorder ai utility has encountered errors, and it could not back out all the renamed files automatically. The user has to do it manually according to the history recorded in the .lg file to restore the After Image system to a valid state." "" ""
+12189 "Prostrct reorder ai successfully restored the renamed AI files. (12189)" "prostrct reorder ai utility encountered an error, but it successfully backed out all the changes it made, restoring the After Image extent files to their original names." "" ""
+12190 "mvAIExtentsRename: area number  doesn't exist. (12190)" "prostrct reorder ai utility couldn't find the area %l when it tried to rename extent name for that area.
+" "" ""
+12191 ": file  already exists. (12191)" "prostrct reorder ai utility encountered an error when it tried to rename a file, because the new file already existed.
+The first string identifies the function name where the error happened, the second string is the file name." "" ""
+12192 "Renamed file  to . (12192)" "prostrct reorder ai utility renamed an After Image extent file to a new file name." "" ""
+12193 "SSL Server certificate expired or not yet valid  (12193)" "The SSL certificate used by the server has either expired or is not yet valid." "" ""
+12194 "ReportRunFailed: Report transformation ran out of memory.  Try reducing the number of columns or rows in the report output by changing the report period or report format. (12194)" "The reports use XSL transformations to generate the HTML and Text output formats from the XML output the 4GL creates.  The XML file was too large for the JVM to transform and it ran out of memory.  If the report period and/or report format are modified so there is less data in the XML file, it will be smaller and more likely to transform in the alotted amount of memory." "" ""
+12195 "This version of the OpenEdge RDBMS does not support the bulkload of any fields with the CLOB datatype.
+However, you may use the data dictionary to load data of this datatype. (12195)" "This version of OpenEdge RDBMS doesn't support the bulkload of any data containing the clob field. The customers are suggested to use the data dictionary to load  the data instead." "" ""
+12196 "SYSTEM ERROR: Found invalid AI extent state , area num . (12196)" "The prostrct reorder ai utility has found an invalid AI extent state when it tried to analyze all the extents to start the re-organization.
+
+" "" ""
+12197 "mvAIExtRecordUpdate: area  doesn't have new name "". (12197)" "The prostrct reorder ai utility found an error when it tried to update the _AreaExtent records. The expected new extent name was not found. This is most likely caused during the phase of renaming AI extent files." "" ""
+12198 "mvAIFileRename: new extent path too long: . (12198)" "The new path name of an AI extent cannot exceed 255 bytes. " "" ""
+12199 "DLL datatype must be one of CHARACTER, BYTE, SHORT, UNSIGNED-SHORT, LONG,  FLOAT, DOUBLE, LONGCHAR, or MEMPTR. (12199)" "Parameter datayptes inside a DLL internal procedure must be one of CHARACTER, BYTE, SHORT, UNSIGNED-SHORT, LONG, FLOAT, DOUBLE, LONCHAR or MEMPTR, which are the standard datatypes supported by external DLLs. (Check the documentation to see if UNSIGNED-SHORT is supported for your current version)." "" ""
+12200 "You cannot use OUTPUT to return CHARACTER or LONGCHAR data.  Use MEMPTR instead. (12200)" "It is unknown how much space the DLL requires to return character data.  Therefore, you cannot use OUTPUT to return CHARACTER or LONGCHAR data.  Use MEMPTR instead." "" ""

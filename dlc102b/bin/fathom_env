@@ -1,0 +1,47 @@
+#
+# file: fathom_env
+# This sources the $FATHOMINIT file, setting the 
+# environment variable for each defined name.
+#
+# Determine the correct value for FATHOMINIT
+# set from either the tailored name or existing value of FATHOMINIT.
+for what_fathominit in "$FATHOMINIT" "/dlc/dlc102b/fathom.init.params" "$DLC"/fathom.init.params
+do
+    [ ! -f "${what_fathominit}" ] && continue
+    FATHOMINIT=$what_fathominit
+    export FATHOMINIT
+    break
+done
+
+# echo "FATHOMINIT = $FATHOMINIT"
+
+# first this script makes sure the FATHOMINIT environment variable is set
+# then source the fathom.init.params file to set the environment variables
+
+if [ "$FATHOMINIT" = "" ]
+  then
+    echo "Cannot find the fathom.init.params file,"
+    echo "be sure the variable $FATHOMINIT is properly set."
+  else
+    . $FATHOMINIT
+fi
+
+# set the shared library include path for Perl - system specific
+OSNAME=`uname`
+case "$OSNAME" in
+
+    "OSF1")    #  Compaq Tru64
+      LD_LIBRARY_PATH=$progressInstallDir/perl/lib/5.6.1/alpha-dec_osf/CORE:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+    ;;
+
+    "Linux")  #  
+      LD_LIBRARY_PATH=$progressInstallDir/perl/lib/5.6.1/i686-linux-thread-multi/CORE:$LD_LIBRARY_PATH
+      export LD_LIBRARY_PATH
+
+    ;;
+
+    *)         # all other platforms
+#      echo "WARNING: not setting shared library include path"
+    ;;
+esac

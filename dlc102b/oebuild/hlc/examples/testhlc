@@ -1,0 +1,40 @@
+#!/bin/sh
+#  testhlc -- single-user test of HLC
+
+DLC=${DLC-/usr/dlc};export DLC
+DLCDB=${DLCDB-$DLC};export DLCDB
+OEBUILD=${OEBUILD-$DLC/oebuild};export OEBUILD
+
+SOURCEDB=$DLCDB/empty
+DBNAME=hlcdemo
+rm -fr $DBNAME.*
+$DLC/bin/prodb $DBNAME $SOURCEDB
+if [ $? -ne 0 ]
+then
+	echo "Failed to create database"
+	exit 1
+fi
+
+echo Now compiling *.c ...
+c *.c
+
+echo Now linking test hlc module ...
+IMAGE=_progres
+HLC_OBJS="`ls -1 *.o`"
+export IMAGE HLC_OBJS
+$OEBUILD/make/build_rx.sh
+./_progres $DBNAME -1 -p hldemo.p
+
+if [ -r hlcout ] 
+then
+
+	if cmp -s hlcout savehlc
+	then
+		 echo "** HLC Installation Test has Completed Successfully."
+	else
+		 diff hlcout savehlc >testhlc.diff
+		 echo "** HLC Installation Test reports conflicts."
+		 echo "   Please look at files:"
+		 echo "      'hlcout.dif', 'hlcout' & 'savehlc'"
+	fi
+fi

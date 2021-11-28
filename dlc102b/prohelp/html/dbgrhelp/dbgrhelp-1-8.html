@@ -1,0 +1,1007 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN" "http://www.w3.org/MarkUp/Wilbur/HTML32.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+    <meta name="TEMPLATEBASE" content="Progress Debugger JavaHelp 10.1A">
+    <meta name="LASTUPDATED" content="11/16/09 00:07:44">
+    <link rel="StyleSheet" href="document.css" type="text/css" media="screen">
+    <title>Debugger dialog boxes</title>
+  </head>
+
+  <body link="#3366CC" vlink="#9999CC" text="#000000" alink="#0000CC" bgcolor="#FFFFFF">
+
+    <hr align="left">
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr> 
+        <td align="right" valign="top">
+<a href="dbgrhelp-1-7.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><a href="dbgrhelp-1-9.html"><img src="images/snext.gif" border="0" alt="Next"></a>
+        </td>
+      </tr>
+    </table>
+
+
+    <blockquote>
+<h3 >
+Debugger dialog boxes
+<a name="wp513348"> </a></h3>
+<p >
+The following sections provide usage information for each of the Debugger dialog boxes and are presented in alphabetical order:
+<a name="wp513349"> </a></p>
+<ul> <li   );><a href="dbgrhelp-1-8.html#wp507151">Add Watch dialog box</a><a name="wp445666"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp460570">Attach to Process dialog box</a><a name="wp483408"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp501468">Breakpoints dialog box</a><a name="wp498077"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp500912">Dataview dialog box</a><a name="wp498086"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp499229">Dynamic Object Tracking dialog box</a><a name="wp498090"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp495340">Edit Breakpoint dialog box</a><a name="wp498415"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp454904">Find dialog box</a><a name="wp498419"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp499485">New Breakpoint dialog box</a><a name="wp494832"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp445231">Open dialog box</a><a name="wp445671"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp444701">Preferences dialog box</a><a name="wp445345"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp498625">Select Process dialog box</a><a name="wp498100"> </a>
+</ul><h4 >
+Add Watch dialog box
+<a name="wp507151"> </a></h4>
+<p >
+The <b>Add Watch</b> dialog box lets you add a watch for any variable, including fields and handle or object attributes, in the executing procedure or any procedure on the call stack. A watch allows you to keep track of the value of a variable, parameter, buffer field, attribute, data, or built-in ABL function as you navigate through your ABL application. The name and value of the variable on which the watch is set appears in the watches pane. <a href="dbgrhelp-1-8.html#wp450123">Figure 3-2</a> shows the <b>Add Watch</b> dialog box.
+<a name="wp501501"> </a></p>
+<p >
+<img src="images/addwatch.gif" border="0" hspace="0" vspace="0">
+<a name="wp450121"> </a></p>
+<b><p >
+Figure 3-2:	 Add Watch dialog box
+<a name="wp450123"> </a></p></b>
+<p >
+Access this dialog box by choosing the <b>Add Watch</b> option on the <b>Debug</b> menu or the context (right-click) menu in the watches pane. 
+<a name="wp450068"> </a></p>
+<b><p >
+To  add a watch, enter an entity in the <b>Watch</b> field and click <b>OK</b>. See the <a href="dbgrhelp-1-3.html#wp497062">&quot;Watches pane&quot; section</a> for a list of supported watch expressions.
+<a name="wp499657"> </a></p></b>
+<p >
+You can also add a watch for an entity by:
+<a name="wp499658"> </a></p>
+<ul> <li   );>Entering the watch in the watches pane directly<a name="wp449978"> </a>
+ <li   );>Selecting text in the source code pane or selecting a variable in the variables pane, and then choosing the <b>Add Watch</b> option on the context (right-click) menu<a name="wp449986"> </a>
+ <li   );>Selecting an entity in the <b>Dataview</b> dialog box and choosing the <b>Add Watch</b> button<a name="wp477022"> </a>
+ <li   );>Dragging selected text from the source code pane and dropping it onto the watches pane<a name="wp477023"> </a>
+</ul><h4 >
+Attach to Process dialog box 
+<a name="wp460570"> </a></h4>
+<p >
+The <b>Attach to Process</b> dialog box lets you attach the Debugger to a running client process. Optionally, you can make the process debug-ready and attach to it in a single step.  <a href="dbgrhelp-1-8.html#wp483460">Figure 3-3</a> shows the <b>Attach to Process</b> dialog box.
+<a name="wp535530"> </a></p>
+<p >
+<img src="images/dbattach.gif" border="0" hspace="0" vspace="0">
+<a name="wp483459"> </a></p>
+<b><p >
+Figure 3-3:	 Attach to Process dialog box
+<a name="wp483460"> </a></p></b>
+<p >
+Access this dialog box by choosing <b>Debug</b>--> <b>Attach to Process</b> after starting the Debugger in attachable mode. Select either of the following options:
+<a name="wp483786"> </a></p>
+<ul> <li   );><b>Make debug-ready and attach (local host only)</b> - Makes a process debug-ready and attaches the Debugger to the process. Select this option only if the process is running on the same machine as the Debugger. Choosing the <b>Get List</b> button lets you select an existing process in the <b>Select Process</b> dialog box. For more information, see the <a href="dbgrhelp-1-8.html#wp498625">&quot;Select Process dialog box&quot; section</a>. <a name="wp525928"> </a>
+ <li   );><b>Attach to debug-ready process </b>- Attaches the Debugger to a process you have already made debug-ready using either the <code>-debugReady</code> startup parameter or the <code>proDebugConfig</code> command. Select this option if the ABL Virtual Machine (AVM) instance is not running on the same machine as the Debugger.<a name="wp525932"> </a>
+</ul><b><p >
+To  make a process debug-ready and attach to it:
+<a name="wp497622"> </a></p></b>
+<ol type="1"> <li  value="1"  );>Select the <b>Make debug-ready and Attach (local host only)</b> radio button.<a name="wp497623"> </a>
+ <li  value="2"  );>Enter the <b>Process ID</b> of the process on the local machine you want to debug. <a name="wp499885"> </a>
+<p >
+To list the currently running OpenEdge processes, click the <b>Get List</b> button. The <b>Select Process</b> dialog box appears. For more information, see the <a href="dbgrhelp-1-8.html#wp498625">&quot;Select Process dialog box&quot; section</a>. 
+<a name="wp500191"> </a></p>
+ <li  value="3"  );>Enter a port number that you want to use for communicating with the client process, or leave the default (0), for the AVM to determine a usable port number. <a name="wp499898"> </a>
+ <li  value="4"  );>Click <b>OK</b>.<a name="wp497638"> </a>
+<p >
+Upon a successful connection, the Debugger displays a message showing the port number that it is using for the connection, in case you need to reconnect, for any reason. After the dialog box closes, the AVM instance gives control to the Debugger, and the listing for the currently running procedure appears in the source code pane, at the point where the Debugger connection was acknowledged. For hidden procedures, the source code pane appears empty, but the Debugger announces the connection and indicates that the AVM instance will break at the first line of application code. Debugging can proceed as described for all other modes.
+<a name="wp529519"> </a></p>
+<p >
+If the connection is unsuccessful, the Debugger displays an alert box reporting the reason for the failure. For an AppServer process or WebSpeed agent, if the Debugger successfully alters the debug-ready state, it writes the status (on or off) to the log file.
+<a name="wp497644"> </a></p>
+</ol><b><p >
+To  attach to a process that is already in a debug-ready state:
+<a name="wp497646"> </a></p></b>
+<ol type="1"> <li  value="1"  );>Select the <b>Attach to debug-ready Process</b> radio button.<a name="wp497647"> </a>
+ <li  value="2"  );>Enter the name of the host on which the process is running, or accept the default <b>localhost</b>. You must enter a host name if the process is not running on the same machine as the Debugger. <a name="wp497648"> </a>
+ <li  value="3"  );>Enter the port number used to make the process debug-ready. <a name="wp524759"> </a>
+ <li  value="4"  );>Click <b>OK</b>.<a name="wp497653"> </a>
+<p >
+After successfully connecting, the dialog box closes, and the AVM instance gives control to the Debugger. The listing for the currently running procedure appears in the source code pane, at the point where the Debugger connection was acknowledged. For hidden procedures, the source code pane appears empty, but the Debugger announces the connection and indicates that the AVM instance will break at the first line of application code. Debugging can proceed as described for all other modes.
+<a name="wp497654"> </a></p>
+<p >
+If the attempt fails because the process was not in a debug-ready state, the Debugger reports only that the connection attempt timed out (it does not recognize that the process was not in a debug-ready state). The attempt can also fail because you specified an incorrect host name or port.
+<a name="wp497655"> </a></p>
+</ol><p >
+Note:	 In attachable mode, when the top-level procedure terminates, possibly returning control to the Procedure Editor or AppBuilder, the Debugger window does not automatically hide, but remains in view. 
+<a name="wp497656"> </a></p>
+<p >
+If control does return to the application development environment, you restart debugging on the application by choosing <b>Compile</b>--> <b>Debug</b>. At that point the AVM instance gives control to the Debugger, stopping at the first executable line of the application, just as it would if you had not attached.
+<a name="wp497657"> </a></p>
+<h4 >
+Breakpoints dialog box
+<a name="wp501468"> </a></h4>
+<p >
+The <b>Breakpoints</b> dialog box lets you add, edit, remove, enable, and disable breakpoints or watchpoints. This dialog box displays all breakpoints set in the current debugging session.
+<a name="wp501469"> </a></p>
+<p >
+A breakpoint interrupts program execution. There are three types of breakpoints:
+<a name="wp512425"> </a></p>
+<ul> <li   );><b>At Line</b> - A breakpoint set at a specific line in a named procedure<a name="wp512427"> </a>
+ <li   );><b>On Error</b> - A breakpoint set to interrupt execution if an error occurs<a name="wp512474"> </a>
+ <li   );><b>Watchpoint</b> - A breakpoint set to interrupt program execution when the value of a variable, buffer field, or attribute reference changes<a name="wp512475"> </a>
+</ul><p >
+Note:	 A <em>watchpoint</em> stops program execution when an the value of a variable, buffer field, or attribute reference changes. A <em>watch</em> tracks values of variables, buffer fields, attributes, data and built-in ABL functions. 
+<a name="wp512543"> </a></p>
+<p >
+<a href="dbgrhelp-1-8.html#wp450938">Figure 3-4</a> shows the <b>Breakpoints</b> dialog box.
+<a name="wp511778"> </a></p>
+<p >
+<img src="images/breakpts.gif" border="0" hspace="0" vspace="0">
+<a name="wp450210"> </a></p>
+<b><p >
+Figure 3-4:	 Breakpoints dialog box
+<a name="wp450938"> </a></p></b>
+<p >
+Access this dialog box by choosing <b>Edit</b>--> <b>Breakpoints</b> or entering <b>CTRL+B</b>.
+<a name="wp450942"> </a></p>
+<b><p >
+To  enable or disable a breakpoint or watchpoint, select or clear the check box to the left of the breakpoint and click the <b>Close</b> button. Disabled breakpoints appear in the source code pane as red outlines.
+<a name="wp494679"> </a></p></b>
+<b><p >
+To  add a new breakpoint or watchpoint, click the <b>New</b> button. The <b>New Breakpoints</b> dialog box appears. 
+<a name="wp500949"> </a></p></b>
+<p >
+You can also add a breakpoint directly in the source code pane by clicking in the shaded area to the left of a code line. For more information on adding new breakpoints, see the <a href="dbgrhelp-1-8.html#wp499485">&quot;New Breakpoint dialog box&quot; section</a>. 
+<a name="wp526058"> </a></p>
+<b><p >
+To  edit a breakpoint or watchpoint, select the breakpoint or watchpoint you want to edit and click the <b>Edit</b> button. The <b>Edit Breakpoint</b> dialog box appears. 
+<a name="wp500932"> </a></p></b>
+<p >
+For more information on editing breakpoints, see the <a href="dbgrhelp-1-8.html#wp495340">&quot;Edit Breakpoint dialog box&quot; section</a>.
+<a name="wp526045"> </a></p>
+<b><p >
+To  remove a single breakpoint or watchpoint, select it and click the <b>Remove</b> button. 
+<a name="wp494721"> </a></p></b>
+<p >
+You can also remove a single breakpoint by clicking on its breakpoint indicator in the source code pane.
+<a name="wp526069"> </a></p>
+<b><p >
+To  remove all breakpoints and watchpoints, click the <b>Remove All</b> button. 
+<a name="wp500908"> </a></p></b>
+<h4 >
+Dataview dialog box
+<a name="wp500912"> </a></h4>
+<p >
+The <b>Dataview</b> dialog box lets you examine and modify data for variables and arrays, attributes of objects, and field data for buffer objects. You can add a watch for any entity that appears in the dialog box.
+<a name="wp500913"> </a></p>
+<p >
+Access this dialog box by choosing one of the following:
+<a name="wp499092"> </a></p>
+<ul> <li   );>The <b>Dataview</b> option on the <b>Debug</b> menu, or press <b>CTRL+D</b><a name="wp499093"> </a>
+ <li   );>The <b>Dataview</b> option on the context (right-click) menu from the watches or variables pane<a name="wp515086"> </a>
+ <li   );>An ABL system handle on the <b>Data</b> menu<a name="wp515087"> </a>
+</ul><p >
+If you select an object before choosing the <b>Dataview</b> option, the object appears automatically in the <b>Dataview</b> dialog box. Otherwise, you can enter an object name in the <b>View</b> field or select an object you viewed previously from the drop-down list, and click the <b>View</b> button.
+<a name="wp515088"> </a></p>
+<p >
+The <b>Dataview</b> dialog box contains the following tabs:
+<a name="wp499097"> </a></p>
+<ul> <li   );><a href="dbgrhelp-1-8.html#wp499115">Attributes tab</a><b> </b>- Lets you examine the attributes of a selected object or handle.<a name="wp499101"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp514284">Fields tab</a><b> </b>- Lets you examine fields associated with a selected buffer<a name="wp499105"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp499145">Array tab</a><b> </b>- Lets you examine the elements of an array<a name="wp499109"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp499161">Value tab</a><b> </b>- Lets you view the value of a variable, attribute or field <a name="wp499113"> </a>
+</ul><h5 >
+Attributes tab
+<a name="wp499115"> </a></h5>
+<p >
+The <b>Attributes</b> tab lists the attributes associated with the selected object. <a href="dbgrhelp-1-8.html#wp514282">Figure 3-5</a> shows the <b>Attributes</b> tab.
+<a name="wp499119"> </a></p>
+<p >
+<img src="images/dataview.gif" border="0" hspace="0" vspace="0">
+<a name="wp499123"> </a></p>
+<b><p >
+Figure 3-5:	 Dataview dialog box with Attributes tab
+<a name="wp514282"> </a></p></b>
+<p >
+For write-only attributes, the <b>Value</b> column displays <code>** Unavailable **</code>.
+<a name="wp541946"> </a></p>
+<h5 >
+Fields tab
+<a name="wp514284"> </a></h5>
+<p >
+The <b>Fields</b> tab lists the fields associated with the selected object. <a href="dbgrhelp-1-8.html#wp499135">Figure 3-6</a> shows the <b>Fields</b> tab.
+<a name="wp514288"> </a></p>
+<p >
+<img src="images/dviewflds.gif" border="0" hspace="0" vspace="0">
+<a name="wp499133"> </a></p>
+<b><p >
+Figure 3-6:	 Dataview dialog box with Fields tab
+<a name="wp499135"> </a></p></b>
+<b><p >
+To  view buffer details:
+<a name="wp514916"> </a></p></b>
+<ol type="1"> <li  value="1"  );>Select the buffer in the <b>Variable</b> pane.<a name="wp514917"> </a>
+ <li  value="2"  );>Right-click and choose <b>Dataview</b>. <a name="wp514918"> </a>
+ <li  value="3"  );>Choose the <b>Field</b> tab to view all field values in the buffer. You can view buffer details and add a watch. <a name="wp514919"> </a>
+</ol><p >
+Double-clicking on a cell in the value column makes the value editable. You can modify the value of variables, attributes (writable only) or fields by entering a different value and pressing the <b>ENTER</b> key. Pressing the <b>ESC</b> key when editing a value restores the current value and cancels the editing operation.
+<a name="wp514913"> </a></p>
+<p >
+You can modify a field value in a buffer when the buffer contains a record; however, the modified value is not immediately stored in the database. To store the modified value in the database, you must execute the appropriate statement in your ABL code (such as <code>RELEASE</code>&nbsp;<i><code>record</code></i>). 
+<a name="wp499137"> </a></p>
+<p >
+Some attributes are handles to other objects (for example, the <code>PARENT</code> attribute of an object is the handle to the parent of that object). In this case, you can &quot;walk the object tree&quot; by selecting the attribute and choosing the <b>View</b> button. The new attribute appears in the <b>View</b> field (for example, if you are viewing <code>FILL-IN-1</code> and select the <code>PARENT</code> attribute, the new attribute appears as <code>FILL-IN-1:PARENT</code>). If the new attribute is a valid object handle, choosing the <b>View</b> button refreshes the data view for that attribute. You can access the original object by selecting it from the drop-down list and choosing the <b>View</b> button.
+<a name="wp499138"> </a></p>
+<p >
+You can chain object references. For example, the following object reference displays the information for a window containing a fill-in (assuming the fill-in is three levels from the window):
+<a name="wp499139"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>FILL-IN-1:PARENT:PARENT:PARENT<a name="wp499142"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp499143"> </a></p>
+<h5 >
+Array tab
+<a name="wp499145"> </a></h5>
+<p >
+The <b>Array</b> tab displays the elements of an array (a variable, parameter, or field defined with the <code>EXTENT</code> option) and their values. To view the elements of an array, right-click on an array in the variables pane and choose <b>Dataview</b> from the pop-up menu. The <b>Dataview</b> dialog box appears with the <b>Array</b> tab populated with the elements of the selected array, as shown in <a href="dbgrhelp-1-8.html#wp499156">Figure 3-7</a>.
+<a name="wp499147"> </a></p>
+<p >
+<img src="images/arraytab.gif" border="0" hspace="0" vspace="0">
+<a name="wp499154"> </a></p>
+<b><p >
+Figure 3-7:	 Array elements in the Dataview Array tab
+<a name="wp499156"> </a></p></b>
+<p >
+You can also view the elements of an array field in a buffer. When viewing the buffer's fields in the <b>Dataview</b> dialog box, select the array field, click the <b>View</b> button, and then choose the <b>Array</b> tab to view the field's elements.
+<a name="wp511817"> </a></p>
+<p >
+The array viewer can show a limited amount of data, approximately 30KB. If the <b>Array</b> tab cannot show every element of an array at once, it displays &quot;<b>...</b>&quot; as the value of the last element. Select this element and click the <b>View</b> button to refresh the <b>Array</b> tab. The array viewer then shows the next 30KB of the array, beginning at the selected element.
+<a name="wp499158"> </a></p>
+<p >
+You can modify the elements of an array. Double-click on a cell containing the value to make it editable. Enter a different value and press the <b>ENTER</b> key. Pressing the <b>ESC</b> key when editing a value restores the current value and cancels the editing operation.
+<a name="wp499159"> </a></p>
+<h5 >
+Value tab
+<a name="wp499161"> </a></h5>
+<p >
+The <b>Value</b> tab enables you to view the value of a discrete entity without adding a watch. <a href="dbgrhelp-1-8.html#wp544232">Figure 3-8</a> shows the <b>Value</b> tab.
+<a name="wp499162"> </a></p>
+<p >
+<img src="images/dviewval.gif" border="0" hspace="0" vspace="0">
+<a name="wp544230"> </a></p>
+<b><p >
+Figure 3-8:	 Dataview dialog box with Value tab
+<a name="wp544232"> </a></p></b>
+<p >
+Note:	 You access some system handle dataviews from the <b>Data</b> menu. These include the <code>LOG-MANAGER</code>, <code>SESSION</code>, and <code>ERROR-STATUS</code> system handles. 
+<a name="wp544233"> </a></p>
+<b><p >
+To  view an entity:
+<a name="wp501088"> </a></p></b>
+<ol type="1"> <li  value="1"  );>Enter an entity name in the edit box. You can specify the following entities:<a name="wp501076"> </a>
+<ul>  <li   );>Variables<a name="wp544236"> </a>
+  <li   );>Attributes<a name="wp544250"> </a>
+  <li   );>Fields<a name="wp544253"> </a>
+  <li   );>Handles<a name="wp544256"> </a>
+  <li   );>Data members<a name="wp544259"> </a>
+  <li   );>Properties<a name="wp544260"> </a>
+<p >
+You can enter expressions in colon syntax for attributes and properties (for example, <b>myWindow:TITLE</b> or <b>myVariable:property1</b>).
+<a name="wp544269"> </a></p>
+</ul> <li  value="2"  );>Click the <b>View</b> button. The entity's value appears in the <b>Value</b> tab.<a name="wp544270"> </a>
+</ol><p >
+You can modify the value of the entity. Double-click on the value to make it editable. Enter a different value and press the <b>ENTER</b> key. Pressing the <b>ESC</b> key when editing a value restores the current value and cancels the editing operation.
+<a name="wp499175"> </a></p>
+<h5 >
+Distinguishing ProDataSet methods from attributes
+<a name="wp499176"> </a></h5>
+<p >
+The Debugger displays references to the objects contained in a ProDataSet, in addition to the attributes of the ProDataSet itself. These objects are accessible via ProDataSet methods. The Debugger, however, cannot execute methods; therefore, in the <b>Dataview</b> dialog box, these references appear as special entries in mixed case (upper and lower), to differentiate them from the attributes, which appear in uppercase, as shown in <a href="dbgrhelp-1-8.html#wp499186">Figure 3-9</a>. 
+<a name="wp499177"> </a></p>
+<p >
+<img src="images/prodata.gif" border="0" hspace="0" vspace="0">
+<a name="wp499184"> </a></p>
+<b><p >
+Figure 3-9:	 ProDataSet methods and attributes in the Dataview dialog box
+<a name="wp499186"> </a></p></b>
+<p >
+You can select one of the <code>MemberBuffer</code> lines and refresh the <b>Dataview</b> dialog box to view the buffer's attributes. The Debugger takes a similar approach to the other methods that retrieve ProDataSet-related information (<code>GET-CHILD-RELATION</code>, <code>GET-SOURCE-BUFFER</code>, and so on), as shown in the following table:
+<a name="wp499187"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr bgcolor="#CCCCCC">
+    <th><div >Object<a name="wp499190"> </a></div></th>
+    <th><div >Method<a name="wp499192"> </a></div></th>
+    <th><div >Dataview object name<a name="wp499194"> </a></div></th>
+  </tr>
+  <tr>
+    <td><div ><code>BUFFER<a name="wp499196"> </a></code></div></td>
+    <td><div ><code>GET-CHILD-RELATION()<a name="wp499198"> </a></code></div></td>
+    <td><div ><code>ChildDataRelation<a name="wp499200"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>DATA-SOURCE<a name="wp499202"> </a></code></div></td>
+    <td><div ><code>GET-SOURCE-BUFFER()<a name="wp499204"> </a></code></div></td>
+    <td><div ><code>SourceBuffer<a name="wp499206"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>DATASET<a name="wp499208"> </a></code></div></td>
+    <td><div ><code>GET-BUFFER-HANDLE()<a name="wp499210"> </a></code></div></td>
+    <td><div ><code>MemberBuffer<a name="wp499212"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>DATASET<a name="wp499214"> </a></code></div></td>
+    <td><div ><code>GET-RELATION()<a name="wp499216"> </a></code></div></td>
+    <td><div ><code>DataRelation<a name="wp499218"> </a></code></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>DATASET<a name="wp499220"> </a></code></div></td>
+    <td><div ><code>GET-TOP-BUFFER()<a name="wp499222"> </a></code></div></td>
+    <td><div ><code>TopBuffer<a name="wp499224"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp499225"> </a></p>
+<h4 >
+Dynamic Object Tracking dialog box
+<a name="wp499229"> </a></h4>
+<p >
+The <b>Dynamic Object Tracking</b> dialog box lets you monitor the creation and destruction of dynamic object instances in an ABL application. Use this dialog box to locate dynamic object instances the application has created, no longer needs, and has not yet destroyed. These undeleted object instances might indicate a memory leak. 
+<a name="wp499230"> </a></p>
+<p >
+Access this dialog box by choosing <b>Diagnostics</b>--> <b>Monitor Dynamic Objects</b>.
+<a name="wp499238"> </a></p>
+<p >
+The <b>Dynamic Object Tracking</b> dialog box contains the following tabs:
+<a name="wp499239"> </a></p>
+<ul> <li   );><a href="dbgrhelp-1-8.html#wp499254">Control Monitoring tab</a> - Lets you select the types of dynamic objects you want to monitor<a name="wp499243"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp499319">View Objects tab</a> - Lists the active dynamic object instances, based on the selected object types<a name="wp499247"> </a>
+</ul><p >
+The <b>Dynamic Object Tracking</b> dialog box also contains the following buttons: 
+<a name="wp499249"> </a></p>
+<ul> <li   );><b>Start Monitoring button</b> - Starts the object monitoring process. When processing begins, the label on this button changes to <b>Restart Monitoring</b>.<a name="wp499250"> </a>
+ <li   );><b>Stop Monitoring button</b> - Stops the object monitoring process. When processing stops, the label on the <b>Restart Monitoring</b> button changes back to <b>Start Monitoring</b>.<a name="wp499251"> </a>
+ <li   );><b>Close button</b> - Closes the <b>Dynamic Object Tracking</b> dialog box.<a name="wp499252"> </a>
+</ul><h5 >
+Control Monitoring tab
+<a name="wp499254"> </a></h5>
+<p >
+The <b>Control Monitoring</b> tab lets you select the types of dynamic objects you want to monitor. <a href="dbgrhelp-1-8.html#wp499264">Figure 3-10</a> shows the <b>Control Monitoring</b> tab.
+<a name="wp499255"> </a></p>
+<p >
+<img src="images/dot1.gif" border="0" hspace="0" vspace="0">
+<a name="wp499262"> </a></p>
+<b><p >
+Figure 3-10:	 Dynamic Object Tracking dialog box with Control Monitoring tab
+<a name="wp499264"> </a></p></b>
+<p >
+The <b>Control Monitoring</b> tab contains a treeview control that displays the types of dynamic objects you can monitor, organized within object categories. The following list shows the dynamic object types you can monitor, as they appear on the <b>Control Monitoring</b> tab:
+<a name="wp499265"> </a></p>
+<ul> <li   );><b>Database Objects</b> <a name="wp510073"> </a>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>QUERY</code> (excluding query handles for static queries)<a name="wp510328"> </a></div></td>
+    <td><div ><code>BUFFER</code> (excluding buffer handles for static buffers)<a name="wp510330"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>TEMP-TABLE</code> (excluding table handles for static temp-tables)<a name="wp510332"> </a></div></td>
+    <td><div ><code>DATASET</code><a name="wp510334"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>DATA-SOURCE</code><a name="wp510336"> </a></div></td>
+    <td><div >-<a name="wp510338"> </a></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp510074"> </a></p>
+<p >
+Note:	 <code>BUFFER-FIELD</code> objects are not listed, since an application has no control over their creation or destruction.
+<a name="wp510075"> </a></p>
+ <li   );><b>User Interface widgets</b> <a name="wp510663"> </a>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>BROWSE</code><a name="wp510671"> </a></div></td>
+    <td><div ><code>BROWSE-COLUMN</code> (excluding handles associated with static browse objects)<a name="wp510673"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>BUTTON</code><a name="wp510675"> </a></div></td>
+    <td><div ><code>COMBO-BOX</code><a name="wp510677"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>EDITOR</code><a name="wp510679"> </a></div></td>
+    <td><div ><code>FILL-IN</code><a name="wp510681"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>FRAME</code><a name="wp511014"> </a></div></td>
+    <td><div ><code>IMAGE</code><a name="wp511016"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>MENU</code><a name="wp511010"> </a></div></td>
+    <td><div ><code>MENU-ITEM</code><a name="wp511012"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>RADIO-SET</code><a name="wp511006"> </a></div></td>
+    <td><div ><code>RECTANGLE</code><a name="wp511008"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>SELECTION-LIST</code><a name="wp511002"> </a></div></td>
+    <td><div ><code>SLIDER</code><a name="wp511004"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>SUB-MENU</code><a name="wp510998"> </a></div></td>
+    <td><div ><code>TEXT</code><a name="wp511000"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>TOGGLE-BOX</code><a name="wp511224"> </a></div></td>
+    <td><div ><code>WINDOW</code><a name="wp511226"> </a></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp510682"> </a></p>
+ <li   );><b>XML Objects</b><a name="wp499292"> </a>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>SAX-ATTRIBUTES</code><a name="wp536338"> </a></div></td>
+    <td><div ><code>SAX-READER</code><a name="wp536340"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>SAX-WRITER</code><a name="wp511293"> </a></div></td>
+    <td><div ><code>SOAP-HEADER</code><a name="wp511295"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>SOAP-HEADER-ENTRYREF</code><a name="wp511297"> </a></div></td>
+    <td><div ><code>X-DOCUMENT</code><a name="wp511299"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>X-NODEREF</code><a name="wp511301"> </a></div></td>
+    <td><div >-<a name="wp541013"> </a></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp511304"> </a></p>
+<p >
+Note:	 <code>SOAP-FAULT</code> and <code>SOAP-FAULT-DETAIL</code> objects are not listed, since an application has no control over their creation or destruction.
+<a name="wp499298"> </a></p>
+ <li   );><b>Other Objects</b> <a name="wp499299"> </a>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>ASYNC-REQUEST</code><a name="wp511384"> </a></div></td>
+    <td><div ><code>CALL</code><a name="wp511386"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>CONTROL-FRAME</code><a name="wp511388"> </a></div></td>
+    <td><div ><code>MEMPTR </code>(any memory allocated for a <code>MEMPTR</code>)<a name="wp511390"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>PROCEDURE </code>(excluding handles, such as <code>THIS-PROCEDURE</code>, for non-persistent procedures)<a name="wp511392"> </a></div></td>
+    <td><div ><code>SERVER</code><a name="wp511394"> </a></div></td>
+  </tr>
+  <tr>
+    <td><div ><code>SERVER-SOCKET</code><a name="wp511454"> </a></div></td>
+    <td><div ><code>SOCKET</code><a name="wp511456"> </a></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp511395"> </a></p>
+<p >
+Note:	 For more information on these dynamic object types, see <i>OpenEdge Development: ABL Reference</i>.
+<a name="wp499311"> </a></p>
+</ul><p >
+To expand a category node, click the plus sign (<b>+</b>) next to the node. To collapse a category node, click the minus sign (<b>-</b>) next to the node.
+<a name="wp499313"> </a></p>
+<p >
+You can select all object types within a category by selecting the check box at the category node level, whether or not the node is expanded. You can also select one or more individual object types within a category, after you expand the category node, by:
+<a name="wp499314"> </a></p>
+<ul> <li   );>Selecting the category node check box, which selects all object types within that category, and clearing the check box for each object type you want to exclude<a name="wp499315"> </a>
+ <li   );>Clearing the category node check box, which clears all object types within that category, and selecting the check box for each object type you want to include<a name="wp499316"> </a>
+</ul><p >
+To begin tracking the creation and destruction of the object instances for the object types you selected, click the <b>Start Monitoring</b> button. Then, use the <b>View Objects</b> tab to monitor the active object instances. An <font ><i>active object instance</i></font> is an instance of a dynamic object the application has created, but not yet destroyed, since you started or restarted monitoring.
+<a name="wp499317"> </a></p>
+<h5 >
+View Objects tab
+<a name="wp499319"> </a></h5>
+<p >
+The <b>View Objects</b> tab lists the active dynamic object instances based on the object types you selected in the <b>Control Monitoring</b> tab. The <b>View objects</b> includes the line of code where the object comes into being. The list is in order of object creation. Use this list to quickly determine what object needs to be deleted. 
+<a name="wp515263"> </a></p>
+<p >
+Active object instances are instances of dynamic objects the application has created, but not yet destroyed, since you started or restarted monitoring. <a href="dbgrhelp-1-8.html#wp499329">Figure 3-11</a> shows the <b>View Objects</b> tab.
+<a name="wp515285"> </a></p>
+<p >
+<img src="images/Dot2.jpg" height="361" width="489" border="0" hspace="0" vspace="0">
+<a name="wp499327"> </a></p>
+<b><p >
+Figure 3-11:	 Dynamic Object Tracking dialog box with View Objects tab
+<a name="wp499329"> </a></p></b>
+<p >
+While the Debugger is monitoring active object instances, the following information is displayed in the active object instances list box:
+<a name="wp499330"> </a></p>
+<ul> <li   );>The object type.<a name="wp499331"> </a>
+ <li   );>The name of the procedure file in which the dynamic object was created.<a name="wp499332"> </a>
+ <li   );>The line number at which the object was created. This is based on the Debugger listing file. <a name="wp499333"> </a>
+ <li   );>Any relevant attribute values (such as the value of the object's <code>Name</code> attribute) or other object-specific information.<a name="wp499334"> </a>
+</ul><p >
+If an active object instance entry for any of the following object types is marked as &quot;Delete Pending,&quot; execution of the <code>DELETE</code> <code>OBJECT</code> statement for that object instance has been delayed for some reason:
+<a name="wp499335"> </a></p>
+<ul> <li   );><code>TEMP-TABLE</code> (for example, an <code>OUTPUT</code> <code>TABLE-HANDLE</code> parameter)<a name="wp499336"> </a>
+ <li   );><code>BUFFER</code> (for example, a buffer associated with an <code>OUTPUT</code> <code>TABLE-HANDLE</code> parameter)<a name="wp499337"> </a>
+ <li   );><code>PROCEDURE</code> (for example, a procedure that deletes itself using the <code>THIS-PROCEDURE</code> system handle)<a name="wp499338"> </a>
+</ul><p >
+Each time the application creates a dynamic object instance, the Debugger refreshes the list of active object instances by:
+<a name="wp499339"> </a></p>
+<ul> <li   );>Adding the new object instance entry (to the top of the list)<a name="wp499340"> </a>
+ <li   );>Removing entries for any deleted object instances<a name="wp499341"> </a>
+</ul><p >
+Only objects of the types you selected in the <b>Control Monitoring</b> tab appear in the object type selection list. You can filter the object instances that appear in the active object instances list box by selecting one or more object types in the object type selection list and choosing the <b>Filter List</b> button. Then, only instances of the types you select appear in the list. Use the <b>Show Complete List</b> button to cancel any filter settings and display the complete list of objects.
+<a name="wp499342"> </a></p>
+<p >
+While monitoring, you can clear the current list of active object instances and restart monitoring in one of the following two ways:
+<a name="wp499343"> </a></p>
+<ul> <li   );>By choosing the <b>Restart Monitoring</b> button<a name="wp499344"> </a>
+ <li   );>By first choosing the <b>Stop Monitoring</b> button, and then choosing the <b>Start Monitoring</b> button<a name="wp499345"> </a>
+</ul><p >
+Note:	 Clearing the current list of active object instances does not destroy the actual object instances; it simply clears the current list that appears in the active object instances list box.
+<a name="wp499346"> </a></p>
+<p >
+To monitor a different set of object types, modify your selection of object types on the <b>Control Monitorin</b>g tab and click the <b>Start Monitoring</b> or <b>Restart Monitoring</b> button.
+<a name="wp499347"> </a></p>
+<h4 >
+Edit Breakpoint dialog box 
+<a name="wp495340"> </a></h4>
+<p >
+The <b>Edit Breakpoint</b> dialog box lets you edit breakpoints. <a href="dbgrhelp-1-8.html#wp495349">Figure 3-12</a> shows the <b>Edit Breakpoint</b> dialog box. 
+<a name="wp495563"> </a></p>
+<p >
+<img src="images/editbkpt.gif" border="0" hspace="0" vspace="0">
+<a name="wp495405"> </a></p>
+<b><p >
+Figure 3-12:	 Edit Breakpoint dialog box
+<a name="wp495349"> </a></p></b>
+<p >
+Access this dialog by choosing the <b>Edit</b> button on the <b>Breakpoints</b> dialog box. For more information, see the <a href="dbgrhelp-1-8.html#wp501468">&quot;Breakpoints dialog box&quot; section</a>. 
+<a name="wp495513"> </a></p>
+<p >
+The<b> Edit Breakpoint</b> dialog box contains the following tabs:
+<a name="wp501055"> </a></p>
+<ul> <li   );><b>At Line</b> - Sets a breakpoint at a specific line in a named procedure. You can make this type of breakpoint conditional; that is, it interrupts program execution only if a defined condition is satisfied. For more information, see the <a href="dbgrhelp-1-8.html#wp499485">&quot;New Breakpoint dialog box&quot; section</a>.<a name="wp495514"> </a>
+ <li   );><b>On Error</b> - Sets a breakpoint to interrupt program execution if an error occurs. The error condition can be general or specific. For more information, see the <a href="dbgrhelp-1-8.html#wp499485">&quot;New Breakpoint dialog box&quot; section</a>.<a name="wp495518"> </a>
+ <li   );><b>Watchpoint </b>- Sets a watchpoint to interrupt program execution when the value of a variable, buffer field, or attribute reference changes. For more information, see the <a href="dbgrhelp-1-8.html#wp499485">&quot;New Breakpoint dialog box&quot; section</a>.<a name="wp502048"> </a>
+</ul><b><p >
+To  edit a breakpoint:
+<a name="wp479299"> </a></p></b>
+<ol type="1"> <li  value="1"  );>In the <b>Breakpoints</b> dialog box, select the breakpoint you want to edit. Click the <b>Edit</b> button.<a name="wp479300"> </a>
+<p >
+The breakpoint information appears in the tab of the <b>Edit Breakpoint</b> dialog box appropriate to the style of breakpoint selected. The other tabs are disabled. For example, if you select an error breakpoint, it populates the <b>On Error</b> tab. The <b>At Line</b> tab and the <b>Watchpoint</b> tab are unavailable.
+<a name="wp479320"> </a></p>
+ <li  value="2"  );>Make your edits. For example, you might want to add a condition to a procedure line breakpoint.<a name="wp479321"> </a>
+ <li  value="3"  );>Click <b>OK</b>.<a name="wp489375"> </a>
+</ol><b><p >
+To  edit a watchpoint:
+<a name="wp503593"> </a></p></b>
+<ol type="1"> <li  value="1"  );>In the <b>Breakpoints</b> dialog box, select the watchpoint you want to edit. Click the <b>Edit</b> button.<a name="wp503594"> </a>
+<p >
+Note:	 The <b>Add Watch </b>toggle box is unchecked by default when modifying a watchpoint.
+<a name="wp503603"> </a></p>
+ <li  value="2"  );>Modify the watchpoint expression and/or condition. <a name="wp503628"> </a>
+ <li  value="3"  );>Click <b>OK</b> to save your changes.<a name="wp503629"> </a>
+</ol><p >
+Note:	 A watchpoint remains until you explicitly delete it.
+<a name="wp503626"> </a></p>
+<h4 >
+Find dialog box
+<a name="wp454904"> </a></h4>
+<p >
+The <b>Find</b> dialog box lets you specify a text string you want to find in the source code pane. <a href="dbgrhelp-1-8.html#wp453452">Figure 3-13</a> shows the <b>Find</b> dialog box.
+<a name="wp445355"> </a></p>
+<p >
+<img src="images/find.gif" border="0" hspace="0" vspace="0">
+<a name="wp451365"> </a></p>
+<b><p >
+Figure 3-13:	 Find dialog box
+<a name="wp453452"> </a></p></b>
+<p >
+Access this dialog box by choosing <b>Search</b>--> <b>Find</b> or pressing <b>CTRL+F</b>.
+<a name="wp453456"> </a></p>
+<p >
+The <b>Find</b> dialog box also lets you specify the direction in which to search (<b>Up</b> or <b>Down</b>), and whether to match the letter case in the text string during the search (<b>Match Case</b>).
+<a name="wp453457"> </a></p>
+<p >
+Click the <b>Find Next</b> button to begin the initial search, as well as subsequent searches, for the specified text string. The Debugger highlights the text found and scrolls the text into view, if necessary. If the text is not found, the Debugger displays an alert dialog box message.
+<a name="wp447118"> </a></p>
+<p >
+You can also perform subsequent searches for the next and previous occurrences of the text string specified with the <b>Find</b> option by choosing <b>Search</b>--> <b>Find Next</b> and <b>Search</b>--> <b>Find&nbsp;Prev</b>, respectively. The search wraps around to the beginning of the source buffer when it reaches the end of the buffer.
+<a name="wp451689"> </a></p>
+<h4 >
+New Breakpoint dialog box
+<a name="wp499485"> </a></h4>
+<p >
+The <b>New Breakpoint</b> dialog box lets you set new breakpoints and watchpoints. 
+<a name="wp499489"> </a></p>
+<p >
+Access this dialog box by choosing the <b>New</b> button on the <b>Breakpoints</b> dialog box. For more information, see the <a href="dbgrhelp-1-8.html#wp501468">&quot;Breakpoints dialog box&quot; section</a>. 
+<a name="wp499497"> </a></p>
+<p >
+The <b>New Breakpoint</b> dialog box contains the following tabs:
+<a name="wp500699"> </a></p>
+<ul> <li   );><b>At Line</b> - Sets a breakpoint at a specific line in a named procedure. You can make this type of breakpoint conditional; that is, it interrupts program execution only if a defined condition is satisfied. A breakpoint indicator appears in red in the shaded area to the left of each line in the source code pane where an <b>At Line</b> breakpoint is set. <a href="dbgrhelp-1-8.html#wp511945">Figure 3-14</a> shows the <b>New Breakpoint </b>dialog box with the <b>At Line</b> tab.<a name="wp499498"> </a>
+<p >
+<img src="images/bkptline.gif" border="0" hspace="0" vspace="0">
+<a name="wp511942"> </a></p>
+</ul><b><p >
+Figure 3-14:	 New Breakpoint dialog box with At Line tab
+<a name="wp511945"> </a></p></b>
+<ul> <li   );><b>On Error</b> - Sets a breakpoint to interrupt program execution if an error occurs. The error condition can be general or specific. <a href="dbgrhelp-1-8.html#wp499514">Figure 3-15</a> shows the <b>New Breakpoint </b>dialog box with the <b>On Error</b> tab.<a name="wp499502"> </a>
+<p >
+<img src="images/bkpterro.gif" border="0" hspace="0" vspace="0">
+<a name="wp512007"> </a></p>
+</ul><b><p >
+Figure 3-15:	 New Breakpoint dialog box with On Error tab
+<a name="wp499514"> </a></p></b>
+<p >
+For more information on setting breakpoints if an error occurs, see the <a href="dbgrhelp-1-8.html#wp541018">&quot;Setting an error-based breakpoint&quot; section</a>. 
+<a name="wp512020"> </a></p>
+<ul> <li   );><b>Watchpoint</b> - Sets a watchpoint to interrupt program execution when the value of a variable, buffer field, or attribute reference changes. <a href="dbgrhelp-1-8.html#wp500655">Figure 3-16</a> shows the <b>New Breakpoint </b>dialog box with the <b>Watchpoint</b> tab. <a name="wp500606"> </a>
+<p >
+<img src="images/bkwatchpt.gif" border="0" hspace="0" vspace="0">
+<a name="wp500616"> </a></p>
+</ul><b><p >
+Figure 3-16:	 New Breakpoint dialog box with Watchpoint tab
+<a name="wp500655"> </a></p></b>
+<h5 >
+Setting a breakpoint in a procedure
+<a name="wp499515"> </a></h5>
+<p >
+You can set a breakpoint at a specific line.
+<a name="wp541016"> </a></p>
+<b><p >
+To  add a breakpoint at a specific line in a named procedure:
+<a name="wp499517"> </a></p></b>
+<ol type="1"> <li  value="1"  );>In the <b>New Breakpoint</b> dialog box, choose the <b>At Line</b> tab. <a name="wp499518"> </a>
+ <li  value="2"  );>Enter the name of an ABL procedure.<a name="wp499522"> </a>
+ <li  value="3"  );>Enter an <code>INTEGER</code> value that specifies a line number in the current or specified procedure.<a name="wp499523"> </a>
+ <li  value="4"  );>Specify a condition that must be satisfied for the breakpoint to be honored (optional).<a name="wp499524"> </a>
+ <li  value="5"  );>Click <b>OK</b>.<a name="wp499525"> </a>
+</ol><p >
+A breakpoint indicator appears in red in the shaded area to the left of each line in the source code pane where a breakpoint is set. You can also add a breakpoint by clicking in the shaded area to the left of a line in the source code pane directly.
+<a name="wp499526"> </a></p>
+<h5 >
+Procedure names and line numbers
+<a name="wp499527"> </a></h5>
+<p >
+Consider the following when setting a breakpoint:
+<a name="wp499528"> </a></p>
+<ul> <li   );>If you specify only a procedure name, the breakpoint is set on the first executable line of the procedure.<a name="wp499529"> </a>
+ <li   );>If you do not specify a procedure name, the breakpoint is set on the specified line in the procedure currently displayed in the source code pane.<a name="wp499530"> </a>
+ <li   );>If you specify a line number that is before any executable line in the code for the active procedure in the Debugger context, the breakpoint is set on the first executable line on or after the specified line. For example, if you specify line number 10 for an active procedure displayed with the following lines, the breakpoint is actually set on line 12:<a name="wp499531"> </a>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>      10   /* Set Startup Temperature */<br>      11   DEFINE VARIABLE InitialTemp AS INTEGER NO-UNDO.<br>      &nbsp;12   ASSIGN InitialTemp = 32.<a name="wp499534"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp499535"> </a></p>
+<p >
+If there is no executable line on or after the specified line, the breakpoint is set on the last executable line. For example, if you specify line number 20 for the lines displayed above, the breakpoint is also set on line 12.
+<a name="wp499536"> </a></p>
+ <li   );>If you specify a line number for an inactive procedure, the breakpoint is set on the specified line. When the procedure becomes active in the Debugger context, the specified breakpoint adjusts to the corresponding effective breakpoint line.<a name="wp499537"> </a>
+ <li   );>When setting a breakpoint, there is a distinction between specifying a line number value less than 1 and specifying a value of 1 or more. Any value less than 1 (for example, 0 or -1) specifies the first executable line of the main procedure in the procedure file. Any positive value specifies the first executable line on or after the specified line in the procedure file. For example, suppose the procedure file starts out like this:<a name="wp499538"> </a>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>1      DEFINE VARIABLE lStart AS LOGICAL INITIAL TRUE.<br>2      PROCEDURE ShowStart:<br>3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IF lStart THEN MESSAGE &quot;Procedure is starting ...&quot;.<br>4      END.<br>5      <br>6      MESSAGE &quot;Hello World!&quot;.<br>7      RUN ShowStart.<br>8      lStart = FALSE.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<a name="wp499541"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp499542"> </a></p>
+<p >
+If you specify a breakpoint at line 0, -1, or any other negative value, the breakpoint actually occurs at line 6, the first line that executes in the main procedure. If you specify a breakpoint at line 1 or 2, the breakpoint occurs at line 3, the first executable line after 1 and 2, which happens to be the first executable line of an internal procedure.
+<a name="wp499543"> </a></p>
+<p >
+This distinction also affects procedures containing the trigger phrase used to define triggers in object definitions. For example, suppose the procedure file starts out like this:
+<a name="wp499544"> </a></p>
+<p >
+
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <caption></caption>
+  <tr>
+    <td><div ><code>1      DEFINE BUTTON bOK LABEL &quot;OK&quot;<br>2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TRIGGERS:<br>3 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ON CHOOSE<br>4 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MESSAGE &quot;OK Pressed!&quot;.<br>5 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;END TRIGGERS.<br>6      MESSAGE &quot;Hello World!&quot;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.<br>                  &nbsp;&nbsp;.<a name="wp499547"> </a></code></div></td>
+  </tr>
+</table>
+
+
+
+
+<a name="wp499548"> </a></p>
+<p >
+Again, if you specify a breakpoint at line -1, the breakpoint occurs on line 6, but if you specify the breakpoint at line 1, it occurs at line 4, which is the first executable line of a trigger block. 
+<a name="wp499549"> </a></p>
+</ul><h5 >
+Conditional breakpoints 
+<a name="wp529549"> </a></h5>
+<p >
+A condition is any expression that the AVM can evaluate to a logical value. The expression can include variables, buffer fields, object methods and attributes, logical operators (<code>AND</code>, <code>OR</code>, and so forth), comparison operators (<code>=</code>, <code>&lt;&gt;</code>, <code>EQ</code>, <code>NE</code>, and so forth), and other code entities.
+<a name="wp529550"> </a></p>
+<p >
+The AVM validates the expression syntax when the breakpoint is added, but does not check variable references. If any variables in the condition are out-of-scope or nonexistent, the AVM interrupts execution (as if honoring the breakpoint) and displays an error message in the Debugger.
+<a name="wp499553"> </a></p>
+<p >
+If the expression attempts to execute an I/O blocking statement (for example, a user-defined function that includes an <code>UPDATE</code> statement), the AVM displays an error message over the application window, not in the Debugger window. Note in this case that code in the user-defined function preceding the <code>UPDATE</code> statement is executed.
+<a name="wp499554"> </a></p>
+<p >
+You can add a condition to any existing breakpoint (except those that are triggered by an error) by selecting the breakpoint and choosing the <b>Edit</b> button in the <b>Breakpoints</b> dialog box. For more information, see the <a href="dbgrhelp-1-8.html#wp495340">&quot;Edit Breakpoint dialog box&quot; section</a>. 
+<a name="wp499555"> </a></p>
+<h5 >
+Setting an error-based breakpoint
+<a name="wp541018"> </a></h5>
+<p >
+You can set a breakpoint that is triggered by the occurrence of an error condition.
+<a name="wp541020"> </a></p>
+<b><p >
+To  add a breakpoint triggered by an error:
+<a name="wp499559"> </a></p></b>
+<ol type="1"> <li  value="1"  );>In the <b>New Breakpoint</b> dialog box, choose the <b>On Error</b> tab. Select the appropriate radio button, as follows:<a name="wp499560"> </a>
+<ul>  <li   );><b>Any Unsuppressed Error</b> - The Debugger gains control on the occurrence of any error not suppressed by a <code>NO-ERROR</code>. This type of breakpoint appears in the Breakpoints list as &quot;Break on any unsuppressed error.&quot; <a name="wp499561"> </a>
+  <li   );><b>Any Error</b> - The Debugger gains control on the occurrence of any error regardless of whether the error is suppressed by a <code>NO-ERROR</code>. This type of breakpoint appears in the Breakpoints list as &quot;Break on any error.&quot; <a name="wp499565"> </a>
+  <li   );><b>On Error</b> - The Debugger gains control on the occurrence of the specifically identified error, regardless of whether the error is suppressed by a <code>NO-ERROR</code>. This type of breakpoint appears in the Breakpoints list as &quot;Break on Error #<em>nnnnn</em>.&quot;<a name="wp499569"> </a>
+</ul> <li  value="2"  );>Enter an <code>INTEGER</code> of 1-5 digits that identifies a specific error (available, and required, only when <b>On Error</b> is selected).<a name="wp499574"> </a>
+ <li  value="3"  );>Click <b>OK</b>.<a name="wp499576"> </a>
+</ol><h5 >
+Breakpoints triggered by errors
+<a name="wp499578"> </a></h5>
+<p >
+Consider the following when setting breakpoints based on errors:
+<a name="wp499579"> </a></p>
+<ul> <li   );>For any breakpoint triggered by an error, an alert box appears stating &quot;Stopped due to Break on error <em>nnnnn</em>.&quot; (the error number appears for all three types). The Debugger gains control at the next executable line following the line of ABL code that caused the error.<a name="wp499581"> </a>
+<p >
+Note:	 For <b>On Error</b>, the Debugger validates that you entered a number from 1-99999, but otherwise does not verify that an error corresponding to the number exists.
+<a name="wp499582"> </a></p>
+ <li   );>Errors that occur in hidden procedures do not trigger error breakpoints. Hidden procedures are procedures whose filename begins with an underscore (_). For more information about hidden procedures, see the <a href="dbgrhelp-1-9.html#wp459184">&quot;Hidden procedure files&quot; section</a>.<a name="wp499583"> </a>
+ <li   );>If your program does not trap a stop condition (with <code>ON STOP</code>, for example), the Debugger ignores the error that causes the interruption, since the program terminates. Similarly, the Debugger ignores an error condition that is not trapped (with <code>ON ERROR</code>, for example) and results in program termination. <a name="wp499584"> </a>
+</ul><h5 >
+Setting a watchpoint
+<a name="wp501026"> </a></h5>
+<p >
+You can set a watchpoint to interrupt program execution when the value of a variable, buffer field, or attribute reference changes.
+<a name="wp541027"> </a></p>
+<b><p >
+To  add a watchpoint:
+<a name="wp501028"> </a></p></b>
+<ol type="1"> <li  value="1"  );>In the <b>New Breakpoint</b> dialog box, choose the <b>Watchpoint</b> tab. <a name="wp501029"> </a>
+ <li  value="2"  );>Type the name of a variable, buffer field, object attribute, or object reference in the <b>Expression</b> field. You can optionally add a condition in the <b>Condition</b> field. <a name="wp502326"> </a>
+<p >
+Note:	 A watchpoint requires a watchpoint expression. If you do not enter an expression and click OK, an error message appears in an alert box. 
+<a name="wp502342"> </a></p>
+ <li  value="3"  );>Click <b>OK</b> to create the watchpoint.<a name="wp502330"> </a>
+</ol><p >
+Watchpoints appear in the <b>Breakpoints</b> dialog box as &quot;When <i><code>expression</code></i> changes <b>[</b>and <i><code>condition</code></i><b>]</b>&quot;. The third and fourth items in <a href="dbgrhelp-1-8.html#wp503540">Figure 3-17</a> are watchpoints.
+<a name="wp503528"> </a></p>
+<p >
+<img src="images/wtchpt.gif" border="0" hspace="0" vspace="0">
+<a name="wp503538"> </a></p>
+<b><p >
+Figure 3-17:	 Watchpoint example
+<a name="wp503540"> </a></p></b>
+<p >
+Entering a watchpoint automatically creates a watch for the watchpoint expression. If you leave the <b>Add Watch</b> toggle checked, the Debugger displays the watch in the <b>Watches pane</b> of the Debugger's main window. You can uncheck the <b>Add Watch</b> toggle box to override this behavior (<b>Add Watch</b> is checked by default). The Debugger shows the current value of all watches each time the Debugger gains control of the application. 
+<a name="wp503519"> </a></p>
+<p >
+Note:	 The watch and watchpoint are not connected to each other. Deleting the watchpoint does not delete the watch. Deleting the watch does not delete the watchpoint.
+<a name="wp503405"> </a></p>
+<p >
+If the watchpoint expression or condition is invalid, the Debugger creates the watchpoint and displays an error message. In this case, edit the watchpoint and correct the mistake. If you do not fix the watchpoint before continuing program execution, the AVM generates an error when it gains control (via <b>Step Into</b>, <b>Step Over</b>, <b>Continue</b>, etc.) and disables the watchpoint. 
+<a name="wp503262"> </a></p>
+<h5 >
+Watchpoint expressions
+<a name="wp502513"> </a></h5>
+<p >
+A watchpoint expression can be a variable (including array elements), field (including array elements), attribute reference (including chained references), or built-in ABL function, such as <code>PROPATH</code>. (For a complete list of valid functions, see <a href="dbgrhelp-1-3.html#wp504334">Table 3-2</a>.) However, the expression may not be a <code>CLOB</code>, <code>BLOB</code>, <code>LONGCHAR</code>, <code>RAW</code>, or <code>MEMPTR</code> variable or field. The Debugger checks only that the watchpoint expression follows the conventions for a valid watch.
+<a name="wp502537"> </a></p>
+<p >
+Note:	 Watchpoints are not valid on the name of an array. You must specify a particular array element to watch.
+<a name="wp512262"> </a></p>
+<h5 >
+Watchpoint conditions
+<a name="wp502553"> </a></h5>
+<p >
+A condition can be any expression that the AVM can evaluate to a logical value. The condition can include references to one or more program variables (including array elements), buffer fields (including array elements), or object attributes; you are not limited to the variable, field, or attribute specified in the watchpoint expression. 
+<a name="wp502554"> </a></p>
+<p >
+When you create a watchpoint, the Debugger checks only that the syntax of the condition is valid. The Debugger cannot verify the existence of variables and fields in the condition, as the references to variables or fields might not be in scope.
+<a name="wp503374"> </a></p>
+<h5 >
+Adding a watchpoint to a watch
+<a name="wp504987"> </a></h5>
+<b><p >
+To  add a watchpoint to an existing watch, right-click on a watch in the <b>Watches</b> pane and choose <b>Create Watchpoint</b> from the pop-up menu.
+<a name="wp505011"> </a></p></b>
+<p >
+The status bar displays the message &quot;<code>Watchpoint created for &lt;</code><code>expression</code><code>&gt;</code>&quot; to inform you that the operation was successful. If the operation fails, an alert box displays an error message.
+<a name="wp504979"> </a></p>
+<p >
+Note:	 If you want to add a condition to the new watchpoint created on an existing watch, you must bring up the <b>Breakpoints</b> dialog box, select the watchpoint, click the <b>Edit</b> button, and enter the condition in the <b>Edit Breakpoint</b> dialog box. 
+<a name="wp505135"> </a></p>
+<h4 >
+Open dialog box
+<a name="wp445231"> </a></h4>
+<p >
+The <b>Open</b> dialog box lets you open a procedure and display it in the source code pane. <a href="dbgrhelp-1-8.html#wp446245">Figure 3-18</a> shows the <b>Open</b> dialog box.
+<a name="wp445363"> </a></p>
+<p >
+<img src="images/opendia.gif" border="0" hspace="0" vspace="0">
+<a name="wp446236"> </a></p>
+<b><p >
+Figure 3-18:	 Open dialog box
+<a name="wp446245"> </a></p></b>
+<p >
+Access the <b>Open</b> dialog box by choosing <b>File</b>--> <b>Open</b> or pressing <b>F3</b>. 
+<a name="wp451805"> </a></p>
+<b><p >
+To  open a procedure, select the procedure file and click the <b>Open</b> button, or double-click the procedure file. If you cannot find the document in the folder list, you can browse for it using the folder-level buttons. 
+<a name="wp501118"> </a></p></b>
+<h4 >
+Preferences dialog box
+<a name="wp444701"> </a></h4>
+<p >
+The <b>Preferences</b> dialog box lets you set user preferences for the Debugger window. Access this dialog box by choosing <b>Edit</b>--> <b>Preferences</b>.
+<a name="wp496311"> </a></p>
+<p >
+The <b>Preferences</b> dialog box contains the following tabs:
+<a name="wp496312"> </a></p>
+<ul> <li   );><a href="dbgrhelp-1-8.html#wp496356">Font tab</a><b> </b>- Lets you set the Debugger font and size<a name="wp496313"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp496441">Settings tab</a><b> </b>- Lets you change Debugger settings<a name="wp496314"> </a>
+ <li   );><a href="dbgrhelp-1-8.html#wp496577">Attachable tab</a><b> </b>- Lets you add and remove debug-listing directories<a name="wp496355"> </a>
+</ul><h5 >
+Font tab
+<a name="wp496356"> </a></h5>
+<p >
+The <b>Font</b> tab sets the Debugger font and size across all panes. <a href="dbgrhelp-1-8.html#wp496403">Figure 3-19</a> shows the <b>Font</b> tab.
+<a name="wp496365"> </a></p>
+<p >
+<img src="images/preffont.gif" border="0" hspace="0" vspace="0">
+<a name="wp496387"> </a></p>
+<b><p >
+Figure 3-19:	 Preferences dialog box with Font tab
+<a name="wp496403"> </a></p></b>
+<h5 >
+Settings tab
+<a name="wp496441"> </a></h5>
+<p >
+The <b>Settings</b> tab sets how long to pause between steps during animated stepping and whether to include line numbers in the source code pane.
+<a name="wp496465"> </a></p>
+<p >
+Note:	 A change to the line number setting will take effect the next time the Debugger loads a new listing file. 
+<a name="wp496468"> </a></p>
+<p >
+<a href="dbgrhelp-1-8.html#wp496451">Figure 3-20</a> shows the <b>Settings</b> tab. 
+<a name="wp496445"> </a></p>
+<p >
+<img src="images/prefsettings.gif" border="0" hspace="0" vspace="0">
+<a name="wp496449"> </a></p>
+<b><p >
+Figure 3-20:	 Preferences dialog box with Settings tab
+<a name="wp496451"> </a></p></b>
+<p >
+The Debugger automatically saves the following window settings:
+<a name="wp496736"> </a></p>
+<ul> <li   );>Debugger window size and location (set by resizing or moving the Debugger window)<a name="wp496737"> </a>
+ <li   );>Size of the four window panes (set by resizing the panes)<a name="wp496738"> </a>
+ <li   );>Hidden panes (set by choosing one or more options on the <b>View</b> menu)<a name="wp496739"> </a>
+</ul><h5 >
+Attachable tab
+<a name="wp496577"> </a></h5>
+<p >
+The <b>Attachable</b> tab lists the debug listing directories. From this tab you can add and remove debug listing directories. The Debugger uses this list in attachable mode to locate the debug listing files. When an AVM instance and the Debugger are on separate machines, the debug listing directories must be accessible to the Debugger machine via a mapped drive (Windows) or a mounted file system (UNIX). <a href="dbgrhelp-1-8.html#wp555070">Figure 3-21</a> shows the <b>Attachable</b> tab. 
+<a name="wp555057"> </a></p>
+<p >
+<img src="images/prefattach.gif" border="0" hspace="0" vspace="0">
+<a name="wp555063"> </a></p>
+<b><p >
+Figure 3-21:	 Preferences dialog box with Attachable tab
+<a name="wp555070"> </a></p></b>
+<p >
+Note:	 The Debugger working directory appears by default.
+<a name="wp554809"> </a></p>
+<p >
+You can generate the debug listing files either manually or automatically. For more information on generating debug listing files, see the <a href="dbgrhelp-1-9.html#wp459095">&quot;Debug listing files&quot; section</a>.
+<a name="wp554811"> </a></p>
+<p >
+The Debugger automatically opens the <b>Preferences</b> dialog box to this tab if it is unable to locate a listing file for the attached process. For more information, see the <a href="dbgrhelp-1-9.html#wp459095">&quot;Debug listing files&quot; section</a>.
+<a name="wp485504"> </a></p>
+<h4 >
+Select Process dialog box 
+<a name="wp498625"> </a></h4>
+<p >
+The <b>Select Process</b> dialog box lets you obtain the list of currently running OpenEdge processes on the same machines as the Debugger. <a href="dbgrhelp-1-8.html#wp498634">Figure 3-22</a> shows the<b> Select Process</b> dialog box. 
+<a name="wp500322"> </a></p>
+<p >
+<img src="images/dbprocid.gif" border="0" hspace="0" vspace="0">
+<a name="wp500326"> </a></p>
+<b><p >
+Figure 3-22:	 Select Process dialog box.
+<a name="wp498634"> </a></p></b>
+<p >
+Access this dialog box by choosing the <b>Get List</b> button on the <b>Attach to Process</b> dialog box. For more information, see the <a href="dbgrhelp-1-8.html#wp483460">&quot;Attach to Process dialog box&quot; section</a>.
+<a name="wp498638"> </a></p>
+<b><p >
+To  select a Process ID:
+<a name="wp500388"> </a></p></b>
+<ol type="1"> <li  value="1"  );>Locate and select the process in the list. The process ID appears in the <b>Process ID</b> text box.<a name="wp499959"> </a>
+<p >
+Note:	 You can also type the process ID in the <b>Process ID</b> text box.
+<a name="wp499960"> </a></p>
+ <li  value="2"  );>Click <b>OK</b>.<a name="wp499961"> </a>
+</ol>
+    </blockquote>
+    <p></p>
+    <hr>
+
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">
+<a href="dbgrhelp-1-7.html"><img src="images/sprev.gif" border="0" alt="Previous"></a><a href="dbgrhelp-1-9.html"><img src="images/snext.gif" border="0" alt="Next"></a>
+        </td>
+        <td align="right">
+         OpenEdge Release 10.2B<br>
+         Copyright &#169; 2009 Progress Software Corporation<br>
+         </td>
+      </tr>
+    </table>
+  </body>
+</html>

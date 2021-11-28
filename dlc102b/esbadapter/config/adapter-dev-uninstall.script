@@ -1,0 +1,6 @@
+connect [[ds-domain]] [[ds-url]] [[ds-user]] [[ds-password]]
+delete xq_container [[container-name]] 
+delete service dev.OpenEdge
+delete endpoint dev.OpenEdge.Entry
+disconnect
+exit

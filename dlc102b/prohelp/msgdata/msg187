@@ -1,0 +1,74 @@
+9301 "The AdminObjectFinder.getTopicConnectionFactory method is used for finding the TopicConnectionFactory object. (9301)" "" "" ""
+9302 "A public AdminObjectFinder.getTopicConnectionFactory method was not found. (9302)" "The method was either deliberately not implemented (and that is fine), or there is an error in its definition. Typical definition errors are: It is not declared ""public"", it has the wrong parameters or it is not spelled correctly. " "" ""
+9303 "The AdminObjectFinder.getQueueConnectionFactory method is used for finding the QueueConnectionFactory object. (9303)" "" "" ""
+9304 "A public AdminObjectFinder.getQueueConnectionFactory method was not found. (9304)" "The method was either deliberately not implemented (and that is fine), or there is an error in its definition. Typical definition errors are: It is not declared ""public"", it has the wrong parameters or it is not spelled correctly." "" ""
+9305 "The AdminObjectFinder.getTopic method is used for finding the Topic objects. (9305)" "" "" ""
+9306 "A public AdminObjectFinder.getTopic method was not found. (9306)" "The method was either deliberately not implemented (and that is
+fine), or there is an error in its definition. Typical definition
+errors are: It is not declared ""public"", it has the wrong parameters
+or it is not spelled correctly." "" ""
+9307 "The AdminObjectFinder.getQueue method is used for finding the Queue objects. (9307)" "" "" ""
+9308 "A public AdminObjectFinder.getQueue method was not found. (9308)" "The method was either deliberately not implemented (and that is 
+fine), or there is an error in its definition. Typical definition
+errors are: It is not declared ""public"", it has the wrong parameters
+or it is not spelled correctly." "" ""
+9309 "Unable to FILL character variable with <number of bytes> bytes. (9309)" "The combination of the character expression and the number of repeats given for the FILL function would have produced a string too long for Progress to store in a character variable. Decrease the number of repeats or the length of the expression.  " "" ""
+9310 "Binary dump can't dump schema tables (9310)" " " "" ""
+9311 "Binary load can't load schema tables (9311)" " " "" ""
+9312 "ADO/DAO data type for field <fieldNum> is an unsupported type. (9312)" "This will occur if you are passing an ADO or DAO for a TABLE HANDLE parameter.  The proxy is attempting to retrieve metadata from the ADO or DAO and the data type of one of the fields cannot be mapped to a Progress data type.
+" "m" ""
+9313 "Either the field index or length are invalid for an array specifier. (9313)" "If an ADO or DAO are being passed as the source for a TABLE HANDLE parameter but the desired destination Progress table has an array field, an array is specified based on the flattened field list of the ADO or DAO.  Thus the index must be greater than 0 and less than the number of flattened fields.  The length must be greater than 1.  Also, the array must not extend beyond the end of the field list." "m" ""
+9314 "This array overlaps another array or is out of sequence. (9314)" "If an ADO or DAO are being passed as the source for a TABLE HANDLE parameter but the desired destination Progress table has an array field, an array is specified based on the flattened field list of the ADO or DAO.  The arrays must be specified in order (lower field numbers first) and must not overlap each other.   " "m" ""
+9315 "Unable to resize MEMPTR. (9315)" "Progress was unable to re-size the memory for a MEMPTR. This was probably because there was insufficient memory available. Another possibility is that the MEMPTR was invalid.  " "" ""
+9316 "An ADO or DAO data source must be supplied before arrays can be specified. (9316)" "If you need to indicate that ADO or DAO fields are arrays, this must be done after the DataSource is specified.  Array specifiers are not appropriate for an IClientTempTable data source.
+" "m" ""
+9317 "Unable to allocate memory for MEMPTR during runtime conversion. (9317)" "This probably happened during a MEMPTR = RAW assignment statement, and indicates that the system is very low on memory. " "" ""
+9318 "Secure Socket Layer (SSL) failure. error code <err_number>:  <ssl_error_message> (9318)" "An error occurred processing an SSL API request. This could be
+a general TCP network error or an error processing the validation
+of the digital certificate.
+" "" ""
+9319 "RAW-TRANSFER not supported for table <name> with BLOB columns. (9319)" "You can use BUFFER-COPY instead of RAW-TRANSFER, and exclude the
+blob columns. " "" ""
+9320 "CLEAR method not suppported for internally generated table-handles. (9320)" "You cannot CLEAR a temp-table that is being used as a parameter since the parameter references require a stable definition.  You also cannot CLEAR a temp-table being used as a BEFORE-TABLE." "" ""
+9321 "Invalid URL syntax: <URL>
+The only valid QueryString parameter is ?AppService= (9321)" "A URL was specified for an AppServer CONNECT that contained an invalid QueryString. The format for an AppServer URL CONNECT is protocol://username:password@host:port/path?AppService=servicename. " "" ""
+9322 "Invalid URL syntax: <URL>
+Supported protocols are AppServer, http, and https (9322)" "A URL was specified for an AppServer CONNECT that contained an invalid protocol specification. The format for an AppServer URL CONNECT is protocol://username:password@host:port/path?AppService=servicename. " "" ""
+9323 "You can not specify additional parameters other than -nohostverify when using -URL in the CONNECT method (9323)" "syserr " "" ""
+9324 "Attempt to exceed maximum size of a CHARACTER variable. (9324)" "There was an operation that would have resulted in a CHARACTER variable greater than the maximum size allowed. (One possibility would be a GET-STRING() from a MEMPTR where the string embedded in the MEMPTR exceeds the maximum size of a CHARACTER variable.)  " "" ""
+9325 "<file-name>" "In response to the ""rfutil aimage extent full"" command the full path to the oldest filled extent is printed to the screen." "d" ""
+9326 "Unable to reconnect to HTTP or HTTPS server (9326)" "The physical connection between client and server when using HTTP or HTTPS may go up and down. This error means there was a problem reconnecting to the Web Server that is hosting the AppServer Internet Adapter.
+ " "" ""
+9327 "Received a redirect response from AIA with no location (9327)" "The client received a redirect response from the Web Server that did not contain a Location header. Check the AIA and Web Server logs for more details.
+ " "" ""
+9328 "Unable to communicate with AIA. The Web Server returned an HTTP status code of . (9328)" "The Web Server returned an HTTP status code indicating an error condition. A status of 404 usually means an incorrect URL was specified on the CONNECT method. A status of 500 or greater usually means your Servlet Engine was not properly configured. Check the Web Server and AIA logs for more details.
+
+
+
+
+ " "" ""
+9329 "ORACLE DataServer does not support extents > 255 (9329)" "This is currently a restriction.  It may be removed some time after 9.1, but will require an r-code change." "" ""
+9330 "ORACLE DataServer does not support extents > 255, table <table-name> (9330)" "This is currently a restriction.  It may be removed some time after
+9.1, but will require an r-code change." "" ""
+9331 "Cannot connect to a database with the WebClient version of Progress. (9331)" "When running WebClient, you cannot connect directly to a database. To use a database, you must do so through the AppServer." "" ""
+9332 "<stmt> statement is not available in the WebClient version of Progress. (9332)" "When running WebClient, you cannot connect directly to a database. To use a database, you must do so through the AppServer. " "" ""
+9333 "Incomplete ai file detected, expected <blocks>, got <blocks>.          
+Subsequent roll forwards will fail unless this situation is resolved.    
+See extended help on this error for further information. (9333)" "An incomplete after image file has been detected, the data (notes) available have been applied. Somehow the number of blocks written to the file do not equal the current ai file size. This can happen any number of ways, one typical scenario is during a file transfer from one file system to another. If the full extent can be located/recovered you can perform a roll forward retry and proceed otherwise subsequent ai files can not be applied to this database.  " "d" ""
+9334 "This module can access ODBC only through the PROGRESS network. (9334)" "Please use the PROGRESS network to access ODBC." "" ""
+9335 "Cannot add any more sequences to the database. (9335)" "The sequence generator has run out of free sequence slots. Delete unused sequences to make a free slot. " "" ""
+9336 "Created shared memory with segment_id: <number> (9336)" "This is an informational message. A shared memory segment has been created. The segment id of the new segment is displayed as a long integer." "" ""
+9337 "Removing shared memory with segment_id: <number> (9337)" "Id number of the shared memroy segment removed" "" ""
+9338 "Unable to download file from web.  Invalid URL <URL>. (9338)" "Progress attempted to download a file from the web.  The URL for the file was invalid.  The URL must be well formed and cannot contain the percent character.  The URL must also begin with http:// or https://." "" ""
+9339 "Unable to download file from web.  Cannot open internet session.  Error code = <error-code>. (9339)" "Progress could not open an internet session in order to download a file from the web.  Make sure you are connected to the internet.  Error-code contains the value returned by GetLastError()." "" ""
+9340 "Unable to download file from web.  Cannot resolve server name <server name> in URL <URL>. (9340)" "Progress could not resolve the server name <server name> in the URL <URL> for a file over the web.  Make sure the server name in the URL is correct, and that it is listed in your services file." "" ""
+9341 "Unable to download file from web.  Cannot connect to server <server-name>. (9341)" "Progress could connect to server<server name> for downloading a file from the web.  Make sure the server is running." "" ""
+9342 "Unable to download file from web.  Internet request timed out. (9342)" "Progress was attempting to download a file from the web when the internet request timed out.  Make sure the server is running." "" ""
+9343 "Unable to download file from web.  Cannot send HTTP request.  Error code = <error-code>. (9343)" "Progress was attempting to download a file from the web.  The HTTP request failed.  Error-code contains the value returned by GetLastError()." "" ""
+9344 "Unable to download file from web.  Cannot query HTTP response.  Error code = <error-code>. (9344)" "Progress was attempting to download a file from the web.  It was unable to query the HTTP response from the server.  Error-code contains the value returned by GetLastError()." "" ""
+9345 "Unable to download file from web.  Cannot create temporary file <temp-file>.  Error code = <error-code>. (9345)" "Progress was attempting to download a file from the web.  A temporary file must be created to hold the downloaded data.  The request to create temp-file failed.  Error-code contains the value returned by GetLastError()." "" ""
+9346 "Unable to download file from web.  Error reading/writing the file.  Error code = <error-code>. (9346)" "Progress was attempting to download a file from the web.  An error occurred while reading the file from the internet or writing to the temporary file.  Error-code contains the value returned by GetLastError()." "" ""
+9347 "Unable to download file from web.  HTTP status code = <status-code>. (9347)" "Progress was attempting to download a file from the web. Status-code contains the status code in the HTTP response header returned by the server." "" ""
+9348 "<help-command> is not a valid SYSTEM-HELP command on a Windows Help File. (9348)" "You specified HELP-TOPIC or ALTERNATE-KEY in the SYSTEM-HELP statement for a Windows help file.  These commands are only valid with compiled HTML Help (.chm) files." "" ""
+9349 "<help-command> is not a valid SYSTEM-HELP command on a HTML Help File. (9349)" "You specified a help-command in the SYSTEM-HELP statement for a HTML help file.  This command is only valid with a Windows Help (.hlp) file." "" ""
+9350 "Unable to load HTML Help Viewer. (9350)" "Progress was unable to load the HTML Help Viewer while executing a SYSTEM-HELP statement.  Make sure HTML Help is installed on your system." "" ""

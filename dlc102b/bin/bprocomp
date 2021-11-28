@@ -1,0 +1,22 @@
+#!/bin/sh
+#
+# bprocomp
+DLC=${DLC-/dlc/dlc102b};export DLC
+DLCTK=${DLCTK-$DLC/toolkit};export DLCTK
+ICU_DATA=${ICU_DATA-$DLC/lib/icu/data/};export ICU_DATA
+PROEXE=${PROEXE-$DLC/bin/_progres};export PROEXE
+
+case ${MACHINE} in
+  "hpux" )
+      SHLIB_PATH="${SHLIB_PATH}:${DLC}/lib:";export SHLIB_PATH
+  ;;
+  *)
+  ;;
+esac
+
+
+echo Batch processing will be performed using:
+cat $DLC/version
+echo
+trap "" 1
+$PROEXE -1 -b "$@" 2>&1 &

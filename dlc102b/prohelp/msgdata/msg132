@@ -1,0 +1,69 @@
+6551 "BI File Threshold Stall (-bistall): Enabled. (6551)" "This is an informational message displayed to the database log file
+(.lg) when multi user server begins.  It is reporting that forward 
+processing will stall when the Before Image File Threshold size is 
+reached.                                                           " "" ""
+6552 "BI File Threshold Stall (-bistall): Disabled. (6552)" "This is an informational message displayed to the database log file   (.lg) when multi user server begins.  It is reporting that forward   
+processing will not stall when the Before Image File Threshold size is
+reached.                                                              " "" ""
+6553 "BI File Threshold is already  <num>. (6553)" "An attempt was made to change the Before Image Threshold setting to the current value. As a result, the setting has not been changed.                 " "D" ""
+6554 "Request to change BI File Threshold value rejected. (6554)" "An attempt to change the Before Image file threshold size was        
+unsuccessful.  It did not succeed for one of the following reasons: an
+invalid value was provided, the database has not been quieted with    
+proquiet, or forward processing has not been stalled due to reaching  
+the threshold size.                                                   " "D" ""
+6555 "BI Threshold has not been reached and a Quiet Point has not been enabled. (6555)" "An attempt to change the Before Image Threshold Size was made without
+the threshold setting being reached.  A Quiet Point must be enabled in
+order to change the Before Image Threshold Size if the threshold     
+setting has not been reached.                                        " "D" ""
+6556 "BI Threshold value has changed to  <num>, was  <num>. (6556)" "The Before Image Threshold value has been changed to a new value using the proquiet command." "D" ""
+6557 "Invalid BI Threshold value has been requested. (6557)" "The Before Image Threshold setting provided was not a valid value.  Valid values are 1 to the largest configurable Before Image file size, in megabytes." "D" ""
+6558 "BI File Threshold size of  <num> has been reached. (6558)" "The Before Image file threshold size has been reached.  If the -bithold option has been used without the -bistall, an emergency shutdown will ocurr. If -bistall has been used, forward processing has been paused." "D" ""
+6559 "BI file size has grown to within 90 percent of the threshold value of  <num>. (6559)" "This is an information message warning the the Before Image file size is nearing the threshold setting.  This can occur due to long running transactions. When the BI file grows to the size of the threshold the system will either begin an emergency shutdown or forward processing will be paused." "D" ""
+6560 "Forward processing stalled until database administrator intervention. (6560)" "The Before Image file threshold size has been reached and the -bistall option is enabled.  The threshold size can be increased if there is enough disk space available or the database can be shut down while maintaining data integrity." "D" ""
+6561 "Forward processing continuing. (6561)" "This is a information message indicating that a Before Image file stall has occurred and the Before Image Threshold size has subsequently been increased." "D" ""
+6562 "Invalid rowid parameter specified. (6562)" "There is no corresponding row associated with this rowid." "" ""
+6563 "A dynamic browser cannot have a query associated with it. (6563)" "syserr" "" ""
+6564 "BROWSE-COLUMN-LABELS, BROWSE-COLUMN-FORMATS, and BROWSE-COLUMN-DATA-TYPES attributes are all required for a dynamic browser. (6564)" "syserr" "" ""
+6565 "BROWSE-COLUMN-LABELS, BROWSE-COLUMN-FORMATS, and BROWSE-COLUMN-DATA-TYPES attributes must have the same number of entries. (6565)" "" "" ""
+6566 "BI file size is greater than the BI file threshold size. (6566)" "This is an informational message reporting that the Before Image file size is currently larger than the BI file threhold size setting.  The database session can not start successfully if the size of the Before Image file is larger than the size of the Before Image threshold setting." "d" ""
+6567 "You must truncate the BI file or increase the BI threshold size. (6567)" "This is an informational message.  It is recieved after attempting to start a database session.  The message is caused by trying to start a session against a database which has a Before Image Threshold size setting smaller than the current size of the Before Image file." "D" ""
+6568 "Charscan match count: <match-count> (6568)" "Number of matches found by charscan.
+
+
+
+
+
+
+" "" ""
+6569 "Charscan found a character match in <table>.<field><extent>, recid <recid>. (6569)" "" "" ""
+6570 "Charscan searching for <code-page> character: <decimal-character>  <hex-character>. (6570)" "" "" ""
+6571 "Charscan error: Invalid <code-page> character: <decimal-character>  <hex-character>. (6571)" "The numeric value indicated is not a valid character in the listed codepage." "" ""
+6572 "Incorrect tablebase/limit or indexbase/limit. (6572)" "syserr" "" ""
+6573 "Database Blocksize (-blocksize): <num>. (6573)" "Physical database blocksize" "D" ""
+6574 "Started using pid: <num>. (6574)" "The Brokers process id for a self serving database." "D" ""
+6575 "Unable to set Collation Tables. (6575)" "" "D" ""
+6576 "Unable to get storage for dbctl structures. (6576)" "syserr" "D" ""
+6577 "Minimum blocksize allowed is <size>. (6577)" "The block size must be larger than the value that was entered." "D" ""
+6578 "Begin Conversion of Physical Schema. (6578)" "syserr" "D" ""
+6579 "Maximum blocksize allowed is <size>. (6579)" "The value must be smaller than what was entered." "D" ""
+6580 "Unable to Add new records to the _Field Table - db corrupted (6580)" "syserr" "D" ""
+6581 "Value specified for BROWSE's DOWN attribute is above max limit of 128 (6581)" "syserr" "q" ""
+6582 "Unable to create index <num>  (6582)" "syserr" "D" ""
+6583 "Invalid format specified in BROWSE-COLUMN-FORMATS attribute for dynamic browser (6583)" "syserr" "" ""
+6584 "Unable to Add New _Index Entries - database corrupted. (6584)" "syserr" "D" ""
+6585 "Unable to Add fields to existing (v8) schema tables - db corrupted (6585)" "syserr" "D" ""
+6586 "To change BROWSE <browse>  QUERY attribute, new query must have same number of tables as original query. (6586)" "" "" ""
+6587 "Unable to Switch System Fields in target Database - db corrupted. (6587)" "syserr" "D" ""
+6588 "You must specify a positive integer for bigrow. (6588)" "The number must be positive.  Negative numbers are invalid." "D" ""
+6589 "Unable to set QUERY attribute for BROWSE <browse>. Query must be composed of same database table(s) as original query (6589)" "" "" ""
+6590 "Unable to Add new V9 schema tables - database corrupted. (6590)" "syserr" "D" ""
+6591 "drbackup: Failed to retrieve object block for area <num>. (6591)" "This message means that the object block was not able to be retrieved." "D" ""
+6592 "WARNING: Scan option is not supported with online backups. (6592)" "You cannot perform this function with an online backup in progress." "D" ""
+6593 "Unable to set QUERY attribute for BROWSE <browse>. Query cannot be composed of workfiles. (6593)" "" "" ""
+6594 "System out of memory !. (6594)" "syserr" "D" ""
+6595 "Unable to set QUERY attribute for BROWSE <browse>. Current query's temp tables and new query's temp tables do not have same number of fields. (6595)" "" "" ""
+6596 "Masterblock is corrupted. (6596)" "The extent master block is corrupted." "D" ""
+6597 "The database must be a multi-volume db before the conversion. (6597)" "syserr" "D" ""
+6598 "Valid database blocksizes are 512, 1024, 2048, 4096, 8192. (6598)" "Lists the valid database block sizes.  One of them must be selected." "D" ""
+6599 "Enter the database Blocksize for <name>: (6599)" "Prompt to enter the database block size." "D" ""
+6600 "Adding <num> clusters to the Before Image file. (6600)" "Displays number of clusters that is being added to the BI file." "D" ""

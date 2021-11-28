@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+
+<!-- Minimalistic client configuration -->
+<waspc-config xmlns:scr="urn:StubConfigRepository" xmlns:wasp="urn:WaspServer">
+
+    <wasp:import ref="deleter.xml"/>
+    <wasp:import ref="header.xml"/>
+    <wasp:import ref="interceptor.xml"/>
+    <wasp:import ref="logger.xml"/>
+    <wasp:import ref="redirect.xml"/>
+    <wasp:import ref="serialization.xml"/>
+    <wasp:import ref="soapprotocol.xml"/>
+    <wasp:import ref="transcoder.xml"/>
+    <wasp:import ref="transport.xml"/>
+
+    <!-- Client config module -->
+    <wasp:module wasp:class="WASP_ClientConfigContextRepository"/>
+
+    <scr:configDeserializer class="WASP_XMLProtocolConfigDeserializer"/>
+    <scr:configDeserializer class="WASP_TransportConfigDeserializer"/>
+    <scr:configDeserializer class="WASP_SerializationConfigDeserializer"/>
+
+    <!-- BEGIN: Progress -->
+<!--
+    <scr:stubConfig xmlns:xp="urn:XMLProtocol" xmlns:ser="urn:Serialization"
+        xp:handler="SOAP"
+        xp:directOutput="true"
+        xp:encoding="UTF-8"
+        ser:emitType="false"
+        ser:emitMTOM="auto"
+        xp:emitWSAddressing="false"
+    >
+        <interceptor xmlns="urn:Transport">DIMEInterceptor</interceptor>
+    </scr:stubConfig>
+-->
+
+    <scr:stubConfig xmlns:scec="urn:StubConfigEntryContent"
+        scec:xmlProtocolHandler="SOAP"
+        scec:xmlProtocolDirectOutput="1"
+        scec:outputXMLEncoding="UTF-8" 
+        scec:outputHeaderProcessor="PSCHeaderProcessor"
+        scec:inputHeaderProcessor="PSCHeaderProcessor"
+        scec:outputFaultHeaderProcessor="PSCHeaderProcessor"
+        scec:inputFaultHeaderProcessor="PSCHeaderProcessor"
+    >
+<!--         scec:interceptor="ClientInterceptorChain" -->
+        <interceptor xmlns="urn:Transport">DIMEInterceptor</interceptor>
+    </scr:stubConfig>
+    <!-- END: Progress -->
+</waspc-config>

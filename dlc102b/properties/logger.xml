@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<!-- Logging -->
+<waspc-config xmlns:wasp="urn:WaspServer" >
+
+    <!-- Module Logger -->
+    <wasp:module wasp:class="WASP_FacilityLogger" />
+
+    <!-- Default configuration, errors and warnings are logged to stderr -->
+    <logger:config xmlns:logger="urn:FacilityLogger">
+        <facility type="stderr"/>   <!-- stdout,stderr,file,syslog -->
+
+        <component levels="error warn" name="*"/>
+    </logger:config>
+
+</waspc-config>

@@ -1,0 +1,68 @@
+12251 "Test message for LONG64 and ULONG64 values: LONG64 = , ULONG64 =  (12251)" "" "" ""
+12252 "Missing arguments after rfutil -C aimage query  (12252)" "The rfutil aimage query command expects more arguments. The correct syntax is: rfutil db_name -C aimage query query_option by search_option search_value" "" ""
+12253 "Missing or invalid search option (12253)" "The rfutil aimage query command expects search option argument. The correct syntax is: rfutil db_name -C aimage query query_option by  search_option search_value " "" ""
+12254 "Invalid search value:  (12254)" "The rfutil aimage query command expects argument as the search option value. The correct syntax is: rfutil db_name -C aimage query query_option by search_option search_value " "" ""
+12255 "Invalid query option for rfutil aimage query (12255)" "The rfutil aimage query command expects argument as query option. The correct syntax is: rfutil db_name -C aimage query query_option by search_option search_value" "" ""
+12256 "Invalid value for search option extnum (12256)" "The rfutil aimage query command found invalid value for the search option extnum. It's either missing, or the wrong value." "" ""
+12257 "Invalid value for search option sequence (12257)" "The rfutil aimage query command found invalid value for the search option sequence. It's either missing, or the wrong value.  " "" ""
+12258 "Invalid value for search option name (12258)" "The rfutil aimage query command found invalid value for the search option name. It's either missing, or the wrong value. " "" ""
+12259 "No AI extent found with such sequence number:  (12259)" "The rfutil aimage query command can not find any AI extent with the sequence number provided." "" ""
+12260 "Invalid sequence number:  (12260)" "The rfutil aimage query command found the sequence number provided by user is not a valid number." "" ""
+12261 "Web service operation  <operation-name> cannot be called as a function. Call it as a procedure. (12261)" "Check the output from the WSDL Analyzer to see how the Web service operation should be invoked from the 4GL. Operations that the WSDL Analyzer shows only as 4GL procedures may not be called using function syntax. " "" ""
+12262 "SSL Encryption has been enabled for ALL TCP/IP connections to this database. (12262)" "The promary database broker was started with -ssl.  This enables SSL for all connections made to this database." "" ""
+12263 "SSL Key Alias Name (-keyalias): <name>. (12263)" "Alias name of private/public key and certificate in key store." "" ""
+12264 "SSL Session Timeout (-sessiontimeout): <num>. (12264)" "Maximum time in seconds that SSL clients can resume SSL connections." "" ""
+12265 "SSL Certificate Store Path (-certstorepath): <path>. (12265)" "SSL Certificates Store Path." "" ""
+12266 "The array has exceeded the maximum size allowed. (12266)" "The array you are using has exceeded the maximum size allowed.  " "" ""
+12267 "Error writing to temp file, the file has reached 2G, current directory is , instance id is .        (12267)" "" "D" ""
+12268 "Before-Image Cluster Size: <num> kb ( <num> bytes). (12268)" "Size of the Before Image Cluster in KB and in number of bytes." "D" ""
+12269 "Before-Image Block Size: . (12269)" "" "D" ""
+12270 "You cannot pass an array variable for the RETURN parameter of a DLL. (12270)" "If the DLL returns an array (or more accurately a pointer to an array), you cannot pass a Progress array variable for this RETURN parameter. You should use a MEMPTR instead." "" ""
+12271 " <utility> cannot  <action> a database in the needs recovery state. (12271)" "The database was restored from a backup with the norecover option set.  In order to use the named utility, the database must be recovered.  Serve a database server or truncate the bi and the database will go through crash recovery." "D" ""
+12272 "A variable or array element passed as an INPUT or INPUT-OUTPUT parameter to a DLL cannot contain the Unknown value.  (12272)" "It does not make sense to pass the Unknown value to a DLL for an INPUT or INPUT-OUTPUT parameter as there is no equivalent value for ""Unknown"" in a 3GL such as ""C"". Therefore, the results would be unpredictable. So set the variable to a valid input value before calling the DLL function.
+" "" ""
+12273 "No SSL Session Cache (-nosessioncache): <true_or_false>. (12273)" "No SSL server based session cache." "" ""
+12274 "Select one of the following:
+All           (a/A) - Rebuild all the indexes 
+Some          (s/S) - Rebuild only some of the indexes 
+By Area       (r/R) - Rebuild indexes in selected areas
+By Schema     (c/C) - Rebuild indexes  by schema owners " "" "" ""
+12275 "By Table      (t/T) - Rebuild indexes in selected tables 
+By Activation (v/V) - Rebuild selected active or inactive indexes
+
+Quit     (q/Q) - Quit, do not rebuild 
+
+Enter your selection: " "" "" ""
+12276 "Select one of the following:
+All           (a/A) - Check all the indexes 
+Some          (s/S) - Check only some of the indexes 
+By Area       (r/R) - Check indexes in selected areas
+By Schema     (c/C) - Check indexes by schema owners" "" "" ""
+12277 "By Table      (t/T) - Check indexes in selected tables 
+
+Quit     (q/Q) - Quit, do not Check 
+
+Enter your selection:" "" "" ""
+12278 "The specified character set is not allowed for CLOB or LVARCHAR column (12278)" "" "" ""
+12279 "Failure to create a NLS character set conversion handler  (12279)" "" "" ""
+12280 "Server does not support RUN STORED-PROC with LOAD-RESULT-INTO (12280)" "You tried to execute a RUN STORED-PROC statement with the LOAD-RESULT-INTO option against an older server version which does not support this option." "" ""
+12281 "Length <length> of array parameter is incorrect.  Expected <length>. (12281)" "You have sent an input or input-output array parameter from an Open   Client and its extent value does not match the extent value in the    proxy code which is the parameter signature in the r-code (as was     recorded by ProxyGen)." "" ""
+12282 "Invalid java.sql type <type> for Progress <type> column. (12282)" "The java.sql type in the input ResultSet is incompatible with the Progress type.  For example java.sql.Date is only valid for a Progress DATE column." "" ""
+12283 "No schema sent for  parameter. (12283)" "The AppServer sent a NO-SCHEMA-MARSHAL temp-table or DataSet to the Java Client and the receiving parameter was a TABLE-HANDLE or DATASET-HANDLE which require schema with the data." "" ""
+12284 "Unable to construct a GregorianCalendar with the specified time zone <timezone> (12284)" "The Java Client was unable to create a GregorianCalendar for the DATETIME-TZ with the specified time zone." "" ""
+12285 "Invalid codepage <codepage> for LONGCHAR/CLOB data. (12285)" "The Java OpenClient requires LONGCHAR parameters and CLOB columns to be in UTF-8." "" ""
+12286 "SSL encryption is not supported on this platform. (12286)" "SSL encryption is not supported for this platform.  Remove the -ssl specified during database connection and attempt the connect again." "" ""
+12287 "SSL encryption is not supported on this platform. (12287)" "SSL encryption is not supported for this platform.  Remove the -ssl specified during database startup then attempt to start the database broker again." "" ""
+12288 "There are no available EMPTY AI extents.  Database activity is stalled until an AI extent becomes available.  (12288)" "All database activity is stalled because there are no EMPTY AI extents available for use.  The database was started with the -aistall argument.   Database activity will continue as soon as an AI extent becomes available." "" ""
+12289 "Database activity is no longer stalled and will continue normally. (12289)" "Database activity is no longer stalled and will continue normally.  The database was stalled because there weren't any EMPTY AI extents  available for use.  " "" ""
+12290 "Calling procedure <proc> cannot pass an indeterminate extent parameter if the sub-procedure <proc> parameter is a non-array parameter. (12290)" "Indeterminate extents cannot be passed to or from procedures or functions whose parameter target is a non-array (scalar). " "" ""
+12291 "   :\n (12291)" "Error message from openssl" "" ""
+12292 "SYSTEM ERROR: Error creating memory map, err . (12292)" "Failed to create file mapping." "" ""
+12293 "An error occurred during certificate validation.  The OpenEdge database broker cannot be started. (12293)" "An error occurred during SSL certificate validation.  Please verify the SSL argument you supplied then submit your request again." "" ""
+12294 "No PARAMETERS allowed in select list. (12294)" "" "" ""
+12295 "Failed to create database object for BLOB/CLOB field <name>. (12295)" "You are trying to create a temp-table dynamically, and the operation to create a BLOB/CLOB column has failed." "" ""
+12296 "Failed to create temp-table database object for TEMP-TABLE <name>. (12296)" "You are createing a dynamic temp-table and for some reason could not get it into the DBI* temp-table database." "" ""
+12297 "Cannot have temp-table <name> more than once in the same dataset. (12297)" "If you need two separate parts of the same database table in the same dataset, you should make two temp-tables out of the same database table, and put the two temp-tables in the dataset and map both of them to the same database table.  (See ATTACH-DATA-SOURCE)" "" ""
+12298 "Buffer <name> may be in only one data-source at a time.  Use different buffers for the same table. (12298)" "Because a data-source and its database buffer must be in a one to one relation, you can have only one data-source for a particular buffer for a particular database table.  However, you can have many buffers for the same database table, so just create or define a second buffer for this data-source on the same database table.   Also, a data-source can relate to more than one database table, and you need a unique buffer for each database table." "" ""
+12299 "Unable to find after table <name> record, removing BEFORE-TABLE record. (12299)" "A BEFORE-TABLE record may be orphaned occasionally, especially if the table is NO-UNDO.  This message tells you that we have cleaned up the orphan record." "" ""
+12300 "Could not get lock for  record during save-row-changes. (12300)" "SAVE-ROW-CHANGES usually updates database tables, whose records can be in use by some other user of the database.  It tries 10 times at 20 milliseconds apart to get the exclusive lock, before giving up." "" ""

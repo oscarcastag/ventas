@@ -1,0 +1,88 @@
+9351 "Unable to load HTML Help file <help-file>. (9351)" "Progress was unable to load the HTML Help file while executing a SYSTEM-HELP statement.  Make sure the path to the file is correct." "" ""
+9352 "This .r file does not contain any procedure prototype information and therefore cannot be used to create a proxy. (9352)" "ProxyGen must be able to get information about the parameters for this procedure and the prototypes for any internal procedures and user-defined functions.  This information will be missing from the r-code if it was compiled with the MIN-SIZE option or possibly if the r-code has become corrupted.  r-code without this prototype information cannot be used by ProxyGen to generate proxies." "" ""
+9353 "CREATE SERVER-SOCKET can not be called from <application name>. (9353)" "A server-socket object can not listen for connections from either a Web Agent nor from a AppServer.  Therefore, the creation of this type of object is disallowed." "" ""
+9354 "VALIDATION MESSAGE:  The value for property <property name> must fall within the range of <min value> and <max value>, inclusive. (9354)" "The valid range for this property is between the minimum value indicated and the maximum value indicated, inclusive.  Change the value of the property to be within this range." "" ""
+9355 "SQL server reuse disabled. (9355)" "The SQLREUSE environment variable has been set to false.  This indicated that the sql server will not be reused for subsequent sql connections." "" ""
+9356 "Invalid NameServer client port range. (9356)" "An optional client port specification can be used when communicating with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. The minimum port number is 1024 and the maximum is 65535. If a single port is being specified, the minimum and maximum values should be the same.
+ " "" ""
+9357 "The value of a retry parameter for the Nameserver client port is invalid. (9357)" "An optional client port specification can be used when communicating with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. If the caller is unable to allocate a port within the allowed range, it will try again the number of times specified by the retry count. A retry count of 0 indicates only one attempt will be made per request. The maximum value for the retry count is 500. The retry delay specification indicates how many seconds the caller should wait between retry attempts. The maximum value for the retry delay is 10 seconds.
+ " "" ""
+9358 "Unable to allocate NameServer client port within specfied range. (9358)" "An optional client port specification can be used when communicating with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. This error indicates the caller was unable to allocate a port within the specified range.
+
+ " "" ""
+9359 "Unable to allocate NameServer client port within specfied range. (9359)" "An optional client port specification can be used when communicating with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. This error indicates the caller was unable to allocate a port within the specified range.
+
+ " "" ""
+9360 "Invalid NameServer client port retry values. (9360)" "An optional client port specification can be used when communicating with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. If the caller is unable to allocate a port within the allowed range, it will try again the number of times specified by the retry count. A retry count of 0 indicates only one attempt will be made per request. The maximum value for the retry count is 500. The retry delay specification indicates how many seconds the caller should wait between retry attempts. The maximum value for the retry delay is 10 seconds.
+ " "" ""
+9361 "Invalid NameServer client port range. (9361)" "An optional client port specification can be used when communicating with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. The minimum port number is 1024 and the maximum is 65535. If a single port is being specified, the minimum and maximum values should be the same.
+ " "" ""
+9362 "An error occured while listening for network input requests on port <port>. (9362)" "The NameServer was listening for input on the indicated port when an I/O exception occured. The NameServer listens on the same <port> for client requests and broker registrations. The caught exception message that follows this message provides text from the originating I/O exception. The NameServer caught the exception and will attempt to continue listening for additional requests. If the errors persist without any intervening valid input, the NameServer  will eventually shut itself down.
+ " "" ""
+9363 "JVM out of memory: Adapter emergency exit. Use the JVM's -mx, -ss and -oss startup parameters to increase the memory available for the adapter. (9363)" "One typical scenario where this error might occur is when very large JMS messages are being sent or received. Use the jvmARg property of the adapter broker to modify the JVM's default values of -mx, -ss and -oss." "" ""
+9364 "VALIDATION MESSAGE:  Value <value> exceeds the maximum value of <maximum value> for property <property name>. (9364)" "The value for this property must not exceed the upper limit specified.  Enter a lower value for this property." "" ""
+9365 "Invalid NameServer client port range. (9365)" "An optional client port specification can be used when communicating
+with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. The
+minimum port number is 1024 and the maximum is 65535. If a single port is being specified, the minimum and maximum values should be the same.
+  " "" ""
+9366 "Invalid NameServer client port retry values. (9366)" "An optional client port specification can be used when communicating
+with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. If the
+caller is unable to allocate a port within the allowed range, it will
+try again the number of times specified by the retry count. A retry 
+count of 0 indicates only one attempt will be made per request. The
+maximum value for the retry count is 500. The retry delay specification indicates how many seconds the caller should wait between retry attempts. The maximum value for the retry delay is 10 seconds.
+
+ 
+  " "" ""
+9367 "Unable to allocate NameServer client port within specfied range. (9367)" "An optional client port specification can be used when communicating
+with a Nameserver. This allows the port used on the client side of the session to be restricted to a defined port or range of ports. This error indicates the caller was unable to allocate a port within the specified range.
+
+
+ 
+  " "" ""
+9368 "Unable to download file from web.  Authentication failed for server ''<server-name>. (9368)" "Progress was attempting to download a file from the web. Server <server-name> requires authentication to access files.  The authentication failed because the user Id and password sent to the server were invalid.
+
+" "" ""
+9369 "<errormsg>. (9369)" " " "m" ""
+9370 "Error closing socket : <errormsg> : <exterrormsg>. (9370)" "The AppServer Internet Adapter detected an error while closing a socket.
+ " "" ""
+9371 "Error filling status table row: <errormsg> : <exterrormsg>. (9371)" "The AppServer Internet Adapter detected an error while displaying status information.
+ " "" ""
+9372 "<connectionid> expired (inactive more than <timeout> seconds).  Connection closed. (9372)" "The specified connection did not send or receive a message in the timeout interval, so the connection was closed.  The timeout interval is defined by the idleConnectionTimeout property (specified in seconds) in the ubroker.properties file.
+ " "" ""
+9373 "AIA error accessing propertyFile <filename> : <errormsg> : <exterrormsg>. (9373)" "AIA encountered the specified error accessing the property file and could not continue. " "" ""
+9374 "Section (<sectionName>) not found in properties file (<propertiesFilename>).  (9374)" "AIA could not find the specified section name in the properties file. " "" ""
+9375 "AIA_HTTPS is licensed in this configuration. (9375)" "AIA is licensed to use HTTPS in this configuration.  To enable HTTPS the httpsEnabled property must be set in the ubroker.properties file.
+ " "" ""
+9376 "AIA_HTTPS is not licensed in this configuration. (9376)" "AIA is not licensed to use HTTPS in this configuration. " "" ""
+9377 "Unable to truncate extent header, file = <file-name>, ret = <return-value>. (9377)" "An error occurred while trying to truncate a variable length ai extent." "m" ""
+9378 "Table . at Rowid  has Column  whose value exceeding its max length or precision (9378)" "This is a specific message created for SQL92's UPDATE STATISTICS statement. It will be generated and put into the database *.lg file when any of the character type field in a fetching record has longer 4gl value than the sql92 fixed column width." "" ""
+9379 "Unable to process -useOsLocale startup parameter. (9379)" "An error occurred while processing the -useOsLocale startup parameter.  Either the DLL failed to load or the DLL produced invalid results. " "" ""
+9380 "Unable to download file from web.  Unknown or invalid SSL certificate authority for server <server name>. (9380)" "Server <server name> issued an SSL certificate when Progress tried to access a file on it.  The client does not know about the authority that issued the certificate.  This problem may be corrected by installing the certificate authority's root certificate." "" ""
+9381 "Web Server authenication failure - username, password invalid or not set (9381)" "Using the AppServer Internet Adaptor requires a connection through
+a WebServer.  If the Web Server has ""Basic Authenication"" enabled
+this required that a username and password be supplied in the 
+AppServer CONNECT(""-URL ..."") statement.  The format is
+http://username:password@hostname:portnumber/...
+" "" ""
+9382 "Created shared memory with segment_id: <number> (9382)" "This is an informational message. A shared memory segment has been created. The segment id of the new segment is displayed in hex." "" ""
+9383 "rlrdnxt: note prefix and suffix lengths don't match <prefix length> <suffix length> (9383)" "syserr " "" ""
+9384 "Unable to calculate solution for EXP function. (9384)" "Progress was unable to return a solution for the EXP() function. This may be because the result is too large or too small, or because the given base is negative and the exponent is not an integer." "" ""
+9385 "SYSTEM ERROR: The routine rlaion was called with the obsolete parameter logmode. (9385)" "syserr " "" ""
+9386 "SYSTEM ERROR: rlTxeStop already stopped. (9386)" "syserr " "" ""
+9387 "SYSTEM ERROR: rlTxeStop already stopped. (9387)" "syserr " "" ""
+9388 "Unable to update _SEQUENCE table template - conversion aborted. (9388)" "syserr" "D" ""
+9389 "Error returned from drGetRecid1:  <errorCode>. (9389)" "Selected Record was not found within Database, probable DB corruption.  Conversion aborted, so must restore from v8 backup." "D" ""
+9390 "SYSTEM ERROR: Unrecognized lockmode  passed to routine rlTXEgetLock. (9390)" "syserr " "" ""
+9391 "Illegal selection passed to drFetchTemplRecs. (9391)" "Unexpected result, no corruption to database or conversion, but may indicate that a process had been skipped." "D" ""
+9392 "Version upgrade cannot be performed when a transaction is already active. (9392)" "Must connect to the earlier versioned v9 database outside of a transaction to allow autoconvert utility to update database.  This can be accomplished by either connecting directly to database (in self service mode), or starting a server on database prior to connecting to the database." "D" ""
+9393 "   Ext # , Type , Size  KByte, Name: " "This is an informationsal message that displays extent information when running prostrct list." "D" ""
+9394 " master block(s) found in the storage area.
+" "This message is used as part of the analysis report " "" ""
+9395 "<num> area block(s) found in the storage area." "This message is used as part of the analysis report" "" ""
+9396 "<num> control block(s) found in the storage area." "This message is used as part of the analysis report" "" ""
+9397 "<num> object block(s) found in the storage area." "This message is used as part of the analysis report" "" ""
+9398 "<num> RM block(s) found in the storage area." "This message is used as part of the analysis report " "" ""
+9399 "<num> index block(s) found in the storage area." "This message is used as part of the analysis report " "" ""
+9400 "<num> free block(s) found in the storage area.
+" "This message is used as part of the analysis report " "" ""

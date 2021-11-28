@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Arguments: -helpset dbgrhelp.hs
+Run-Class: sunw.demo.jhdemo.JHLauncher
+Class-Path: runjar.jar jh.jar hsviewer.jar
+Created-By: 1.5.0_11 (Sun Microsystems Inc.)
+Main-Class: com.webworks.runjar
+

@@ -1,0 +1,68 @@
+<?xml version='1.0'?>
+<!-- XML Schema for WSDL Extension for SOAP in DIME -->
+<!--
+Copyright 2002 Microsoft Corporation. All rights reserved.
+
+The presentation, distribution or other dissemination of the
+information contained herein by Microsoft is not a license,
+either expressly or impliedly, to any intellectual property owned or
+controlled by Microsoft.
+
+This document and the information contained herein is provided on an
+"AS IS" basis and to the maximum extent permitted by applicable law,
+Microsoft provides the document AS IS AND WITH ALL FAULTS, and hereby
+disclaims all other warranties and conditions, either express, implied
+or statutory, including, but not limited to, any (if any) implied
+warranties, duties or conditions of merchantability, of fitness for a
+particular purpose, of accuracy or completeness of responses, of
+results, of workmanlike effort, of lack of viruses, and of lack of
+negligence, all with regard to the document. ALSO, THERE IS NO
+WARRANTY OR CONDITION OF TITLE, QUIET ENJOYMENT, QUIET POSSESSION,
+CORRESPONDENCE TO DESCRIPTION OR NON-INFRINGEMENT WITH REGARD TO THE
+DOCUMENT.
+
+IN NO EVENT WILL MICROSOFT BE LIABLE TO ANY OTHER PARTY FOR THE COST
+OF PROCURING SUBSTITUTE GOODS OR SERVICES, LOST PROFITS, LOSS OF USE,
+LOSS OF DATA, OR ANY INCIDENTAL, CONSEQUENTIAL, DIRECT, INDIRECT, OR
+SPECIAL DAMAGES WHETHER UNDER CONTRACT, TORT, WARRANTY, OR OTHERWISE,
+ARISING IN ANY WAY OUT OF THIS OR ANY OTHER AGREEMENT RELATING TO THIS
+DOCUMENT, WHETHER OR NOT SUCH PARTY HAD ADVANCE NOTICE OF THE
+POSSIBILITY OF SUCH DAMAGES. 
+-->
+<xs:schema 
+ targetNamespace="http://schemas.xmlsoap.org/ws/2002/04/content-type/" 
+ xmlns:content="http://schemas.xmlsoap.org/ws/2002/04/content-type/" 
+ xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+ elementFormDefault="qualified">
+ 
+ <!-- type Element -->
+ 
+ <xs:element name="type">
+  <xs:complexType>
+   <xs:attribute name="id" type="xs:ID" use="optional"/>
+   <xs:attribute name="value" type="xs:anyURI" use="required"/>
+   <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+ </xs:element>
+ 
+ <!-- mediaType Element -->
+
+ <xs:element name="mediaType">
+  <xs:complexType>
+   <xs:attribute name="id" type="xs:ID" use="optional"/>
+   <xs:attribute name="value" type="xs:string" use="required"/>
+   <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+ </xs:element>
+ 
+ <!-- documentType Element -->
+ 
+ <xs:element name="documentType">
+  <xs:complexType>
+   <xs:attribute name="id" type="xs:ID" use="optional"/>
+   <xs:attribute name="value" type="xs:QName" use="required"/>
+   <xs:anyAttribute namespace="##other" processContents="lax"/>
+  </xs:complexType>
+ </xs:element>
+ 
+</xs:schema>

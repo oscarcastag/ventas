@@ -1,0 +1,69 @@
+6401 "WTA: npp_poll() failed with a drastic error status: .  (6401)" "syserr" "m" ""
+6402 "WTA: WebSendMessage() Could not connect to WTB: npp_connect() failed with error: .  (6402)" "syserr" "m" ""
+6403 "WTA: WebSendMessage() failed during npp_send with error: .  (6403)" "syserr" "m" ""
+6404 "WTA: WebWrite() failed during npp_send with error:  size:  sentbytes  retrycount .  (6404)" "I have seen this message appear under heavy load.  It indicates that during the writing a a page of data to the web stream, there was a netowrk failure that caused npp_send to return an error.  This may require that the TCP parameters are bumped up to allow it to handle heavier traffic volumns.
+" "m" ""
+6405 "Additional A&PW (6405)" "Label for Additional APWs start button on the ""DB Writers"" page." "" ""
+6406 "Additional  started (6406)" "Message for message box telling user that an additional APW has been successfully started when the ""Start"" button on the ""DB Writers"" page was pressed." "" ""
+6407 "Index <index name> (<table name>, <index name>):  Added key <index value> recid <record identifier>. (6407)" "syserr" "d" ""
+6408 "Select list too long -- cursor changed to no-lookahead (6408)" "The total size of the items in the select list has exceeded 32K (or 16K for a join by server).  This cursor has been changed by the server to be a non-lookahead cursor.  It is sugested that fields () clause(s) be added to limit the select list to a more reasonable size." "" ""
+6409 "Cannot define shared variables in a function. (6409)" "Shared objects cannot be defined inside functions. Move the shared object definitions into the greater procedure. The function can reference the shared objects defined in the greater procedure by naming them." "" ""
+6410 "Cannot define shared variables in a function. (6410)" "Shared objects cannot be defined inside functions. Move the shared object definitions into the greater procedure. The function can reference the shared objects defined in the greater procedure by naming them. " "" ""
+6411 "You cannot define a TEMP-TABLE inside a function or method. (6411)" "TEMP-TABLEs and WORK-TABLEs cannot be defined inside functions or methods. Move the definition into the greater procedure. The function or method can reference the TEMP-TABLE or WORK-TABLE defined in the greater procedure by naming it. " "" ""
+6412 "You cannot define a WORK-TABLE inside a function or method. (6412)" "TEMP-TABLES and WORK-TABLES cannot be defined inside functions or methods. Move the definition into the greater procedure. The function or method can reference the TEMP-TABLE or WORK-TABLE defined in the greater procedure by naming it. " "" ""
+6413 "You cannot define streams inside a function or method. (6413)" "Streams cannot be defined inside functions or methods. Move the definition into the greater procedure. The function or method can reference the stream defined in the greater procedure by naming it. " "" ""
+6414 "You cannot define shared frames inside a function. (6414)" "Shared objects cannot be defined inside functions. Move the definition into the greater procedure. The function can reference the shared object defined in the greater procedure by naming it. " "" ""
+6415 "Mailslot communication setup failed. (6415)" "While setting up for mailslot communication during TCP thread open, ReadFile produced an unusual error." "" ""
+6416 "Msngr: npp connection attempt failed. (6416)" "syserr" "" ""
+6417 "Msngr: npp error - no data to read. (6417)" "syserr" "" ""
+6418 "Msngr: npp error - connection attempt timed out. (6418)" "syserr" "" ""
+6419 "Msngr: npp read error. (6419)" "syserr" "" ""
+6420 "Msngr: other unclassified npp error. (6420)" "syserr" "" ""
+6421 "The width specified for BROWSE <browse-widget> is invalid. The addition of a horizontal scrollbar reduces the number of viewport rows below the minimum. (6421)" "The change in the browser's width forces Progress to add a horizontal scrollbar, in order to view all the columns. With the addition of a horizontal scrollbar, the number of rows displayed in the viewport falls below the minimum required number of rows (2)." "" ""
+6422 "The  <attribute> specified for BROWSE <browse-widget> is invalid. The change to this attribute forces a change in the number of viewport rows below the minimum number of required rows (2). (6422)" "The browser must be displayed with a minimum of 2 rows. The specified attribute change would force the browser to have less than 2 rows, it is invalid." "" ""
+6423 "P&riority: (6423)" "Text label for process priority selection listbox." "" ""
+6424 "High (6424)" "Process priority listbox choice - high priority" "" ""
+6425 "Normal (6425)" "Process Priority listbox choice - normal priority" "" ""
+6426 "Idle (6426)" "Process priority listbox choice - idle (low) priority" "" ""
+6427 "The selected row must be in the viewport when using <attribute> for BROWSE <browse-widget>. (6427)" "In order to use the specified attribute for the browser, the selected row must be visible in the viewport of the browser." "" ""
+6428 "BROWSE <browse-widget> must have only one selected row when using <attr>. (6428)" "You cannot use the specified attribute because there are multiple selected rows in the browser. To use this attribute, only one row should be selected." "" ""
+6429 "SYSTEM ERROR: lkrels record <recid> in area <area-number> not locked. (6429)" "syserr" "P" ""
+6430 "SAVE not specified, and r-code file <name> exists. 
+List/xref/preprocess/debug-list listing will proceed, 
+but no r-code will be generated. (6430)" "PROGRESS executed a COMPILE statement for the named procedure or user defined class without the SAVE option, but a valid r-code file has been found on disk.  The compilation will not generate an r-code file,  but will continue if the PREPROCESS, XREF, LISTING or DEBUG-LIST options were supplied so the corresponding output files can be generated." "" ""
+6431 "Dynamic queries are not supported by the ODBC DataServer. (6431)" "syserr" "" ""
+6432 "AdminService started as a NT Service (6432)" "This is an informational message placed in the NT event log that indicates the AdminService process has started as an NT service." "" ""
+6433 "AdminService Stopped. (6433)" "This is an informational message put in the NT event log that indicates the AdminService process has shut down." "" ""
+6434 "SUPER keyword cannot be used multiple times on a single RUN statement. (6434)" "You specified the SUPER keyword more than once on the RUN statement.
+Remove one of them.
+" "" ""
+6435 "Cannot specify RUN SUPER outside of internal procedure. (6435)" "The RUN SUPER statement is only valid in an internal procedure definition.  Move the statement inside an internal procedure." "" ""
+6436 "Cannot specify SUPER keyword in a RUN...PERSISTENT statement. (6436)" "You specified the SUPER keyword in a RUN...PERSISTENT statement.  Remove PERSISTENT or replace SUPER with a valid procedure name." "" ""
+6437 "Cannot specify SUPER keyword in a RUN...IN statement. (6437)" "You specified the SUPER keword in a RUN...IN statement.  Remove the IN phrase or replace SUPER with a valid internal procedure name." "" ""
+6438 "Cannot specify SUPER keyword in a RUN...ON [SERVER] statement. (6438)" "You specified the SUPER keyword in a RUN...ON [SERVER] statement.
+Remove the ON [SERVER] phrase or replace SUPER with a valid internal 
+procedure name." "" ""
+6439 "Procedure <procedure> has no SUPER procedure with internal procedure <internal-procedure>. (6439)" "A RUN SUPER statement failed because the internal procedure was not found in any of the main procedure's SUPER procedures." "p" ""
+6440 "ORASRV version <version number> (6440)" "This is the internal version of the server portion of the ORACLE DataServer.  It is supplied to the client so it is aware of what features the server supports.  Recently added features controlled by this are: sql passthru bind variables (6), date bind variables (7), session:time-source (8), query reposition (9), bulk insert (10)." "" ""
+6441 "oracanfind: text overrun len  stlen 
+txt:  (6441)" "Internal error message" "" ""
+6442 "Closing cursor number  to reduce the number of cursor from . (6442)" "The number of cursors specified by -c is greater than the number ORACLE can supply.  When ORACLE is unable to open a cursor for its internal use, error ORA-604 occurs.  Please reduce the -c value to avoid this error.  The specified cursors (not currently in use by the application) was closed." "" ""
+6443 "Cursor limit reset from  to  (6443)" "The number of cursors specified by -c is greater than the number  
+ORACLE can supply.  When ORACLE is unable to open a cursor for its
+internal use, error ORA-604 occurs.  Please reduce the -c value to 
+avoid this error.  
+" "" ""
+6444 "Unable to close a cursor.  Cursor limit reset from  to  (6444)" "The number of cursors specified by -c is greater than the number  
+ORACLE can supply.  When ORACLE is unable to open a cursor for its
+internal use, error ORA-604 occurs.  Please reduce the -c value to 
+avoid this error.  
+Additionally, it appears your application requires more active cursors 
+than ORACLE can supply.  Please check for queries and/or stored
+procedures that aren't closed when no longer needed.
+" "" ""
+6445 "User-defined function '<function>' invoked but could not be found. (6445)" "You forward declared a user-defined function but did not define it.  PROGRESS searched the context of the referencing procedure's 'super' procedures (added via the ADD-SUPER-PROCEDURE method), if any." "p" ""
+6446 "Cannot invoke a SUPER user-defined function outside of a user-defined function definition. (6446)" "The invocation of the SUPER version of a user-defined function is only valid within a user-defined function definition.  Move the statement inside a user-defined function." "" ""
+6447 "ORACLE row may exceed 32k - can't allocate buffer for table <table name>(328) (6447)" "The sum of the maximum column lengths for this table exceeds 32k.  A view of a subset of columns may be useful, however undoing a delete from such a view in a subtransaction will raise an error." "" ""
+6448 "Mismatched number of parameters supplied to SUPER reference to '<function or method>'. Expecting <number> but <number> were specified. (6448)" "The number of parameters supplied to a SUPER user defined function or a method do not match the number declared in the function or method prototype. Check the function or method prototype. " "c" ""
+6449 "Mode mismatch for parameter <number> for SUPER reference to user defined function '<function>'. (6449)" "In a SUPER reference to a user defined function you specified the mode (INPUT, OUTPUT, or INPUT-OUTPUT) of parameter <number> for function <function>, but this mode does not match the mode specified in the function prototype. " "c" ""
+6450 "Parameter <number> in SUPER reference to user-defined function '<function>' is not type compatible with the function prototype for '<function>'. (6450)" "You have a reference to a user-defined function whose <number> parameter is not type compatible with the function prototype. " "c" ""

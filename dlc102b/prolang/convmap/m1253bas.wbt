@@ -1,0 +1,44 @@
+/*
+ *
+ * NAME: m1253bas.wbt
+ * Progress Word Break Source File for Windows Greek -- Codepage 1253
+ *
+ */
+
+version = 9
+codepage = 1253
+wordrules-name = basic
+type = 3
+
+/* Special word break rules table */
+word_attr = 
+{
+     '.',	BEFORE_DIGIT,	/* part of a word only if followed by a digit */
+     ',',	BEFORE_DIGIT,
+     '-',	BEFORE_DIGIT,
+     ''',	IGNORE,		/* completely ignore it */
+     '$',	USE_IT,		/* always part of a word */
+     '%',	USE_IT,
+     '#',	USE_IT,
+     '@',	USE_IT,
+     '_',	USE_IT,
+
+     /* international characters */
+
+     0x80,  USE_IT,     /* euro */
+     0x83,  USE_IT,     /* florin */
+     0x89,  USE_IT,     /* per mille */
+     0xA0,  USE_IT,     /* no-break space */
+     0xA1,  USE_IT,     /* Greek dialytika tonos */
+     0xA3,  USE_IT,     /* pound */
+     0xA4,  USE_IT,     /* currency */
+     0xA5,  USE_IT,     /* yen */
+     0xA8,  USE_IT,     /* diaresis */
+     0xAA,  USE_IT,     /* feminine ordinal */
+     0xAD,  IGNORE,     /* soft hyphen */
+     0xB2,  DIGIT,      /* super 2 */
+     0xB3,  DIGIT,      /* super 3 */
+     0xB4,  USE_IT,     /* Greek tonos */
+     0xB5,  USE_IT,     /* micro */
+     0xBD,  DIGIT       /* 1/2 */
+};

@@ -1,0 +1,74 @@
+10701 "The CRITICAL Fathom Replication Agent <agent-name> has been terminated. (10701)" "The critical agent has been terminated.  " "" ""
+10702 "All Fathom Replication Agents have been terminated or have ended.   (10702)" "There are no Fathom Replication Agents connected to this Fathom Replication Server.    " "" ""
+10703 "Connection timeout on socket  for invalid or unrecognized client, attempt disconnect. (10703)" "During a connection attempt, the server did not receive the expected data from the client.  This resulted in the connection timing out.  The most common cause is an attempt by a SQL client to connect to a database for which only 4GL clients are allowed." "" ""
+10704 "Transition is complete. (10704)" "Fathom Replication agent has performed transition, the target database
+can be used for normal database activity. " "" ""
+10705 "Retry point located at logical op  note type  trid . (10705)" "syserr" "d" ""
+10706 "A bookmark must be provided. (10706)" "The user attempted to configure a log file monitor without providing a bookmark." "" ""
+10707 "The value specified for the output directory does not exist.  (10707)" "The output directory specified for a Job or Report does not exist. The output directory can be specified for the Job stdout or stderr files and for Report log files. If one of these files is specified as a part of a Job or Report they must be placed in an existing directory.
+ " "" ""
+10708 "Bypassing the load of the Fathom OSMetrics library." "Informational message at startup time to indicate the OSMetrics library is not being loaded. " "" ""
+10709 "TaskQueueFull: Unable to schedule task because the work queue is full. Task: <taskname>. Exception message: <exceptionmsg>. (10709)" "Fathom encountered a failure attempting to schedule a job or report to run, The work queue is full.
+
+" "" ""
+10710 "Invalid column number specified for Trigger OLDROW/NEWROW getValue/setValue method. (10710)" "Please check that the column number specified in Trigger OLDROW/NEWROW getValue/setValue method is within the range of 
+columns described in the table definition.
+
+
+
+
+
+
+" "P" ""
+10711 "Invalid column number specified for Trigger OLDROW/NEWROW getValue/setValue method. (10711)" "Please check that the data type specified in Trigger OLDROW/NEWROW getValue/setValue method is compatable with the one described in the table definition. 
+
+
+
+
+
+" "P" ""
+10712 "Must restart target database to restart Replication Agent   (10712)" "A command to restart the Fathom Replication Agent was entered. The Agent cannot be restarted without first restarting the target database.   " "" ""
+10713 "Syntax error at or about (statement excerpt). (10713)" "SQL-92 found a sql syntax error in the sql statement sent to it by the client. ""statement excerpt"" is the portion of the statement where the syntax error was found. The beginning of the excerpt is where SQL-92 detected the syntax error." "d" ""
+10714 "There can be at most one CRITICAL Fathom Replication Agent.  Agent <agent-name> is being changed to NON-CRITICAL. (10714)" "Fathom Replication can support one CRITICAL agent.  All other agents must be NON-CRITICAL.  " "" ""
+10715 "Connect Timeout (connect-timeout): <num>. (10715)" "The Fathom Replication Server will attempt to connect the Fathom Replication Agent for the specified number of seconds." "" ""
+10716 "Fathom Replication Agent  cannot be configured because the required AI area (area-number>, sequence number <sequence-number> is not available. (10716)" "In order to be able to synchronize the source and target databases the specified AI area and sequence must be available and it is not.  Replication to this agent/target database cannot be performed.  The target database must be re-sourced from the source database." "" ""
+10717 "The Fathom Replication Utility cannot connect to database <database name>.  (10717)" "The Fathom Replication Utility cannot connect to the database specified.  Correct any errors and retry the request. " "" ""
+10718 "Restarting Fathom Replication Server   (10718)" "A command to restart the Fathom Replication Server was entered. " "" ""
+10719 "This Fathom Replication Agent is not a CRITICAL agent, but it is configured to perform automatic transition.  Automatic transition will not be performed but manual can be performed as required. (10719)" "Automatic transition can be performed by a CRITICAL Fathom Replication Agent only." "" ""
+10720 "A Fathom Replication Server is already running for database <database name>    (10720)" "A command to restart the Fathom Replication Server was entered. The command is rejected because there is already a Fathom Replication Server running for the database identified in the command. " "" ""
+10721 "The Agent is not in the PRE TRANSITION state. (10721)" "The Fathom Replication Agent has been instructed to perform a manual transition but it is not in the PRE-TRANSITION state.  
+" "m" ""
+10722 "There is no Fathom Replication Agent for database <database name>. (10722)" "A Fathom Replication Utility DSRUTIL command has been entered with ""agent"" as the object but there is no Fathom Replication Agent running on the database.
+" "" ""
+10723 "A Temp Table indirect sort was called with a value list whose size differed from the total number of keys and non-keys specified at sort initialization. (10723)" "This is a Progress internal error. SQL attempted to do a sort operation with an incorrectly sized data structure. As a solution, try sorting with a different set of keys, or a different number of keys." "" ""
+10724 "Progress/SQL:Java Native Interface (JNI) version is not supported. (10724)" "The Java Runtime Environment (JRE) does not support the version of the Java Native Interface (JNI) used by the SQL Server." "" ""
+10725 " Index check performed on database that was not properly closed. (10725)" "This database is in a state of needing recovery. Therefore it may display erroneous error messages. Either use a single-user PROGRESS session to initiate recovery or use the proutil truncate bi command to initiate recovery and truncate the bi file.    " "" ""
+10726 "IO error while compiling stored procedure/trigger. (10726)" "SQL encountered an IO failure while compiling the Java source for a stored procedure or trigger. Some possible causes are a bad working directory for the SQL server, protection problems in the working directory, or not enough space on the working directory disk. The working directory on Unix systems is given by the environment variable WRKDIR. On NT, WRKDIR can be defined in the registry. If no WRKDIR is defined, the directory where the server started is used." "" ""
+10727 "Error from Java compiler. Compiler messages from follow.  <messages> (10727)" "SQL uses the Java compiler to compile the Java code for a CREATE TRIGGER or CREATE PROCEDURE statement. The Java compiler found errors in this Java source code, and output diagnostic information describing the errors. A subset of the diagnostics is appended to the message. If the owner of the stored procedure/trigger is OWNER, and the procedure/trigger name is XX, then all the diagnostics are in the file OWNER.XX.LST in the sql server's WRKDIR (working directory). " "" ""
+10728 "XML parsing error: " "" "" ""
+10729 "Message: " "" "" ""
+10730 "Line:  Column: " "" "" ""
+10731 "XML parsing fatal error:  (10731)" "There was a fatal error parsing the XML file specified." "" ""
+10732 "XML parsing warning: " "" "" ""
+10733 "XML exception parsing stream:  (10733)" "" "" ""
+10734 "XML exception parsing file :  (10734)" "" "" ""
+10735 "bkSetFiles:Unable to stat extent <extentname>.  <returncode> (10735)" "The stat system call was unsuccessful because of permission problems, file missing, or error in pathname specification.  Check that the extent name exists and is not zero length. " "d" ""
+10736 "Loaded XML Schema: " "
+ " "" ""
+10737 "Unable to locate XML Schema:  (10737)" "The XML Schema file specified could not be found. This will cause validation errors when the Web Services Adapter is run, and may cause incorrect operation.
+ " "" ""
+10738 "Request failed, unable to <Web Services wsaman admin request>" "A particular wsaman admin request failed.   " "" ""
+10739 "Status of <WSA or Web Service application status>" "Used to display the status of a WSA.  Whether it is running, not running, or the status is unknown.
+Or status of a Web Service application which includes its friendly name, target NameSpace, session model and properties. " "" ""
+10740 "Successfully <wsman request> Web Service <Web Service application name> (10740)" "A Web Services wsaman successfully completed for a particular Web Service application " "" ""
+10741 "No deployed Web Services at <WSA name>" "Used when there are no deployed Web Services at a particular Web Service Adapter. " "" ""
+10742 "List of Web Services at <WSA name>: <list of deployed web services>" "Displays list of Web Services deployed at a particular Web Service Adapter. " "" ""
+10743 "Unable to create <filename> due to the Web Service Application Descriptor (WSAD) being null. (10743)" "" "" ""
+10744 "Unable to create Application Descriptor file:  (10744)" "" "" ""
+10745 "Unable to create Runtime Properties file (10745)" "" "" ""
+10746 "Initializing Application: <app friendly name>" "" "" ""
+10747 "Loaded application runtime properties: <filename>" "" "" ""
+10748 "Loading application descriptor: <filename>" "" "" ""
+10749 "Error parsing application descriptor <filename> - Disabling service (10749)" "The application descriptor file (WSAD) was unable to be parsed. This could be for various reasons. Set your logging level to VERBOSE to get additional information.
+" "" ""
+10750 "Generating deployment descriptors" "" "" ""

@@ -1,0 +1,114 @@
+
+%% Command Line Argument Conversion with defaults
+
+[configuration]
+#    afterimagebuffers=5               # -aibufs
+#    afterimageprocess=false           # Start an AIW?
+#    afterimagestall=false             # -aistall
+#    archivaldir                       # -aiarcdir
+#    archivaldircreate                 # -aiarcdircreate
+#    archivalinterval                  # -aiarcinterval
+#    asynchronouspagewriters=false     # Start an APW?
+#    baseindex                         # -baseindex
+#    basetable                         # -basetable
+#    beforeimagebufferedwrites=false   # -r
+#    beforeimagebuffers=5              # -bibufs
+#    beforeimageclusterage=60          # -G
+#    beforeimagedelaywrites=3          # -Mf
+#    beforeimageprocess=false          # Start a BIW?
+#    beforeimagestall=false            # -bistall
+#    bithold=3                         # -bithold
+#    blocksindatabasebuffers=0         # -B
+#    casetablename=basic               # -cpcase
+#    classpath                         # -classpath
+#    collationtable=basic              # -cpcoll
+#    conversionmap=convmap.cp          # -convmap
+#    crashprotection=true              # -i
+#    databasecodepage=basic            # -cpdb
+#    dbservicecommareasize             # -pica
+#    directio=false                    # -directio
+#    eventlevel                        # -evtlevel
+#    groupdelay=                       # -groupdelay
+#    hashtableentries=0                # -hash
+#    heapsize=                         # -hs
+#    indexrangesize=                   # -indexsize
+#    internalcodepage=iso8859-1        # -cpinternal
+#    locktableentries=8192             # -L
+#    locktablehasttablesize            # -lkhash
+#    logcharacterset=iso8859-1         # -cplog
+#    loglevel=1                        # Databasse log level 
+#    maximumareas                      # -maxAreas
+#    maxjtatransaction                 # -maxxids
+#    maxprivbuffersperuser             # -Bpmax
+#    maxservers=4                      # -Mn
+#    maxusers=                         # -n
+#    monitored=false                   # Autostart a dbagent?
+#    napincrement=                     # -napinc
+#    napmax=1                          # -napmax
+#    napstep=                          # -napstep
+#    napsteps                          # -napstep
+#    otherargs=                        # Specify any db legacy arg 
+#    pagewritermaxbuffers=25           # -pwwmax
+#    pagewriterqueuedelay=100          # -pwqdelay
+#    pagewriterqueuemin=1              # -pwqmin
+#    pagewriterscan=1                  # -pwscan
+#    pagewriterscandelay=1             # -pwsdelay
+#    pendconnecttimeout                # -PendConnTime
+#    alternatebufferpool=              # -B2
+#    semaphoresets=1                   # -semsets
+#    sharedmemoryoverflowsize=0        # -Mxs
+#    sharedmemorypin                   # -pinshm
+#    sharedmemorysegmentsize           # -shmsegsize
+#    spinlockretries=0                 # -spin
+#    sqlcursors                        # -SQLCursors
+#    sqlstack                          # -SQLStack
+#    sqlstmtcache                      # -SQLStmtCache
+#    sqltempbuff                       # -SQLTempBuff
+#    sqltempdisk                       # -SQLTempDisk
+#    sqltemppgsize                     # -SQLTempPgSize
+#    sqlyearoffset=1950                # -yy
+#    ssldisablesessioncache            # -nosessioncache
+#    sslenable                         # -ssl
+#    sslkeyalias                       # -keyalias
+#    sslkeyaliaspassword               # -keyaliaspassword
+#    storageobjectcachesize            # -omsize
+#    storageobjectsize=1024            # -omsize
+#    tablerangesize=                   # -argtablesize
+#    txecommitlockskiplimit            # -TXESkipLimit
+#    usemuxlatches                     # -mux
+#    usercount=                        # -usrcount
+#    vlmopt=false                      # -Mpte
+#    watchdogprocess=true              # Start a WDOG process?
+
+[database]
+#    autostart=false                    # Autostart this db?
+#    cluster=false                      # Is this db cluster enabled?
+#    clustermode=startup                # Not used
+#    databasename=demo                  # -db
+#    monitorlicensed=true               # Not used; always true
+
+[environment]
+
+[servergroup]
+#    host=localhost                     # -H
+#    initialservers=0                   # -initialservers
+#    ipver=ipv4                         # -ipver
+#    maxclientsperserver=0              # -Ma
+#    maxdynamicport=5000                # -maxport
+#    messagebuffersize=1024             # -Mm
+#    minclientsperserver=1              # -Mi
+#    mindynamicport=3000                # -minport
+#    multithreaded=false                # Is _sqlsrv2 multithreaded?
+#    networkclientsupport=true          # Not used
+#    numberofservers=0                  # -Mpb
+#    port=0                             # -S
+#    prosqltrc=nnnnnnnnnnn              # Internal use; _sqlsrv2 tracing
+#    reportinginterval=1                # -rptint
+#    servicename=0                      # -S
+#    type=both                          # 4gl, sql, or both _mprosrv?
+
+[xyzzy]
+#    debug=off                          # Internal use
+#    disablenfswarning=false            # Internal use
+#    javadebug=false                    # Internal use
+#    startupsleep=0                     # Internal use

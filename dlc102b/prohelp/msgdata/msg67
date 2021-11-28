@@ -1,0 +1,126 @@
+3301 "_Seq-Max <seq-max> cannot be less than _Seq-Init <seq-init>. (3301)" "The value you supplied for a sequence's maximum value, <seq-max>, must be greater than or equal to the sequence's initial value, <seq-init>. To specify a minumum value (for sequences with a negative increment, that count down), specify a minimum value in _Seq-Min and leave _Seq-Max set to UNKNOWN. " "" ""
+3302 "_Seq-Min <seq-min> cannot be greater than _Seq-Init <seq-init>. (3302)" "The minimum value you specified for a sequence, <seq-min>, must be less than or equal to the sequence's initial value, <seq-init>.  To specify a maximum value for the sequence, specify the maximum value in _Seq-Max and leave _Seq-Min defaulted to UNKNOWN. " "" ""
+3303 "_Seq-Max <seq-max> cannot be less than _Seq-Min <seq-min>. (3303)" "The value you specify for a sequence's maximum value, <seq-max>, must be greater than or equal to the sequence's minimum value, <seq-min>.  If you do not care about either the maximum or the minimum value of the sequence, leave one or both of _Seq-Max and _Seq-Min defaulted to UNKNOWN. " "" ""
+3304 "Unable to locate _Db record using _Db-recid <dbkey>. (3304)" "During schema changes, PROGRESS was unable to find the _Db record corresponding to an _File reference.  Check the spelling of any database names given during schema updates. " "" ""
+3305 "Supplied offset <segment-offset> is not in Compiler banks. (3305)" "The Compiler manages memory for r-code segments in discrete chunks called banks. All r-code segment references are relative to the base of the corresponding segment. This error occurs when the compiler is unable to convert a given r-code segment offset to a valid pointer in one of its banks when compiling the named procedure. " "" ""
+3306 "Supplied pointer <segment-pointer> is not in Compiler banks. (3306)" "The Compiler manages the memory for r-code segments in discrete chunks called banks. All r-code segment references are relative to the base of the segment. This error occurs when the compiler is unable to convert a given segment pointer to a valid segment offset when compiling the named procedure. " "" ""
+3307 "<segment-name> has exceeded its limit of <segment-size> bytes, in <file-name> at line # <line-number>. (3307)" "INTRODUCTION
+============
+This knowledgebase entry describes what goes into r-code
+action code and expression code segments and how to overcome
+r-code limitation system error 3307.  It also describes why
+action code and expression code segment limits may be
+exceeded in code migrated from an earlier version of Progress.
+
+WHAT GOES INTO ACTION CODE SEGMENT
+==================================
+There are 4 main action code segments for the main procedure in 9.1C and later and one for each internal procedure.  There is only one main action code segment for version 9.1B and earlier. The action code segment contains the PROGRESS primitives (display, set, for each,
+open query, get next, find, update, etc...).
+
+HOW TO OVERCOME ACTION CODE SEGMENT LIMITATION ERROR 3307
+=========================================================
+If the 62K limit on an action code segment is exceeded, the
+following error is given:
+
+Action segment has exceeded its limit of <segment-size>, in
+<file-name> at line # <line-number>. (3307)
+
+Since each internal procedure has its own action segment you
+can move trigger code into internal procedures and run the
+internal procedures from the triggers.  This would give you
+an additional 62K of action code segment in your procedure
+for every new internal procedure you create.
+
+You can also reduce the size of your action code segment by
+combining multiple 4gl statements into one.  For example,
+you can change:
+
+var1 = ""a"".
+var2 = ""b"".
+var3 = ""c"".
+
+to:
+
+ASSIGN
+    var1 = ""a""
+    var2 = ""b""
+    var3 = ""c"".
+
+This will execute one action instead of three, therefore a-code
+is decreased.
+
+WHAT GOES INTO EXPRESSION CODE SEGMENT
+=======================================
+There are 4 expression code segments for a procedure in
+Version 7.3 and later.  There is only one in 7.2 and earlier.
+Expression code segments contain all Progress functions and
+any type of expression.
+
+MIGRATING CODE FROM EARLIER VERSIONS OF PROGRESS
+================================================
+Customers migrating code from an earlier version of Progress to
+the latest release (for example, migrating from Version 7 to
+Version 8) without changing or adding code may get error 3307.
+This may occur in cases where customers were close to the limit
+in the earlier version and the added capabilities of the latest
+release increased the r-code enough to go over the limit.  The
+action code segment is the segment most likely to be exceeded,
+but any of the other segments (initial value, debugger, text,
+e-code, or frame) may also be exceeded if they were close to the
+limit in the previous version.
+
+A way to determine how close the earlier release code is to the
+action code segment limit is with a client.mon report of segment
+This report will be written to the working directory when -yd
+startup paramter is used.  When code is compiled in a session
+where -yd has been used, the program is listed in client.mon
+with its segment sizes.
+
+REFERENCES TO WRITTEN DOCUMENTATION
+===================================
+Refer to System Administration Guide.
+Refer to Programming Handbook.
+" "" ""
+3308 "<segment-name> has exceeded its limit of <segment-size> bytes, at line # <line-number>. (3308)" "An r-code file is made up of different segments. Segment size is currently limited to 60K each for action code (for main procedure and each internal procedure), expression code, initial value, text, and debugger segments and 32K  for each frame segment. This error occurs when any segment exceeds the size limit during compilation. " "" ""
+3309 "Title for FRAME <frame> is larger than specified width. (3309)" "The Title option for a frame may not contain a constant that is longer than the WITDH option specifies. " "" ""
+3310 "DISPLAY AGGREGATES not allowed for BROWSE frames. (3310)" "You may not use the TOTAL, MIN, MAX, AVERAGE, COUNT DISPLAY functions in a DEFINE BROWSE statement, or in a DISPLAY ... WITH BROWSE .. statement. " "" ""
+3311 "Unexpected widget type <widget-type> encountered in ANALYZE (3311)" "In the course of scanning the internal user-interface data structures, the ANALYZE processor discovered a widget whose type it could not handle.  The ANALYZE processor is used by the User Interface Builder. This message should be reported to Progress Technical Support. " "" ""
+3312 "Analyze output buffer overflow (3312)" "While generating an output record, the ANALYZE processor's internal buffer overflowed.  The maximum output record buffer is 2048 characters.  The ANALYZE processor is used by the User Interface Builder. " "" ""
+3313 "RETURN ERROR not permitted in an user interface trigger. Use RETURN NO-APPLY. (3313)" "Your user-interface trigger has a RETURN ERROR statement in it. You cannot return ERROR from an user-interface trigger. Instead, use NO-APPLY, which tells PROGRESS to refrain from applying the default action for the event to the widget. An example of a default action is to echo a character to the display in response to a keystroke event in a fill-in field. " "" ""
+3314 "4GL RETURN NO-APPLY only permitted in an user interface trigger. Use RETURN ERROR. (3314)" "Your 4GL procedure has a RETURN NO-APPLY, which has no meaning outside of a user interface-trigger definition. Instead, use RETURN ERROR, which raises the ERROR condition in the statement that caused the procedure or trigger to execute. " "" ""
+3315 "Array subscript is less than 1 or greater than extent. (3315)" "If you specify a constant subscript, the subscript may not be 0 or negative, and must not exceed the extent of the array. " "" ""
+3316 "USE-INDEX cannot be used with CONTAINS. (3316)" "CONTAINS in a WHERE clause is not allowed with USE-INDEX because the CONTAINS forces the use of at least the CONTAINS word-index that would be in conflict with the USE-INDEX index. " "" ""
+3317 "CONTAINS may not be used with version 6 or non-PROGRESS dbs. (3317)" "CONTAINS is implemented on version 7 PROGRESS databases through word indexes.  There is no word-index support in version 6 PROGRESS servers.  Non-PROGRESS database interfaces to PROGRESS also do not support it. " "" ""
+3318 "CONTAINS may not be used with FIND or old style queries. (3318)" "The -v6q option and FIND conflict with CONTAINS because they require use of a SINGLE non-CONTAINS index. " "" ""
+3319 "Could not match CONTAINS with any keyword index. (3319)" "The CONTAINS keyword must be used with a field that has a keyword index defined on it in the PROGRESS dictionary. " "" ""
+3320 "Invalid LANGUAGE phrase (3320)" "A LANGUAGE phrase was incorrectly specified on a COMPILE statement. The proper use is: COMPILE file-name.p LANGUAGE(language-list). " "" ""
+3321 "Invalid language list on COMPILE statement (3321)" "The LANGUAGE clause of a COMPILE statement must consist of a single language name, a comma separated list of language names (or name-lists) or an expression in a VALUE phrase that evaluates to such a list, enclosed in parenthesis.  E.g.,    COMPILE foo.p LANGUAGE(french)..    COMPILE foo.p LANGUAGE(german:swiss-german,spanish,danish).    def var mylist as char.    mylist = ""swedish,dutch,canadian-french"".    COMPILE foo.p LANGUAGE(VALUE(mylist))" "" ""
+3322 "OPEN QUERY requires EACH after FOR, and EACH or FIRST or LAST in subsequent record phrases. (3322)" "EXAMPLE:  OPEN QUERY abc FOR EACH customer, FIRST order of cus. The keyword FOR must be followed by EACH in an OPEN QUERY statement. Subsequent record specifications may have either EACH or FIRST or LAST. " "" ""
+3323 "QUERY <queryname> already exists. (3323)" "You may only define a query once in a given program with a given name. " "" ""
+3324 "Buffer <buffer> in QUERY <query> must be a shared buffer since query is shared. (3324)" "You must define a shared buffer for any tables in your shared query. " "" ""
+3325 "Conflict in number of buffers for QUERY <query> from previous use. (3325)" "When you DEFINE a query and OPEN a query, the tables or buffers referenced must be the same. " "" ""
+3326 "Buffer <name> is in conflict with previous use of QUERY <query>. (3326)" "The DEFINE query and OPEN query statements for the same query must reference exactly the same tables or buffers:    DEFINE QUERY abc FOR cus, order.    OPEN QUERY abc FOR EACH cus, EACH order of cus. " "" ""
+3327 "REPOSITION requires SCROLLING option on DEFINE QUERY. (3327)" "The SCROLLING option on the DEFINE QUERY guarantees that a result list will be built as the query executes.  The REPOSTION statement requires the result list in order to execute. " "" ""
+3328 "QUERY <query> could not be found. (3328)" "In order to use the GET, REPOSITION, or CLOSE statements for a QUERY, or use it in a DATA-SOURCE, there must have already been a DEFINE QUERY or OPEN QUERY statement for that query. " "" ""
+3329 "SHARED BROWSE requires SHARED QUERY. (3329)" "The DEFINE SHARED BROWSE must reference a QUERY for which there also was a DEFINE SHARED QUERY statement. " "" ""
+3330 "BROWSE requires the QUERY to be DEFINEd SCROLLING. (3330)" "The query must have a result list in order to support BROWSE. The SCROLLING keyword guarantees that a result list will be built.  If the BROWSE is not shared, then the associated query just defaults to being SCROLLING, but if the BROWSE and QUERY are shared, then the SCROLLING keyword must be given explicitly. " "" ""
+3331 "Shared buffers cannot be defined inside internal procedures. (3331)" "Shared objects cannot be defined inside internal procedures, functions, or session triggers. Move the shared object definitions into the greater procedure. The internal procedure, function, or session trigger can reference the shared objects defined in the greater procedure by naming them. " "" ""
+3332 "Shared buffers cannot be defined inside session triggers. (3332)" "Shared objects cannot be defined inside internal procedures, functions, or session triggers. Move the shared object definitions into the greater procedure. The internal procedure, function, or session trigger can reference the shared objects defined in the greater procedure by naming them. " "" ""
+3333 "You cannot define parameter buffers in a trigger block. (3333)" "Run-time parameters cannot be defined inside a trigger block. The nature of a trigger is that it executes in response to some event. If that event is a database event, the trigger receives some fixed information (e.g., the record for which the trigger is executing). In any case, there is no way to pass special additional run-time parameters to trigger procedures or session trigger blocks. " "" ""
+3334 "You cannot define parameter buffers in a DLL procedure. (3334)" "Inside a DLL internal procedure, only INPUT, INPUT-OUTPUT, OUTPUT, or RETURN parameters of CHAR, BYTE, SHORT, LONG, FLOAT or DOUBLE data types are allowed. Progress will not pass its internal record structures to an external DLL. " "" ""
+3335 "You may not associate database triggers with workfiles or temp-tables. (3335)" "Database triggers are applicable only to permanent database tables and fields.  They are designed to maintain inter- and intra-database table consistency. " "" ""
+3336 "Database triggers must be associated with table names (not buffers). (3336)" "Database triggers are associated with whole tables, not individual buffers. " "" ""
+3337 "You cannot define parameters in a trigger block. (3337)" "Run-time parameters cannot be defined inside a trigger block. The nature of a trigger is that it executes in response to some event. If that event is a database event, the trigger receives some fixed information (e.g., the record for which the trigger is executing). In any case, there is no way to pass special additional run-time parameters to trigger procedures or session trigger blocks. " "" ""
+3338 "RETURN parameter allowed only inside a DLL procedure. (3338)" "A RETURN parameter inside a DLL internal procedure indicates that the procedure expects a return value from the external DLL. Therefore, a RETURN parameter is valid only inside a DLL internal procedure. " "" ""
+3339 "Only one RETURN parameter is allowed in a DLL procedure. (3339)" "An external DLL procedure can return at most one return value. Consequently, at most one RETURN parameter is allowed inside a DLL internal procedure. In some instances, it is safe for a DLL internal procedure to ignore the return value from an external DLL procedure. " "" ""
+3340 "Only parameters in a DLL procedure can have HANDLE phrase. (3340)" "The HANDLE phrase is valid only within a DLL internal procedure definition. The HANDLE phrase is optional to the DEFINE PARAMETER statement. It indicates to the DLL internal procedure that the named parameter is passed by reference to the external DLL procedure. " "" ""
+3341 "Cannot define shared variables in a trigger. (3341)" "Shared objects cannot be defined inside internal procedures or session triggers. Move the shared object definitions into the greater procedure. The internal procedure or session trigger can reference the shared objects defined in the greater procedure by naming them. " "" ""
+3342 "Cannot define shared variables in an internal procedure. (3342)" "Shared objects cannot be defined inside internal procedures or session triggers. Move the shared object definitions into the greater procedure. The internal procedure or session trigger can reference the shared objects defined in the greater procedure by naming them. " "" ""
+3343 "LIKE objects should be of similar types. (3343)" "If you DEFINE BUTTON xxx LIKE y,    or  DEFINE IMAGE  zzz LIKE q,    or  DEFINE VARIABLE x LIKE z then the LIKE object must also be a BUTTON, IMAGE, VARIABLE etc that matches the type being defined. " "" ""
+3344 "Trigger inherited from LIKE <name> is ignored in DLL procedure. (3344)" "A defined parameter (such as a variable or field) does not inherit any triggers inside a DLL internal procedure definition. " "" ""
+3345 "Object Handle Variable name <name> conflicts with Frame name. (3345)" "In order to prevent confusion of objects, FRAMEs and HANDLE variables may not have the same names. " "" ""
+3346 "Temp-tables do not support the ROWID data type. (3346)" "You cannot define a temp-table field as ROWID. " "" ""
+3347 "Temp-tables and workfiles do not support the MEMPTR data type. (3347)" "You can define and access a MEMPTR data type only through program variables. " "" ""
+3348 "Parameters of MEMPTR data type do not require HANDLE phrase. HANDLE phrase ignored. (3348)" "By definition, a variable of MEMPTR datatype is a pointer to an area of memory. The HANDLE phrase is superfluous and therefore ignored by the Progress Compiler. " "" ""
+3349 "WARNING: Invalid INITIAL option ignored for HANDLE or OBJECT REFERENCE  variable or property. (3349)" "All HANDLE and OBJECT REFERENCE variables or properties must have the initial value ? (UNKNOWN). The compiler ignores the INITIAL option for these types." "" ""
+3350 "Array extent may not be greater than <number> (3350)" "Program variables may not have an extent of more than approximately 28000, which is 32000 minus some control information. LONGCHAR and MEMPTR arrays may not have an extent larger than approximately 3500. " "" ""

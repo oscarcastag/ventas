@@ -1,0 +1,23 @@
+connect [[ds-domain]] [[ds-url]] [[ds-user]] [[ds-password]]
+add license container [[sonic-license]] [[license-version]]
+Import xq_container "[[sonic-esb]]/config/ESBContainer.xml" 
+import serviceType "[[sonic-esb]]/config/OpenEdgeSrvType.xml" [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType.properties [[sonic-esb]]/config/OpenEdgeSrvType.properties [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType.gif [[install-dir]]/esbadapter/config/OpenEdgeSrvType.gif [[ds-override]]
+import serviceType "[[sonic-esb]]/config/OpenEdgeSrvType2.xml" [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType2.properties [[sonic-esb]]/config/OpenEdgeSrvType2.properties [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/properties/servicetypes/OpenEdgeSrvType2.gif [[install-dir]]/esbadapter/config/OpenEdgeSrvType2.gif [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged.esbpTemplate [[sonic-esb]]/config/OESessionManaged.esbpTemplate [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged.gif [[install-dir]]/esbadapter/config/OESessionManaged.gif [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_connect.esboe [[install-dir]]/esbadapter/config/_connect.esboe [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_disconnect.esboe [[install-dir]]/esbadapter/config/_disconnect.esboe [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_connect.esboe.sid [[install-dir]]/esbadapter/config/_connect.esboe.sid [[ds-override]]
+add file /System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_disconnect.esboe.sid [[install-dir]]/esbadapter/config/_disconnect.esboe.sid [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/activation.jar [[install-dir]]/esbadapter/lib/activation.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/esbadptr.jar [[install-dir]]/esbadapter/lib/esbadptr.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/mail.jar [[install-dir]]/esbadapter/lib/mail.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/regexp.jar [[install-dir]]/esbadapter/lib/regexp.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/servlet.jar [[install-dir]]/esbadapter/lib/servlet.jar [[ds-override]]
+add file /System/OpenEdge/[[oe-version]]/esbadapter/lib/soap.jar [[install-dir]]/esbadapter/lib/soap.jar [[ds-override]]
+disconnect
+exit

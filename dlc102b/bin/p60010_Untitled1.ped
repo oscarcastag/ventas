@@ -1,0 +1,6 @@
+Define variable apphdl as handle.
+define variable connecta as logical.
+define variable connectionstring as character init "-AppService wssal -S 5002 -H LU2APP87  -N tcp" format "X(55)".
+create server apphdl.
+connecta = apphdl:connect(connectionstring).
+display connectionstring connecta.

@@ -1,0 +1,60 @@
+g-boolean should be yes, value is 1
+g-integer should be 10, value is 10
+g-date should be 7/25/49, value is 7/25/2049
+g-char should be hlctest, value is hlctest
+g-decimal should be 3.14, value is +3.14
+g-recid should be 7, value is 7
+s-boolean should be yes, value is 1
+s-integer should be 10, value is 10
+s-date should be 7/25/49, value is 7/25/2049
+s-char should be hlctest, value is hlctest
+s-decimal should be 3.14, value is +3.14
+s-recid should be 7, value is 7
+
+       g-boolean: ?
+       g-integer: ?
+          g-date:
+          g-char: ?
+       g-decimal: ?
+         g-recid: ?
+
+       s-boolean: no
+       s-integer: -233
+          s-date: 12/07/1941
+          s-char: didtest
+       s-decimal: -2.01
+         s-recid: 2
+tf_print should be no, value is 0
+custnum should be 1, value is 1
+date should be 8/31/87, value is 8/31/1987
+s.b. 2nd Skin Skuba, value is Second Skin Scuba
+maxcred should be 1500, value is +1500
+setting tf_print to unknown
+setting custnum to 1000
+setting date to 5/5/45
+setting name to one thousand
+setting max-credit to 1234
+
+        Cust num: 1000
+            Name: one thousand
+        Max cred: 1,234
+    Invoice date: 05/05/1945
+Invoice Printed : ?
+
+ iarray[1]  iarray[2]  iarray[3]  iarray[4]  iarray[5]  iarray[6]  iarray[7]
+ iarray[8]  iarray[9] iarray[10] iarray[11] iarray[12]
+----------------------------------------------------------------------------
+         1          2          3          4          5          6          7
+         8          9         10         11         12
+
+  Mnth sls[1]   Mnth sls[2]   Mnth sls[3]   Mnth sls[4]   Mnth sls[5]
+  Mnth sls[6]   Mnth sls[7]   Mnth sls[8]   Mnth sls[9]  Mnth sls[10]
+ Mnth sls[11]  Mnth sls[12]
+---------------------------------------------------------------------
+     1,001.34      2,001.34      3,001.34      4,001.34      5,001.34
+     6,001.34      7,001.34      8,001.34      9,001.34      1,001.34
+     1,101.34      1,201.34
+1 argument is one
+2 argument is two
+3 argument is three
+.....end of output test...

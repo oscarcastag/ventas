@@ -1,0 +1,165 @@
+10601 "SYSTEM ERROR: Attempted to exceed maximum size on file <pname>. (10601)" "An attempt was made to extend the file <pname> beyond the maximum 
+value. If large files are not enabled and no limit was specified when the file was created, this is 2GB. If a limit was specified, that value is used. If no limit is specified and large files are enabled, the maximum size is 2TB. " "" ""
+10602 "Cannot obtain information about resources from the Fathom trend database.  (10602)" "A Report is unable to obtain resource selection information from the Fathom trend database. No information was retrieved from the database about resources of the required type. The Report definition will not be completed successfully. Check that the Fathom trend database is running and that it can be accessed." "" ""
+10603 "Warning: unmatched quotes in parameters passed with file included in  at line . (10603)" "There were an odd number of quotes scanned between the including brackets. " "" ""
+10604 "Already reached end of file (10604)" "Attempt to step off the end of a log file within the log file viewer.
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+10605 "Already at start of file (10605)" "Attempt to step off the start of a log file within the log file viewer.
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+10606 "Requested line is off the end of the file (10606)" "User of a log file viewer attempted to go to a line that does not exist in the log file.
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+10607 "Setup error for: <resource key> (10607)" "Navigation problem within the browser for a log file viewer.  Not all the input for the navigation was received for the log file viewer to make coherent sense of the request.  Try again, or close that browser and try again.
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+10608 "File was not specified (10608)" "In the attempt to draw a log file to memory for viewing with the log file viewer, a filespec for the desired log file was not received.
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+10609 "I/O error (<error message>) for file: <file spec> (10609)" "The indicated error message was received when attempting to read the file by the log file viewer.
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+10610 "File was not found: <file spec> (10610)" "The indicated file was not found by the log file viewer.
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+10611 "SYSTEM ERROR: rlVerifyTxTable  mb_txnSequence: note= mstrblk=. (10611)" "syserr " "d" ""
+10612 "SYSTEM ERROR: numlive  tx_count  
+ logTxEntry transnum  rlcounter  
+ pTranEntry transnum  rlcounter  
+ rlmemchk: transaction table mismatch. (10612)" "syserr " "d" ""
+10613 "The Report begin time and end time combination is invalid. (10613)" "When creating a Report a Report interval during the day can be specified. The begin time must precede the end time.
+
+ " "" ""
+10614 "The Report's week ending date has been rounded down. (10614)" "When creating a weekly Report that specifies the begin and end dates for the week or weeks, the period specified must be an exact number of whole weeks. The end date specified has been rounded down to the nearest week ending date.
+
+
+ " "" ""
+10615 "The Report's week ending date has been rounded up. (10615)" "When creating a weekly Report that specifies the begin and end dates for the week or weeks, the period specified must be an exact number of whole weeks. The end date specified has been rounded up to the nearest week ending date.
+
+
+ " "" ""
+10616 "Hourly" "A label used in the user interface for Fathom Report edit pages to Report format." "" ""
+10617 "Daily" "A label used in the user interface for Fathom Report edit pages to Report format." "" ""
+10618 "Weekly" "A label used in the user interface for Fathom Report edit pages to Report format." "" ""
+10619 "Monthly" "A label used in the user interface for Fathom Report edit pages to Report format." "" ""
+10620 "Starting WSA adapter , version , ID  (10620)" "The named Web Services Adapter instance with the specified version and ID is beginning initialization" "" ""
+10621 "Error obtaining an Action when creating a Job. (10621)" "When creating a Job an internal Action object is also created. An error occurred when attempting to create the Action.
+
+
+ " "" ""
+10622 "TaskStderrListenerFailed: Unexpected exception starting stderr listener thread in task  <taskname>, exception message <exceptionmsg> (10622)" "The job is configured to throw an Alert if execution exceeds a predefined time period (in Minutes of Hours).  The timer has expired
+before the job finished.
+" "" ""
+10623 "TaskStdinReadFailed: Unexpected exception reading input from task  <taskname>, exception message <exceptionmsg> (10623)" "Fathom failed to read the output of a job or report.
+" "" ""
+10624 "TaskWaitFailure: Unexpected exception waiting for task <taskname> to complete, exception message <exceptionmsg> (10624)" "Fathom encountered a failure attempting to wait for the job
+or report to complete.
+" "" ""
+10625 "TaskLocalDBAssocError: Unable to associate local FathomTrendDatabase with <tasktype>: <taskname> (10625)" "Fathom encountered a failure attempting to access the FathomTrendDatabase resource.
+
+" "" ""
+10626 "TaskRemoteDBAssocError: Unable to associate remote FathomTrendDatabase with <tasktype>: <taskname> (10626)" "Fathom encountered a failure attempting to access the FathomTrendDatabase resource.
+
+" "" ""
+10627 "TaskExecFailure: Call to tskExec.exec failed for task: <taskname> (10627)" "Fathom encountered a failure attempting to access the FathomTrendDatabase resource.
+
+" "" ""
+10628 "TaskRunError: Failed to run task <taskname>, exception message <exceptionmsg> (10628)" "Fathom encountered a failure attempting to run the the job
+or report.
+" "" ""
+10629 "TaskInQueueFailure: Unable to schedule task <taskname>, already in work queue, exception message <exceptionmsg> (10629)" "Fathom encountered a failure attempting to schedule a job or report to run, an instance of the job or report was already running.
+
+" "" ""
+10630 "JobStartFailure: Unable to execute the job as an action. Job:  <job name> (10630)" "The user will see this alert if Fathom is unable to execute a job which was specified as the alert action for a resource. " "" ""
+10631 "Start SNMP Agent" "The label for the button used to start the Fathom SNMP agent." "" ""
+10632 "Stop SNMP Agent" "The label for the button used to stop the Fathom SNMP agent." "" ""
+10633 "The defaults were successfully updated. (10633)" "The message the user sees when changes to values on a defaults page were validated and successfully changed." "" ""
+10634 "Network discovery was cancelled. Partial results are shown." "The user sees this text on the Discovery Results page if the user clicked ""Cancel"" while the network discovery was in progress." "" ""
+10635 "No resources were added. Please select one or more resources. (10635)" "The user sees this message on the Discovery Results page if the ""Add Checked"" button is pressed, but none of the checkboxes are checked." "" ""
+10636 "The starting address must be set. (10636)" "The starting address field on the Network Discovery page is mandatory. Discovery cannot proceed if the starting address is not provided." "" ""
+10637 "FileExists: The specified file exists. File: <filename> (10637)" "This alert is seen when the user has specified that a file monitor should alert when the file exists." "" ""
+10638 "The polling interval must be specified. (10638)" "This message is seen on the resource defaults pages when the user fails to provide a default polling interval." "" ""
+10639 "kilobytes" "Unit label on the file size monitor." "" ""
+10640 "bytes" "Unit label on the file size monitor." "" ""
+10641 "megabytes" "Unit label on the file size monitor." "" ""
+10642 "gigabytes" "Unit label on the file size monitor." "" ""
+10643 "terabytes" "Unit label on the file size monitor." "" ""
+10644 "DB_UserCountHigh:  The user count for the specified database has exceeded the threshold. Threshold: <threshold>  User Count: <user count> (10644)" "Alert generated when the user defined user count threshold has been exceeded." "" ""
+10645 "The throw alert after value is invalid. It must be a positive integer. (10645)" "Seen when the user enters invalid data into the ""throw alert after"" field of a resource. " "" ""
+10646 "The clear alert after value is invalid. It must be a positive integer. (10646)" "Seen when the user enters invalid data into the ""clear alert after"" field of a resource. " "" ""
+10647 "The proxy server definition is invalid. The correct definition is proxy:port with no spaces before or after the colon. (10647)" "Seen when the user enters invalid data into the proxy field of an HTTP resource. " "" ""
+10648 "The proxy server definition is invalid. You must provide both the proxy server and the proxy port. (10648)" "Seen when the user does not enter both the proxy server and the proxy port into the proxy field when defining an HTTP resource. " "" ""
+10649 "The proxy port is invalid. Legal ports are positive integers in the range 1-65535. (10649)" "Seen when the user enters a non-numeric or ou-of-range value for the proxy port while defining an HTTP resource." "" ""
+10650 "The format of the form data is incorrect. The correct format is name=value separated by spaces, newlines, or ampersand (&). (10650)" "Seen when the user enters badly formatted data in the form data field while defining an HTTP resource." "" ""

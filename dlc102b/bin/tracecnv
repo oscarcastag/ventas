@@ -1,0 +1,24 @@
+#!/bin/sh
+#
+# Used on INTEL based machine to convert a trace.pid file into a 
+# readable stack trace.  
+#
+
+: ${1?"Syntax: $0 <executable> <trace-file>"}
+: ${2?"Syntax: $0 <executable> <trace-file>"}
+
+EXE_FILE=$1
+TRACE_FILE=$2
+
+NM_FILE=tmp.$$
+
+# create the nm file sorted with 2 columns
+nm -xhv $EXE_FILE | grep FUNC | cut -f2,8 -d'|' | sed -e 's/|/ /' > $NM_FILE
+
+# remove blank lines from protrace file
+sed '/^$/d' $TRACE_FILE > tmp2.$$
+
+trc $NM_FILE tmp2.$$
+
+rm -f $NM_FILE
+

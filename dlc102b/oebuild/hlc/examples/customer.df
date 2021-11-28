@@ -1,0 +1,32 @@
+"NEW-FILE   " "customer" "*" "*" "*" "*" "Customer information" "" "" 
+"NEW-FIELD  " "Cust-num" "integer" ? ">>>>9" "0" "Cust num" no 10 "*" "*" 0 "cust-num > 0" "Customer number must be greater than zero" "" "" ? 
+"NEW-FIELD  " "Name" "character" ? "x(20)" "" "Name" no 20 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Address" "character" ? "x(20)" "" "Addr" no 30 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Address2" "character" ? "x(20)" "" "Addr 2" no 40 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "City" "character" ? "x(12)" "" "City" no 50 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "St" "character" ? "xx" "" "State" no 60 "*" "*" 0 "can-find(state of customer)" "State must be one defined in state file" "Enter standard state abbreviation" "" ? 
+"NEW-FIELD  " "Zip" "integer" ? "99999" "0" "Zip" no 70 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Phone" "character" ? "(999) 999-9999" "" "Tel num" no 80 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Contact" "character" ? "x(20)" "" "Contact" no 90 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Sales-rep" "character" ? "!(3)" "" "Sls rep" no 95 "*" "*" 0 "can-find(salesrep of customer)" "The sales rep must be one that already exists" "Enter initials for a sales rep" "" ? 
+"NEW-FIELD  " "Sales-region" "character" ? "x(8)" "" "Sls reg" no 100 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Max-credit" "decimal" 2 "->,>>>,>>9" "0" "Max cred" no 105 "*" "*" 0 "max-credit >=  0 and max-credit <= 9999999" "Max credit must be >= 0 and <= 9,999,999.99" "Please enter a credit limit" "Maximum credit" ? 
+"NEW-FIELD  " "Curr-bal" "decimal" 2 "->,>>>,>>9.99" "0" "Unpaid bal" no 110 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Terms" "character" ? "x(20)" "Net30" "Terms" no 115 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "Tax-no" "character" ? "x(15)" "" "Tax num" no 120 "*" "*" 0 ? "" "Enter tax-exempt number if any" "" ? 
+"NEW-FIELD  " "Discount" "integer" ? ">>9" "0" "Disc %" no 125 "*" "*" 0 "Discount >= 0" "Discount must be greater or equal to 0" "Enter a percentage from 0 to 999" "" ? 
+"NEW-FIELD  " "Mnth-sales" "decimal" 2 "->,>>>,>>9.99" "0" "Mnth sls" no 129 "*" "*" 12 ? "" "" "" ? 
+"NEW-FIELD  " "Ytd-sls" "decimal" 2 "->,>>>,>>9.99" "0" "Ytd sls" no 130 "*" "*" 0 ? "" "" "" ? 
+.
+"NEW-INDEX  " "cust-num" yes 
+"INDEX-FIELD" 1 "Cust-num" yes no 
+.
+"NEW-INDEX  " "name" no 
+"INDEX-FIELD" 1 "Name" yes yes 
+.
+"NEW-INDEX  " "zip" no 
+"INDEX-FIELD" 1 "Zip" yes no 
+.
+.
+"PRIMARY    " "cust-num" 
+.

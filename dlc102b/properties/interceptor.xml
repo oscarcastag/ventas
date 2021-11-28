@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<!-- Interceptors configuration -->
+<waspc-config xmlns:wasp="urn:WaspServer" xmlns:intr="urn:InterceptorRepository">
+
+    <!-- Module InterceptorRepository -->
+    <wasp:module wasp:class="WASP_InterceptorRepositoryImpl"/>
+
+    <!-- DIME interceptor -->
+    <intr:interceptor intr:class="WASP_DIMEInterceptor" intr:name="DIMEInterceptor" />
+
+</waspc-config>

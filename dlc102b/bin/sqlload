@@ -1,0 +1,76 @@
+#!/bin/sh
+# Progress sqlload - load SQL92 data
+PROG=`basename $0`
+
+# Determine the correct directory where the Progress is
+# installed from either the tailored name or existing value of $DLC.
+for what_dlc in "/dlc/dlc102b" "$DLC"
+do
+    [ ! -d "${what_dlc}" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+
+# Set the user working directory - this is a tailored value
+for what_wrkdir in "$WRKDIR" "/dlc/wrk102b" "."
+do
+    [ ! -d "${what_wrkdir}" ] && continue
+    WRKDIR=$what_wrkdir
+    export WRKDIR
+    break
+done
+
+
+# Set PROMSGS (if not set) add another others here
+PROMSGS=${PROMSGS-$DLC/promsgs};                     export PROMSGS
+
+# Set variable for _sqlload.
+SQLLOAD=${SQLLOAD-$DLC/bin/_sqlload}
+
+cat $DLC/version
+
+# Set any environment variables below required to start _sqlload
+
+# Note that Java not used by dbload/dbdump, so java and JVM setup not done.
+
+
+# set the Progress shared lib  environment
+if [ ! -f $DLC/bin/slib_env ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "slib_env could not be found."
+    echo
+    echo "Progress shared library environment not set correctly."
+    echo "Progress DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "Progress DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+ 
+# Set the Progress Shared lib environment
+. $DLC/bin/slib_env
+ 
+# make sure the working directory is real.
+if [ ! -d $WRKDIR ]
+then
+    echo "Progress $PROG Messages:"
+    echo
+    echo "Working directory is invalid."
+    echo
+    echo "Progress WRKDIR environment variable may not be set correctly."
+    echo "Set WRKDIR variable to a valid directory."
+    echo
+    echo "Progress WRKDIR setting: $WRKDIR"
+    echo
+    exit 1
+fi
+
+# at this point ALL required environment variable should be set
+# invoke _sqlload
+exec  $SQLLOAD  "$@"
+

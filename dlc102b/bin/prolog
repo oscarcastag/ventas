@@ -1,0 +1,5 @@
+#!/bin/sh
+DLC=${DLC-/dlc/dlc102b};export DLC
+DBUTIL=${DBUTIL-$DLC/bin/_dbutil}
+
+exec ${DBUTIL} prolog "$@"

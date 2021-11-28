@@ -1,0 +1,10 @@
+
+
+Progress Software Corporation uses libwww, the W3C's implementation
+of HTTP for some of its client operations.  The libwww code is
+covered by its own specific copyright notice as well as the full
+W3C license.  Copies of these notices are included in this 
+directory as COPYRIGHT.html and LICENSE.html.
+
+You may also read the latest information on libwww at
+http://www.w3.org/Library/

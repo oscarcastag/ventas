@@ -1,0 +1,24 @@
+# trimlog
+#
+# sample script to trim down the database log file
+#
+# Usage:	trimlog
+#
+# Assign a database name.  If the user supplied a database
+# name before starting this script, use that name.  If not
+# use acmedb as the default database name.
+DBNAME=${DBNAME-acmedb}
+
+if test ! -f $DBNAME.lg
+then
+  exit
+fi
+
+echo The status of the log file for $DBNAME is:
+ls -l $DBNAME.lg
+
+tail -50 $DBNAME.lg >/tmp/prolg$$
+mv /tmp/prolg$$ $DBNAME.lg
+
+echo The status of the log file for $DBNAME is now:
+ls -l $DBNAME.lg

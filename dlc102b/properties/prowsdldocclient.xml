@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<!-- Progress WSDL Analyzer configuration -->
+<waspc-config xmlns:wasp="urn:WaspServer">
+    <!-- Minimalistic ... -->
+    <wasp:import ref="client-core.xml"/>
+    <!-- ... and extras -->
+    <!-- BEGIN: Progress -->
+    <!--
+    <wasp:import ref="client-extra.xml"/>
+    -->
+    <wasp:import ref="prowsdldocdii.xml"/>
+    <!-- END: Progress -->
+
+</waspc-config>

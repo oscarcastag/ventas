@@ -1,0 +1,4 @@
+connect [[ds-domain]] [[ds-url]] [[ds-user]] [[ds-password]]
+delete xq_container [[container-name]] 
+disconnect
+exit

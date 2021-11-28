@@ -1,0 +1,4 @@
+connect [[ds-domain]] [[ds-url]] [[ds-user]] [[ds-password]]  
+export license container [[license-version]] 
+disconnect
+exit

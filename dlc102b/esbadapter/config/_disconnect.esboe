@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oe:script xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:oe="urn:schemas-progress-com:esboe:0001">
+  <nameSpaces>
+    <ns prefix="xsd" uri="http://www.w3.org/2001/XMLSchema"/>
+  </nameSpaces>
+  <invocationAction>
+    <variables>
+    </variables>
+    <parametermap>
+     </parametermap>
+  </invocationAction>
+  <scriptCommand xsi:type="oe:invocationType" xmlns:wsad="urn:schemas-progress-com:WSAD:0007">
+    <command>
+      <Operation isPersistent="true" useFullName="false" specialOp="1"/>
+    </command>
+    <parameterList>
+    </parameterList>
+  </scriptCommand>
+</oe:script>

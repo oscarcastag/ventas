@@ -1,0 +1,51 @@
+<ProxyGen>
+  <General>
+    <Author>
+    </Author>
+    <Package>
+    </Package>
+    <ProxyVersion>
+    </ProxyVersion>
+    <WorkDir>
+    </WorkDir>
+    <Verbose>True</Verbose>
+    <SaveBeforeGenerate>True</SaveBeforeGenerate>
+    <UserDefinedAppService>False</UserDefinedAppService>
+    <UserDefinedProgId>False</UserDefinedProgId>
+    <GenerateDotNetProxy>True</GenerateDotNetProxy>
+    <GenerateJavaProxy>False</GenerateJavaProxy>
+    <GenerateActiveXProxy>False</GenerateActiveXProxy>
+    <GenerateWebServicesProxy>False</GenerateWebServicesProxy>
+    <AppService>
+    </AppService>
+  </General>
+  <DotNet>
+    <DotNetCompilerType>4</DotNetCompilerType>
+    <DotNetCompiler>csc</DotNetCompiler>
+    <DotNetCompilerOptions>
+    </DotNetCompilerOptions>
+    <DotNetXSDGenerator>xsd</DotNetXSDGenerator>
+    <DotNetNameSpace>
+    </DotNetNameSpace>
+  </DotNet>
+  <Java>
+    <JavaCompilerType>1</JavaCompilerType>
+    <JavaCompiler>&lt;Install Dir&gt;\jdk\bin\javac</JavaCompiler>
+    <JavaCompilerOptions>
+    </JavaCompilerOptions>
+    <JavaCompilerClasspath>&lt;Proxy Dir&gt;;&lt;Install Dir&gt;\java\progress.jar;&lt;Install Dir&gt;\java\messages.jar;&lt;Install Dir&gt;\java\prowin.jar;&lt;Default classes.zip&gt;</JavaCompilerClasspath>
+    <JavaCompilerCPSwitch>-classpath</JavaCompilerCPSwitch>
+  </Java>
+  <WebServices>
+    <RPCEncodedWSDL>False</RPCEncodedWSDL>
+    <RPCLiteralWSDL>False</RPCLiteralWSDL>
+    <DocLiteralWSDL>True</DocLiteralWSDL>
+    <SoapEndPointURL>http://www.tempuri.org/wsa/wsa1</SoapEndPointURL>
+    <WebServiceNameSpace>urn:tempuri-org</WebServiceNameSpace>
+    <UserDefinedWSNamespace>True</UserDefinedWSNamespace>
+    <SoapAction>
+    </SoapAction>
+    <AppendToSoapAction>False</AppendToSoapAction>
+  </WebServices>
+</ProxyGen>
+

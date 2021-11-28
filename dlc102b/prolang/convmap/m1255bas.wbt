@@ -1,0 +1,63 @@
+/*
+ *
+ * NAME: m1255bas.wbt
+ * Progress Word Break Source File for Windows Hebrew -- Codepage 1255
+ *
+ */
+
+version = 9
+codepage = 1255
+wordrules-name = basic
+type = 3
+
+/* Special word break rules table */
+word_attr = 
+{
+     '.',	BEFORE_DIGIT,	/* part of a word only if followed by a digit */
+     ',',	BEFORE_DIGIT,
+     '-',	BEFORE_DIGIT,
+     ''',	IGNORE,		/* completely ignore it */
+     '$',	USE_IT,		/* always part of a word */
+     '%',	USE_IT,
+     '#',	USE_IT,
+     '@',	USE_IT,
+     '_',	USE_IT,
+
+/* international characters */
+
+     0x80,  USE_IT,     /* euro */
+     0x83,  USE_IT,     /* florin */
+     0x88,  USE_IT,     /* circumflex */
+     0x89,  USE_IT,     /* per mille */
+     0xA0,  USE_IT,     /* no-break space */
+     0xA2,  USE_IT,     /* cent */
+     0xA3,  USE_IT,     /* pound */
+     0xA4,  USE_IT,     /* new sheqel */
+     0xA5,  USE_IT,     /* yen */
+     0xA8,  USE_IT,     /* diaresis */
+     0xAD,  IGNORE,     /* soft hyphen */
+     0xB2,  DIGIT,      /* super 2 */
+     0xB3,  DIGIT,      /* super 3 */
+     0xB4,  USE_IT,     /* acute accent */
+     0xB5,  USE_IT,     /* micro */
+     0xB9,  DIGIT,      /* super 1 */
+     0xBC,  DIGIT,      /* 1/4 */
+     0xBD,  DIGIT,      /* 1/2 */
+     0xBE,  DIGIT,      /* 3/4 */
+     0xC0,  USE_IT,     /* Hebrew point sheva */
+     0xC1,  USE_IT,     /* Hebrew point hataf segol */
+     0xC2,  USE_IT,     /* Hebrew point hataf patah */
+     0xC3,  USE_IT,     /* Hebrew point hataf qamats */
+     0xC4,  USE_IT,     /* Hebrew point hiriq */
+     0xC5,  USE_IT,     /* Hebrew point tsere */
+     0xC6,  USE_IT,     /* Hebrew point segol */
+     0xC7,  USE_IT,     /* Hebrew point patah */
+     0xC8,  USE_IT,     /* Hebrew point qamats */
+     0xC9,  USE_IT,     /* Hebrew point holam */
+     0xCB,  USE_IT,     /* Hebrew point qubuts */
+     0xCC,  USE_IT,     /* Hebrew point dagesh or mapiq */
+     0xCD,  USE_IT,     /* Hebrew point meteg */
+     0xCF,  USE_IT,     /* Hebrew point rafe */
+     0xD1,  USE_IT,     /* Hebrew point shin dot */
+     0xD2,  USE_IT      /* Hebrew point sin dot */
+};

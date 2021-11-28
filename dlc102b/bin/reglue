@@ -1,0 +1,240 @@
+#!/bin/sh
+# OpenEdge Explorer and Management reglue Command Line Script
+PROG=`basename $0`
+
+#
+# This script needs to be run from a 'proenv' window as user 'root'
+#
+id | egrep -s "^uid=0"
+if [ $? != 0 ]
+then
+ echo "Only the root user can run reglue"
+ exit 1
+fi
+
+for what_dlc in "$DLC" "/dlc/dlc102b"
+do
+    [ ! -f "${what_dlc}" ] && continue
+    DLC=$what_dlc
+    export DLC
+    break
+done
+
+if [ ! -f ${DLC}/version ]
+then
+    echo "OpenEdge $PROG Messages:"
+    echo
+    echo "OpenEdge $DLC/version could not be found, DLC=$DLC"
+    echo
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to Progress installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo
+    exit 1
+fi
+
+for what_oem in "/dlc/oemgmt102b" "$DLC/OEMgmt"
+do
+    [ ! -d "${what_oem}" ] && continue
+    OEM=$what_oem
+    export OEM
+    break
+done
+
+if [ ! -d ${OEM}/config ]
+then
+    echo "OpenEdge $PROG Messages:"
+    echo
+    echo "OpenEdge OEM environment variable not set correctly."
+    echo "Set OEM variable to OpenEdge Explorer/Management installation directory."
+    echo
+    echo "OpenEdge OEM setting: $OEM"
+    echo
+    exit 1
+fi
+
+for what_fathominit in "$FATHOMINIT" "$DLC"/fathom.init.params
+do
+    [ ! -f "${what_fathominit}" ] && continue
+    FATHOMINIT=$what_fathominit
+    export FATHOMINIT
+    break
+done
+
+# On Linux you must use "echo -e" to get linefeeds
+OSTYPE=`uname`
+if [ $OSTYPE = "Linux" ]
+then
+   ECHO="echo -e"
+else
+   ECHO="echo"
+fi
+
+# Set variable for the Java Starter
+GLUECLASS=${GLUECLASS-com.progress.isq.ipqos.admin.cli.Glue}
+MERGEPROPCLASS=${MERGEPROPCLASS-com.progress.common.property.MergeCommandLine}
+
+JVMSTRT=${JVMSTRT-$DLC/bin/jvmStart}
+
+# In case TERM is not set to something, avoid a warning message.
+TERM=ansi; export TERM
+
+# set the java environment
+if [ ! -f $DLC/bin/java_env ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "$DLC/bin/java_env could not be found."
+    echo
+    echo "JAVA environment not set correctly."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the JAVA environment
+. $DLC/bin/java_env
+
+if [ ! -f $JREHOME/bin/$JVMEXE ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "Java Virtual Machine could not be found."
+    echo
+    echo "JREHOME environment variable may not be set correctly."
+    echo "Set JREHOME variable to a valid directory."
+    echo
+    echo "JREHOME setting: $JREHOME"
+    echo
+    exit 1
+fi
+
+# set the OpenEdge shared lib  environment
+if [ ! -f $DLC/bin/slib_env ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "slib_env could not be found."
+    echo
+    echo "OpenEdge shared library environment not set correctly."
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to OpenEdge installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo
+    echo
+    exit 1
+fi
+
+# Set the OpenEdge Shared lib environment
+. $DLC/bin/slib_env
+
+for what_oemwrk in "/dlc/oemgmt102b" "."
+do
+    [ ! -d "${what_oemwrk}" ] && continue
+    OEMWRKDIR=$what_oemwrk
+    export OEMWRKDIR
+    break
+done
+
+if [ ! -f $JVMSTRT ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "OpenEdge Java starter could not be found."
+    echo
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to OpenEdge installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo "Executable not found: $JVMSTRT"
+    echo
+    exit 1
+fi
+
+# If OpenEdge based, use JavaTools.properties
+TOOLSPROP=${TOOLSPROP-$DLC/properties/JavaTools.properties}
+TOOLSGRP=${TOOLSGRP-FATHOMCLI}
+
+if [ ! -f $TOOLSPROP ]
+then
+    echo "OpenEdge Explorer/Management $PROG Messages:"
+    echo
+    echo "OpenEdge tools property file could not be found."
+    echo
+    echo "OpenEdge DLC environment variable may not be set correctly."
+    echo "Set DLC variable to OpenEdge installation directory."
+    echo
+    echo "OpenEdge DLC setting: $DLC"
+    echo "File not found: $TOOLSPROP"
+    echo
+    exit 1
+fi
+
+cat $DLC/version
+echo ""
+echo "WARNING"
+echo "The reglue script allows you to re-enable OpenEdge Explorer "
+echo "and Management in OpenEdge:"
+echo "- Adds OpenEdge Explorer and Management settings to "
+echo "  $DLC/properties/AdminServerPlugins.properties"
+echo "- Enables OpenEdge Explorer and Management in"
+echo "  $FATHOMINIT"
+echo ""
+echo "The OpenEdge AdminServer must be shutdown before continuing."
+echo "Do you wish to continue? [y | n] "
+read answer
+case ${answer} in
+   "y" | "Y")
+   ;;
+   "n" | "N")
+       echo ""
+       echo "Reglue process aborted, no operations performed."
+       exit 0
+   ;;
+   *)
+       echo ""
+       echo "Unrecognized option specified, reglue program aborted."
+       exit 1
+   ;;
+esac
+
+# Remove the OEMgmt properties from AdminServerPlugins.properties
+echo ""
+echo "Adding OpenEdge Explorer and Management entries to"
+echo "${DLC}/properties/AdminServerPlugins.properties..."
+echo ""
+$JVMSTRT -o stderr -s -m silent -a $TOOLSPROP::CONFIGCLI $JVM \
+    -DInstall.Dir="$DLC" -DWork.Dir=$WRK $MERGEPROPCLASS  \
+    -type plugin -action update \
+    -delta ${DLC}/properties/merged/fathom.delta
+
+if [ $? -ne 0 ]
+then
+    echo ""
+    echo "ERROR updating $DLC/properties/AdminServerPlugins.properties"
+    echo ""
+fi
+
+#enable OpenEdge Explorer/Management in $FATHOMINIT
+echo ""
+echo "Enabling OpenEdge Explorer/Management in $FATHOMINIT..."
+echo ""
+$JVMSTRT -o stderr -s -m silent -a $TOOLSPROP::FATHOMCLI $JVM \
+    -DInstall.Dir=$DLC -DWork.Dir=$OEMWRKDIR $GLUECLASS \
+    "updateFile" "$FATHOMINIT" "fathomEnabled" "true"
+if [ $? -ne 0 ]
+then
+    echo ""
+    echo "ERROR updating $FATHOMINIT"
+    echo ""
+fi
+
+echo ""
+echo "Run 'fmconfig -enable' to enable remote monitoring"
+echo ""
+exit 0
+

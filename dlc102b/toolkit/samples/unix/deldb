@@ -1,0 +1,9 @@
+# deldb
+#
+# sample script to delete a database
+#
+# Usage:	deldb <dbname>
+#
+
+# call utility to delete database
+prodel $1

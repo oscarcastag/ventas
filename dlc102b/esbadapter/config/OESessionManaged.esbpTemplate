@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xq:process xmlns:wsis="http://www.sonicsw.com/esb/service/invocation" xmlns:xq="http://www.sonicsw.com/sonicxq" name="OESession-Managed" description="This process template manages the connection and disconnection to a Session-Managed AppServer. Use this template to implement processes on a Session-Managed AppServer." qualityOfService="BEST_EFFORT" timeToLive="0">
+  <xq:exitEndpoint_list>
+    <xq:exitEndpoint endpoint_ref="REPLY_TO" type="ENDPOINT"/>
+  </xq:exitEndpoint_list>
+  <xq:faultEndpoint endpoint_ref="REPLY_TO" type="ENDPOINT"/>
+  <xq:rejectEndpoint endpoint_ref="dev.RME" type="ENDPOINT"/>
+  <xq:itinerary>
+    <xq:step name="Connect to Session-Managed AppServer" description="Provide connection information for the AppServer the service is configured to use. The connection-id will be stored as a JMS header in the XQMessage and used in subsequent calls." type="SERVICE" endpoint_ref="dev.OpenEdge">
+      <xq:params>
+        <xq:xmlParam name="command">
+          <wsis:command xmlns:wsis="http://www.sonicsw.com/esb/service/invocation" version="1.0">
+            <scriptURL>sonicfs:///System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_connect.esboe</scriptURL>
+            <parameterConstants/>
+            <extractionRules consumeAll="false">
+              <extractionRule consume="false">
+                <messagePartIndex>
+                  <variablename>username</variablename>
+                  <value>0</value>
+                </messagePartIndex>
+              </extractionRule>
+              <extractionRule consume="false">
+                <messagePartIndex>
+                  <variablename>password</variablename>
+                  <value>0</value>
+                </messagePartIndex>
+              </extractionRule>
+              <extractionRule consume="false">
+                <messagePartIndex>
+                  <variablename>AppServerInfo</variablename>
+                  <value>0</value>
+                </messagePartIndex>
+              </extractionRule>
+            </extractionRules>
+          </wsis:command>
+        </xq:xmlParam>
+      </xq:params>
+    </xq:step>
+    <xq:step name="Disconnect from Session-Managed AppServer" description="This will free up resources associated with the Session-Managed AppServer the process was using." type="SERVICE" endpoint_ref="dev.OpenEdge">
+      <xq:params>
+        <xq:xmlParam name="command">
+          <wsis:command xmlns:wsis="http://www.sonicsw.com/esb/service/invocation" version="1.0">
+            <scriptURL>sonicfs:///System/SonicESB/[[sonic-version]]/templates/OESessionManaged/_disconnect.esboe</scriptURL>
+            <parameterConstants/>
+          </wsis:command>
+        </xq:xmlParam>
+      </xq:params>
+    </xq:step>
+  </xq:itinerary>
+  <xq:trackingDetails trackingLevel="0">
+    <xq:eventEndpoint endpoint_ref="dev.Tracking" type="ENDPOINT"/>
+    <xq:idGenerator class="com.sonicsw.xqimpl.service.accessor.ScriptEvaluator"/>
+  </xq:trackingDetails>
+</xq:process>

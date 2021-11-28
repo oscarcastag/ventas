@@ -1,0 +1,24 @@
+"NEW-FILE   " "monthly" "*" "*" "*" "*" "Transactions for monthly functions" ? "" 
+"NEW-FIELD  " "tf_inv" "integer" ? ">>>>>9" "0" "Invoice Number" no 10 "*" "*" 0 "tf_inv > 0" "Invoice number cannot be zero" "" "" ? 
+"NEW-FIELD  " "tf_cust" "integer" ? ">>>>9" "0" "Customer number" no 20 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_date" "date" ? "99/99/99" ? "Transaction date" no 30 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_amt" "decimal" 2 "->>,>>9.99" "0" "Total amount" no 40 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_dist" "decimal" 2 "->>,>>9.99" "0" "Distribution amount" no 50 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_glacct" "integer" ? ">>>>>9" "0" "G/L account number" no 60 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_print" "logical" ? "yes/no" "no" "Invoice Printed yet" no 80 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_order" "integer" ? ">>>>9" "" "Order Number" no 90 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_type" "character" ? "x(1)" "" ? no 100 "*" "*" 0 ? "" "" "" ? 
+"NEW-FIELD  " "tf_sales" "character" ? "x(3)" "" "Salesperson" no 130 "*" "*" 0 ? "" "" "" ? 
+.
+"NEW-INDEX  " "tf_cust" no 
+"INDEX-FIELD" 1 "tf_cust" yes no 
+.
+"NEW-INDEX  " "tf_sales" no 
+"INDEX-FIELD" 1 "tf_sales" yes no 
+.
+"NEW-INDEX  " "tf_type" no 
+"INDEX-FIELD" 1 "tf_type" yes no 
+.
+.
+"PRIMARY    " "tf_cust" 
+.

@@ -1,0 +1,5 @@
+#!/bin/sh
+DLC=${DLC-/dlc/dlc102b};export DLC
+cat $DLC/version
+echo
+exec $DLC/bin/_rfutil "$@"

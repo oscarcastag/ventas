@@ -1,0 +1,78 @@
+#!/bin/sh
+#
+# Name:     extractpl          
+# Descr:    Script to extract ADE procedure libraries
+# Author:   Gerry Seidl
+# Date:     11/06/98
+# Modified: 03/28/2001 : Added several missing subdirs
+# Usage:    extractpl <ADE pl name>
+
+case "$1" in
+adedict.pl)  mkdir adedict
+             mkdir adedict/DB
+             mkdir adedict/FLD
+             mkdir adedict/IDX
+             mkdir adedict/SEQ
+             mkdir adedict/TBL
+             mkdir adedict/TRIG
+             exec prolib adedict.pl -extract "*.*"
+             ;; 
+as4dict.pl)  mkdir as4dict
+             mkdir as4dict/DB
+             mkdir as4dict/dump
+             mkdir as4dict/FLD
+             mkdir as4dict/IDX
+             mkdir as4dict/load
+             mkdir as4dict/parm
+             mkdir as4dict/prc
+             mkdir as4dict/SEQ
+             mkdir as4dict/TBL
+             mkdir as4dict/TRIG
+             exec prolib as4dict.pl -extract "*.*"
+             ;;
+prodict.pl)  mkdir prodict
+             mkdir prodict/as4
+             mkdir prodict/aud
+             mkdir prodict/dump
+             mkdir prodict/gate
+             mkdir prodict/gui
+             mkdir prodict/misc
+             mkdir prodict/mss
+             mkdir prodict/odb
+             mkdir prodict/ora
+             mkdir prodict/pro
+             mkdir prodict/sec
+             mkdir prodict/user
+             mkdir prodict/rplctn
+             mkdir prodict/rplctn/admin
+             mkdir prodict/rplctn/stdobj
+             mkdir prodict/rplctn/template
+             exec prolib prodict.pl -extract "*.*"
+             ;;
+protools.pl) mkdir protools
+             exec prolib protools.pl -extract "*.*"
+             ;;
+adecomm.pl)  mkdir adecomm
+             exec prolib adecomm.pl -extract "*.*"
+             ;;
+adeedit.pl)  mkdir adeedit
+             exec prolib adeedit.pl -extract "*.*"
+             ;;
+prodoc.pl)   mkdir prodoc
+             mkdir prodoc/langref
+             mkdir prodoc/proghand
+             mkdir prodoc/langtut
+             mkdir prodoc/tranman
+             mkdir prodoc/tranman/images
+             mkdir prodoc/tranman/glossaries
+             mkdir prodoc/tranman/project
+             mkdir prodoc/tranman/src
+             mkdir prodoc/tranman/src/Gui
+             exec prolib prodoc.pl -extract "*.*"
+             ;;
+prohelp.pl)  mkdir prohelp
+             exec prolib prohelp.pl -extract "*.*"
+             ;; 
+*)           echo Usage: extractpl library-name
+             ;;
+esac

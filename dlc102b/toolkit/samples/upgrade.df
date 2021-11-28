@@ -1,0 +1,21 @@
+DROP FILE "agedar"
+
+UPDATE FIELD "Name" OF "customer"
+  FORMAT "x(30)"
+
+ADD FIELD "nn" OF "customer" AS character
+  DESCRIPTION ""
+  FORMAT "x(8)"
+  INITIAL ""
+  HELP ""
+  LABEL ?
+  COLUMN-LABEL ?
+  CAN-READ "*"
+  CAN-WRITE "*"
+  VALEXP ?
+  VALMSG ""
+  EXTENT 0
+  DECIMALS ?
+  ORDER 140
+  NULL-ALLOWED
+  NOT-CASE-SENSITIVE

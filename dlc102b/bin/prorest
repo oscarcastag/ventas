@@ -1,0 +1,3 @@
+#!/bin/sh
+DLC=${DLC-/dlc/dlc102b};export DLC
+exec $DLC/bin/_dbutil prorest "$@"

@@ -1,0 +1,638 @@
+#/*************************************************************/
+#/* Copyright (c) 1984-2009 by Progress Software Corporation  */
+#/*                                                           */
+#/* All rights reserved.  No part of this program or document */
+#/* may be  reproduced in  any form  or by  any means without */
+#/* permission in writing from Progress Software Corporation. */
+#/*************************************************************/
+#	Errors in SQL
+
+#
+#
+#  [following is mainly cloned from pro_error_mgr.hxx, which remains the
+#   "master" instructions.]
+#
+#  To create a new error status and error msg:
+#       1. If error msg requires substitution parameters, or error classification, or 
+#          error analysis, use error definition procedure starting at, and described in, 
+#              $SQLSRC/progstub/pro_error_mgr.hxx.
+#          For error messages without substitution parameters, do the following.
+#
+#       1.5. add error to promsgs using scc_bug. See email from Nori Odoi (1998).
+#          Summary:
+#           (1)  Enter the message database (you can get there through scc_bug)
+#                and add your message.
+#                "sz" is the subsystem name, the message text goes in the
+#                appropriate place.
+#           
+#           (2) After you have added the message, note the seq number
+#               (we're up to about 8118 or so now.
+#           
+#           (3) Edit tpe_errs.txt as you would normally -- but at the end of the line,
+#           after the message ":", put the seq number from promsgs followed by a ":".
+#
+#       1.6 Add new error symbol and appropriate status to 
+#                $SQLSRC/include/sql_lib.h, 
+#           after error status -20300. Use next availabe err status number.
+#           [above 3 lines new to this set of error instructions.]
+# 
+#       2. add error text definition to src/public/err/tpe_errs.txt.
+#          Use error status number from sql_lib.h.
+#          [above 1 line new to this set of error instructions.]
+#       3. "cmake local"  in directory src/public/err,
+#          so that tpe_errs.txt gets copied to $SQLTARG/lib/dherrors
+#       4. "cmake local" directory with sources using new error.
+# 
+
+
+# Explanation of fields in error msg lines below:
+# col 1 - error code
+# col 2 - sqlstate
+# col 3 - class origin of message
+# col 4 - error message
+# col 5 - promsg number (0 if there is no entry in promsg table)
+
+-20005:22506:Data exception:Table/View/Synonym not found:7519:
+-20006:22507:Data exception:Column not found/specified:7520:
+-20007:22508:Data exception:No columns in table:7521:
+-20008:22509:Data exception:Inconsistent types:7522:
+-20009:22510:Data exception:Column ambiguously specified:7523:
+-20010:22511:Data exception:Duplicate column specification:7524:
+-20011:22512:Data exception:Invalid length:7525:
+-20012:22513:Data exception:Invalid precision:7526:
+-20013:22514:Data exception:Invalid scale:7527:
+-20014:22515:Data exception:Missing input parameters:7528:
+-20015:22516:Data exception:Subquery returns multiple rows:7529:
+-20016:22517:Data exception:Null value supplied for a mandatory (not null) column:7530:
+-20017:22518:Data exception:Too many values specified:7531:
+-20018:22519:Data exception:Too few values specified:7532:
+-20030:22531:Data exception:Table space with same name already exists:7533:
+-20033:22534:Data exception:Tablespace not found:7534:
+-20041:22542:Data exception:Table/View/Synonym already exists:7535:
+-20052:22553:Data exception:Overflow error:7536:
+-20059:22560:Data exception:No files in the table space:7537:
+-20060:22561:Data exception:Table not empty:7538:
+-20061:22562:Data exception:Input parameter size too high:7539:
+-20075:21576:Cardinality violation:Number of columns in column list is less than in select list:7540:
+-20076:21577:Cardinality violation:Number of columns in column list is more than in select list:7541:
+-20087:21588:Cardinality violation:Column count mismatch:7542:
+-20098:22599:Data exception:More than one row selected by  the query:7543:
+-20102:2350c:Integrity constraint:Primary/Candidate key column  defined null:7544:
+-20103:2350d:Integrity constraint:No matching key defined for the referenced table:7545:
+-20104:2350e:Integrity constraint:Keys in reference constraint  incompatible:7546:
+-20114:33002:Invalid SQL descriptor name:Fetched Value NULL & indicator var not defined:7547:
+-20229:22818:Data exception:Invalid date value:7548:
+-20230:22819:Data exception:Invalid date string:7549:
+-20231:22820:Data exception:Invalid number strings:7550:
+-20232:22821:Data exception:Invalid number string:7551:
+-20233:22822:Data exception:Invalid time value:7552:
+-20234:22523:Data exception:Invalid time string:7553:
+-20235:22007:Data exception:Invalid time stamp string:7554:
+-20236:22012:Data exception:Division by zero attempted:7555:
+-20238:22615:Data exception:Error in format type:7556:
+-15014:22614:Data exception:FF- Overflow error:7557:
+-20024:0a000:feature not supported:Sorry, operation not yet implemented:7558:
+-20036:07537:dynamic sql error:Statement not prepared:7559:
+-20037:24538:Invalid cursor state:Executing select statement:7560:
+-20038:24539:Invalid cursor state:Cursor not closed:7561:
+-20039:24540:Invalid cursor state:Open for non select statement:7562:
+-20040:24541:Invalid cursor state:Cursor not opened:7563:
+-20045:08546:Connection exception:File does not exist or not accessible:7564:
+-20053:08554:Connection exception:Database not opened:7565:
+-20049:22550:Data exception:	 Keyword used for a name :7566:
+-20050:21551:Cardinality violation:Too many fields specified :7567:
+-20051:21552:Cardinality violation:Too many indexes on this table:7568:
+-16004:22704:Data exception:MM- Invalid row number:7569:
+-15004:22604:Data exception:FF- Invalid record number:7570:
+-20228:28817:Invalid auth specs:Access denied (Authorization    failed):7571:
+-20056:28557:Invalid auth specs:No DBA access rights:7572:
+-20004:28505:Invalid auth specs:User not found:7573:
+-20057:28558:Invalid auth specs:No RESOURCE privileges:7574:
+-20088:28589:Invalid auth specs:Invalid user name:7575:
+-20071:42572:Access rule violation:Specified operation  not allowed on the view:7576:
+-20054:08555:Connection exception: Database not specified or improperly specified:7577:
+-20073:2a574:Access rule violation:Statement is too long:7578:
+-20074:2a575:Access rule violation:View column list must be specified as expressions are given:7579:
+-20077:42578:Access rule violation:Check option specified for non-insertable view:7580:
+-20080:44581:Check option violation:View check option violation:7581:
+-20081:22582:Data exception:No of expressions projected on either side of set-op don't match:7582:
+-20078:42579:Access rule violation:Given SQL statement is not allowed on the view:7583:
+-20082:42583:Access rule violation:Column names not allowed in order by clause for this statement:7584:
+-20090:42591:Access rule violation:Table columnlist must be specified as expressions are given:7585:
+-20091:2a592:Access rule violation:Query statement too long.:7586:
+-20003:2a504:Syntax error:Syntax error:7587:
+-20042:2a543:Syntax error:Distinct specified more than once in query:7588:
+-20047:42548:Access rule violation:Granting to self not allowed:7589:
+-20048:42549:Access rule violation:Revoking for self not allowed:7590
+-20068:42569:Syntax error:Bad arguments:7591:
+-20062:42563:Syntax error:Full pathname not specified:7592:
+-20100:4250a:Access rule violation:Subquery not allowed here:7593:
+-15003:42603:Access violation error:FF- Table already exists:7594:
+-15008:08608:Connection exception:FF- Database exists:7595:
+-20096:08597:Connection exception:Connect String not specified/incorrect:7596:
+-20116:2350m:Integrity constraint:Constraint violation:7597:
+-20118:4250o:Access rule violation:Duplicate constraint name:7598:
+-20058:40559:Transaction	rollback:Executing SQL statement for an aborted transaction:7599:
+-20092:2d593:Invalid transaction	termination:No tuples selected by the subquery for update:7600:
+-20093:22594:Data exception:Synonym already exists:7601:
+-20094:hz595:Remote database access:Database link with same name already exists:7602:
+-20095:hz596:Remote database access:Database link not found:7603:
+-20097:hz598:Remote database access:Specified operation not allowed on a remote table:7604:
+-20107:hz50h:Remote database access:Remote Database not started:7605:
+-20109:hz50j:Remote database access:Remote Database Name not valid:7606:
+-20216:hz805:Remote database access:Invalid remote database name:7607:
+-20126:34000:Invalid cursor name:***Invalid cursor name:7608:
+-20106:2150g:Cardinality violation:Invalid ROWID:7609:
+-20099:24000:Invalid cursor state:Cursor not positioned on a valid row:7610:
+-20120:22000:Data exception:**use of reserved word:7611:
+-20125:0750u:Dynamic sql-error:Number of open cursors exceeds limit:7612:
+-20127:07001:Dynamic sql-error:Bad parameter specification for the statement:7613:
+-20211:22800:Data exception:Remote procedure call error:7614:
+-20212:08801:Connection exception:SQL client bind to daemon failed:7615:
+-20213:08802:Connection exception:SQL client bind to SQL server failed:7616:
+-20214:08803:Connection exception:SQL NETWORK service entry is not available:7617:
+-20215:08804:Connection exception:Invalid TCP/IP hostname:7618:
+-20217:08806:Connection exception:network error on server:7619:
+-20218:08807:Connection exception:Invalid protocol:7620:
+-20220:08809:Connection exception:Duplicate connection name:7621:
+-20221:08810:Connection exception:No active connection:7622:
+-20223:08812:Connection exception:Multiple local connections:7623:
+-20224:08813:Connection exception:Invalid protocol in connect_string:7624:
+-20225:08814:Connection exception:Exceeding permissible number of  connections:7625:
+-20227:08816:Connection exception:Invalid host name in connect string:7626:
+-20219:2e000:Invalid connection name:***Invalid connection name:7627:
+00000:00000:Successful completion:***status okay:7628:
+-16042:40000:Transaction rollback: ***MM- Rollback transaction:7629:
+-15009:08609:Connection exception: FF- No database found:7630:
+-16001:22701:Data exception:Unable to allocate disk block for temp table use [MM- No data block]:7631:
+100L :02000:no data:**sql not found.:7632:
+503L :01001:Connection warning:Auxiliary databases not connected:13881:
+504L :01002:Connection warning:Error reading properties file:13907:
+-30001:5050w:Progress/SQL rds errors:Statement execution cancelled:7633:
+-40001:L0L01:Progress/SQL env error:Error in reading configuration:7634:
+-20000:50501:Progress/SQL rds error:SQL internal error:7635:
+-20001:50502:Progress/SQL rds error:Memory allocation failure:7636:
+-20002:50503:Progress/SQL rds error:Open database failed:7637:
+-20019:50520:Progress/SQL rds error:Can not modify table referred  to in subquery:7638:
+-20020:42521:Access rule violation:Bad column specification for group by clause:7639:
+-20021:42522:Access rule violation:Non-group-by expression in having clause:7640:
+-20022:42523:Access rule violation:Non-group-by expression in  select clause:7641:
+-20023:42524:Access rule violation:Aggregate function not allowed here:7642:
+-20025:42526:Access rule violation:Aggregate functions nested:7643:
+-20026:50527:Progress/SQL rds error:Too many table references:7644:
+-20027:42528:Access rule violation:Bad field specification in order by clause:7645:
+-20028:50529:Progress/SQL rds error:An index with the same name already exists:7646:
+-20029:50530:Progress/SQL rds error:Index referenced not found:7647:
+-20031:50532:Progress/SQL rds error:Cluster with same name already exists:7648:
+-20032:50533:Progress/SQL rds error:No cluster with this name:7649:
+-20034:50535:Progress/SQL rds error:Bad free percentage specification:7650:
+-20035:50536:Progress/SQL rds error:At least column spec or null clause should be specified:7651:
+-20043:50544:Progress/SQL rds error:Tuple size too high:7652:
+-20044:50545:Progress/SQL rds error:Array size too high:7653:
+-20046:50547:Progress/SQL rds error:Field value not null for some tuples:7654:
+-20055:08556:Connection exception:Database not specified or Database not started:7655:
+-20063:50564:Progress/SQL rds error:Duplicate file specification:7656:
+-20064:08565:Connection exception:Invalid attach type:7657:
+-20065:26000:Invalid SQL statement name:Invalid statement type:7658:
+-20066:33567:Invalid SQL descriptor name:Invalid sqlda:7659:
+-20067:08568:Connection exception:More than one database can't be attached locally:7660:
+-20069:33570:Invalid SQL descriptor name:SQLDA size not enough:7661:
+-20070:33571:Invalid SQL descriptor name:SQLDA buffer length too high:7662:
+-20072:50573:Progress/SQL rds error:Server is not allocated:7663:
+-20079:50580:Progress/SQL rds error:More Tables cannot be created.:7664:
+-20083:42584:Access rule violation:Outerjoin specified on a complex predicate:7665:
+-20084:42585:Access rule violation:Outerjoin specified on a sub_query:7666:
+-20085:42586:Access rule violation:Invalid Outerjoin specification:7667:
+-20086:42587:Access rule violation:Duplicate table constraint  specification:7668:
+-20089:22590:Data exception:System date retrieval failed:7669:
+-20101:2350b:Integrity constraint:No references for the table:7670:
+-20105:5050f:Progress/SQL rds error:Statement not allowed in readonly isolation level:7671:
+-20108:0850i:Connection exception:Remote Network Server not started.:7672:
+-20110:0850k:Connection exception:TCP/IP Remote HostName is unknown.:7673:
+-20111:0999z:Progress/SQL rds error:Invalid table attribute specified:12774:
+
+-20113:0999x:Progress/SQL rds error:Invalid index attribute specified:12775:
+-20115:5050l:Progress/SQL rds error:References to the table/record present:7674:
+-20117:2350n:Integrity constraint:Table definition not complete:7675:
+-20119:2350p:Integrity constraint:Constraint name not found:7676:
+-20121:5050q:Progress/SQL rds error:permission denied:7677:
+-20122:5050r:Progress/SQL rds error:procedure not found:7678:
+-20123:5050s:Progress/SQL rds error:invalid arguments to procedure:7679:
+-20124:5050t:Progress/SQL rds error:Query conditionally terminated:7680:
+-20132:5050u:Progress/SQL rds error:Revoke failed because of restrict :7681:
+-20134:5050v:Progress/SQL rds error:Invalid long datatype column references : 7682:
+
+-20135:5050x:Progress/SQL rds error:Contains operator is not supported in this context:7683:
+-20136:5050z:Progress/SQL rds error:Contains operator is not supported for this datatype:7684:
+
+-20140:50512:Progress/SQL rds error:Procedure already exists:7685:
+-20150:50512z:Progress/SQL rds error:view manager ID is not found.:7686:
+-20138:50513:Progress/SQL rds error:Index on long fields requires that it can push down only CONTAINS:7687:
+-20137:50514:Progress/SQL rds error:Index is not defined or does not support CONTAINS:7688:
+-20151:50515:Progress/SQL rds error:Cannot drop all columns; use DROP TABLE instead:7689:
+
+-20222:08811:Connection exception:No environment defined database:7690:
+-20226:80815:Progress/SQL snw errors:Bad database handle:7691:
+
+-15001:60601:Progress/SQL ff errors:FF- File IO error:7697:
+-15002:60602:Progress/SQL ff errors:FF- No more records:7698:
+-15005:60605:Progress/SQL ff errors:FF- Record deleted:7699:
+-15006:60606:Progress/SQL ff errors:FF- Invalid type:7700:
+-15007:60607:Progress/SQL ff errors:FF- Duplicate value:7701:
+-15010:60610:Progress/SQL ff errors:FF- Version mis-match:7702:
+-15011:60611:Progress/SQL ff errors:FF- Virtual file cache exceeded:7703:
+-15012:60612:Progress/SQL ff errors:FF- Physical file open error:7704:
+-15013:60613:Progress/SQL ff errors:FF- Corrupt virtual file handle:7705:
+-50000:60614:Progress/SQL DHRSS errors:DHRSS- Improper call to DFLT SS:7706:
+-16002:70702:Progress/SQL MM errors:MM- Bad swap block:7707:
+-16003:70703:Progress/SQL MM errors:MM- No cache block:7708:
+-16005:70705:Progress/SQL MM errors:MM- Invalid cache block:7709:
+-16006:70706:Progress/SQL MM errors:MM- Bad swap file:7710:
+-16007:70707:Progress/SQL MM errors:MM- Row too big:7711:
+-16008:70708:Progress/SQL MM errors:MM- Array initialized:7712:
+-16009:70709:Progress/SQL MM errors:MM- Invalid chunk number:7713:
+-16010:70710:Progress/SQL MM errors:MM- Can't create table:7714:
+-16011:70711:Progress/SQL MM errors:MM- Can't alter table:7715:
+-16012:70712:Progress/SQL MM errors:MM- Can't drop table:7716:
+-16020:70713:Progress/SQL MM errors:MM- TPL ctor error:7717:
+-16021:70714:Progress/SQL MM errors:MM- Insertion error:7718:
+-16022:70715:Progress/SQL MM errors:MM- Deletion error:7719:
+-16023:70716:Progress/SQL MM errors:MM- Updation error:7720:
+-16024:70717:Progress/SQL MM errors:MM- Fetching error:7721:
+-16025:70718:Progress/SQL MM errors:MM- Sorting error:7722:
+-16026:70719:Progress/SQL MM errors:MM- Printing error:7723:
+-16027:70720:Progress/SQL MM errors:MM- TPLSCAN ctor error:7724:
+-16028:70721:Progress/SQL MM errors:MM- Scan fetching error:7725:
+-16030:70722:Progress/SQL MM errors:MM- Can't create index:7726:
+-16031:70723:Progress/SQL MM errors:MM- Can't drop index:7727:
+-16032:70724:Progress/SQL MM errors:MM- IXSCAN ctor error:7728:
+-16033:70725:Progress/SQL MM errors:MM- IX ctor error:7729:
+-16034:70726:Progress/SQL MM errors:MM- IX deletion error:7730:
+-16035:70727:Progress/SQL MM errors:MM- IX appending error:7731:
+-16036:70728:Progress/SQL MM errors:MM- IX insertion error:7732:
+-16037:70729:Progress/SQL MM errors:MM- IX scan fetching error:7733:
+-16040:70730:Progress/SQL MM errors:MM- Begin transaction:7734:
+-16041:70731:Progress/SQL MM errors:MM- Commit transaction:7735:
+-16043:70732:Progress/SQL MM errors:MM- Mark point:7736:
+-16044:70733:Progress/SQL MM errors:MM- Rollback savepoint:7737:
+-16045:70734:Progress/SQL MM errors:MM- Set & Get isolation:7738:
+-16050:70735:Progress/SQL MM errors:MM- TID to char:7739:
+-16051:70736:Progress/SQL MM errors:MM- char to TID:7740:
+-16054:70737:Progress/SQL MM errors:MM- bad value list size to indirect sort:10723:
+-23000:22563:Progress/SQL Data exception:Table create returned invalid table id:7741:
+-23001:22564:Progress/SQL Data exception:Index create returned invalid index id:7742:
+-30011:k0k02:Progress/SQL network interface:memory allocation failure:7743:
+-30002:k0k02:Progress/SQL network interface:invalid network handle:7744:
+-30003:k0k03:Progress/SQL network interface:invalid sqlnetwork INTERFACE:7745:
+-30004:k0k04:Progress/SQL network interface:invalid sqlnetwork INTERFACE procedure:7746:
+-30005:k0k05:Progress/SQL network interface:INTERFACE is already attached:7747:
+-30006:k0k06:Progress/SQL network interface:INTERFACE entry not found:7748:
+-30007:k0k07:Progress/SQL network interface:INTERFACE is already registered:7749:
+-30008:k0k08:Progress/SQL network interface:mismatch in pkt header size and total argument size:7750:
+-30009:k0k09:Progress/SQL network interface:invalid server id:7751:
+-30010:k0k10:Progress/SQL network interface:reply does not match the request:7752:
+-30031:k0k11:Progress/SQL network interface:error in transmission of packet:7753:
+-30032:k0k12:Progress/SQL network interface:error in reception of packet:7754:
+-30033:k0k13:Progress/SQL network interface:no packet received:7755:
+-30034:k0k14:Progress/SQL network interface:connection reset:7756:
+-30051:k0k15:Progress/SQL network interface:network handle is inprocess handle:7757:
+-30061:k0k16:Progress/SQL network interface:could not connect to sql network daemon:7758:
+-30062:k0k17:Progress/SQL network interface:error in number of arguments:7759:
+-30063:k0k18:Progress/SQL network interface:requested INTERFACE not registered:7760:
+-30064:k0k19:Progress/SQL network interface:invalid INTERFACE procedure id:7761:
+-30065:k0k20:Progress/SQL network interface:requested server executable not found:7762:
+-30066:k0k21:Progress/SQL network interface:invalid configuration information:7763:
+-30067:k0k22:Progress/SQL network interface:INTERFACE not supported:7764:
+-30091:k0k23:Progress/SQL network interface:invalid service name:7765:
+-30092:k0k24:Progress/SQL network interface:invalid host:7766:
+-30093:k0k25:Progress/SQL network interface:error in tcp/ip accept call:7767:
+-30094:k0k26:Progress/SQL network interface:error in tcp/ip connect call:7768:
+-30095:k0k27:Progress/SQL network interface:error in tcp/ip bind call:7769:
+-30096:k0k28:Progress/SQL network interface:error in creating socket:7770:
+-30097:k0k29:Progress/SQL network interface:error in setting socket option:7771:
+-30101:k0k30:Progress/SQL network interface:interrupt occured:7772:
+-30102:k0k31:Progress/SQL network interface:Client/Server not WideChar Compatible:7773:
+-30068:k0k32:Progress/SQL network interface:Client/Server SSL Encryption mismatch:0:
+-30069:k0k33:Progress/SQL network interface:Client/Server SSL Encrypted handshake failure:0:
+-30070:k0k34:Progress/SQL network interface:SSL Encryption parameter definition failure:0:
+-30071:k0k35:Progress/SQL network interface:SSL Encrypted connection failure:0:
+-30012:k0k36:Progress/SQL network interface:Invalid packet length:0:
+-25001:i0i01:Progress/SQL odbc integrator:Operation is valid only on a linked table:7774:
+-25002:i0i02:Progress/SQL odbc integrator:Operation not allowed on a linked table:7775:
+-25003:i0i03:Progress/SQL odbc integrator:Copy object exists:7776:
+-25004:i0i04:Progress/SQL odbc integrator:Unknown copy object:7777:
+-25005:i0i05:Progress/SQL odbc integrator:Dropping table failed:7778:
+-25006:i0i06:Progress/SQL odbc integrator:Bad copy sql statement:7779:
+-25007:i0i07:Progress/SQL odbc integrator:Unknown data type:7780:
+-25008:i0i08:Progress/SQL odbc integrator:Bad insert statement:7781:
+-25009:i0i09:Progress/SQL odbc integrator:Fetch operation failed:7782:
+-25010:i0i10:Progress/SQL odbc integrator:Insert operation failed:7783:
+-25011:i0i11:Progress/SQL odbc integrator:Operation not started:7784:
+-25012:i0i12:Progress/SQL odbc integrator:Operation marked for abort:7785:
+-25013:i0i13:Progress/SQL odbc integrator:Commit operation failed:7786:
+-25014:i0i14:Progress/SQL odbc integrator:Create table failed:7787:
+-25015:i0i15:Progress/SQL odbc integrator:Bad sync sql statement:7788:
+-25016:i0i16:Progress/SQL odbc integrator:Sync object exists:7789:
+-25017:i0i17:Progress/SQL odbc integrator:Create sync object failed:7790:
+-25018:i0i18:Progress/SQL odbc integrator:Create copy object failed:7791:
+-25019:i0i19:Progress/SQL odbc integrator:Unknown sync object:7792:
+-25020:i0i20:Progress/SQL odbc integrator:Illegal column name:7793:
+-25021:i0i21:Progress/SQL odbc integrator:Duplicate column name:7794:
+-25022:i0i22:Progress/SQL odbc integrator:Install failure:7795:
+-25023:i0i23:Progress/SQL odbc integrator:Invalid sync mode:7796:
+-25024:i0i24:Progress/SQL odbc integrator:Download or snapshot table missing:7797:
+-25025:i0i25:Progress/SQL odbc integrator:Upload table missing:7798:
+-25026:i0i26:Progress/SQL odbc integrator:Update operation failed:7799:
+-25027:i0i27:Progress/SQL odbc integrator:Delete operation failed:7800:
+-25028:i0i28:Progress/SQL odbc integrator:Close cursor failed:7801:
+-25029:i0i29:Progress/SQL odbc integrator:No primary key:7802:
+-25030:i0i30:Progress/SQL odbc integrator:Missing row:7803:
+-25031:i0i31:Progress/SQL odbc integrator:Bad primary key:7804:
+-25032:i0i32:Progress/SQL odbc integrator:Update contention:7805:
+-25033:i0i33:Progress/SQL odbc integrator:Link table failed:7806:
+-25034:i0i34:Progress/SQL odbc integrator:Unlink table failed:7807:
+-25035:i0i35:Progress/SQL odbc integrator:Link data source failed:7808:
+-25036:i0i36:Progress/SQL odbc integrator:Unlink data source failed:7809:
+-25037:i0i37:Progress/SQL odbc integrator:Integrator internal error:7810:
+-25038:i0i38:Progress/SQL odbc integrator:Operation already started:7811:
+-25039:i0i39:Progress/SQL odbc integrator:Opening of copy sql stmt failed:7812:
+-25040:i0i40:Progress/SQL odbc integrator:sync object failed:7813:
+-25041:i0i41:Progress/SQL odbc integrator:Dropping copy object failed:7814:
+-25042:i0i42:Progress/SQL odbc integrator:Closing copy sql stmt failed:7815:
+-25043:i0i43:Progress/SQL odbc integrator:Failure to update metadata timestamp:7816:
+-25101:j0j01:Progress/SQL odbc trans   layer:SQLAllocEnv failed:7817:
+-25102:j0j02:Progress/SQL odbc trans   layer:SQLAllocConnect failed:7818:
+-25103:j0j03:Progress/SQL odbc trans   layer:SQLConnect failed:7819:
+-25104:j0j04:Progress/SQL odbc trans   layer:SQLGetConnectOption failed:7820:
+-25105:j0j05:Progress/SQL odbc trans   layer:SQLSetConnectOption failed:7821:
+-25106:j0j06:Progress/SQL odbc trans   layer:Failed to map stmt handle to UUID:7822:
+-25107:j0j07:Progress/SQL odbc trans   layer:SQLSetParam failed:7823:
+-25108:j0j08:Progress/SQL odbc trans   layer:SQLDisconnect failed:7824:
+-25109:j0j09:Progress/SQL odbc trans   layer:SQLExecute failed:7825:
+-25110:j0j10:Progress/SQL odbc trans   layer:SQLRowCount failed:7826:
+-25111:j0j11:Progress/SQL odbc trans   layer:SQLSetParam failed:7827:
+-25112:j0j12:Progress/SQL odbc trans   layer:SQLBindCol failed:7828:
+-25113:j0j13:Progress/SQL odbc trans   layer:SQLPrepare failed:7829:
+-25114:j0j14:Progress/SQL odbc trans   layer:SQLResultCols failed:7830:
+-25115:j0j15:Progress/SQL odbc trans   layer:SQLDescribeCol failed:7831:
+-25116:j0j16:Progress/SQL odbc trans   layer:SQLFreeStmt failed:7832:
+-25117:j0j17:Progress/SQL odbc trans   layer:SQLFetch  failed:7833:
+-25118:j0j18:Progress/SQL odbc trans   layer:SQLTransact failed:7834:
+-25119:j0j19:Progress/SQL odbc trans   layer:SQLAllocStmt failed:7835:
+-25120:j0j20:Progress/SQL odbc trans   layer:SQLTables failed:7836:
+-25121:j0j21:Progress/SQL odbc trans   layer:SQLColumns failed:7837:
+-25122:j0j22:Progress/SQL odbc trans   layer:SQLStatistics failed:7838:
+-25123:j0j23:Progress/SQL odbc trans   layer:ODBC Driver interface mismatch:7839:
+-25124:j0j24:Progress/SQL odbc trans   layer:ODBC Driver metadata exceeds storage limits:7840:
+-25125:j0j25:Progress/SQL odbc trans   layer:SQLGetInfo failed:7841:
+-25126:j0j26:Progress/SQL odbc trans   layer:operation not allowed on the read-only database:7842:
+-25127:j0j27:Progress/SQL odbc trans   layer:cannot update views-with-check-option  on remote tables:7843:
+-25128:j0j28:Progress/SQL odbc trans   layer:query terminated as max row limit exceeded for a remote table:7844:
+-25131:j0j29:Progress/SQL odbc trans   layer:unable to read column info from remote table:7845:
+-20135:m0m01:Progress/SQL diagnostics error: diagnostics statement failed.:7846:
+-20128:2250x:Data Exception:Numeric value out of range.:7847:
+-20129:2250y:Data Exception:Data truncated.:7848:
+-20239:2c000:Invalid character set name:Invalid character set name specified.:7849:
+-20240:5050y:Progress/SQL rds errors:Invalid collation name specified.:7850:
+-20241:08815:Connection Exception:Service in use.:7851:
+
+-20141:85001:Progress/SQL Stored proc/Trigger:Error from Java compiler for stored procedure/trigger.:7852:
+
+-20142:86001:Progress/SQL Stored procedure Execution:Error in Stored Procedure Execution.:7853:
+-20143:86002:Progress/SQL Stored procedure Execution:Too many recursions in call procedure.:7854:
+-20144:86003:Progress/SQL Stored procedure Execution:Null value fetched.:7855:
+-20145:86004:Progress/SQL Stored procedure Execution:Invalid field reference.:7856:
+-20146:86005:Progress/SQL Triggers:Trigger with this name already exists.:7857:
+-20147:86006:Progress/SQL Triggers:Trigger with this name does not exist.:7858:
+-20178:OaC01:feature not supported:Cannot rename table/column with check constraint:11005:
+
+
+-10002:22503:Data exception:Tuple not found for the specified TID.:
+-10012:N0N12:flag:ETPL_SCAN_EOP flag is set.:
+-10013:22914:Data exception:No more records to be fetched.:
+-10100:2150b:Cardinality violation:Too many fields specified.:
+-10101:70701:Progress/SQL MM error:No more records exists.:
+-10102:2350i:Integrity constraint violation:uniqueness constraint violation:7518:
+-10104:22505:Data exception:field size is too high.:
+-10106:M0M06:Progress/SQL rss error:Specified index method is not supported.:
+-10107:N0N07:flag:EIX_SCAN_EOP flag is set.:	
+-10108:50903:Progress/SQL rds error:Duplicate record specified.:
+-10301:M0901:Progress/SQL rss error:Table is locked and LCKF_NOWAIT.:
+-10400:22501:Data exception:Invalid file size for alter log statement.:
+-10920:22521:Data exception:Already existing value specified.:
+-11100:50901:Progress/SQL rds error:Invalid transaction id.:
+-11102:50903:Progress/SQL rds error:TDS area specified is not found.:
+-11103:50504:Progress/SQL rds error:TDS not found for binding.:
+-11104:50505:Progress/SQL rds error:Transaction aborted.:
+-11105:50506:Progress/SQL rds error:Active Transaction error.:
+-11109:50510:Progress/SQL rds error:Invalid Transaction handle.:
+-11111:50912:Progress/SQL rds error:Invalid isolation level.: 
+-11300:M0M00:Progress/SQL rss error:Specified INFO type is not supported.:
+-11301:M0M01:Progress/SQL rss error:Specified index type is not supported.:
+
+
+-20148:86007:Progress/SQL Triggers:Trigger Execution Failed.:7859:
+# Progress Software modification
+-20152:22001:Data exception:Character string is too long:8184:
+-20173:0ALLV:feature not supported:LIKE predicate for Long datatype uses unsupported feature.:10290
+-20174:86010:Progress/SQL Triggers:Invalid colnum number specified for Trigger OLDROW/NEWROW getValue/setValue method.:10776:
+-20175:86011:Progress/SQL Triggers:Incompatable data type specified for Trigger OLDROW/NEWROW getValue/setValue method.:10802:
+
+-20176:85001:Progress/SQL Stored proc/Trigger:IO error while compiling stored procedure/trigger.:10726:
+-20180:22915:Data exception:Long data exceeds column width:11209:
+-20181:22916:Data exception:Long data exceeds maximum size of data that can be selected:11210:
+-20182:22917:Data exception:Multi-row update is not supported for Long data.:29990:
+-20183:22918:Data exception:Long columns are not yet supported for derived tables.:29991:
+-20184:22919:Data exception:Invalid lob handle.:29992:
+-20185:22920:Data exception:Invalid progress version.:29993:
+-20186:22921:Data exception:Invalid protocol version.:29994:
+-20187:22922:Data exception:Mismatched protocol version.:29995:
+-20188:22923:Data exception:No PARAMETERS allowed in select list.:12294:
+-20189:22924:Data exception:Encountered a paramater.:12396:
+-20190:22925:Data exception:Duplicate attributes specified:0:
+-20193:22926:Data exception:Frozen tables (and their indexes) may not be dropped or altered:12628:
+-20194:22927:Data exception:The index can not be dropped because it is in either the "Prepare to activate" or "Prepare to deactivate" mode:12672:
+-20195:22928:Data exception:The table can not be dropped because at least one of its indices is in either the "Prepare to activate" or "Prepare to deactivate" mode:12673:
+-20196:22929:Data exception:An active index can not be created online without an exclusive lock on the database:12674:
+-20197:22930:Data exception:The index does not exist in the system _Index table:12675:
+-20198:22931:Data exception:Invalid array size specified:12662:
+-20199:22932:Data exception:Invalid array element reference:12663:
+-20200:22933:Data exception:Array element value overflow:12664:
+-20201:22934:Data exception:Array value overflow (right truncated):12665:
+-20202:22935:Data exception:The command can not be executed because the index that is to be used is inactive:12676:
+-20203:22936:Data exception:Word indexes must have exactly one ascending component of type VARCHAR:12679:
+-20204:22937:Data exception:Drop Column with CASCADE option not yet supported:12682:
+-20205:22938:Data exception:Column is referenced in a constraint/trigger and cannot be dropped:12683:
+-20206:22939:Data exception:Invalid RECID data type reference:12689:
+-20207:22940:Data exception:The case-sensitivity of the column cannot be changed because the column is used in an index.:12857:
+
+-20300:42528:Access rule violation:Field references in ORDER BY clause must appear in the select list if SELECT DISTINCT is specified.:13637:
+-20302:0AP04:unsupported feature:TOP clause used in an unsupported context:13694:
+
+-20303:22941:Data exception:Table does not contain any columns. Table must be dropped or added columns first.:13710:
+-20304:22942:Data exception:Cannot change index from inactive to active. Use the proutil command to perform this action.:13716:
+-20305:22943:Data exception:Cannot change the transaction isolation level while in a transaction.:13742:
+-20306:22944:Data exception:Cannot change the transaction isolation level while a cursor is open.:13743:
+-20307:22945:Data exception:Cannot change the transaction isolation level during a JTA transaction.:13744:
+-20308:22946:Data exception:Invalid transaction isolation level.:13745:
+-20309:22947:Data exception:The Large Key Entry feature is only supported on databases with block sizes of 4K or 8K.:13785:
+-20310:22948:Data exception:Large Key Entry Feature already enabled for this database.:13784:
+-20311:22949:Data exception:64-bit Sequence feature has already been enabled for this database.:13796:
+-20312:22950:Data exception:The requested sequence operations could not be performed because a transaction enabling the 64-bit Sequence feature has not yet been committed or rolled back.:13797:
+-20313:22951:Connection exception:Catalog name is already in use.:13802:
+-20314:22952:Connection exception:Catalog name not found.:13803:
+-20315:22953:Connection exception:Database is already connected.:13804:
+-20316:22954:Connection exception:Disconnect of the primary catalog is not allowed.:13805:
+-20317:22954:Connection exception:Connecting while a global transaction is active is not allowed.:13905:
+-20318:85001:Progress/SQL Stored Procedure:No Result Set Created. Please Check CREATE PROCEDURE Statement.:13906:
+-20319:22955:Data exception:The insert statement has a query expression which selects a lob.  This functionality is currently not supported.:13923:
+-20320:0999y:Progress/SQL rds error:The specified SQL width is narrower than the default value for the column.:0:
+-20321:21553:Cardinality violation:Can't have more than 16 components per index key.:13950:
+-20322:22955:Data exception:The record to be inserted has a longer length than maximum size.:13962:
+-20323:22956:Data exception:Internal temp table has overflowed (internal error).:0:
+-20324:28560:Invalid auth specs:Current user has no SA privilege to specify encryption.:15263:
+-20325:55001:Progress/SQL DSKP error:Encryption is not enabled for current database.:15264:
+-20326:55002:Progress/SQL DSKP error:Invalid encryption specification.:15265:
+-20327:55002:Progress/SQL DSKP error:Cannot change the object encryption policy until its encrypted data has been updated using the epolicy utility.:15266:
+-20328:55002:Progress/SQL DSKP error:Encryption not supported in Type-I storage areas or encryption policy area.:15267:
+-20329:0A001:feature not supported:Encryption specification not yet supported for non-lob columns.:15268:
+-20330:0A001:Progress/SQL DSKP error:Encryption not yet supported for schema tables, except for auditing tables.:15151:
+-20331:0A001:feature not supported:Buffer pool specification not yet supported for non-lob columns.:15269:
+-20332:55002:feature not supported:Buffer pool specification not yet supported in Type-I storage areas.:15270:
+-20333:2350m:Constraint definition error:A primary key constraint cannot specify a nullable column.:15278:
+-20334:2a574:Access rule violation:The statement exceeds the maximum statement size (131K):15279:
+-20335:0A001:Connection exception:Attempt to connect to a secure database in an insecure configuration.:15322:
+-20336:55002:Progress/SQL DSKP error:Rekey failed on non-encrypted database object.:15411:
+-20337:55002:Progress/SQL DSKP error:Decryption failed on the object.:15755:
+
+# End of Progress Software modification
+
+# Begin Progress defined error codes and text.
+# Format of line -  <err code> : <SQL state> : <class origin?> : <error text> :
+-210001:08P00:connection exception:Failure to acquire share schema lock during Connect.:7861:
+-210002:08004:connection_exception:Failure in finding DLC environment variable.:7936:
+-210003:08004:connection_exception:DLC environment variable value exceeds maximum size(%s) -> %s.:7938:
+-210004:08004:connection_exception:Error opening convmap.cp file -> %s.:7939:
+-210005:P1000:unavailable resource:Failure getting table lock on table %s.:8618:
+-210011:08004:internal error:Fatal error identifying database log in SQL :7862:
+-210012:22P00:data exception:Column %s in table %s has value exceeding its max length or precision:7864:
+-210013:08004:connection exception:Unable to complete server connection. Function %s; reason %s:7866:
+-210014:22P01:data exception:Column values too big to make key. Table %s; index %s:7867:
+-210015:P1000:unavailable resource:Failure getting record lock on a record from table %s.:7869:
+-210016:P1001:unavailable resource:Lock table is full.:7870:
+-210017:P1002:unavailable resource:Failure to acquire exclusive schema lock for DDL operation.:7872:
+-210018:0AP01:unsupported feature:Update of word indexes not yet supported. Table %s, index %s:7873:
+-210019:0AP02:unsupported feature:Scan of word indexes not yet supported. Table %s, index %s:7875:
+-210020:0AP03:unsupported feature:The first index created for a table may not be dropped.:8185:
+-210021:85001:Progress/SQL Stored procedure Compilation:Location of the Java compiler was not specified.:8270:
+-210022:85001:Progress/SQL:Failed to load Java dynamic lib. Reason = %s.:8901:
+-210023:85001:Progress/SQL:Symbol(entry point %s) not found in Java dynamic lib. Reason = %s.:8902:
+-210024:j0j30:Progress/SQL:Failed to find to find dbkey representing a blob.:9155:
+-210025:j0j31:Progress/SQL:Buffer supplied for blob is too small.:9156:
+-210026:22P02:data exception:** Attempt to expand record beyond the maximum allowed size.:444:
+-210027:70710:Progress/SQL:Invalid area number specified.:6826:
+-210028:70710:Progress/SQL:Error encountered during object creation.:9222:
+-210029:22P02:Progress/SQL:Table contains more than the currently supported maximum columns of %d.:9233:
+-210030:50501:Invalid SQLDA:SQLDA is null:9262
+-210031:50501:Invalid SQLDA access:Invalid column number specified for Get/Set accessor:9263
+-210032:22005:Invalid SQLDA access:Incompatable data type specified for Get/Set accessor:9264
+-210033:50501:Invalid SQLDA access:Invalid SQLDA attribute specified for Get/Set accessor:9265
+-210034:HY091:Invalid SQLDA access:Invalid data value specified for Get/Set accessor:9266
+-210035:50501:Invalid SQLDA access:Attempt to modified SQLDA attribute which is read-only:9267
+-210036:50501:Invalid SQLDA access:Invalid column attribute specified for Get/Set accessor:9269
+-210037:50501:Invalid SQLDA access:Value specified for Set accessor is too large:9268
+-210038:50501:Invalid SQL descriptor:Invalid data type:9252
+-210039:50501:Invalid SQL descriptor:Invalid odbc flag:9253
+-210040:50501:Invalid SQL descriptor:Invalid Searchable param:9254
+-210041:50501:Invalid SQL descriptor:Invalid Updatable param:9255
+-210042:50501:Invalid SQL descriptor:Invalid Param type:9256
+
+-210043:5050v:Progress/SQL rds error:Long datatype column references are not supported on Derived tables:0:
+-210044:86008:Progress/SQL Stored procedure Execution:Need to recompile Stored Procedures (run script SQLConvertSPTP - refer to release notes):0:
+-210045:86009:Progress/SQL Triggers:Need to recompile Triggers (run script SQLConvertSPTP - refer to release notes):0:
+-210047:22P00:Progress/SQL Update Statistics:Table %s.%s at Rowid %s has Column %s whose value exceeding its max length or precision:9378:
+-210048:70101:Progress/SQL Statement Mgr:Statement cache overflowed. %s statements currently in use (%s cache).:9799:
+-210049:22566:Data exception:Unable to read Sequence record.:0:
+-210050:22564:Data exception:The sequence was unable to cycle to another value.:10521:
+-210051:22563:Data exception:Sequence not found:10520:
+-210052:22P00:Data exception:Maximum number of sequences already defined:9335:
+-20172:22565:Data exception:Sequence already exists in current schema:10522:
+-210054:2250z:Data exception:A sequence value was referenced outside of the defined range of values:10523:
+-20170:22P0:Data exception:An invalid reference to a sequence was used:12666:
+-20210:22567:Data exception:This client can not access lobs that have a 64 bit rowid:13922:
+
+-210055:42807:Access rule violation:Operation not allowed on the read-only database:7842:
+
+-210056:42700:Syntax error:Syntax error at or about %s :10713:
+
+-210057:85001:Progress/SQL Stored proc/Trigger:Progress/SQL Java Native Interface (JNI) version is not supported.:10724:
+-210058:85001:Progress/SQL Stored proc/Trigger: Error from Java compiler. Compiler messages follow.:10727:
+
+-210059:22P00:Progress/SQL statistics:Database statistics (%s) updated for all tables.:10995:
+-210060:22P00:Progress/SQL statistics:Database statistics (%s) updated for table %s.:10996:
+-210061:22P00:Progress/SQL statistics:Database statistics (%s) updated by direct user sql statement (%s).:10997:
+-210062:70101:Progress/SQL Statement Mgr:Statement Mgr removed a prepared, never executed statement from statement cache. %s statements currently in use (%s cache).:11049:
+
+-210064:86008:Progress/SQL Stored procedure Execution:Procedure contains more than the maximum parameters currently supported.:12079:
+
+-210065:P1000:unavailable resource:Failure getting schema read lock.:12138:
+-210066:P1000:unavailable resource:Failure getting schema write serial lock.:12139:
+
+-210067:42588:Access rule violation:ON clause outer join predicate contains invalid column reference.:12480:
+-210068:425zx:Data exception:_Dump-name "%s" is not unique in schema %s.:12599:
+-210069:426zy:Data exception:Identifier "%s" is not valid in schema PUB.:12630:
+-210070:0999y:Progress/SQL rds error:Invalid attribute "%s" specified for column %s:12776:
+
+-210071:3D000:Data exception:Catalog name "%s" is an unknown catalog.:13693:
+
+-210072:42S22:Syntax error:Column reference "%s" is ambiguous.:13852:
+
+-210073:42S22:Syntax error:Column alias %s references a select list expression and so cannot be used in the WHERE clause or in an ON clause.:13864:
+
+-210074:42S22:Syntax error:Column %s cannot be found or is not specified for query.:13865:
+
+-210075:3D000:Data exception:Character set for auxiliary db (%s) must be same as character set for primary db (%s).:0:
+-210076:3D000:Data exception:Collation for auxiliary db (%s) must be same as collation for primary db (%s).:0:
+-210077:3D000:Data exception:dskp returned error %s (explanation "%s").:0:
+-210078:3D000:Data exception:oecs returned error %s (explanation "%s").:0:
+
+-211013:3F001:bad schema reference:SQL92 cannot alter or drop a table, or index, created by 4GL or SQL89.:7877:
+-211014:3F002:bad schema reference:Incorrect view owner name on CREATE VIEW - cannot be PUB or _FOREIGN.:7879:
+-211015:3F003:bad schema reference:Database object (table, view, index, trigger,procedure, or synonym) owned by "sysprogress" cannot be created, dropped, or altered.:7883:
+-211016:3F004:bad schema reference:Database schema table cannot be created, dropped, or altered.:7887:
+-211017:3F004:bad schema reference:Attempt to insert, update or delete a row in a schema table.:8186:
+
+-211018:0A000:Array reference error:Array reference/update incorrect.:7888:
+
+-211019:08004:Connection Exception:No SQL schema found in database ( run mkschema ).:0:
+-211020:08004:Connection Exception:Invalid Connection Property string.:12620:
+-211021:08004:Connection Exception:Invalid Connection Property in Connection Property string.:12621:
+-211022:50501:Progress/SQL rds error:Encountered internal error in SQL ENGINE at %s in %s. Contact Progress Technical Support:13162
+-211023:50502:Progress/SQL rds error:Insufficient Memory. Memory allocation failed at %s in %s. Contact Progress Technical Support:13163:
+  
+-219901:P0000:internal error:Internal error %s (%s) in SQL from subsystem %s function %s called from %s on %s for %s. Save log for Progress technical support.:7895:
+-219902:P0001:internal error:Failure reading schema during DDLoperation.:7898:
+-219903:P0002:internal error:Inconsistent metadata - contact Progress technical support.:7899:
+-219904:P8P18:The specified character set is not allowed for CLOB or LVARCHAR column.:12278:
+
+-219951:40P00:transaction rollback:Fatal error %s (%s) in SQL from subsystem %s function %s called from %s on %s for %s. Save log for Progress technical support.:7902:
+
+-218001:P8P18:Progress I18N NLS error:Failture to create a NLS character set conversion handler:12279:
+
+# Global Transaction Error Messages
+-20153:P2000:OESQL Global Transaction:Resource Manager out of memory:12637:
+-20154:P2000:OESQL Global Transaction:Invalid transaction isolation level:12638:
+-20155:P2000:OESQL Global Transaction:Global transaction mode not enabled:12639:
+-20208:P2000:OESQL GLOBAL TRANSACTION:Invalid local transaction request:13014:
+-20209:P2000:OESQL GLOBAL TRANSACTION:Transaction table is full:13583:
+101:P2000:OESQL Global Transaction:Global transaction rolled back:12640:
+105:P2000:OESQL Global Transaction:Global transaction mode not available:12641:
+-3:P2000:OESQL Global Transaction:A resource manager error occurred in the transaction branch.  This could be caused by a schema lock error.:12642:
+-4:P2000:OESQL Global Transaction:Invalid global transaction identifier:12643:
+-5:P2000:OESQL Global Transaction:Invalid global transaction argument:12644:
+-6:P2000:OESQL Global Transaction:Invalid global transaction context:12645:
+-7:P2000:OESQL Global Transaction:Global transaction resource manager unavailable:12646:
+-8:P2000:OESQL Global Transaction:Duplicate global transaction identifier:12647:
+-9:P2000:OESQL Global Transaction:Transaction already active:12648:
+
+# End   Progress defined error codes and text.

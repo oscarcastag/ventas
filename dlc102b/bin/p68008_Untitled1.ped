@@ -1,0 +1,7 @@
+{appserverconecta.i}
+DEFINE VARIABLE vlogConecto AS LOGICAL NO-UNDO.
+
+RUN pConnectAppServer (INPUT {&ASBSIGAMEGM},
+                       INPUT {&CALLPFOLIO11},
+                                              OUTPUT vlogConecto).
+                                              MESSAGE  vlogConecto VIEW-AS ALERT-BOX.

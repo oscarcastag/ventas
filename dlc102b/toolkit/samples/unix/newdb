@@ -1,0 +1,9 @@
+# newdb
+#
+# sample script to copy the basic application database
+#
+# Usage:	newdb <dbname>
+#
+
+# call utility to create database
+prodb $1 APPLbasic

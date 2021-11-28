@@ -1,0 +1,95 @@
+9401 "<num> sequence block(s) found in the storage area.
+" "This message is used as part of the analysis report " "" ""
+9402 "<num> empty block(s) found in the storage area.
+" "This message is used as part of the analysis report " "" ""
+9403 "<num> total blocks found in the storage area.
+" "This message is used as part of the analysis report " "" ""
+9404 "Internal error within intoflds routine:  illegal data type for switch.Switch quantity not an integer. (9404)" "intoflds routine gets the values for each field needed in  a record.The switch case statement in the intoflds routine takes an illegal data type instead of an integer .
+Unexpected field type for bulkload, abort utility." "D" ""
+9405 "SYSTEM ERROR: Invalid maxxid value  discovered in routine dbxaGetSize. (9405)" "syserr " "" ""
+9406 "Size of global transaction table (-maxxids): . (9406)" "This is an informational message documenting the effective value of maxxids when the broker was started.  Since maxxids must be a multiple of 64, it may be different than what was specified on the command line. " "" ""
+9407 "Connection failure for host <host_name> port <port> transport <transport_name>. (9407)" "Either an attempt to connect to the specified service at the specified host using the specified transport failed, or the connection was abnormally terminated after the connection was established.  This might be due to unavailable networking resources at the local host or at the remote host, or it might be due to a failure of the process to which a connection was established. See subsequent error messages for more details on the context in which this error occurred. " "" ""
+9408 "An error occurred while attempting to send a message to a client at <host> <port>. (9408)" "The NameServer was attempting to respond to a client request when an I/O exception occured on the socket being used to send the message. The caught exception message that follows this message provides text from the originating I/O exception. The NameServer caught the exception and will attempt to continue processing future requests. It will not attempt to resend the message that failed.
+ " "" ""
+9409 "An error occurred while attempting to send a message to a broker at <host> <port>. (9409)" "The NameServer was attempting to respond to a broker registration request when an I/O exception occured on the socket being used to send the message. The caught exception message that follows this message provides text from the originating I/O exception. The NameServer caught the exception and will attempt to continue processing future requests. It will not attempt to resend the message that failed.
+ " "" ""
+9410 "An error occurred while attempting to send a message to a neighborhood NameServer <host> <port>. (9410)" "The NameServer was attempting to respond to a client request on behalf of a NameServer neighbor when an I/O exception occured on the socket being used to send the message. The caught exception message that follows this message provides text from the originating I/O exception. The NameServer caught the exception and will attempt to continue processing future requests. It will not attempt to resend the message that failed.
+ " "" ""
+9411 "An exception occured. Error message: <Error>. (9411)" "This message provides the <Error> text from a socket I/O exception. It will be accompanied by a preceding message describing what the NameServer was attempting to do when the error occurred.
+
+ " "" ""
+9412 "Multiple I/O exception errors on port <port>, the NameServer is shutting down. (9412)" "The NameServer has encountered and logged many I/O exceptions while attempting to read from its listener port. While the errors have been occurring no successful reads were completed. The continuous errors from the input socket make the NameServer unusable and it will shut down.
+ " "" ""
+9413 "The data type <parm type> is not supported as a function return value from an open client.  (9413)" "If a User Defined Function returns the specified data type it cannot be called from a Java or ActiveX client.  The .p should be modified or it should be removed from the ApplicationObject. 
+" "" ""
+9414 "Cannot write to file <filename>.  It may be write protected. (9414)" "An I/O error occurred when trying to write to the specified file during proxy generation.  It may be write protected or on a protected or damaged drive." "" ""
+9415 "SYSTEM ERROR: Not enough temporary table buffers (-Bt). (9415)" "The following error:
+
+   SYSTEM ERROR: Not enough temporary table buffers (-Bt). (9415)
+
+can occur when PROGRESS can not find an available buffer in the
+temporary table buffer pool in shared memory to store data into, even after trying several times.
+
+If all buffers are filled and nothing can be evicted from the buffer pool because *every* buffer is locked, this message will occur and the database may shutdown.
+
+A larger -Bt  should prevent this error from occurring. 
+
+Upon restarting the database after recieving this error (presumeably with a larger value for -Bt) crash recovery will occur and the database can be accessed normally again.  This error does *not* indicate any kind of database corruption." "d" ""
+9416 "SYSTEM ERROR:  In error routine rldumpchain, dbkey:  (9416)" "syserr " "" ""
+9417 "SYSTEM ERROR:  rlwritten:  rldepend:  (9417)" "syserr " "" ""
+9418 "SYSTEM ERROR: An unexpected dependency value was discovered in routine rlputmod. (9418)" "syserr " "" ""
+9419 "SYSTEM ERROR: The requested dependency has already been written. (9419)" "syserr " "" ""
+9420 "SYSTEM ERROR:  Routine rlbiflsh has determined that the bi write queue is out of order. (9420)" "syserr " "" ""
+9421 "SYSTEM ERROR: Routine rlbiflsh failed to flush the requested dependencies. (9421)" "syserr " "" ""
+9422 "Maximum private buffers per user (-Bpmax): <num>. (9422)" "This is an informational message written to the database log file when a database broker is started.  It indicates the per user maxumum number of private read-only database buffers currently configured for use by the database broker.  This is important information to have available when speaking to PROGRESS Technical Support concerning database topics. " "D" ""
+9423 "
+Format of extent  failed at block . (9423)" "Sequential write failed during extent initialization" "" ""
+9424 "   Ext # , Type , Size  Blocks, Name:  (9424)" "This is an informational message that displays extent information when running prostrct list." "" ""
+9425 "Large database file access enabled for database <db-name>. (9425)" "Enabling functionality for database files to grow larger than 2gig per extent. " "" ""
+9426 "Large database file access has been enabled. (9426)" "This database has the ability to access database files (extents) larger than 2 gigabytes. " "D" ""
+9427 "Could not evaluate the COMPILE...GENERATE-MD5 = expression in <procedure>:<line>. (9427)" "The value of logical expression specified for the GENERATE-MD5 option of the COMPILE statement could not be evaluated or is unknown. The COMPILE statement is not executed and PROGRESS sets the ERROR and FILENAME attributes of the COMPILER system handle. " "" ""
+9428 "Attempted to exceed 2TB Large File limit with file <pname>. (9428)" "An attempt was made to extend the file <pname> beyond the 2TB Large File limit. " "" ""
+9429 "WARNING. Using -cpinternal UTF-8 is not supported for GUI or TTY clients. You may corrupt files or databases.                   (9429)" "Using -cpinternal (-charset) UTF-8 is not supported for GUI or TTY clients. Modifying databases or files that contain international characters may cause data corruption. You should exit without making any modifications to any files or databases.
+UTF-8 is supported for other Progress applications, such as batch clients, appservers, and the Progress dataserver. " "" ""
+9430 "WARNING: More than 1 action code segment used in <file-name>. (9430)" "Your action code segment has exceeded 63000 bytes, which will make it unusable for versions earlier than 9.1C.  If you need earlier versions to use this rcode, you will need to reduce the size of the main program. " "" ""
+9431 "Backup is from a different architecture platform. (9431)" "This is a warning that architecture dependencies in the backup media (media and DB headers only) will be addressed so that the backup can be restored and used on the local architecture.
+ " "" ""
+9432 "Start of extending target DB to needed size... (9432)" "" "" ""
+9433 "Start of restoring the target DB... (9433)" "" "" ""
+9434 "Archive not found:  (9434)" "The identified Java archive could not be found. Check your CLASSPATH setting to ensure it is included. On Unix, check the script $DLC/bin/java_env. On NT, check the Progress registry keys:
+
+  ...\PSC\PROGRESS\JAVA\PROGRESSCP
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+9435 "You can access RAW AS/400 data only with the RAW function. (9435)" "RAW AS/400 data can be accessed only by using the RAW function.
+" "" ""
+9436 "CTRL_CLOSE_EVENT console event received. (9436)" "The system generates CTRL_CLOSE_EVENT signal when the user closes the console, so that the process has an opportunity to clean up
+before termination.  " "d" ""
+9437 "CTRL_LOGOFF_EVENT console event received. (9437)" "The system generates CTRL_LOGOFF_EVENT signal when the user logs off , so that the process has an opportunity to clean up
+before termination.  " "d" ""
+9438 "CTRL_SHUTDOWN_EVENT console event received. (9438)" "The system generates CTRL_SHUTDOWN_EVENT signal when the user shuts down the system, so that the process has an opportunity to clean up
+before termination.  " "d" ""
+9439 "SYSTEM ERROR: End of last note read is at file offset   (9439)" "" "" ""
+9440 "bkioWrite: lseek error <error number> on file <file> at <address>, file <file-name>. (9440)" "A system call failed when attempting to write data to a file.  This message is usually accompanied with other messages.  Check file permissions, disk space, etc. " "5" ""
+9441 "bkioRead: lseek error <error number> on file <file> at <address>. (9441)" "A system call failed when attempting to read data from a file.  This message is usually accompanied with other messages.  Check file permissions, disk space, etc. " "d" ""
+9442 "SYSTEM ERROR: TL file offset <number> is larger than TL file size <number> (9442)" "syserr " "d" ""
+9443 "Trimmed file <file-name> for blocksize <num> bytes old:<num> new:<num>. (9443)" "When extending the before-image file, we must make sure that the size of the file is a multiple of the -biblocksize buffer.  If the file is not a multiple of the -biblocksize, we will adjust the file accordingly to make it aligned. " "D" ""
+9444 "bkset: Extent <file-name> is below size <file-size>.  (9444)" "PROGRESS has detected a size mismatch between the current extent size and its anticipated size defined when the extent was created. The file has been truncated. syserr " "" ""
+9445 "SYSTEM ERROR: read wrong dbkey at offset <offset> in file <file> 
+  found <dbkey>, expected <dbkey>, retrying. area <number> (9445)" "syserr " "" ""
+9446 "SYSTEM ERROR: <function>: Bad file descriptor was used during <system call>, fd  <file descriptor>, len <bytes>, offset <bytes>, file <file-name>. (9446)" "An internal error occurred.  This message will usually be accompanied with other messages.  If you see this error, you should make a note of the operation that might have caused it and contact Progress Software Corporation. " "" ""
+9447 "SYSTEM ERROR: <function>: Invalid argument <system call>, fd <file descriptor>, len <bytes>, offset <bytes>, file <file-name>. (9447)" "An internal error occurred.  This message will usually be accompanied with other messages.  If you see this error, you should make a note of the operation that might have caused it and contact Progress Software Corporation. " "D" ""
+9448 "<function>:Disk quota exceeded during <system call>, fd <file descriptor>, len <bytes>, offset <btyes>, file <file-name>. (9448)" "The file we were performing the operation on is either larger than the allowable size, or there is not enough disk space left to perform the operations. " "D" ""
+9449 "<function>:Maximum file size exceeded during <system call>, fd <file descriptor>, len <bytes>, offset <bytes>, file <file-name>. (9449)" "The file we were performing the operation on is either larger than the allowable size, or there is not enough disk space left to perform the operations. " "D" ""
+9450 "<function>:Insufficient disk space during <system call>, fd <file descriptor>, len <bytes>, offset <bytes>, file <file-name>. (9450)" "The file we were performing the operation on is either larger than the allowable size, or there is not enough disk space left to perform the operations. " "D" ""

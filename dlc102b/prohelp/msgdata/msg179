@@ -1,0 +1,103 @@
+8901 "Failed to load Java dynamic lib. Reason = . (8901)" "SQL92 received a failure return from system call to load dynamic libary for Java. Possible reasons include Java not installed, library lookup path does not include Java library home, others. Reason value includes errno (NT: last error) and library name. " "" ""
+8902 "Symbol(entry point ) not found in Java dynamic lib. Reason = . (8902)" "Java library was loaded OK, but standard system call to find a required symbol (named entry point %s) failed. Reason for the failure was given by ""reason"". " "" ""
+8903 "An invalid character '<character>' ()<value> was specified as the numeric separator or decimal point. (8903)" "An invalid character was specified as the numeric separator or decimal point.  The following characters are invalid: +, -, Z, z, >, <, *, (, ), B, C, D, R, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, ?, CHR(0), CHR(127), and all multi-byte characters.  Also, the space character may not be used as the decimal point." "S" ""
+8904 "The numeric separator and decimal point may not be the same character. (8904)" "The same character was specified as the numeric separator and decimal point.  This is not allowed.
+" "" ""
+8905 "Error (8905)" "
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+8906 "Warning (8906)" "
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+8907 "Confirmation (8907)" "
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+8908 "Information (8908)" "
+
+
+
+
+
+
+
+
+
+
+
+
+ " "" ""
+8909 "RUN...ASYNCHRONOUS SET <field> must be of type HANDLE. (8909)" "The field or variable in which you store the asynchronous request handle for a RUN asynchronous request must be defined as datatype HANDLE. " "s" ""
+8910 "RUN...ASYNCHRONOUS IN specified by EVENT-PROCEDURE was not provided. (8910)" "When providing a IN phrase as part of the RUN ... ASYNCHRONOUS statement, the EVENT-PROCEDURE must also be provided.    " "s" ""
+8911 "Unable to allocate asynchronous request object.  Procedure '<calling-procedure>':<line-number> (8911)" "Progress could not allocate an asynchronous request object for the specified procedure being run asynchronously on the server " "P" ""
+8912 "Column name buffer may exceed 32k - can't allocate for table (328) (8912)" "The ORACLE table or view has too many columns for the client to allocate a buffer to contain all the column names" "" ""
+8913 "**Unrecognized proc-search-string for procedure <procedure>, '<string>'. (8913)" "proc-search-string is an optional parameter.  The string provided is not a valid value.  Valid values are either SEARCH-TARGET-PROCEDURE or SEARCH-SELF.  " "" ""
+8914 "**Changing proc-search for procedure <procedure> from  '<token>' to '<token>'. (8914)" "This procedure instance already had its proc-search value set.  This statement is changing the previously set value." "" ""
+8915 "The history buffer is empty.(328) (8915)" "syserr " "" ""
+8916 "The history buffer is empty. (8916)" " " "" ""
+8917 "This is the end of the history buffer. (8917)" " " "" ""
+8918 "This is the first command in the history buffer. (8918)" " " "" ""
+8919 "This is the last command in the history buffer. (8919)" " " "" ""
+8920 "Connecting user """"<username> to URL """"<URL>... (8920)" " " "" ""
+8921 "Connected user """"<username> to URL """"<URL>. (8921)" " " "" ""
+8922 "Disconnected user """"<username> from URL """"<URL>. (8922)" " " "" ""
+8923 "Logging to file """"<filename> has been enabled. (8923)" " " "" ""
+8924 "Logging to file """"<filename> has been disabled. (8924)" " " "" ""
+8925 "Rows fetched: <number>; Fetch limit <number>; Columns <number>. (8925)" " " "" ""
+8926 "Statements: <number>; Updates <number>; Rows <number>; Errors: <number>; Warnings: <number>. (8926)" " " "" ""
+8927 "Update count: <number>. (8927)" "The number of database records updated as a result of a sql-92 command. " "" ""
+8928 "Executing file """"<filename>. (8928)" " " "" ""
+8929 "SQL Explorer property options have been updated. (8929)" " " "" ""
+8930 "File """"<filename> has been created. (8930)" " " "" ""
+8931 "Commands in file """"<filename> have been inserted into the history buffer. (8931)" " " "" ""
+8932 "Ok: <command name>. (8932)" "The @command entered by the user completed successfully. " "" ""
+8933 "Error: <command name | SQL Exception message>. (8933)" "Either the user entered an @command which did not complete successfully or a SQL Exception was received.  If a SQL Exception was received, the message in the exception is printed in the error message. " "" ""
+8934 "No database connected. (8934)" " " "" ""
+8935 "No server found at URL """"<URL>. (8935)" " " "" ""
+8936 "No text to save in input area. (8936)" " " "" ""
+8937 "An error occurred while attempting to read file """"<filename>. (8937)" "A system I/O error was encountered while attempting to read a file.  The specifics of that message are printed along with this message. " "" ""
+8938 "An error occurred while attempting to write to file """"<filename>. (8938)" " " "" ""
+8939 "An error occurred while attempting to display summary information. (8939)" " " "" ""
+8940 "No text to save in input area. (8940)" " " "" ""
+8941 "File """"<filename> not found. (8941)" " " "" ""
+8942 "Unable to display """"<dialog box>. (8942)" " " "" ""
+8943 "RUN...ASYNCHRONOUS specified but ON SERVER or IN proc-handle was not provided. (8943)" "The RUN ... ASYNCHRONOUS statement can only be used when invoking a procedure on the AppServer.  The RUN statement must contain either the ON SERVER phrase or the IN proc-handle phrase." "s" ""
+8944 "No file name specified... operation aborted. (8944)" " " "" ""
+8945 "Disconnect user """"<username> from URL """"<URL>? (8945)" " " "" ""
+8946 "Login by <user-name> rejected, secure client required.  (8946)" "This server is running with a third party communication encryption product enabled.  Only clients using the encryption product can connect." "" ""
+8947 "This server accepts secure clients only.  (8947)" "This server is running with a third party communication encryption product enabled." "" ""
+8948 "Only secure clients allowed on this Server. (8948)" "The server is running with a third party communication encryption product.  Only clients using the encryption product can connect." "" ""
+8949 "Invalid option <option_name> for memory-mapped library <library_name>. (8949)" "The  prolib option specified is not supported for a procedure library that is in memory-mapped format.  The library was generated from a standard library with the -makeshared parameter." "m" ""
+8950 "See """"<filename> and """"<filename> files for more information. (8950)" " " "" ""
